@@ -1,0 +1,67 @@
+:root {
+  /* --text-default-size: 16; */
+  /* --text-base-size: 16; */
+  /* --text-base: calc(16px/var(--text-default-size)*var(--text-base-size)); */
+  --color-white:"#fff";
+  --color-brown:"#544502";
+  --color-yellow:"#ffcd00";
+  --header-height: 114px;
+  --header-margin: 10px;
+  --font-family: "SofiaPro";
+  --header-bg-color:var(--color-white);
+  --header-text-color:var(--color-brown);
+  --text-base:
+}
+
+@font-face {
+  font-family: "SofiaPro-Black";
+  src: url("../public/SofiaPro-Black.woff2");
+  /* font-weight:bold; */
+  font-weight:900;
+}
+
+@font-face {
+  font-family: "SofiaPro-Bold";
+  src: url("../public/SofiaPro-Bold.woff2");
+  font-weight:700;
+}
+
+@font-face {
+  font-family: "SofiaPro-Medium";
+  src: url("../public/SofiaPro-Medium.woff2");
+  /* font-weight:medium; */
+  font-weight:500;
+}
+
+@font-face {
+  font-family: "SofiaPro";
+  src: url("../public/SofiaPro-Regular.woff2");
+  font-weight:400;
+}
+
+@font-face {
+  font-family: "SofiaPro-SemiBold";
+  src: url("../public/SofiaPro-SemiBold.woff2");
+  font-weight:600;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+.header {
+  height: var(--header-height);
+  background-color: var(--color-yellow);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.header_menu_el{
+  color:var(--color-brown)
+}
+
+
+/* pas présent dans tailwind.css */
+.text-right{
+  text-align: right;
+}
