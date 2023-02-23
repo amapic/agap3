@@ -1,11 +1,21 @@
 import Image from "next/image";
 import { Inter } from "@next/font/google";
-// import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ["latin"] });
 
+import * as Scroll from "react-scroll";
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from "react-scroll";
+
 import Header from "@/components/header";
-import Screen5 from "@/components/screen5";
+// import Screen5 from "@/components/screen5";
 import Screen1 from "@/components/screen1";
 export default function Home() {
   return (
@@ -16,8 +26,15 @@ export default function Home() {
           position: "relative",
         }}
       > */}
+      <div
+        style={{
+          overflow: "hidden",
+        }}
+        smooth={true}
+      >
         <Screen1 />
         {/* <Screen5 /> */}
+      </div>
       {/* </div> */}
     </>
   );
