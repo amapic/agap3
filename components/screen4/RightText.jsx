@@ -1,9 +1,39 @@
 import * as React from "react";
 
-export default function Aa() {
+export function TimelineDroite(scrollSunTl, q) {
+  let ColorWhite = getComputedStyle(document.documentElement).getPropertyValue(
+    "--color-white"
+  );
+
+  scrollSunTl.fromTo(
+    q("#screen4PartieDroite"),
+    {
+      y: "25vh",
+    },
+    {
+      scrollTrigger: {
+        trigger: ".screen5",
+        start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        end: "top+=90% bottom",
+        toggleActions: "play none none reset",
+        // markers: true,
+        scrub: 1,
+      },
+
+      y: 0,
+    }
+  );
+
+  return scrollSunTl;
+}
+
+export default function RightText() {
   return (
     // <div id="screen4PartieDroite">
-    <div className="relative container-main w-full rg:w-1/2 py-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2">
+    <div
+      id="screen4PartieDroite"
+      className="relative container-main w-full rg:w-1/2 py-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2"
+    >
       <div className="js-home-gl-text home-numbers__wrap backface-hidden">
         <h2
           className="text-blue mb-4 rg:mb-12 lg:mb-4 xl:mb-12"
