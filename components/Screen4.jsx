@@ -4,18 +4,18 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-import CanvasPlanete from "./planeteExport";
+import CanvasPlanete from "./screen4/Planet";
 import Ttext1, {
   Ttext2,
   Ttext3,
-  ttimeline1,
-  ttimeline2,
-  ttimeline3,
-} from "../components/screen4/textedansCercle";
+  Timeline1,
+  Timeline2,
+  Timeline3,
+} from "./screen4/LeftTexts";
 
-import Screen4PartieDroite from "../components/screen4/screen4PartieDroite";
+import RightText, { TimelineDroite } from "./screen4/RightText";
 
-export default function Home() {
+export default function Screen4() {
   const zoom = useRef(null);
   let el = useRef();
 
@@ -30,40 +30,35 @@ export default function Home() {
       scrollSunTl.to("#container_move", {
         scrollTrigger: {
           trigger: ".screen5",
-          // endTrigger: ".screen6",
           start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
           end: "top+=100% bottom",
-          // end: "+=200",
           toggleActions: "play none none reset",
-          markers: true,
+          // markers: true,
           scrub: 1,
           pin: "#container_move",
         },
       });
 
       //cercle
-      scrollSunTl.to("bgCircle", {
+      scrollSunTl.to("#bgCircle", {
         scrollTrigger: {
           trigger: ".screen5",
-          // endTrigger: ".screen6",
           start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
           end: "top+=70% bottom",
           toggleActions: "play none none reset",
-          markers: true,
           scrub: 1,
         },
-        width: "50vh",
-        height: "50vh",
-        left: "-70vh",
-        borderRadius: "100px",
+        transform: "scale(200)",
+        transformOrigin: "center",
+        left: "0vw",
+        borderRadius: "10px",
       });
 
-      ttimeline1(scrollSunTl, q);
-      ttimeline2(scrollSunTl, q);
-      ttimeline3(scrollSunTl, q);
-      // scrollSunTl.set(q("#texte_haut .text1"), {
-      //   y: 20,
-      // });
+      //les timeline se passe les unes après les autres
+      Timeline1(scrollSunTl, q);
+      Timeline2(scrollSunTl, q);
+      Timeline3(scrollSunTl, q);
+      TimelineDroite(scrollSunTl, q);
     });
 
     return () => ctx.revert();
@@ -88,7 +83,7 @@ export default function Home() {
           className="home-numbers__wrapper relative w-full h-full flex flex-wrap items-stretch overflow-hidden z-0 bg-gray-transparent"
         >
           <div
-            id="AAA"
+            // id="AAA"
             className="home-numbers__gl js-home-gl relative w-full rg:w-1/2 order-2 rg:order-1"
           >
             <CanvasPlanete />
@@ -96,24 +91,26 @@ export default function Home() {
             <Ttext2 />
             <Ttext3 />
             <div
+              className="bg-blue"
               id="bgCircle"
               style={{
-                top: "50vh",
-                left: "-25px",
+                left: "0vw",
                 borderRadius: "999px",
-                backgroundColor: "yellow",
-                position: "absolute",
-                width: "100px",
-                height: "100px",
+                width: "10px",
+                height: "10px",
                 zIndex: "10",
+                top: "calc(50vh - 5px)",
+                // bottom: "30vh",
+                // margin: "auto 0",
+                position: "absolute",
               }}
             ></div>
           </div>
 
-          <Screen4PartieDroite />
+          <RightText />
         </div>
       </div>
-      <div
+      {/* <div
         style={{
           height: "100vh",
           backgroundColor: "pink",
@@ -122,7 +119,7 @@ export default function Home() {
         className="screen6"
       >
         AAA
-      </div>
+      </div> */}
     </>
   );
 }

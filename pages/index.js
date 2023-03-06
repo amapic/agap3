@@ -16,16 +16,12 @@ import {
 
 import Header from "@/components/header";
 // import Screen5 from "@/components/screen5";
-import Screen1 from "@/components/screen1";
+import Screen1 from "@/components/Screen1";
+import Screen4 from "@/components/Screen4";
 export default function Home() {
+  // head body ???
   return (
     <>
-      {/* <Header /> */}
-      {/* <div
-        style={{
-          position: "relative",
-        }}
-      > */}
       <div
         style={{
           overflow: "hidden",
@@ -33,7 +29,7 @@ export default function Home() {
         smooth={true}
       >
         <Screen1 />
-        {/* <Screen5 /> */}
+        <Screen4 />
       </div>
       {/* </div> */}
     </>

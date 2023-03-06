@@ -77,12 +77,14 @@ body {
   opacity: 0;
 }
 
-.yellowLetter {
-  color: #ffcd00;
-}
+
 
 .blueLetter {
   color: #0226aa;
+}
+
+.whiteLetter {
+  color: #fff;
 }
 
 .circle {
@@ -92,3 +94,8 @@ body {
   border-radius: 50%;
   width: 100px;
 }
+
+/* screen1 */
+/* .home-cover__hover {
+  clip-path: circle(200px at var(--x) var(--y));
+} */
