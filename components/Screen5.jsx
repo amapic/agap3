@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <>
-      <div
+      {/* <div
         id="entete"
         style={{
           width: "100vw",
@@ -44,15 +44,15 @@ export default function Home() {
           height: "70px",
           zIndex: "100",
         }}
-      />
-      <h1>Yo</h1>
-      <div
+      /> */}
+      {/* <h1>Yo</h1> */}
+      {/* <div
         className="block"
         style={{
           height: "200vh",
           overflow: "hidden",
         }}
-      ></div>
+      ></div> */}
       <div
         id="container_move"
         className=""
@@ -65,7 +65,7 @@ export default function Home() {
           zIndex: "1",
         }}
       >
-        <span>AA</span>
+        {/* <span>AA</span> */}
         {/* <div
           id="backgroundCircleDiv"
           style={{

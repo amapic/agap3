@@ -24,6 +24,14 @@ export default function Screen4() {
     let q = gsap.utils.selector(zoom);
 
     let ctx = gsap.context(() => {
+      var mediaQueries = [
+        { id: "x-small", media: "(max-width: 400px)" },
+        { id: "small", media: "(min-width: 400px) and (max-width: 700px)" },
+        { id: "medium", media: "(min-width: 700px) and (max-width: 1000px)" },
+        { id: "large", media: "(min-width: 1000px) and (max-width: 1300px)" },
+        { id: "x-large", media: "(min-width: 1300px)" },
+      ];
+
       var scrollSunTl = gsap.timeline();
 
       //mouvement gén éral

@@ -103,7 +103,7 @@ const CanvasPlanete = () => {
       // DOM node referenced by ref has changed and exists
       let ctx = gsap.context(() => {
         var scrollSunTl = gsap.timeline();
-        console.log("color", node.children[0].material.color);
+        // console.log("color", node.children[0].material.color);
         ScrollTrigger.create({
           trigger: "#main",
           // endTrigger: ".screen6",

@@ -14,7 +14,7 @@ import {
   scroller,
 } from "react-scroll";
 
-import Header from "@/components/header";
+import Header from "@/components/header2";
 import Screen1 from "@/components/Screen1";
 import Screen1_2 from "@/components/Screen1_2";
 import Screen4 from "@/components/Screen4";
@@ -29,7 +29,8 @@ export default function Home() {
         }}
         // smooth={true}
       >
-        <Screen1_2 />
+        <Header />
+        {/* <Screen1_2 /> */}
         <Screen4 />
         {/* <Screen5 /> */}
       </div>
