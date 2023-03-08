@@ -3,12 +3,11 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ttimeline2(width, height, initFontSizeZoom) {
-  // scrollSunTl,
-  // hauteurDefilementStep1,
-  // hauteurDefilementStep2
 
   let tailleMaxZoom = (width * 2) / 12;
   let topZoom = 40; //vh
+  let topBigWhiteCircle = topZoom + 1;
+  let topSmallWhiteCircle = topZoom + 2;
   var scrollSunTl = gsap.timeline();
 
   ScrollTrigger.create({
@@ -60,11 +59,23 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
     "#zoom",
     {
       fontSize: "150px",
-      color: "#ffeea9",
-      duration: "1", //?
+      color: "#ffe26e",
+      // fontColor: "rgb(255,226,110)",
+      duration: "1",
     },
     "un"
   );
+
+  //le bleu est le même au point 1
+  // scrollSunTl.to(
+  //   "#zoom .js-zoom-o",
+  //   {
+  //     // fontSize: "150px",
+  //     color: "rgb(2,38,170)",
+  //     duration: "1", //?
+  //   },
+  //   "un"
+  // );
 
   scrollSunTl.to(
     "h2#aero",
@@ -82,7 +93,7 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
       transformOrigin: "center",
     },
     {
-      transform: "scale(600)",
+      transform: "scale(300)",
       transformOrigin: "center",
       duration: "1",
     },
@@ -96,6 +107,17 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
     {
       transform: "scale(900)",
       transformOrigin: "center",
+      duration: "1",
+    },
+    "deux"
+  );
+
+  scrollSunTl.to(
+    "#zoom",
+    {
+      fontSize: "300px",
+      color: "white",
+      // fontColor: "rgb(255,226,110)",
       duration: "1",
     },
     "deux"
@@ -116,25 +138,51 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
     "#backgroundCircle",
     {
       // top: topZoom + "vh",
-      transform: "scale(2000)",
+      transform: "scale(1200)",
       transformOrigin: "center",
       // opacity: "1",
-      duration: "2",
+      duration: "1",
     },
     "trois"
   );
+
+  scrollSunTl.addLabel("quatre", 4);
+
+  scrollSunTl.to(
+    "#backgroundCircle",
+    {
+      // top: topZoom + "vh",
+      transform: "scale(2000)",
+      transformOrigin: "center",
+      // opacity: "1",
+      duration: "1",
+    },
+    "quatre"
+  );
+
+  scrollSunTl.addLabel("cinq", 5);
 
   scrollSunTl.to(
     "#zoom",
     {
       fontSize: initFontSizeZoom,
       color: "#ffda40",
-      duration: "2",
+      duration: "1",
     },
-    ">"
+    "cinq"
   );
 
-  scrollSunTl.addLabel("quatre", 4);
+  scrollSunTl.to(
+    "#zoom .js-zoom-o",
+    {
+      fontSize: initFontSizeZoom,
+      color: "#0226aa",
+      duration: "1",
+    },
+    "cinq"
+  );
+
+  scrollSunTl.addLabel("six", 4);
 
   // scrollSunTl.to(
   //   //commence à un, termine à 3
@@ -194,79 +242,34 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
   // );
 
   scrollSunTl.to(
+    "#plane",
+    {
+      y: "-10vh",
+      duration: 1,
+      opacity: "1",
+    },
+    "six"
+  );
+
+  scrollSunTl.to(
     "h2#aero",
     {
       color: "white",
       duration: 2,
     },
-    "<"
+    "six"
   );
-
-  scrollSunTl.addLabel("phase2");
-  // scrollSunTl.to(
-  //   "h2#aero",
-  //   {
-  //     top: "40%",
-  //     duration: 2,
-  //   },
-  //   "<"
-  // );
-
-  // scrollSunTl.to(
-  //   "#backgroundCircle",
-  //   {
-  //     // width: "100vw",
-  //     // height: "100vh",
-  //     transform: "scale(50)",
-  //     transformOrigin: "center",
-  //     duration: 1,
-  //   }
-  //   // "<"
-  // );
-
-  // scrollSunTl.to(
-  //   "#zoom",
-  //   {
-  //     height: "15vh",
-  //     fontSize: "15vh",
-  //     lineHeight: "15vh",
-  //     duration: 1,
-  //   },
-  //   "<"
-  // );
-
-  // scrollSunTl.to(
-  //   "#zoom",
-  //   {
-  //     height: "10vh",
-  //     fontSize: "10vh",
-  //     lineHeight: "10vh",
-  //     duration: 1,
-  //   },
-  //   ">"
-  // );
-
-  scrollSunTl.addLabel("phase3");
-
-  // scrollSunTl.to(
-  //   "#zoom",
-  //   {
-  //     top: "10%",
-  //     duration: 3,
-  //   },
-  //   ">"
-  // );
 
   scrollSunTl.to(
     "#biggerWhiteCircle",
     {
-      top: "13vw",
+      top: "calc(10vh+1vw)",
       width: 100 / 4 + "vw",
       height: 100 / 4 + "vw",
       opacity: "1",
       duration: "3",
     },
-    "<"
+    "six"
   );
 
   // scrollSunTl.to(
@@ -281,13 +284,13 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
   scrollSunTl.to(
     "#smallerWhiteCircle",
     {
-      top: "14vw",
+      top: "calc(10vh+2vw)",
       width: 100 / 4 - 2 + "vw",
       height: 100 / 4 - 2 + "vw",
       opacity: "1",
       duration: "3",
     },
-    "<"
+    "six"
   );
 
   // scrollSunTl.to(

@@ -50,7 +50,7 @@ export default function Screen4() {
         },
         transform: "scale(200)",
         transformOrigin: "center",
-        left: "0vw",
+        left: "-20vw",
         borderRadius: "10px",
       });
 

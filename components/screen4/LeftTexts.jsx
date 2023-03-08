@@ -21,14 +21,13 @@ export default function Ttext1() {
           font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
           "
             >
-              +200{" "}
+              +200
             </div>
             <div
-              className="w-50 text2 text-white
+              className="ml-1 w-50 text2 text-white
           font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
           "
             >
-              {" "}
               M€
             </div>
           </div>
