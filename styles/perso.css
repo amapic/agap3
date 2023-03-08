@@ -11,6 +11,8 @@
   --header-bg-color: var(--color-white);
   --header-text-color: var(--color-brown);
   --text-base: ;
+  --x: "50";
+  --y: "50";
 }
 
 @font-face {
@@ -77,8 +79,6 @@ body {
   opacity: 0;
 }
 
-
-
 .blueLetter {
   color: #0226aa;
 }
@@ -96,6 +96,6 @@ body {
 }
 
 /* screen1 */
-/* .home-cover__hover {
+/* #div_clip_path {
   clip-path: circle(200px at var(--x) var(--y));
 } */

@@ -1,19 +1,107 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useLayoutEffect } from "react";
+import { gsap } from "gsap";
 
 export default function Screen1() {
   const ref = useRef(null);
   const [hoverr, setHover] = useState("");
 
+  const x = useRef(0);
+  const y = useRef(0);
   const mousemove = (e) => {
-    var x = e.clientX;
-    var y = e.clientY;
+    x.current = e.clientX;
+    y.current = e.clientY;
+    document.querySelector(":root").style.setProperty("--x", x.current);
+    document.querySelector(":root").style.setProperty("--y", y.current);
+    // gsap.quickTo("#id", "x", { duration: 0.4, ease: "power3" });
+    // gsap.to(ref, {
+    //   clipPath: `circle(200px at ${x} ${y})`,
+    // });
+
+    console.log(
+      "dghdgh",
+      document.querySelector(":root").style.getPropertyValue("--y")
+    );
   };
+
+  useLayoutEffect(() => {
+    // let ctx = gsap.context((self) => {
+    //   // use any arbitrary string as a name; it'll be added to the Context object, so in this case you can call ctx.onClick() later...
+    //   self.add("onClick", (e) => {
+    //     gsap.to("#div_clip_path", { borderColor: "pink" }); // <-- gets added to the Context!
+    //   });
+    // }, ref);
+
+    document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
+      // console.log("circle(200px at " + e.pageX + "px " + e.pageY + "px)");
+      ref.current.style.setProperty(
+        "clip-path",
+        "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
+      );
+      // target.setAttribute("cy", e.pageY);
+      // target.setAttribute("r", "200");
+    });
+
+    const setY = gsap.too("#div_clip_path", {
+      duration: 0.5,
+      ease: "power2",
+      clipPath: "circle(100px at 20px 20px)",
+    });
+
+    document.querySelector(".home-cover").addEventListener("mouseleave", () => {
+      // alert("rr");
+      var tt = "circle(100px at 20px 20px)";
+      setY();
+      // ref.current.style.setAttribute("r", "0");
+      // let ctx = gsap.context((self) => {
+      //   // var scrollSunTl = gsap.timeline();
+      //   ;
+      //   //mouvement gén éral
+      //   gsap.quickTo("#div_clip_path", {
+      //     clipPath: tt,
+      //     duration: "1",
+      //   });
+      // }, ref.current);
+    });
+    // const element = zoom.current;
+    // let q = gsap.utils.selector(zoom);
+    // let ctx = gsap.context((self) => {
+    //   // var scrollSunTl = gsap.timeline();
+    //   var tt = "circle(200px at " + x.current + "px " + y.current + "px)";
+    //   //mouvement gén éral
+    //   // gsap.quickTo("#div_clip_path", {
+    //   //   // clipPath: tt,
+    //   //   backgroundColor: "red",
+    //   // });
+    // }, ref);
+    // return () => ctx.revert();
+  }, []);
+  // useRef(() => {
+  //   document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
+  //     // xTo(e.pageX);
+  //     // yTo(e.pageY);
+  //     console.log(e);
+  //     // gsap.quickTo("#id", "x", { duration: 0.4, ease: "power3" });
+  //     //   gsap.quickTo("#div_clip_path",{
+  //     //   clipPath:"circle(200px at $(x) $(y))";
+  //     // })
+  //   });
+  // }, []);
+
+  // console.log("rr");
+  //   gsap.quickTo("#div_clip_path",{
+  //     clipPath:"circle(200px at $(x) $(y))";
+  //   })
+
+  //   let xTo = gsap.quickTo("#id", "x", {duration: 0.4, ease: "power3"}),
+  //   yTo = gsap.quickTo("#id", "y", {duration: 0.4, ease: "power3"});
+
+  // };
 
   return (
     <>
       <div
         className={hoverr + " home-cover relative w-full h-screen z-100"}
-        onMouseMove={mousemove}
+        // onMouseMove={mousemove}
       >
         <div className="home-cover__wrapper relative w-full cursor-pointer overflow-hidden js-cover">
           <div
@@ -453,9 +541,9 @@ export default function Screen1() {
 
             <video
               muted=""
-              autoplay=""
+              autoPlay=""
               loop=""
-              playsinline=""
+              playsInline=""
               className="absolute inset-0 object-cover w-full h-full z-0 hidden md:block"
             >
               <source
@@ -467,9 +555,9 @@ export default function Screen1() {
 
             <video
               muted=""
-              autoplay=""
+              autoPlay=""
               loop=""
-              playsinline=""
+              playsInline=""
               className="absolute inset-0 object-cover w-full h-full z-0 md:hidden"
             >
               <source
