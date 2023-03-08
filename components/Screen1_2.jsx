@@ -4,48 +4,52 @@ import { gsap } from "gsap";
 export default function Screen1() {
   const ref = useRef(null);
   const [hoverr, setHover] = useState("");
+  const clicked = useRef(false);
 
   const x = useRef(0);
   const y = useRef(0);
 
   useLayoutEffect(() => {
     document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
-      ref.current.style.setProperty(
-        "clip-path",
-        "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
-      );
+      if (!clicked.current) {
+        ref.current.style.setProperty(
+          "clip-path",
+          "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
+        );
+      }
     });
 
     document.querySelector(".home-cover").addEventListener("mouseleave", () => {
-      gsap.to("#div_clip_path", {
-        duration: 1,
-        ease: "power2",
-        clipPath: "circle(200px at 72vw 50%)",
-      });
+      if (!clicked.current) {
+        gsap.to("#div_clip_path", {
+          duration: 1,
+          ease: "power2",
+          clipPath: "circle(200px at 72vw 50%)",
+        });
+      }
     });
 
     document.querySelector(".home-cover").addEventListener("click", () => {
-      var clipPath = ref.current.style.getPropertyValue("clip-path");
-      //   console.log(clipPath);
-      if (clipPath) {
-        clipPath = clipPath.split("at");
-        clipPath = "circle(100vw at " + clipPath[1];
-        console.log(clipPath);
-        gsap.to("#div_clip_path", {
-          duration: 3,
-          ease: "power2",
-          clipPath: clipPath,
-        });
+      if (!clicked.current) {
+        var clipPath = ref.current.style.getPropertyValue("clip-path");
+
+        if (clipPath) {
+          clipPath = clipPath.split("at");
+          clipPath = "circle(100vw at " + clipPath[1];
+          clicked.current = true;
+          gsap.to("#div_clip_path", {
+            duration: 3,
+            ease: "power2",
+            clipPath: clipPath,
+          });
+        }
       }
     });
   }, []);
 
   return (
     <>
-      <div
-        className={hoverr + " home-cover relative w-full h-screen z-100"}
-        // onMouseMove={mousemove}
-      >
+      <div className={hoverr + " home-cover relative w-full h-screen z-100"}>
         <div className="home-cover__wrapper relative w-full cursor-pointer overflow-hidden js-cover">
           <div
             id="div_clip_path"

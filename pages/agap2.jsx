@@ -30,7 +30,7 @@ export default function Home() {
         // smooth={true}
       >
         <Screen1_2 />
-        {/* <Screen4 /> */}
+        <Screen4 />
         {/* <Screen5 /> */}
       </div>
       {/* </div> */}
