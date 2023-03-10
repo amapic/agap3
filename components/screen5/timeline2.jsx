@@ -296,36 +296,38 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
     "six"
   );
 
-  scrollSunTl.to(
-    "#biggerWhiteCircle",
-    {
-      top: h / 10 + "px",
-      width: w / 4 + "px",
-      height: w / 4 + "px",
-      // opacity: "1",
-      duration: "3",
-    },
-    "six"
-  );
+  // scrollSunTl.to(
+  //   "#biggerWhiteCircle",
+  //   {
+  //     top: h / 10 + "px",
+  //     width: w / 4 + "px",
+  //     height: w / 4 + "px",
+  //     opacity: "1",
+  //     duration: "3",
+  //   },
+  //   "six"
+  // );
 
-  scrollSunTl.to(
-    "#smallerWhiteCircle",
-    {
-      top: h / 10 + 15 + "px",
-      width: w / 4 - 30 + "px", //30px de différence en big taille
-      height: w / 4 - 30 + "px",
-      // opacity: "1",
-      duration: "3",
-    },
-    "six"
-  );
+  // scrollSunTl.to(
+  //   "#smallerWhiteCircle",
+  //   {
+  //     top: h / 10 + 15 + "px",
+  //     width: w / 4 - 30 + "px", //30px de différence en big taille
+  //     height: w / 4 - 30 + "px",
+  //     opacity: "1",
+  //     duration: "3",
+  //   },
+  //   "six"
+  // );
 
   scrollSunTl.to(
     "#biggerWhiteCircle2",
     {
-      scale: "0.7",
+      // scale: "0.7",
       opacity: "1",
       duration: "3",
+      transform: "scale(0.7)",
+      transformOrigin: "center",
     },
     "six"
   );
@@ -333,9 +335,11 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
   scrollSunTl.to(
     "#smallerWhiteCircle2",
     {
-      scale: "0.7",
+      // scale: "0.7",
       opacity: "1",
       duration: "3",
+      transform: "scale(0.7)",
+      transformOrigin: "center",
     },
     "six"
   );
