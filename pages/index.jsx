@@ -5,15 +5,32 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import * as THREE from "three";
 import { ScrollControls, useScroll } from "@react-three/drei";
 import { useSpring, animated, config } from "@react-spring/three";
+
+import { useRouter } from "next/router";
+
+import { name } from "package.json";
+
 function PictureSlide({ i }) {
   const ref = useRef();
   const data = useScroll();
-  const map = useLoader(TextureLoader, `homepage/${i + 1}.jpg`);
+  const map = useLoader(TextureLoader, `homepage/${i + 1}.png`);
   const vec = new THREE.Vector3();
   const [hover, setHover] = useState([1, 1, 1]);
   const rrandom = useRef(0);
 
+  const adresses = [
+    "http://46.101.250.41:4000",
+    "http://46.101.250.41:3000/agap2",
+  ];
+
   rrandom.current = rrandom.current = 0 ? Math.random() : rrandom.current;
+
+  const router = useRouter();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    router.push(href);
+  };
 
   const { scale } = useSpring({
     scale: hover ? [1.1, 1.1, 1] : [1, 1, 1],
@@ -41,6 +58,9 @@ function PictureSlide({ i }) {
         document.body.style.cursor = "auto";
         setHover(false);
       }}
+      onClick={() => {
+        window.open(adresses[i]);
+      }}
     >
       <planeGeometry args={[1.5, 1.5, 16, 16]} />
       <meshBasicMaterial map={map} />
@@ -53,10 +73,10 @@ function Scene() {
     <group>
       <PictureSlide i={0} />
       <PictureSlide i={1} />
-      <PictureSlide i={2} />
-      <PictureSlide i={3} />
-      <PictureSlide i={4} />
-      <PictureSlide i={5} />
+      {/* <PictureSlide i={2} /> */}
+      {/* <PictureSlide i={3} /> */}
+      {/* <PictureSlide i={4} /> */}
+      {/* <PictureSlide i={5} /> */}
     </group>
   );
 }

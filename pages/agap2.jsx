@@ -81,8 +81,8 @@ export default function Home() {
           }}
         ></div>
         <Header />
-        {/* <Screen1_2 /> */}
-        {/* <Screen4 /> */}
+        <Screen1_2 />
+        <Screen4 />
         <Screen5 />
       </div>
       {/* </div> */}

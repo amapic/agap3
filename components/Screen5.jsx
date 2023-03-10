@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useLayoutEffect } from "react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -35,6 +35,15 @@ export default function Home() {
     return () => ctx.revert();
   });
 
+  var widthBiggerCircle = "0px";
+  var widthSmallerCircle = "0px";
+
+  useLayoutEffect(() => {
+    widthBiggerCircle = Math.round((1200 / 4) * 1.4, 2) + "px";
+    widthSmallerCircle = Math.round((1200 / 4 - 30) * 1.4, 2) + "px";
+    // console.log("w cercle", widthBiggerCircle);
+  });
+
   return (
     <>
       {/* <div
@@ -68,53 +77,17 @@ export default function Home() {
           zIndex: "1",
         }}
       >
-        {/* <span>AA</span> */}
-        {/* <div
-          id="backgroundCircleDiv"
-          style={{
-            width: "100vw",
-            height: "100vw",
-            top: initZoomTop,
-            position: "absolute",
-          }}
-        > */}
-        {/* <div
-            id="biggerWhiteCircleDiv"
-            style={{
-              width: "100vw",
-              position: "absolute",
-              top: "-10vh",
-            }}
-          > */}
-        <div
-          id="biggerWhiteCircle"
-          style={{
-            top: h / 10 / 1.4 + "px",
-            borderRadius: "50%",
-            background: "rgba(255, 255, 0, 0)",
-            borderWidth: "2px",
-            borderColor: "#ffe26e",
-            width: (w / 4) * 1.4 + "px",
-            height: (w / 4) * 1.4 + "px",
-            margin: "auto",
-            opacity: "0",
-            left: 0,
-            right: 0,
-            margin: "0 auto",
-            position: "absolute",
-            zIndex: "2",
-          }}
-        />
         <div
           id="biggerWhiteCircle2"
           style={{
-            top: h / 10 / 1.4 + "px",
+            // top: h / 10 / 1.4 + "px",
+            top: "45px",
             borderRadius: "50%",
-            backgroundColor: "rgba(255, 255, 0, 0.5)",
+            backgroundColor: "rgba(0, 0, 0, 0)",
             borderWidth: "2px",
             borderColor: "#ffe26e",
-            width: (w / 4) * 1.4 + "px",
-            height: (w / 4) * 1.4 + "px",
+            width: "500px",
+            height: "500px",
             margin: "auto",
             opacity: "1",
             left: 0,
@@ -124,43 +97,17 @@ export default function Home() {
             zIndex: "2",
           }}
         />
-        {/* </div> */}
-        {/* <div
-            id="smallerWhiteCircleDiv"
-            style={{
-              width: "100vw",
-              position: "absolute",
-              top: "-10vh",
-            }}
-          > */}
-        <div
-          id="smallerWhiteCircle"
-          style={{
-            top: (h / 10 + 15) / 1.4 + "px",
-            borderRadius: "50%",
-            background: "rgba(255, 255, 0, 0)",
-            borderWidth: "2px",
-            borderColor: "#ffe26e",
-            width: (w / 4 - 30) * 1.4 + "px",
-            height: (w / 4 - 30) * 1.4 + "px",
-            left: 0,
-            right: 0,
-            position: "absolute",
-            opacity: "1",
-            margin: "0 auto",
-            zIndex: "2",
-          }}
-        />
+
         <div
           id="smallerWhiteCircle2"
           style={{
-            top: (h / 10 + 15) / 1.4 + "px",
+            top: "60px",
             borderRadius: "50%",
-            background: "rgba(255, 255, 0, 0)",
+            backgroundColor: "rgba(0, 0, 0, 0)",
             borderWidth: "2px",
             borderColor: "#ffe26e",
-            width: (w / 4 - 30) * 1.4 + "px",
-            height: (w / 4 - 30) * 1.4 + "px",
+            width: "470px",
+            height: "470px",
             left: 0,
             right: 0,
             position: "absolute",
