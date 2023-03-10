@@ -12,7 +12,7 @@ export function TimelineDroite(scrollSunTl, q) {
     },
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=90% bottom",
         toggleActions: "play none none reset",

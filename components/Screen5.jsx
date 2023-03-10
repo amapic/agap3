@@ -18,6 +18,9 @@ export default function Home() {
 
   const { height, width } = useWindowDimensions();
 
+  var h = height;
+  var w = width;
+
   //animation
 
   let initZoomTop = "50%";
@@ -34,7 +37,7 @@ export default function Home() {
 
   return (
     <>
-      <div
+      {/* <div
         id="entete"
         style={{
           width: "100vw",
@@ -44,17 +47,17 @@ export default function Home() {
           height: "70px",
           zIndex: "100",
         }}
-      />
-      <h1>Yo</h1>
-      <div
+      /> */}
+      {/* <h1>Yo</h1> */}
+      {/* <div
         className="block"
         style={{
           height: "200vh",
           overflow: "hidden",
         }}
-      ></div>
+      ></div> */}
       <div
-        id="container_move"
+        id="container_move5"
         className=""
         style={{
           backgroundColor: "white",
@@ -65,7 +68,7 @@ export default function Home() {
           zIndex: "1",
         }}
       >
-        <span>AA</span>
+        {/* <span>AA</span> */}
         {/* <div
           id="backgroundCircleDiv"
           style={{
@@ -86,13 +89,32 @@ export default function Home() {
         <div
           id="biggerWhiteCircle"
           style={{
-            top: "-5vw",
+            top: h / 10 / 1.4 + "px",
             borderRadius: "50%",
             background: "rgba(255, 255, 0, 0)",
             borderWidth: "2px",
             borderColor: "#ffe26e",
-            width: "34vw",
-            height: "34vw",
+            width: (w / 4) * 1.4 + "px",
+            height: (w / 4) * 1.4 + "px",
+            margin: "auto",
+            opacity: "0",
+            left: 0,
+            right: 0,
+            margin: "0 auto",
+            position: "absolute",
+            zIndex: "2",
+          }}
+        />
+        <div
+          id="biggerWhiteCircle2"
+          style={{
+            top: h / 10 / 1.4 + "px",
+            borderRadius: "50%",
+            backgroundColor: "rgba(255, 255, 0, 0.5)",
+            borderWidth: "2px",
+            borderColor: "#ffe26e",
+            width: (w / 4) * 1.4 + "px",
+            height: (w / 4) * 1.4 + "px",
             margin: "auto",
             opacity: "1",
             left: 0,
@@ -114,13 +136,13 @@ export default function Home() {
         <div
           id="smallerWhiteCircle"
           style={{
-            top: "-3vw",
+            top: (h / 10 + 15) / 1.4 + "px",
             borderRadius: "50%",
             background: "rgba(255, 255, 0, 0)",
             borderWidth: "2px",
             borderColor: "#ffe26e",
-            width: "32vw",
-            height: "32vw",
+            width: (w / 4 - 30) * 1.4 + "px",
+            height: (w / 4 - 30) * 1.4 + "px",
             left: 0,
             right: 0,
             position: "absolute",
@@ -129,8 +151,25 @@ export default function Home() {
             zIndex: "2",
           }}
         />
-        {/* </div> */}
-        {/* </div> */}
+        <div
+          id="smallerWhiteCircle2"
+          style={{
+            top: (h / 10 + 15) / 1.4 + "px",
+            borderRadius: "50%",
+            background: "rgba(255, 255, 0, 0)",
+            borderWidth: "2px",
+            borderColor: "#ffe26e",
+            width: (w / 4 - 30) * 1.4 + "px",
+            height: (w / 4 - 30) * 1.4 + "px",
+            left: 0,
+            right: 0,
+            position: "absolute",
+            opacity: "1",
+            margin: "0 auto",
+            zIndex: "2",
+          }}
+        />
+
         <div
           style={{
             position: "absolute",

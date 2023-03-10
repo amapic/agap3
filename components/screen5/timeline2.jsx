@@ -3,20 +3,23 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ttimeline2(width, height, initFontSizeZoom) {
-
   let tailleMaxZoom = (width * 2) / 12;
   let topZoom = 40; //vh
   let topBigWhiteCircle = topZoom + 1;
   let topSmallWhiteCircle = topZoom + 2;
   var scrollSunTl = gsap.timeline();
 
+  var h = window.innerHeight;
+  var w = window.innerWidth;
+
   ScrollTrigger.create({
     animation: scrollSunTl,
+    trigger: "#container_move5",
     start: "center center", // which means "when the top of the trigger hits 40px above the bottom of the viewport
     end: "+=900 center",
     toggleActions: "play none none reset",
     scrub: 1,
-    pin: "#container_move",
+    pin: "#container_move5",
     snap: {
       snapTo: "labelsDirectional", // snap to the closest label in the timeline
       duration: { min: 0.2, max: 0.5 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
@@ -27,15 +30,15 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
 
   scrollSunTl.addLabel("un", 0);
 
-  scrollSunTl.to(
-    //commence à un, termine à 3
-    "#entete",
-    {
-      top: "0vh",
-      duration: "0.1",
-    },
-    "un"
-  );
+  // scrollSunTl.to(
+  //   //commence à un, termine à 3
+  //   "#entete",
+  //   {
+  //     top: "0vh",
+  //     duration: "0.1",
+  //   },
+  //   "un"
+  // );
 
   scrollSunTl.to(
     "#zoombgCircleDiv",
@@ -56,9 +59,20 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
   );
 
   scrollSunTl.to(
+    "#zoom,.js-zoom-o",
+    {
+      fontSize: "230px",
+      // color: "#ffe26e",
+      // fontColor: "rgb(255,226,110)",
+      duration: "1",
+    },
+    "un"
+  );
+
+  scrollSunTl.to(
     "#zoom",
     {
-      fontSize: "150px",
+      // fontSize: "230px",
       color: "#ffe26e",
       // fontColor: "rgb(255,226,110)",
       duration: "1",
@@ -113,15 +127,37 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
   );
 
   scrollSunTl.to(
-    "#zoom",
+    "#zoom,.js-zoom-o",
     {
       fontSize: "300px",
-      color: "white",
+      // color: "white",
       // fontColor: "rgb(255,226,110)",
       duration: "1",
     },
     "deux"
   );
+
+  scrollSunTl.to(
+    "#zoom",
+    {
+      // fontSize: "300px",
+      color: "white",
+      // fontColor: "rgb(255,226,110)",
+      // duration: "1",
+    },
+    "deux"
+  );
+
+  // scrollSunTl.to(
+  //   ".js-zoom-o",
+  //   {
+  //     // fontSize: "300px",
+  //     color: "white",
+  //     // fontColor: "rgb(255,226,110)",
+  //     // duration: "1",
+  //   },
+  //   "deux"
+  // );
 
   scrollSunTl.to(
     "h2#aero",
@@ -163,7 +199,7 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
   scrollSunTl.addLabel("cinq", 5);
 
   scrollSunTl.to(
-    "#zoom",
+    "#zoom,.js-zoom-o",
     {
       fontSize: initFontSizeZoom,
       color: "#ffda40",
@@ -172,15 +208,15 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
     "cinq"
   );
 
-  scrollSunTl.to(
-    "#zoom .js-zoom-o",
-    {
-      fontSize: initFontSizeZoom,
-      color: "#0226aa",
-      duration: "1",
-    },
-    "cinq"
-  );
+  // scrollSunTl.to(
+  //   "#zoom .js-zoom-o",
+  //   {
+  //     fontSize: initFontSizeZoom,
+  //     color: "#0226aa",
+  //     duration: "1",
+  //   },
+  //   "cinq"
+  // );
 
   scrollSunTl.addLabel("six", 4);
 
@@ -263,30 +299,41 @@ export default function ttimeline2(width, height, initFontSizeZoom) {
   scrollSunTl.to(
     "#biggerWhiteCircle",
     {
-      top: "calc(10vh+1vw)",
-      width: 100 / 4 + "vw",
-      height: 100 / 4 + "vw",
+      top: h / 10 + "px",
+      width: w / 4 + "px",
+      height: w / 4 + "px",
+      // opacity: "1",
+      duration: "3",
+    },
+    "six"
+  );
+
+  scrollSunTl.to(
+    "#smallerWhiteCircle",
+    {
+      top: h / 10 + 15 + "px",
+      width: w / 4 - 30 + "px", //30px de différence en big taille
+      height: w / 4 - 30 + "px",
+      // opacity: "1",
+      duration: "3",
+    },
+    "six"
+  );
+
+  scrollSunTl.to(
+    "#biggerWhiteCircle2",
+    {
+      scale: "0.7",
       opacity: "1",
       duration: "3",
     },
     "six"
   );
 
-  // scrollSunTl.to(
-  //   "#biggerWhiteCircleDiv",
-  //   {
-  //     top: 0 + "vh",
-  //     duration: "3",
-  //   },
-  //   "<"
-  // );
-
   scrollSunTl.to(
-    "#smallerWhiteCircle",
+    "#smallerWhiteCircle2",
     {
-      top: "calc(10vh+2vw)",
-      width: 100 / 4 - 2 + "vw",
-      height: 100 / 4 - 2 + "vw",
+      scale: "0.7",
       opacity: "1",
       duration: "3",
     },
