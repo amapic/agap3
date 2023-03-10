@@ -187,7 +187,7 @@ export function Timeline1(scrollSunTl, q) {
     },
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=90% bottom",
@@ -210,7 +210,7 @@ export function Timeline1(scrollSunTl, q) {
     },
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=91% bottom",
@@ -233,7 +233,7 @@ export function Timeline1(scrollSunTl, q) {
     },
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=91% bottom",
@@ -254,7 +254,7 @@ export function Timeline1(scrollSunTl, q) {
 
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=91% bottom",
@@ -283,7 +283,7 @@ export function Timeline2(scrollSunTl, q) {
     },
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=90% bottom",
@@ -305,7 +305,7 @@ export function Timeline2(scrollSunTl, q) {
     },
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=91% bottom",
@@ -327,7 +327,7 @@ export function Timeline2(scrollSunTl, q) {
     },
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=91% bottom",
@@ -347,7 +347,7 @@ export function Timeline2(scrollSunTl, q) {
 
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=91% bottom",
@@ -377,7 +377,7 @@ export function Timeline3(scrollSunTl, q) {
     },
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=90% bottom",
@@ -399,7 +399,7 @@ export function Timeline3(scrollSunTl, q) {
     },
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=91% bottom",
@@ -421,7 +421,7 @@ export function Timeline3(scrollSunTl, q) {
     },
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=91% bottom",
@@ -441,7 +441,7 @@ export function Timeline3(scrollSunTl, q) {
 
     {
       scrollTrigger: {
-        trigger: ".screen5",
+        trigger: "#screen4",
         // endTrigger: ".screen6",
         start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "top+=91% bottom",

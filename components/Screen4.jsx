@@ -32,62 +32,109 @@ export default function Screen4() {
         { id: "x-large", media: "(min-width: 1300px)" },
       ];
 
-      var scrollSunTl = gsap.timeline();
-
-      //mouvement gén éral
-      scrollSunTl.to("#container_move", {
-        scrollTrigger: {
-          trigger: ".screen5",
-          start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-          end: "top+=100% bottom",
-          toggleActions: "play none none reset",
-          // markers: true,
-          scrub: 1,
-          pin: "#container_move",
+      const mm = gsap.matchMedia();
+      mm.add(
+        {
+          isSmall: "(max-width: 1200px)",
+          isLarge: "(min-width: 1201px) and (max-width: 1300px)",
+          isXLarge: "(min-width: 1301px)",
         },
-      });
+        (c) => {
+          var scrollSunTl = gsap.timeline({ invalidateOnRefresh: true });
 
-      //cercle
-      scrollSunTl.to("#bgCircle", {
-        scrollTrigger: {
-          trigger: ".screen5",
-          start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-          end: "top+=70% bottom",
-          toggleActions: "play none none reset",
-          scrub: 1,
-        },
-        transform: "scale(200)",
-        transformOrigin: "center",
-        left: "-20vw",
-        borderRadius: "10px",
-      });
+          //mouvement gén éral
+          scrollSunTl.to("#container_move4", {
+            scrollTrigger: {
+              trigger: "#screen4",
+              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              end: "top+=100% bottom",
+              toggleActions: "play none none reset",
+              // markers: true,
+              scrub: 1,
+              pin: "#container_move4",
+            },
+          });
 
-      //les timeline se passe les unes après les autres
-      Timeline1(scrollSunTl, q);
-      Timeline2(scrollSunTl, q);
-      Timeline3(scrollSunTl, q);
-      TimelineDroite(scrollSunTl, q);
+          //cercle
+          // console.log("size", c.conditions);
+          if (c.conditions.isXLarge) {
+            scrollSunTl.to("#bgCircle", {
+              scrollTrigger: {
+                trigger: "#screen4",
+                start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+                end: "top+=70% bottom",
+                toggleActions: "play none none reset",
+                scrub: 1,
+              },
+              transform: "scale(200)",
+              transformOrigin: "center",
+              left: "-20vw",
+              borderRadius: "10px",
+            });
+          }
+          if (c.conditions.isLarge) {
+            scrollSunTl.to("#bgCircle", {
+              scrollTrigger: {
+                trigger: "#screen4",
+                start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+                end: "top+=70% bottom",
+                toggleActions: "play none none reset",
+                scrub: 1,
+              },
+              transform: "scale(180)",
+              transformOrigin: "center",
+              // backgroundColor: "red",
+              // borderColor: "red",
+              left: "-20vw",
+              borderRadius: "10px",
+            });
+          }
+
+          if (c.conditions.isSmall) {
+            scrollSunTl.to("#bgCircle", {
+              scrollTrigger: {
+                trigger: "#screen4",
+                start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+                end: "top+=70% bottom",
+                toggleActions: "play none none reset",
+                scrub: 1,
+              },
+              transform: "scale(150)",
+              transformOrigin: "center",
+              // backgroundColor: "red",
+              // borderColor: "red",
+              left: "-20vw",
+              borderRadius: "10px",
+            });
+          }
+
+          //les timeline se passe les unes après les autres
+          Timeline1(scrollSunTl, q);
+          Timeline2(scrollSunTl, q);
+          Timeline3(scrollSunTl, q);
+          TimelineDroite(scrollSunTl, q);
+        }
+      );
     });
-
     return () => ctx.revert();
   });
 
   return (
     <>
       <div
+        id="screen4"
         style={{
           height: "300vh",
           position: "relative",
           zIndex: "10",
           overflow: "hidden",
         }}
-        className="screen5
-        
-        "
+        // className="screen5"
+
         ref={zoom}
       >
         <div
-          id="container_move"
+          id="container_move4"
           className="home-numbers__wrapper relative w-full h-full flex flex-wrap items-stretch overflow-hidden z-0 bg-gray-transparent"
         >
           <div

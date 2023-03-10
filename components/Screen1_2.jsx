@@ -47,6 +47,95 @@ export default function Screen1() {
     });
   }, []);
 
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // let q = document.querySelector(".line:nth-child(1) .word:nth-child(1)");
+
+      function q(x) {
+        return document.querySelectorAll(x);
+      }
+      // gsap.fromTo(
+      //   ".home-cover__content .line:nth-of-type(1)",
+      //   {
+      //     zIndex: "10",
+      //   },
+      //   {
+      //     duration: 1.2,
+      //     // ease: "power2",
+      //     // backgroundColor: "red",
+      //     // color: "red",
+      //     // fontColor: "red",
+      //     y: "-40px",
+      //     zIndex: "10",
+      //     marginTop: "20px",
+      //     // lineHeight: "20px",
+      //   }
+      // );
+
+      gsap.from(
+        q(
+          "#div_clip_path .home-cover__content .line:nth-child(1) .word:nth-child(1)"
+        ),
+        {
+          // backgroundColor: "red",
+          y: "-30px",
+          duration: "1",
+          ease: "linear",
+        },
+        0
+      );
+
+      // gsap.fromTo(
+      //   q(".home-cover__content .line:nth-child(1) .word:nth-child(2)"),
+      //   {
+      //     // backgroundColor: "red",
+      //     y: "10vh",
+      //     duration: "1",
+      //   },
+      //   {
+      //     // backgroundColor: "red",
+      //     y: "0vh",
+      //     duration: "1",
+      //     // position: "relative",
+      //   },
+      //   0.2
+      // );
+
+      // gsap.fromTo(
+      //   q(".home-cover__content .line:nth-child(2) .word:nth-child(1)"),
+      //   {
+      //     // backgroundColor: "red",
+      //     y: "10vh",
+      //     duration: "1",
+      //   },
+      //   {
+      //     // backgroundColor: "red",
+      //     y: "0vh",
+      //     duration: "1",
+      //   },
+      //   0
+      // );
+
+      // gsap.from(
+      //   q(".home-cover__you .line:nth-child(1) .word:nth-child(1)"),
+      //   {
+      //     // backgroundColor: "red",
+      //     y: "10vh",
+      //     duration: "1",
+      //   },
+      //   // {
+      //   //   // backgroundColor: "red",
+      //   //   y: "0vh",
+      //   //   duration: "1",
+      //   //   // position: "relative",
+      //   // },
+      //   0
+      // );
+    });
+
+    return () => ctx.revert();
+  });
+
   return (
     <>
       <div className={hoverr + " home-cover relative w-full h-screen z-100"}>

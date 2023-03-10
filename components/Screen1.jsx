@@ -24,24 +24,15 @@ export default function Screen1() {
   };
 
   useLayoutEffect(() => {
-    // let ctx = gsap.context((self) => {
-    //   // use any arbitrary string as a name; it'll be added to the Context object, so in this case you can call ctx.onClick() later...
-    //   self.add("onClick", (e) => {
-    //     gsap.to("#div_clip_path", { borderColor: "pink" }); // <-- gets added to the Context!
-    //   });
-    // }, ref);
-
     document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
       // console.log("circle(200px at " + e.pageX + "px " + e.pageY + "px)");
       ref.current.style.setProperty(
         "clip-path",
         "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
       );
-      // target.setAttribute("cy", e.pageY);
-      // target.setAttribute("r", "200");
     });
 
-    const setY = gsap.too("#div_clip_path", {
+    const setY = gsap.to("#div_clip_path", {
       duration: 0.5,
       ease: "power2",
       clipPath: "circle(100px at 20px 20px)",
@@ -62,40 +53,7 @@ export default function Screen1() {
       //   });
       // }, ref.current);
     });
-    // const element = zoom.current;
-    // let q = gsap.utils.selector(zoom);
-    // let ctx = gsap.context((self) => {
-    //   // var scrollSunTl = gsap.timeline();
-    //   var tt = "circle(200px at " + x.current + "px " + y.current + "px)";
-    //   //mouvement gén éral
-    //   // gsap.quickTo("#div_clip_path", {
-    //   //   // clipPath: tt,
-    //   //   backgroundColor: "red",
-    //   // });
-    // }, ref);
-    // return () => ctx.revert();
   }, []);
-  // useRef(() => {
-  //   document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
-  //     // xTo(e.pageX);
-  //     // yTo(e.pageY);
-  //     console.log(e);
-  //     // gsap.quickTo("#id", "x", { duration: 0.4, ease: "power3" });
-  //     //   gsap.quickTo("#div_clip_path",{
-  //     //   clipPath:"circle(200px at $(x) $(y))";
-  //     // })
-  //   });
-  // }, []);
-
-  // console.log("rr");
-  //   gsap.quickTo("#div_clip_path",{
-  //     clipPath:"circle(200px at $(x) $(y))";
-  //   })
-
-  //   let xTo = gsap.quickTo("#id", "x", {duration: 0.4, ease: "power3"}),
-  //   yTo = gsap.quickTo("#id", "y", {duration: 0.4, ease: "power3"});
-
-  // };
 
   return (
     <>
