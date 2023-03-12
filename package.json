@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -24,7 +24,8 @@
     "react-dom": "18.2.0",
     "react-scroll": "^1.8.9",
     "three": "^0.149.0",
-    "three-stdlib": "^2.21.8"
+    "three-stdlib": "^2.21.8",
+    "zustand": "^4.3.6"
   },
   "devDependencies": {
     "tailwindcss": "^3.2.4"
