@@ -1,16 +1,29 @@
-import { useRef, useState } from "react";
+import { useRef, useState, forwardRef, useEffect } from "react";
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import { MeshBasicMaterial, PlaneGeometry } from "three";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import * as THREE from "three";
-import { ScrollControls, useScroll } from "@react-three/drei";
+import { ScrollControls, useScroll, Html } from "@react-three/drei";
 import { useSpring, animated, config } from "@react-spring/three";
 
 import { useRouter } from "next/router";
 
 import { name } from "package.json";
 
+// import { create } from "zustand";
+
+// const useTextStore = create((set) => ({
+//   text: null,
+//   setText: (newText) =>
+//     set((state) => ({
+//       text: newText,
+//     })),
+// }));
+
+import { gsap } from "gsap";
+
 function PictureSlide({ i }) {
+  // const { text, setText } = useTextStore((state) => state);
   const ref = useRef();
   const data = useScroll();
   const map = useLoader(TextureLoader, `homepage/${i + 1}.png`);
@@ -45,39 +58,50 @@ function PictureSlide({ i }) {
   });
 
   return (
-    <animated.mesh
-      scale={scale}
-      rotation={rotation}
-      ref={ref}
-      position={[rrandom.current + 1, -i * 2, 0]}
-      onPointerEnter={() => {
-        document.body.style.cursor = "pointer";
-        setHover(true);
-      }}
-      onPointerLeave={() => {
-        document.body.style.cursor = "auto";
-        setHover(false);
-      }}
-      onClick={() => {
-        window.open(adresses[i]);
-      }}
-    >
-      <planeGeometry args={[1.5, 1.5, 16, 16]} />
-      <meshBasicMaterial map={map} />
-    </animated.mesh>
+    <>
+      <animated.mesh
+        scale={scale}
+        rotation={rotation}
+        ref={ref}
+        position={[rrandom.current + 1, -i * 2, 0]}
+        onPointerEnter={() => {
+          document.body.style.cursor = "pointer";
+          setHover(true);
+        }}
+        onPointerLeave={() => {
+          document.body.style.cursor = "auto";
+          setHover(false);
+        }}
+        onClick={() => {
+          // window.open(adresses[i]);
+        }}
+      >
+        <planeGeometry args={[1 * 2, 0.55 * 2, 16, 16]} />
+        <meshBasicMaterial map={map} />
+      </animated.mesh>
+    </>
   );
 }
 
 function Scene() {
+  const clickk = () => {
+    alert("sdgwsd");
+    ref2.current = "sdfgxfg";
+  };
+
+  const zoom = useRef(null);
+
   return (
-    <group>
-      <PictureSlide i={0} />
+    <>
+      {/* <group> */}
+      <PictureSlide i={0} onClick={clickk} />
       <PictureSlide i={1} />
       {/* <PictureSlide i={2} /> */}
       {/* <PictureSlide i={3} /> */}
       {/* <PictureSlide i={4} /> */}
       {/* <PictureSlide i={5} /> */}
-    </group>
+      {/* </group> */}
+    </>
   );
 }
 
@@ -86,6 +110,8 @@ export default function App() {
     console.log(e);
   }
 
+  const ref2 = useRef("rr");
+  // const { text, setText } = useTextStore((state) => state);
   return (
     <div
       style={{
@@ -107,9 +133,22 @@ export default function App() {
         <ScrollControls pages={1}>
           <ambientLight intensity={0.5} />
           <pointLight color="white" intensity={1} position={[10, 10, 10]} />
-          <Scene />
+          <Scene ref2={ref2} />
         </ScrollControls>
       </Canvas>
+      <div
+        style={{
+          backgroundColor: "black",
+          position: "fixed",
+          top: "40vh",
+          left: "0vw",
+          color: "red",
+          zIndex: "10",
+          fontSize: "40px",
+        }}
+      >
+        dghdg
+      </div>
     </div>
   );
 }

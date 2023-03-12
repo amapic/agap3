@@ -35,13 +35,13 @@ export default function Home() {
     return () => ctx.revert();
   });
 
-  var widthBiggerCircle = "0px";
-  var widthSmallerCircle = "0px";
+  const widthBiggerCircle = useRef("0px");
+  const widthSmallerCircle = useRef("0px");
 
   useLayoutEffect(() => {
-    widthBiggerCircle = Math.round((1200 / 4) * 1.4, 2) + "px";
-    widthSmallerCircle = Math.round((1200 / 4 - 30) * 1.4, 2) + "px";
-    // console.log("w cercle", widthBiggerCircle);
+    widthBiggerCircle.current = Math.round((1200 / 4) * 1.4, 2) + "px";
+    widthSmallerCircle.current = Math.round((1200 / 4 - 30) * 1.4, 2) + "px";
+    console.log("w cercle", widthBiggerCircle.current);
   });
 
   return (
@@ -106,8 +106,8 @@ export default function Home() {
             backgroundColor: "rgba(0, 0, 0, 0)",
             borderWidth: "2px",
             borderColor: "#ffe26e",
-            width: "470px",
-            height: "470px",
+            width: widthSmallerCircle.current, //"470px",
+            height: widthSmallerCircle.current, //"470px",
             left: 0,
             right: 0,
             position: "absolute",
