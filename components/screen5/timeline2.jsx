@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ttimeline2(width, height, initFontSizeZoom) {
+export default function Timeline(width, height, initFontSizeZoom) {
   let tailleMaxZoom = (width * 2) / 12;
   let topZoom = 40; //vh
   let topBigWhiteCircle = topZoom + 1;
