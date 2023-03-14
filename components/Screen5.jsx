@@ -91,7 +91,7 @@ export default function Home() {
             // margin: "auto",
             left: 0,
             right: 0,
-            // opacity: "1",
+            opacity: "0",
             margin: "0 auto",
             position: "absolute",
             zIndex: "2",
@@ -114,7 +114,7 @@ export default function Home() {
             left: 0,
             right: 0,
             position: "absolute",
-            // opacity: "1",
+            opacity: "0",
             margin: "0 auto",
             zIndex: "2",
           }}

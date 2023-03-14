@@ -15,6 +15,7 @@ export default function Header() {
       id="header_oprou"
       style={{
         height: "10vh",
+        zIndex: "11",
       }}
     >
       <div className="header__container flex items-center justify-between w-full">

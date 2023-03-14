@@ -20,7 +20,7 @@ import { gsap } from "gsap";
 
 import Header from "@/components/header2";
 import Screen1 from "@/components/Screen1";
-import Screen1_2 from "@/components/Screen1_2";
+// import Screen1_2 from "@/components/Screen1_";
 import Screen4 from "@/components/Screen4";
 import Screen5 from "@/components/Screen5";
 export default function Home() {
@@ -81,7 +81,7 @@ export default function Home() {
           }}
         ></div>
         <Header />
-        <Screen1_2 />
+        <Screen1 />
         <Screen4 />
         <Screen5 />
       </div>
