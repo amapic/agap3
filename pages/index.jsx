@@ -10,20 +10,27 @@ import { useRouter } from "next/router";
 
 import { name } from "package.json";
 
-// import { create } from "zustand";
+import { create } from "zustand";
 
-// const useTextStore = create((set) => ({
-//   text: null,
-//   setText: (newText) =>
-//     set((state) => ({
-//       text: newText,
-//     })),
-// }));
+const useTextStore = create((set) => ({
+  texttt: "sff",
+  classTexte: "",
+  setText: (newText) =>
+    set((state) => ({
+      texttt: newText,
+    })),
+  setClass: (newClass) =>
+    set((state) => ({
+      classTexte: newClass,
+    })),
+}));
 
 import { gsap } from "gsap";
 
 function PictureSlide({ i }) {
-  // const { text, setText } = useTextStore((state) => state);
+  const { texttt, setText, setClass, classTexte } = useTextStore(
+    (state) => state
+  );
   const ref = useRef();
   const data = useScroll();
   const map = useLoader(TextureLoader, `homepage/${i + 1}.png`);
@@ -36,6 +43,11 @@ function PictureSlide({ i }) {
     "http://46.101.250.41:3000/agap2",
   ];
 
+  const textes = [
+    "Reproduction du site Agap2",
+    "Systèmes solaires faits avec Three.js",
+  ];
+
   rrandom.current = rrandom.current = 0 ? Math.random() : rrandom.current;
 
   const router = useRouter();
@@ -46,7 +58,7 @@ function PictureSlide({ i }) {
   };
 
   const { scale } = useSpring({
-    scale: hover ? [1.1, 1.1, 1] : [1, 1, 1],
+    scale: hover ? [1.5, 1.5, 1] : [1, 1, 1],
   });
 
   const { rotation } = useSpring({
@@ -66,14 +78,18 @@ function PictureSlide({ i }) {
         position={[rrandom.current + 1, -i * 2, 0]}
         onPointerEnter={() => {
           document.body.style.cursor = "pointer";
+          setText(textes[i]);
+          setClass(true);
           setHover(true);
         }}
         onPointerLeave={() => {
           document.body.style.cursor = "auto";
           setHover(false);
+          setClass(false);
+          // setText("");
         }}
         onClick={() => {
-          // window.open(adresses[i]);
+          window.open(adresses[i]);
         }}
       >
         <planeGeometry args={[1 * 2, 0.55 * 2, 16, 16]} />
@@ -111,44 +127,89 @@ export default function App() {
   }
 
   const ref2 = useRef("rr");
-  // const { text, setText } = useTextStore((state) => state);
+  const { texttt, setText, classTexte } = useTextStore((state) => state);
+
+  useEffect(() => {
+    // const element = zoom.current;
+    // let q = gsap.utils.selector(zoom);
+
+    let ctx = gsap.context(() => {
+      gsap.to(".hovered", {
+        // marginRight: "60vw",
+        display: "block",
+      });
+
+      gsap.to(".notHovered", {
+        // marginRight: "100vw",
+        display: "none",
+      });
+    });
+  });
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100vw",
-      }}
-    >
-      <Canvas
-        camera={{
-          near: 0.1,
-          far: 1000,
-          zoom: 1,
-          position: [0, 0, 2],
-        }}
-        onCreated={({ gl, camera }) => {
-          gl.setClearColor("#000", 1);
-        }}
-      >
-        <ScrollControls pages={1}>
-          <ambientLight intensity={0.5} />
-          <pointLight color="white" intensity={1} position={[10, 10, 10]} />
-          <Scene ref2={ref2} />
-        </ScrollControls>
-      </Canvas>
+    <>
       <div
         style={{
-          backgroundColor: "black",
+          height: "5vh",
+          width: "30vw",
+          top: "0vh",
+          left: "0vh",
           position: "fixed",
-          top: "40vh",
-          left: "0vw",
-          color: "red",
-          zIndex: "10",
-          fontSize: "40px",
+          // backgroundColor: "red",
+          zIndex: "1000",
+        }}
+        className="flex flex-row justify-start"
+      >
+        <img
+          src="/blackgit.png"
+          href="https://github.com/amapic"
+          className="cursor-pointer mx-2"
+        />
+        <img
+          src="/linkedin2.png"
+          href="https://www.linkedin.com/in/amaurypichat/"
+          className="cursor-pointer mx-2"
+        />
+      </div>
+      <div
+        style={{
+          height: "100vh",
+          width: "100vw",
         }}
       >
-        dghdg
+        <Canvas
+          camera={{
+            near: 0.1,
+            far: 1000,
+            zoom: 1,
+            position: [0, 0, 2],
+          }}
+          onCreated={({ gl, camera }) => {
+            gl.setClearColor("#000", 1);
+          }}
+        >
+          <ScrollControls pages={1}>
+            <ambientLight intensity={0.5} />
+            <pointLight color="white" intensity={1} position={[10, 10, 10]} />
+            <Scene ref2={ref2} />
+          </ScrollControls>
+        </Canvas>
+        <div
+          style={{
+            // backgroundColor: "black",
+            position: "fixed",
+            top: "40vh",
+            left: "10vw",
+            height: "50vh",
+            // width: "50vw",
+            color: "white",
+            zIndex: "10",
+            fontSize: "40px",
+          }}
+          className={classTexte ? "hovered" : "notHovered"}
+        >
+          {texttt}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

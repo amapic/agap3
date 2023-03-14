@@ -4,63 +4,141 @@ import { gsap } from "gsap";
 export default function Screen1() {
   const ref = useRef(null);
   const [hoverr, setHover] = useState("");
+  const clicked = useRef(false);
 
   const x = useRef(0);
   const y = useRef(0);
-  const mousemove = (e) => {
-    x.current = e.clientX;
-    y.current = e.clientY;
-    document.querySelector(":root").style.setProperty("--x", x.current);
-    document.querySelector(":root").style.setProperty("--y", y.current);
-    // gsap.quickTo("#id", "x", { duration: 0.4, ease: "power3" });
-    // gsap.to(ref, {
-    //   clipPath: `circle(200px at ${x} ${y})`,
-    // });
-
-    console.log(
-      "dghdgh",
-      document.querySelector(":root").style.getPropertyValue("--y")
-    );
-  };
 
   useLayoutEffect(() => {
     document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
-      // console.log("circle(200px at " + e.pageX + "px " + e.pageY + "px)");
-      ref.current.style.setProperty(
-        "clip-path",
-        "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
-      );
-    });
-
-    const setY = gsap.to("#div_clip_path", {
-      duration: 0.5,
-      ease: "power2",
-      clipPath: "circle(100px at 20px 20px)",
+      if (!clicked.current) {
+        ref.current.style.setProperty(
+          "clip-path",
+          "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
+        );
+      }
     });
 
     document.querySelector(".home-cover").addEventListener("mouseleave", () => {
-      // alert("rr");
-      var tt = "circle(100px at 20px 20px)";
-      setY();
-      // ref.current.style.setAttribute("r", "0");
-      // let ctx = gsap.context((self) => {
-      //   // var scrollSunTl = gsap.timeline();
-      //   ;
-      //   //mouvement gén éral
-      //   gsap.quickTo("#div_clip_path", {
-      //     clipPath: tt,
-      //     duration: "1",
-      //   });
-      // }, ref.current);
+      if (!clicked.current) {
+        gsap.to("#div_clip_path", {
+          duration: 1,
+          ease: "power2",
+          clipPath: "circle(200px at 72vw 50%)",
+        });
+      }
+    });
+
+    document.querySelector(".home-cover").addEventListener("click", () => {
+      if (!clicked.current) {
+        var clipPath = ref.current.style.getPropertyValue("clip-path");
+
+        if (clipPath) {
+          clipPath = clipPath.split("at");
+          clipPath = "circle(100vw at " + clipPath[1];
+          clicked.current = true;
+          gsap.to("#div_clip_path", {
+            duration: 3,
+            ease: "power2",
+            clipPath: clipPath,
+          });
+        }
+      }
     });
   }, []);
 
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // let q = document.querySelector(".line:nth-child(1) .word:nth-child(1)");
+
+      function q(x) {
+        return document.querySelectorAll(x);
+      }
+      // gsap.fromTo(
+      //   ".home-cover__content .line:nth-of-type(1)",
+      //   {
+      //     zIndex: "10",
+      //   },
+      //   {
+      //     duration: 1.2,
+      //     // ease: "power2",
+      //     // backgroundColor: "red",
+      //     // color: "red",
+      //     // fontColor: "red",
+      //     y: "-40px",
+      //     zIndex: "10",
+      //     marginTop: "20px",
+      //     // lineHeight: "20px",
+      //   }
+      // );
+
+      gsap.from(
+        q(
+          "#div_clip_path .home-cover__content .line:nth-child(1) .word:nth-child(1)"
+        ),
+        {
+          // backgroundColor: "red",
+          y: "-30px",
+          duration: "1",
+          ease: "linear",
+        },
+        0
+      );
+
+      // gsap.fromTo(
+      //   q(".home-cover__content .line:nth-child(1) .word:nth-child(2)"),
+      //   {
+      //     // backgroundColor: "red",
+      //     y: "10vh",
+      //     duration: "1",
+      //   },
+      //   {
+      //     // backgroundColor: "red",
+      //     y: "0vh",
+      //     duration: "1",
+      //     // position: "relative",
+      //   },
+      //   0.2
+      // );
+
+      // gsap.fromTo(
+      //   q(".home-cover__content .line:nth-child(2) .word:nth-child(1)"),
+      //   {
+      //     // backgroundColor: "red",
+      //     y: "10vh",
+      //     duration: "1",
+      //   },
+      //   {
+      //     // backgroundColor: "red",
+      //     y: "0vh",
+      //     duration: "1",
+      //   },
+      //   0
+      // );
+
+      // gsap.from(
+      //   q(".home-cover__you .line:nth-child(1) .word:nth-child(1)"),
+      //   {
+      //     // backgroundColor: "red",
+      //     y: "10vh",
+      //     duration: "1",
+      //   },
+      //   // {
+      //   //   // backgroundColor: "red",
+      //   //   y: "0vh",
+      //   //   duration: "1",
+      //   //   // position: "relative",
+      //   // },
+      //   0
+      // );
+    });
+
+    return () => ctx.revert();
+  });
+
   return (
     <>
-      <div
-        className={hoverr + " home-cover relative w-full h-screen z-100"}
-        // onMouseMove={mousemove}
-      >
+      <div className={hoverr + " home-cover relative w-full h-screen z-100"}>
         <div className="home-cover__wrapper relative w-full cursor-pointer overflow-hidden js-cover">
           <div
             id="div_clip_path"
@@ -69,8 +147,11 @@ export default function Screen1() {
           >
             <header
               id="header_1"
-              className="hidden header fixed flex items-center w-full opacity-0 invisible rg:opacity-100 rg:visible z-20"
-              // style="--header-bg-color: var(--color-transparent); --header-text-color: var(--color-white);"
+              className="header fixed flex items-center w-full opacity-0 invisible rg:opacity-100 rg:visible z-20"
+              style={{
+                backgroundColor: "var(--color-transparent)",
+                color: "var(--color-white)",
+              }}
               data-text-color="white"
             >
               <div className=" header__container flex items-center justify-between w-full">
@@ -307,7 +388,7 @@ export default function Screen1() {
             </header>
 
             <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
-              <header
+              {/* <header
                 id="header_mobile_1"
                 className="header fixed flex flex-wrap w-full"
                 // style={{ backgroundColor: "rgba(0, 0, 255, 0.5)" }}
@@ -494,7 +575,7 @@ export default function Screen1() {
                     </li>
                   </ul>
                 </nav>
-              </header>
+              </header> */}
             </div>
 
             <video
@@ -617,7 +698,10 @@ export default function Screen1() {
               className="header fixed flex items-center w-full opacity-0 invisible rg:opacity-100 rg:visible z-20"
               // style="--header-bg-color: var(--color-transparent); --header-text-color: var(--color-brown);"
               data-text-color="brown"
-              // style={{ backgroundColor: "rgba(0, 0, 0,1)" }}
+              style={{
+                backgroundColor: "var(--color-transparent)",
+                color: "var(--color-brown)",
+              }}
             >
               <div className="header__container flex items-center justify-between w-full">
                 <div className="flex items-center h-full">
@@ -853,7 +937,7 @@ export default function Screen1() {
             </header>
 
             <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
-              <header
+              {/* <header
                 id="header_mobile_2"
                 className="hidden header fixed flex flex-wrap w-full"
                 // style="background-color: var(--color-transparent);"
@@ -1040,7 +1124,7 @@ export default function Screen1() {
                     </li>
                   </ul>
                 </nav>
-              </header>
+              </header> */}
             </div>
 
             <div className="home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10">
