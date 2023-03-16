@@ -32,11 +32,13 @@ function PictureSlide({ i }) {
     (state) => state
   );
   const ref = useRef();
+  // const dateInSec = useRef();
   const data = useScroll();
   const map = useLoader(TextureLoader, `homepage/${i + 1}.png`);
   const vec = new THREE.Vector3();
   const [hover, setHover] = useState([1, 1, 1]);
   const rrandom = useRef(0);
+  const rrandom2 = useRef(Math.random());
 
   const adresses = [
     "http://46.101.250.41:4000",
@@ -67,6 +69,16 @@ function PictureSlide({ i }) {
 
   useFrame(({ gl, scene, camera }) => {
     ref.current.position.y = data.offset * 5 * 2 - i * 2;
+  });
+
+  useFrame((state, delta, xrFrame) => {
+    let d = new Date();
+    // console.log(rrandom2);
+    // d.getTime() / 1000
+    ref.current.position.x +=
+      0.001 * Math.cos((3 * rrandom2.current * d.getTime()) / 1000);
+    // ref.current.position.x + 3 * Math.cos(d.getTime() / 1000);
+    // This function runs at the native refresh rate inside of a shared render-loop
   });
 
   return (
