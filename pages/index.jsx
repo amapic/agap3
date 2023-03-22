@@ -6,6 +6,8 @@ import * as THREE from "three";
 import { ScrollControls, useScroll, Html } from "@react-three/drei";
 import { useSpring, animated, config } from "@react-spring/three";
 
+import Link from "next/link";
+
 import { useRouter } from "next/router";
 
 import { name } from "package.json";
@@ -40,10 +42,7 @@ function PictureSlide({ i }) {
   const rrandom = useRef(0);
   const rrandom2 = useRef(Math.random());
 
-  const adresses = [
-    "http://46.101.250.41:4000",
-    "http://46.101.250.41:3000/agap2",
-  ];
+  const adresses = ["http://46.101.250.41:4000", "/agap2"];
 
   const textes = [
     "Reproduction du site Agap2",
@@ -83,6 +82,7 @@ function PictureSlide({ i }) {
 
   return (
     <>
+      {/* <Link href="/agap2"> */}
       <animated.mesh
         scale={scale}
         rotation={rotation}
@@ -98,7 +98,6 @@ function PictureSlide({ i }) {
           document.body.style.cursor = "auto";
           setHover(false);
           setClass(false);
-          // setText("");
         }}
         onClick={() => {
           window.open(adresses[i]);
@@ -107,6 +106,7 @@ function PictureSlide({ i }) {
         <planeGeometry args={[1 * 2, 0.55 * 2, 16, 16]} />
         <meshBasicMaterial map={map} />
       </animated.mesh>
+      {/* </Link> */}
     </>
   );
 }
