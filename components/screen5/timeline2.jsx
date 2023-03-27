@@ -188,7 +188,7 @@ export default function Timeline(width, height, initFontSizeZoom) {
     "#backgroundCircle",
     {
       // top: topZoom + "vh",
-      transform: "scale(2000)",
+      transform: "scale(2500)",
       transformOrigin: "center",
       // opacity: "1",
       duration: "1",

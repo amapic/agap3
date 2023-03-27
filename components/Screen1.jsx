@@ -1136,16 +1136,13 @@ export default function Screen1() {
                 >
                   <div
                     className="line"
-                    // style="display: block; text-align: right; position: relative;"
                   >
                     <div
-                      // style="position:relative;display:inline-block;"
                       className="word"
                     >
                       The
                     </div>
                     <div
-                      // style="position:relative;display:inline-block;"
                       className="word"
                     >
                       world
@@ -1153,10 +1150,8 @@ export default function Screen1() {
                   </div>
                   <div
                     className="line"
-                    // style="display: block; text-align: right; position: relative;"
                   >
                     <div
-                      // style="position:relative;display:inline-block;"
                       className="word"
                     >
                       needs...
@@ -1166,14 +1161,11 @@ export default function Screen1() {
                 <div
                   className="home-cover__you absolute md:relative md:right-0 md:top-0 md:-mt-4 lg:-mt-8 md:ml-auto pl-12 md:pr-10 lg:pr-24 xl:pr-40 md:pl-12 w-auto text-5xl md:text-6xl xl:text-9xl text-yellow js-tosplit"
                   data-cartapus="visible"
-                  // style=""
                 >
                   <div
                     className="line"
-                    // style="display: block; text-align: start; position: relative;"
                   >
                     <div
-                      // style="position:relative;display:inline-block;"
                       className="word"
                     >
                       you
@@ -1216,15 +1208,6 @@ export default function Screen1() {
         </div>
       </div>
 
-      {/* <div
-        style={{
-          height: "300vh",
-          width: "100vw",
-          backgroundColor: "teal",
-        }}
-      >
-        AA
-      </div> */}
     </>
   );
 }

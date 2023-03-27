@@ -24,23 +24,25 @@ export default function Screen4() {
     let q = gsap.utils.selector(zoom);
 
     let ctx = gsap.context(() => {
-      var mediaQueries = [
-        { id: "x-small", media: "(max-width: 400px)" },
-        { id: "small", media: "(min-width: 400px) and (max-width: 700px)" },
-        { id: "medium", media: "(min-width: 700px) and (max-width: 1000px)" },
-        { id: "large", media: "(min-width: 1000px) and (max-width: 1300px)" },
-        { id: "x-large", media: "(min-width: 1300px)" },
-      ];
+      // var mediaQueries = [
+      //   { id: "x-small", media: "(max-width: 400px)" },
+      //   { id: "small", media: "(min-width: 400px) and (max-width: 700px)" },
+      //   { id: "medium", media: "(min-width: 700px) and (max-width: 1000px)" },
+      //   { id: "large", media: "(min-width: 1000px) and (max-width: 1300px)" },
+      //   { id: "x-large", media: "(min-width: 1300px)" },
+      // ];
 
       const mm = gsap.matchMedia();
       mm.add(
         {
-          isSmall: "(max-width: 1200px)",
+          isSmall: "(max-width: 768px)",
           isLarge: "(min-width: 1201px) and (max-width: 1300px)",
           isXLarge: "(min-width: 1301px)",
         },
         (c) => {
-          var scrollSunTl = gsap.timeline({ invalidateOnRefresh: true });
+          var scrollSunTl = gsap.timeline({ invalidateOnRefresh: false});
+
+
 
           //mouvement gén éral
           scrollSunTl.to("#container_move4", {
@@ -55,9 +57,16 @@ export default function Screen4() {
             },
           });
 
+          // scrollSunTl.to("#bgCircle",{
+          //   opacity:"1",
+          //   duration:"0"
+          // },
+
+          // );
+
           //cercle
           // console.log("size", c.conditions);
-          if (c.conditions.isXLarge) {
+          // if (c.conditions.isXLarge) {
             scrollSunTl.to("#bgCircle", {
               scrollTrigger: {
                 trigger: "#screen4",
@@ -66,47 +75,47 @@ export default function Screen4() {
                 toggleActions: "play none none reset",
                 scrub: 1,
               },
-              transform: "scale(200)",
+              transform: "scale(100)",
               transformOrigin: "center",
-              left: "-20vw",
+              // left: "-20vw",
               borderRadius: "10px",
             });
-          }
-          if (c.conditions.isLarge) {
-            scrollSunTl.to("#bgCircle", {
-              scrollTrigger: {
-                trigger: "#screen4",
-                start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-                end: "top+=70% bottom",
-                toggleActions: "play none none reset",
-                scrub: 1,
-              },
-              transform: "scale(180)",
-              transformOrigin: "center",
-              // backgroundColor: "red",
-              // borderColor: "red",
-              left: "-20vw",
-              borderRadius: "10px",
-            });
-          }
+          // }
+          // if (c.conditions.isLarge) {
+          //   scrollSunTl.to("#bgCircle", {
+          //     scrollTrigger: {
+          //       trigger: "#screen4",
+          //       start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+          //       end: "top+=70% bottom",
+          //       toggleActions: "play none none reset",
+          //       scrub: 1,
+          //     },
+          //     transform: "scale(100)",
+          //     transformOrigin: "center",
+          //     // backgroundColor: "red",
+          //     // borderColor: "red",
+          //     // left: "-20vw",
+          //     borderRadius: "10px",
+          //   });
+          // }
 
-          if (c.conditions.isSmall) {
-            scrollSunTl.to("#bgCircle", {
-              scrollTrigger: {
-                trigger: "#screen4",
-                start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-                end: "top+=70% bottom",
-                toggleActions: "play none none reset",
-                scrub: 1,
-              },
-              transform: "scale(150)",
-              transformOrigin: "center",
-              // backgroundColor: "red",
-              // borderColor: "red",
-              left: "-20vw",
-              borderRadius: "10px",
-            });
-          }
+          // if (c.conditions.isSmall) {
+          //   scrollSunTl.to("#bgCircle", {
+          //     scrollTrigger: {
+          //       trigger: "#screen4",
+          //       start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+          //       end: "top+=70% bottom",
+          //       toggleActions: "play none none reset",
+          //       scrub: 1,
+          //     },
+          //     transform: "scale(100)",
+          //     transformOrigin: "center",
+          //     // backgroundColor: "red",
+          //     // borderColor: "red",
+          //     // left: "-20vw",
+          //     borderRadius: "10px",
+          //   });
+          // }
 
           //les timeline se passe les unes après les autres
           Timeline1(scrollSunTl, q);
@@ -151,10 +160,11 @@ export default function Screen4() {
               style={{
                 left: "0vw",
                 borderRadius: "999px",
-                width: "10px",
-                height: "10px",
+                width: "1vw",
+                height: "1vw",
                 zIndex: "10",
                 top: "calc(50vh - 5px)",
+                // opacity:"0",
                 // bottom: "30vh",
                 // margin: "auto 0",
                 position: "absolute",

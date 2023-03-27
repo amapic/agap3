@@ -38,10 +38,29 @@ export default function Home() {
   const widthBiggerCircle = useRef("0px");
   const widthSmallerCircle = useRef("0px");
 
+  const divStyle = {
+    top: "calc(10vh + 40px)",
+    borderRadius: "50%",
+    backgroundColor: "rgba(0, 0, 0, 0)",
+    borderWidth: "2px",
+    borderColor: "#ffe26e",
+    // width: widthSmallerCircle.current, //"470px",
+    // height: widthSmallerCircle.current, //"470px",
+    width: "400px",
+    height: "400px",
+    // margin: "auto",
+    left: 0,
+    right: 0,
+    position: "absolute",
+    opacity: "0",
+    margin: "0 auto",
+    zIndex: "2",
+  }
+
   useLayoutEffect(() => {
     widthBiggerCircle.current = Math.round((1200 / 4) * 1.4, 2) + "px";
     widthSmallerCircle.current = Math.round((1200 / 4 - 30) * 1.4, 2) + "px";
-    console.log("w cercle", widthBiggerCircle.current);
+    // console.log("w cercle", widthBiggerCircle.current);
   });
 
   return (
@@ -81,7 +100,7 @@ export default function Home() {
           id="biggerWhiteCircle2"
           style={{
             // top: h / 10 / 1.4 + "px",
-            top: "-100px",
+            top: "10vh",
             borderRadius: "50%",
             backgroundColor: "rgba(0, 0, 0, 0)",
             borderWidth: "2px",
@@ -100,24 +119,7 @@ export default function Home() {
 
         <div
           id="smallerWhiteCircle2"
-          style={{
-            top: "-60px",
-            borderRadius: "50%",
-            backgroundColor: "rgba(0, 0, 0, 0)",
-            borderWidth: "2px",
-            borderColor: "#ffe26e",
-            // width: widthSmallerCircle.current, //"470px",
-            // height: widthSmallerCircle.current, //"470px",
-            width: "400px",
-            height: "400px",
-            // margin: "auto",
-            left: 0,
-            right: 0,
-            position: "absolute",
-            opacity: "0",
-            margin: "0 auto",
-            zIndex: "2",
-          }}
+          style={divStyle}
         />
 
         <div
@@ -132,7 +134,7 @@ export default function Home() {
         </div>
         <img
           id="plane"
-          src="/avion-test2-2.png.webp"
+          src="/agap2/avion-test2-2.png.webp"
           style={{
             width: "40vw",
             position: "fixed",

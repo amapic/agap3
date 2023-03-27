@@ -10,7 +10,7 @@ import { SphereGeometry } from "three";
 gsap.registerPlugin(ScrollTrigger);
 
 const Planete = (props, ref) => {
-  const { nodes } = useLoader(GLTFLoader, "/low_poly_earth.gltf");
+  const { nodes } = useLoader(GLTFLoader, "/agap2/low_poly_earth.gltf");
 
   let ColorYellow = getComputedStyle(document.documentElement).getPropertyValue(
     "--color-yellow"
@@ -171,7 +171,6 @@ const CanvasPlanete = () => {
 
           <PlaneteBis ref={ref} />
 
-          {/* <OrbitControls /> */}
         </Canvas>
       </div>
     </div>
