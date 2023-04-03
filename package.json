@@ -1,11 +1,10 @@
 {
   "name": "agap2",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build && next export",
+    "build": "next build && next export -o agap2",
     "start": "next start",
     "lint": "next lint"
   },
@@ -21,6 +20,7 @@
     "next-absolute-url": "^1.2.2",
     "postcss": "^8.4.21",
     "react": "18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
     "react-scroll": "^1.8.9",
     "three": "^0.149.0",

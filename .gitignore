@@ -14,6 +14,7 @@
 # production
 /build
 /out
+/agap2
 
 # misc
 .DS_Store

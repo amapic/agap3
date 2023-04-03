@@ -1,22 +1,13 @@
 
-import * as Scroll from "react-scroll";
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
+import Head from 'next/head'
+import {  isMobile } from "react-device-detect";
 
-import { useLayoutEffect } from "react";
+import { useState,useEffect } from "react";
 
 import { gsap } from "gsap";
 
 import Header from "@/components/header2";
 import Screen1 from "@/components/Screen1";
-// import Screen1_2 from "@/components/Screen1_";
 import Screen4 from "@/components/Screen4";
 import Screen5 from "@/components/Screen5";
 export default function Home() {
@@ -24,7 +15,7 @@ export default function Home() {
 
   let cursorWidth = "40";
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // let circleToHover = null || document.querySelector(".circleToHover");
 
     // let ctx = gsap.context((self) => {
@@ -52,11 +43,24 @@ export default function Home() {
     });
   }, []);
 
+  const [_isMobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    setMobile(isMobile);
+  }, [setMobile]);
+
+  console.log("mobile",_isMobile)
+
   return (
     <>
+      <Head>
+        <title>Portfolio A.PICHAT</title>
+        <link rel="shortcut icon" href="/agap2/favicon.ico" />
+      </Head>
       <div
         style={{
           overflow: "hidden",
+          display: _isMobile?"none":"block"
         }}
       >
         <div
@@ -81,7 +85,19 @@ export default function Home() {
         <Screen4 />
         <Screen5 />
       </div>
-      {/* </div> */}
+      <div
+          style={{
+            backgroundColor: "white",
+            height: "100vh",
+            width: "100wh",
+            color: "black",
+            textAlign: "center",
+            lineHeight: "25vh",
+            display: _isMobile?"block":"none" ,
+          }}
+        >
+          Site non prévu pour Smartphone
+        </div>
     </>
   );
 }

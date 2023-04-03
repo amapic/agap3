@@ -12,13 +12,9 @@ gsap.registerPlugin(ScrollTrigger);
 const Planete = (props, ref) => {
   const { nodes } = useLoader(GLTFLoader, "/agap2/low_poly_earth.gltf");
 
-  let ColorYellow = getComputedStyle(document.documentElement).getPropertyValue(
-    "--color-yellow"
-  );
+  var ColorYellow="#ffcd00"
 
-  let ColorBlue = getComputedStyle(document.documentElement).getPropertyValue(
-    "--color-blue"
-  );
+  var ColorBlue="#0226aa"
 
   const refLoc = useRef(null);
 
@@ -26,6 +22,17 @@ const Planete = (props, ref) => {
   const rotationSpeed = useRef(0.005);
 
   useEffect(() => {
+
+    // if (window) {
+    //   ColorYellow = getComputedStyle(
+    //     document.documentElement
+    //   ).getPropertyValue("--color-yellow");
+  
+    //   ColorBlue = getComputedStyle(document.documentElement).getPropertyValue(
+    //     "--color-blue"
+    //   );
+    // }
+    
     window.addEventListener("scroll", controlDirection);
     return () => {
       window.removeEventListener("scroll", controlDirection);
@@ -170,7 +177,6 @@ const CanvasPlanete = () => {
           <pointLight position={[-10, -10, -10]} />
 
           <PlaneteBis ref={ref} />
-
         </Canvas>
       </div>
     </div>

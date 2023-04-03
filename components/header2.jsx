@@ -5,7 +5,6 @@ export default function Header() {
   useLayoutEffect(() => {
     const para = document.querySelector(".header__menu__el");
 
-    // alert(window.getComputedStyle(para).fontSize);
   });
   return (
     <header
