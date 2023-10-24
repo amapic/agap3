@@ -16,7 +16,7 @@
     --color-gray-transparent: rgba(227, 224, 219, 0.2);
     --color-red: #ff6565;
     --color-yellow: #ffcd00;
-    --color-blue: #0226aa;
+    --color-blue-dark: #0226aa;
     --color-brown: #544502;
     --color-body: #2a2a2a;
     --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -545,8 +545,8 @@ video {
 }
 
 .bg-gray-transparent {
-    background-color: rgba(227, 224, 219, .2);
-    background-color: var(--color-gray-transparent)
+    background-color: rgba(249, 249,249, 1);
+    /* background-color: var(--color-gray-transparent); */
 }
 
 .bg-yellow {
@@ -556,7 +556,7 @@ video {
 
 .bg-blue {
     background-color: #0226aa;
-    background-color: var(--color-blue)
+    background-color: var(--color-blue-dark)
 }
 
 .bg-brown {
@@ -566,7 +566,7 @@ video {
 
 .hover\:bg-blue:hover {
     background-color: #0226aa;
-    background-color: var(--color-blue)
+    background-color: var(--color-blue-dark)
 }
 
 .border-white {
@@ -1705,7 +1705,7 @@ video {
 
 .text-blue {
     color: #0226aa;
-    color: var(--color-blue)
+    color: var(--color-blue-dark)
 }
 
 .text-brown {
@@ -2200,7 +2200,7 @@ h3.white span {
 
 .mce a {
     color: #0226aa;
-    color: var(--color-blue);
+    color: var(--color-blue-dark);
     transition-duration: .3s;
     transition-timing-function: cubic-bezier(.25, .46, .45, .94);
     transition-timing-function: var(--ease-out-quad);
@@ -3110,7 +3110,7 @@ canvas {
 
 .anchors a:hover {
     color: #0226aa;
-    color: var(--color-blue)
+    color: var(--color-blue-dark)
 }
 
 .banner {
@@ -3203,7 +3203,7 @@ canvas {
     top: 50%;
     left: 50%;
     background-color: #0226aa;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-dark);
     width: 100%;
     height: 1px;
     --transform-translate-x: 0;
@@ -3234,7 +3234,7 @@ canvas {
 .categories__wrap a.active,
 .categories__wrap a:hover {
     background-color: #0226aa;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-dark);
     color: #fff;
     color: var(--color-white)
 }
@@ -3302,7 +3302,7 @@ canvas {
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
     border-left: 22px solid #0226aa;
-    border-left: 22px solid var(--color-blue)
+    border-left: 22px solid var(--color-blue-dark)
 }
 
 .cover-adn-vision__btn[data-cartapus] span {
@@ -3589,9 +3589,9 @@ canvas {
 .header .categories__wrap>div.active,
 .header .categories__wrap>div:hover {
     background-color: #0226aa;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-dark);
     border-color: #0226aa;
-    border-color: var(--color-blue);
+    border-color: var(--color-blue-dark);
     color: #fff;
     color: var(--color-white)
 }
@@ -3712,7 +3712,7 @@ canvas {
 
 .header[data-text-color=white] .header__menu__el:hover .points .bg-blue {
     background-color: #0226aa;
-    background-color: var(--color-blue)
+    background-color: var(--color-blue-dark)
 }
 
 .header[data-text-color=white] .header__menu__el .points .bg-blue {
@@ -4574,7 +4574,7 @@ canvas {
 
 .home-zoom__zoom p>span>span {
     color: #0226aa;
-    color: var(--color-blue)
+    color: var(--color-blue-dark)
 }
 
 .home-zoom__circle {
@@ -5303,7 +5303,7 @@ canvas {
 
 .card-news .points__pt {
     background-color: #0226aa !important;
-    background-color: var(--color-blue) !important
+    background-color: var(--color-blue-dark) !important
 }
 
 .card-news__text:after,
@@ -5517,7 +5517,7 @@ canvas {
     transform: translate(-50%, -5px);
     font-size: .6rem;
     color: #0226aa;
-    color: var(--color-blue);
+    color: var(--color-blue-dark);
     font-weight: 700
 }
 
@@ -5612,7 +5612,7 @@ canvas {
 
 .dropdown__select:hover .points__pt.bg-yellow {
     background-color: #0226aa;
-    background-color: var(--color-blue)
+    background-color: var(--color-blue-dark)
 }
 
 .dropdown__choices {
@@ -5634,7 +5634,7 @@ canvas {
 
 .dropdown__choice:hover {
     background-color: #0226aa;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-dark);
     color: #fff;
     color: var(--color-white)
 }
@@ -5775,7 +5775,7 @@ canvas {
 .points-link:hover .points__pt.bg-yellow,
 .points:hover .points__pt.bg-yellow {
     background-color: #0226aa;
-    background-color: var(--color-blue)
+    background-color: var(--color-blue-dark)
 }
 
 .side-button {
@@ -6014,7 +6014,7 @@ canvas {
     content: "";
     position: absolute;
     background-color: #0226aa;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-dark);
     z-index: -1;
     top: 0;
     -webkit-backface-visibility: hidden;
@@ -6113,13 +6113,13 @@ canvas {
     background-color: #fff;
     background-color: var(--color-white);
     color: #0226aa;
-    color: var(--color-blue)
+    color: var(--color-blue-dark)
 }
 
 .form .frm_submit a:before,
 .form .frm_submit button:before {
     background-color: #0226aa;
-    background-color: var(--color-blue)
+    background-color: var(--color-blue-dark)
 }
 
 .form .frm_submit a:not(:first-child),
@@ -6269,7 +6269,7 @@ canvas {
 
 .numbers__number:hover:before {
     background-color: #0226aa;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-dark);
     --transform-scale-x: 1.25;
     --transform-scale-y: 1.25;
     transition: transform .4s cubic-bezier(.455, .03, .515, .955), background-color .4s cubic-bezier(.455, .03, .515, .955);
@@ -6285,7 +6285,7 @@ canvas {
         width: 50%;
         height: 100%;
         background-color: #0226aa;
-        background-color: var(--color-blue);
+        background-color: var(--color-blue-dark);
         z-index: -1
     }
 }
@@ -6343,7 +6343,7 @@ canvas {
 
 .quizv2__intro .mce {
     color: #0226aa;
-    color: var(--color-blue);
+    color: var(--color-blue-dark);
     font-weight: 400;
     line-height: 1.5
 }
@@ -6355,7 +6355,7 @@ canvas {
 .quizv2__intro .frm_submit a,
 .quizv2__intro .frm_submit button {
     background-color: #0226aa;
-    background-color: var(--color-blue)
+    background-color: var(--color-blue-dark)
 }
 
 .quizv2__illustration {
@@ -6421,7 +6421,7 @@ canvas {
 .quizv2__content .frm_opt_container input[type=checkbox]:before,
 .quizv2__content .frm_opt_container input[type=radio]:before {
     border-color: #0226aa;
-    border-color: var(--color-blue)
+    border-color: var(--color-blue-dark)
 }
 
 .quizv2__content .frm_top_container:not(.frm_small) {
@@ -6448,14 +6448,14 @@ canvas {
     margin-bottom: 1rem;
     text-align: center;
     background-color: #0226aa;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-dark);
     color: #fff;
     color: var(--color-white);
     text-transform: uppercase;
     display: inline;
     z-index: 10;
     box-shadow: .5em 0 0 #0226aa, -.5em 0 0 #0226aa;
-    box-shadow: .5em 0 0 var(--color-blue), -.5em 0 0 var(--color-blue);
+    box-shadow: .5em 0 0 var(--color-blue-dark), -.5em 0 0 var(--color-blue-dark);
     line-height: 33.565px !important;
     line-height: calc(var(--text-2xl)*1.37) !important;
     padding-bottom: 5px
@@ -6489,7 +6489,7 @@ canvas {
     line-height: 21.875px;
     line-height: calc(var(--text-xl)*1.25);
     color: #0226aa;
-    color: var(--color-blue);
+    color: var(--color-blue-dark);
     opacity: 1;
     z-index: -1;
     font-weight: 400
@@ -6533,7 +6533,7 @@ canvas {
     line-height: calc(var(--text-lg)*1.25);
     font-weight: 700;
     color: #0226aa;
-    color: var(--color-blue)
+    color: var(--color-blue-dark)
 }
 
 @media (min-width:1000px) {
@@ -6585,7 +6585,7 @@ canvas {
     width: 100%;
     height: .25rem;
     background-color: #0226aa;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-dark);
     text-indent: -9000px;
     text-transform: capitalize
 }
@@ -6608,7 +6608,7 @@ canvas {
     justify-content: center;
     border-radius: .75rem;
     color: #0226aa;
-    color: var(--color-blue);
+    color: var(--color-blue-dark);
     font-size: 16.625px;
     font-size: var(--text-lg);
     line-height: 20.78125px;
@@ -6673,7 +6673,7 @@ canvas {
     line-height: 21.875px;
     line-height: calc(var(--text-xl)*1.25);
     background-color: #0226aa;
-    background-color: var(--color-blue)
+    background-color: var(--color-blue-dark)
 }
 
 @media (min-width:768px) {
@@ -6959,7 +6959,7 @@ canvas {
 
 .tabs__tab:hover p:first-child {
     color: #0226aa;
-    color: var(--color-blue);
+    color: var(--color-blue-dark);
     transform: translateX(calc(-100% - 55px))
 }
 
@@ -7179,7 +7179,7 @@ canvas {
 .testimony .points-link:hover .points__pt,
 .testimony .points:hover .points__pt {
     background-color: #0226aa;
-    background-color: var(--color-blue)
+    background-color: var(--color-blue-dark)
 }
 
 .text-imgs__circle {
@@ -7761,7 +7761,7 @@ canvas {
     width: fit-content;
     padding: .75rem 1.5rem;
     background-color: #0226aa;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-dark);
     color: #fff;
     color: var(--color-white);
     transition-property: all;
@@ -8175,7 +8175,7 @@ canvas {
 
     .sm\:bg-blue {
         background-color: #0226aa;
-        background-color: var(--color-blue)
+        background-color: var(--color-blue-dark)
     }
 
     .sm\:bg-brown {
@@ -8287,7 +8287,7 @@ canvas {
 
     .sm\:text-blue {
         color: #0226aa;
-        color: var(--color-blue)
+        color: var(--color-blue-dark)
     }
 
     .sm\:text-brown {
@@ -8350,7 +8350,7 @@ canvas {
 
     .md\:bg-blue {
         background-color: #0226aa;
-        background-color: var(--color-blue)
+        background-color: var(--color-blue-dark)
     }
 
     .md\:bg-brown {
@@ -8866,7 +8866,7 @@ canvas {
 
     .md\:text-blue {
         color: #0226aa;
-        color: var(--color-blue)
+        color: var(--color-blue-dark)
     }
 
     .md\:text-brown {
@@ -9010,7 +9010,7 @@ canvas {
 
     .rg\:bg-blue {
         background-color: #0226aa;
-        background-color: var(--color-blue)
+        background-color: var(--color-blue-dark)
     }
 
     .rg\:bg-brown {
@@ -9318,7 +9318,7 @@ canvas {
 
     .rg\:text-blue {
         color: #0226aa;
-        color: var(--color-blue)
+        color: var(--color-blue-dark)
     }
 
     .rg\:text-brown {
@@ -9441,7 +9441,7 @@ canvas {
 
     .lg\:bg-blue {
         background-color: #0226aa;
-        background-color: var(--color-blue)
+        background-color: var(--color-blue-dark)
     }
 
     .lg\:bg-brown {
@@ -9662,7 +9662,7 @@ canvas {
 
     .lg\:text-blue {
         color: #0226aa;
-        color: var(--color-blue)
+        color: var(--color-blue-dark)
     }
 
     .lg\:text-brown {
@@ -9753,7 +9753,7 @@ canvas {
 
     .xl\:bg-blue {
         background-color: #0226aa;
-        background-color: var(--color-blue)
+        background-color: var(--color-blue-dark)
     }
 
     .xl\:bg-brown {
@@ -9944,7 +9944,7 @@ canvas {
 
     .xl\:text-blue {
         color: #0226aa;
-        color: var(--color-blue)
+        color: var(--color-blue-dark)
     }
 
     .xl\:text-brown {
@@ -10015,7 +10015,7 @@ canvas {
 
     .xxl\:bg-blue {
         background-color: #0226aa;
-        background-color: var(--color-blue)
+        background-color: var(--color-blue-dark)
     }
 
     .xxl\:bg-brown {
@@ -10072,7 +10072,7 @@ canvas {
 
     .xxl\:text-blue {
         color: #0226aa;
-        color: var(--color-blue)
+        color: var(--color-blue-dark)
     }
 
     .xxl\:text-brown {

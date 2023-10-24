@@ -94,8 +94,44 @@ body {
   border-radius: 50%;
   width: 100px;
 }
+/* Carousel */
 
-/* screen1 */
-/* #div_clip_path {
-  clip-path: circle(200px at var(--x) var(--y));
-} */
+.carousel-pager{
+  position:fixed;
+  bottom:10vh;
+  left:40vw;
+  width:100%;
+  margin:0 auto;
+  z-index:10000;
+}
+
+
+.active .carousel-pager-item {
+  width: 4px;
+  height: 40px;
+  /* background-color: #fff; */
+}
+
+.carousel-pager-item {
+  width: 2px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: height 1s ease;
+}
+
+.carousel-pager button {
+  position: relative;
+  padding: 0 8px;
+  margin: 0 2px;
+  border: 0;
+  background-color: transparent;
+  text-decoration: none;
+  transform: rotate(15deg);
+  cursor: pointer;
+  z-index:10000;
+}
+
+
+
+

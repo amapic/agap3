@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "../../merge"
+		},
+		{
+			"path": "../.next"
+		},
+		{
+			"path": "../agap2"
+		},
+		{
+			"path": "../components_agap2"
+		},
+		{
+			"path": "../node_modules"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../public"
+		},
+		{
+			"path": "../styles"
+		},
+		{
+			"path": "../../69pixl/components_siteWeb1"
+		}
+	],
+	"settings": {}
+}

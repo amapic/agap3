@@ -1,21 +1,61 @@
+import Head from "next/head";
+import { isMobile } from "react-device-detect";
 
-import Head from 'next/head'
-import {  isMobile } from "react-device-detect";
-
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { gsap } from "gsap";
 
-import Header from "@/components/header2";
-import Screen1 from "@/components/Screen1";
-import Screen4 from "@/components/Screen4";
-import Screen5 from "@/components/Screen5";
+import Header from "@/components_agap2/header2";
+import Screen1 from "@/components_agap2/Screen1";
+import Screen4 from "@/components_agap2/Screen4";
+import Screen5 from "@/components_agap2/Screen5";
+import Navv, {Carousel} from"@/components_agap2/Nav";
 export default function Home() {
-  // head body ???
 
   let cursorWidth = "40";
 
   useEffect(() => {
+    let ctx = gsap.context(() => {
+
+      let tl = gsap.timeline({
+
+        scrollTrigger: {
+          trigger: "#screen4",
+          start: "top top+=50%", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+          end: "bottom bottom+=50%",
+          // markers: true,
+          toggleActions: "play none none reset"
+        },
+      })
+
+      let tl2 = gsap.timeline({
+
+        scrollTrigger: {
+          trigger: "#container_move5",
+          start: "top top+=50%", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+          end: "bottom bottom",
+          // markers: true,
+          toggleActions: "play none none reset"
+        },
+      })
+
+      tl.to(".pathnav", {
+        stroke: "#ffcd00",
+        ease: "none",
+        // backgroundColor: "#ffcd00",
+
+      });
+
+      tl2.to(".pathnav", {
+        stroke: "#fff",
+        ease: "none",
+        // backgroundColor: "#fff",
+
+      });
+
+     
+    });
+
     // let circleToHover = null || document.querySelector(".circleToHover");
 
     // let ctx = gsap.context((self) => {
@@ -41,6 +81,8 @@ export default function Home() {
       setX(e.clientX - cursorWidth / 2);
       setY(e.clientY - cursorWidth / 2);
     });
+
+    return () => ctx.revert();
   }, []);
 
   const [_isMobile, setMobile] = useState(false);
@@ -49,7 +91,7 @@ export default function Home() {
     setMobile(isMobile);
   }, [setMobile]);
 
-  console.log("mobile",_isMobile)
+  console.log("mobile", _isMobile);
 
   return (
     <>
@@ -60,9 +102,11 @@ export default function Home() {
       <div
         style={{
           overflow: "hidden",
-          display: _isMobile?"none":"block"
+          display: _isMobile ? "none" : "block",
         }}
       >
+        <Navv />
+        <Carousel />
         <div
           id="mousemove"
           style={{
@@ -86,18 +130,18 @@ export default function Home() {
         <Screen5 />
       </div>
       <div
-          style={{
-            backgroundColor: "white",
-            height: "100vh",
-            width: "100wh",
-            color: "black",
-            textAlign: "center",
-            lineHeight: "25vh",
-            display: _isMobile?"block":"none" ,
-          }}
-        >
-          Site non prévu pour Smartphone
-        </div>
+        style={{
+          backgroundColor: "white",
+          height: "100vh",
+          width: "100wh",
+          color: "black",
+          textAlign: "center",
+          lineHeight: "25vh",
+          display: _isMobile ? "block" : "none",
+        }}
+      >
+        Site non prévu pour Smartphone
+      </div>
     </>
   );
 }
