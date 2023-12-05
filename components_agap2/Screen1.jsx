@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useLayoutEffect } from "react";
+import React,{ useRef, useEffect, useState, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 
 export default function Screen1() {
@@ -268,7 +268,7 @@ export default function Screen1() {
 
                 <nav className="header__menu px-4 rg:px-3 lg:px-4 xl:px-8 flex items-center hidden rg:flex">
                   <ul className="flex rg:mr-6 lg:mr-10 xl:mr-32">
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
+                    <li role="menu" className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
                         href="https://www.agap2.fr/agap2/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
