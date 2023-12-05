@@ -273,7 +273,7 @@ export default function Screen1() {
                         href="https://www.agap2.fr/agap2/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        agap2
+                        agap2222
                       </a>
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
