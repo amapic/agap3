@@ -1,59 +1,57 @@
 import Head from "next/head";
-import { isMobile } from "react-device-detect";
-
+// import { isMobile } from "react-device-detect";
+import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 
 import { gsap } from "gsap";
-
+import { useMediaQuery } from "react-responsive";
 import Header from "@/components_agap2/header2";
 import Screen1 from "@/components_agap2/Screen1";
 import Screen4 from "@/components_agap2/Screen4";
 import Screen5 from "@/components_agap2/Screen5";
-import Navv, {Carousel} from"@/components_agap2/Nav";
-export default function Home() {
-
+// import Navv, { Carousel } from "@/components_agap2/Nav";
+// import {
+//   BrowserView,
+//   MobileView,
+//   isBrowser,
+//   isMobile,
+// } from "react-device-detect";
+function Home() {
   let cursorWidth = "40";
-
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
   useEffect(() => {
     let ctx = gsap.context(() => {
-
       let tl = gsap.timeline({
-
         scrollTrigger: {
           trigger: "#screen4",
           start: "top top+=50%", // which means "when the top of the trigger hits 40px above the bottom of the viewport
           end: "bottom bottom+=50%",
           // markers: true,
-          toggleActions: "play none none reset"
+          toggleActions: "play none none reset",
         },
-      })
+      });
 
       let tl2 = gsap.timeline({
-
         scrollTrigger: {
           trigger: "#container_move5",
           start: "top top+=50%", // which means "when the top of the trigger hits 40px above the bottom of the viewport
           end: "bottom bottom",
           // markers: true,
-          toggleActions: "play none none reset"
+          toggleActions: "play none none reset",
         },
-      })
+      });
 
       tl.to(".pathnav", {
         stroke: "#ffcd00",
         ease: "none",
         // backgroundColor: "#ffcd00",
-
       });
 
       tl2.to(".pathnav", {
         stroke: "#fff",
         ease: "none",
         // backgroundColor: "#fff",
-
       });
-
-     
     });
 
     // let circleToHover = null || document.querySelector(".circleToHover");
@@ -85,13 +83,13 @@ export default function Home() {
     return () => ctx.revert();
   }, []);
 
-  const [_isMobile, setMobile] = useState(false);
+  // const [_isMobile, setMobile] = useState(false);
 
-  useEffect(() => {
-    setMobile(isMobile);
-  }, [setMobile]);
+  // useEffect(() => {
+  //   setMobile(isMobile);
+  // }, [setMobile]);
 
-  console.log("mobile", _isMobile);
+  // console.log("mobile", _isMobile);
 
   return (
     <>
@@ -99,49 +97,58 @@ export default function Home() {
         <title>Portfolio A.PICHAT</title>
         <link rel="shortcut icon" href="/agap2/favicon.ico" />
       </Head>
-      <div
+      {/* <div
         style={{
           overflow: "hidden",
           display: _isMobile ? "none" : "block",
         }}
-      >
-        <Navv />
-        <Carousel />
+      > */}
+      {/* <Navv /> */}
+      {/* <Carousel /> */}
+      {!isTabletOrMobile && (
+        <>
+          <div
+            id="mousemove"
+            style={{
+              backgroundColor: "transparent",
+              width: cursorWidth + "px",
+              height: cursorWidth + "px",
+              position: "fixed",
+              top: "0",
+              left: "0",
+              pointerEvents: "none",
+              borderRadius: "999px",
+              // borderColor: "red",
+              // border: "12px solid",
+              backgroundColor: "rgba(100,100,100,0.3)",
+              zIndex: "1000",
+            }}
+          ></div>
+          <Header />
+          <Screen1 />
+          <Screen4 />
+          <Screen5 />
+        </>
+      )}
+      {isTabletOrMobile && (
         <div
-          id="mousemove"
           style={{
-            backgroundColor: "transparent",
-            width: cursorWidth + "px",
-            height: cursorWidth + "px",
-            position: "fixed",
-            top: "0",
-            left: "0",
-            pointerEvents: "none",
-            borderRadius: "999px",
-            // borderColor: "red",
-            // border: "12px solid",
-            backgroundColor: "rgba(100,100,100,0.3)",
-            zIndex: "1000",
+            backgroundColor: "white",
+            height: "100vh",
+            width: "100wh",
+            color: "black",
+            textAlign: "center",
+            lineHeight: "25vh",
+            // display: _isMobile ? "block" : "none",
           }}
-        ></div>
-        <Header />
-        <Screen1 />
-        <Screen4 />
-        <Screen5 />
-      </div>
-      <div
-        style={{
-          backgroundColor: "white",
-          height: "100vh",
-          width: "100wh",
-          color: "black",
-          textAlign: "center",
-          lineHeight: "25vh",
-          display: _isMobile ? "block" : "none",
-        }}
-      >
-        Site non prévu pour Smartphone
-      </div>
+        >
+          Site non prévu pour Smartphone
+        </div>
+      )}
     </>
   );
 }
+
+export default dynamic(() => Promise.resolve(Home), {
+  ssr: false,
+});

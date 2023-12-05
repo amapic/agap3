@@ -144,7 +144,7 @@ export default function Screen4() {
       >
         <div
           id="container_move4"
-          className="home-numbers__wrapper relative w-full h-full flex flex-wrap items-stretch overflow-hidden z-0 bg-gray-transparent"
+          className="home-numbers__wrapper relative w-full h-full flex flex-wrap items-stretch overflow-hidden z-0"
         >
           <div
             // id="AAA"

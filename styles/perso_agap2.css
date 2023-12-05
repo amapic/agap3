@@ -15,6 +15,11 @@
   --y: "50";
 }
 
+#container_move4 {
+
+  background-color: rgba(249, 249, 249, 1);
+}
+
 @font-face {
   font-family: "SofiaPro-Black";
   src: url("../public/SofiaPro-Black.woff2");
@@ -94,15 +99,16 @@ body {
   border-radius: 50%;
   width: 100px;
 }
+
 /* Carousel */
 
-.carousel-pager{
-  position:fixed;
-  bottom:10vh;
-  left:40vw;
-  width:100%;
-  margin:0 auto;
-  z-index:10000;
+.carousel-pager {
+  position: fixed;
+  bottom: 10vh;
+  left: 40vw;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 10000;
 }
 
 
@@ -129,9 +135,5 @@ body {
   text-decoration: none;
   transform: rotate(15deg);
   cursor: pointer;
-  z-index:10000;
+  z-index: 10000;
 }
-
-
-
-

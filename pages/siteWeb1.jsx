@@ -122,8 +122,8 @@ const Home = () => {
         <title>Book A.PICHAT</title>
         <link rel="shortcut icon" href="/siteWeb1/favicon.ico" />
       </Head>
-      <Navv />
-      <Carousel />
+      {/* <Navv /> */}
+      {/* <Carousel /> */}
       <div ref={mouse} id="mousemove">
         <div id="cercle1"></div>
         <div id="cercle2"></div>

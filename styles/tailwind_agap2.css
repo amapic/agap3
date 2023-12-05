@@ -13,7 +13,7 @@
     --color-gray: #58595b;
     --color-gray-light: #f1f0ec;
     --color-gray-bright: #faf9f8;
-    --color-gray-transparent: rgba(227, 224, 219, 0.2);
+    --color-gray-transparent: rgba(249, 249,249, 1);
     --color-red: #ff6565;
     --color-yellow: #ffcd00;
     --color-blue-dark: #0226aa;
@@ -4805,7 +4805,7 @@ canvas {
 
 .step-form__bullet[data-available="0"] {
     background-color: rgba(227, 224, 219, .2);
-    background-color: var(--color-gray-transparent);
+    /* background-color: var(--color-gray-transparent); */
     opacity: .7;
     cursor: default
 }
