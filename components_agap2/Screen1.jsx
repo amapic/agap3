@@ -1206,7 +1206,7 @@ export default function Screen1() {
             </div>
 
             <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2">
-              THINK<span>2</span>MORROWWW
+              THINK<span>2</span>MORROW
             </div>
           </div>
         </div>
