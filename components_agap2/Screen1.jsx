@@ -1,4 +1,4 @@
-import React,{ useRef, useEffect, useState, useLayoutEffect } from "react";
+import React, { useRef, useEffect, useState, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 
 export default function Screen1() {
@@ -18,7 +18,7 @@ export default function Screen1() {
           "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
         );
 
-        gsap.killTweensOf("#div_clip_path")
+        gsap.killTweensOf("#div_clip_path");
       }
     });
 
@@ -134,6 +134,60 @@ export default function Screen1() {
       //   // },
       //   0
       // );
+
+      let div = document.getElementById("screen1");
+      let wwidth=window.screen.width;
+
+      // alert(wwidth)
+
+      for (let step = 0; step < 10; step++) {
+        let paragraph = document.createElement("p");
+        paragraph.classList.add("ccode");
+        paragraph.classList.add("my-1");
+
+        paragraph.textContent = "Hello, world!";
+        paragraph.style.top = (50 + step * 50).toString() + "px";
+        paragraph.style.left = (wwidth / 5).toString() + "px";
+        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+        div.appendChild(paragraph);
+      }
+
+      for (let step = 0; step < 10; step++) {
+        let paragraph = document.createElement("p");
+        paragraph.classList.add("ccode");
+        paragraph.classList.add("my-1");
+
+        paragraph.textContent = "Hello, world!";
+        paragraph.style.top = (50 + step * 50).toString() + "px";
+        paragraph.style.left = 2 * (wwidth / 5).toString() + "px";
+        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+        div.appendChild(paragraph);
+      }
+
+      for (let step = 0; step < 10; step++) {
+        let paragraph = document.createElement("p");
+        paragraph.classList.add("ccode");
+        paragraph.classList.add("my-1");
+
+        paragraph.textContent = "Hello, world!";
+        paragraph.style.top = (50 + step * 50).toString() + "px";
+        paragraph.style.left = 3 *(wwidth / 5).toString() + "px";
+        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+        div.appendChild(paragraph);
+      }
+
+      for (let step = 0; step < 10; step++) {
+        let paragraph = document.createElement("p");
+        paragraph.classList.add("ccode");
+        paragraph.classList.add("my-1");
+
+        paragraph.textContent = "Hello, world!";
+        paragraph.style.top = (50 + step * 50).toString() + "px";
+        paragraph.style.left = 4 * (wwidth / 5).toString() + "px";
+        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+        div.appendChild(paragraph);
+      }
+
     });
 
     return () => ctx.revert();
@@ -141,8 +195,10 @@ export default function Screen1() {
 
   return (
     <>
-     
-      <div className={hoverr + " home-cover relative w-full h-screen z-100"}>
+      <div
+        id="screen1"
+        className={hoverr + " home-cover relative w-full h-screen z-100"}
+      >
         <div className="home-cover__wrapper relative w-full cursor-pointer overflow-hidden js-cover">
           <div
             id="div_clip_path"
@@ -268,12 +324,15 @@ export default function Screen1() {
 
                 <nav className="header__menu px-4 rg:px-3 lg:px-4 xl:px-8 flex items-center hidden rg:flex">
                   <ul className="flex rg:mr-6 lg:mr-10 xl:mr-32">
-                    <li role="menu" className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
+                    <li
+                      role="menu"
+                      className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1"
+                    >
                       <a
                         href="https://www.agap2.fr/agap2/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        agap2
+                        Linkedin
                       </a>
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
@@ -281,7 +340,7 @@ export default function Screen1() {
                         href="https://www.agap2.fr/metiers/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        Métiers
+                        Github
                       </a>
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
@@ -289,7 +348,7 @@ export default function Screen1() {
                         href="https://www.agap2.fr/esprit/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        Esprit
+                        CV
                       </a>
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
@@ -329,7 +388,7 @@ export default function Screen1() {
                         </a>
                       </div>
                     </li>
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
+                    {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
                         href="https://www.agap2.fr/blog/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
@@ -358,12 +417,12 @@ export default function Screen1() {
                         href="https://www.agap2.fr/carriere/offres-demploi/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        Offres d’emploi
+                        Projets
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
 
-                  <ul className="lang-switcher leading-none">
+                  {/* <ul className="lang-switcher leading-none">
                     <li>
                       <a
                         href="https://www.agap2.fr"
@@ -386,7 +445,7 @@ export default function Screen1() {
                         en
                       </a>
                     </li>
-                  </ul>
+                  </ul> */}
                 </nav>
               </div>
             </header>
@@ -610,10 +669,13 @@ export default function Screen1() {
               Votre navigateur ne supporte pas cette vidéo.
             </video>
 
-            <div className="home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10">
+            <div
+              id="main_content_zone1"
+              className="home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
+            >
               <h1 className="font-black flex flex-wrap items-start w-full">
                 <div
-                  className="w-max-content md:w-1/2 text-4xl md:text-5xl xl:text-6xl text-yellow md:text-right pr-6 md:pr-12 js-tosplit"
+                  className="w-max-content md:w-1/2 text-xl md:text-4xl xl:text-4xl text-yellow md:text-right pr-6 md:pr-12 js-tosplit"
                   // style=""
                 >
                   <div
@@ -624,13 +686,13 @@ export default function Screen1() {
                       // style="position:relative;display:inline-block;"
                       className="word"
                     >
-                      The
+                      {/* The */}
                     </div>
                     <div
                       // style="position:relative;display:inline-block;"
                       className="word"
                     >
-                      world
+                      Développeur React.js
                     </div>
                   </div>
                   <div
@@ -641,7 +703,7 @@ export default function Screen1() {
                       // style="position:relative;display:inline-block;"
                       className="word"
                     >
-                      needs...
+                      En Recherche d'emploi
                     </div>
                   </div>
                 </div>
@@ -658,13 +720,13 @@ export default function Screen1() {
                       // style="position:relative;display:inline-block;"
                       className="word"
                     >
-                      you
+                      {/* you */}
                     </div>
                   </div>
                 </div>
               </h1>
 
-              <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
+              {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
                 <a
                   href="https://www.agap2.fr/carriere/offres-demploi/"
                   className="button relative flex items-center button--white button--big"
@@ -688,11 +750,11 @@ export default function Screen1() {
                     </svg>
                   </div>
                 </a>
-              </div>
+              </div> */}
             </div>
 
             <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2">
-              THINK<span>2</span>MORROW
+              CONTACT
             </div>
           </div>
 
@@ -711,9 +773,10 @@ export default function Screen1() {
                 <div className="flex items-center h-full">
                   <a
                     href="https://www.agap2.fr"
-                    className="header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
+                    className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
                   >
-                    <svg
+                    Amaury PICHAT
+                    {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="logo"
                       viewBox="0 0 177.49 55.03"
@@ -742,7 +805,7 @@ export default function Screen1() {
                         fill="#0226AA"
                         d="M126.73,8.87a129.76,129.76,0,0,0-17.61,1.46V53H119V37.45s1.88,2.28,8.65,2.34c7.36-.24,13.9-5.74,13.9-15.39-.31-9.31-5.6-15.53-14.81-15.53m-1.34,22.84a41.55,41.55,0,0,1-6.4-.43V17.16c2.08-.19,3.84-.3,6-.3,4.88,0,7,3.22,7,7.73,0,4-2.74,7.12-6.64,7.12"
                       ></path>
-                    </svg>
+                    </svg> */}
                   </a>
 
                   <div className="flex items-stretch categories__wrap pointer-events-none transition-opacity duration-1000 ease-out-quad opacity-0 js-departments">
@@ -822,7 +885,7 @@ export default function Screen1() {
                         href="https://www.agap2.fr/agap2/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        agap2
+                        Linkedin
                       </a>
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
@@ -830,7 +893,7 @@ export default function Screen1() {
                         href="https://www.agap2.fr/metiers/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        Métiers
+                        Github
                       </a>
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
@@ -838,7 +901,7 @@ export default function Screen1() {
                         href="https://www.agap2.fr/esprit/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        Esprit
+                        CV
                       </a>
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
@@ -878,7 +941,7 @@ export default function Screen1() {
                         </a>
                       </div>
                     </li>
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
+                    {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
                         href="https://www.agap2.fr/blog/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
@@ -907,12 +970,12 @@ export default function Screen1() {
                         href="https://www.agap2.fr/carriere/offres-demploi/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        Offres d’emploi
+                        Projets
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
 
-                  <ul className="lang-switcher leading-none">
+                  {/* <ul className="lang-switcher leading-none">
                     <li>
                       <a
                         href="https://www.agap2.fr"
@@ -935,7 +998,7 @@ export default function Screen1() {
                         en
                       </a>
                     </li>
-                  </ul>
+                  </ul> */}
                 </nav>
               </div>
             </header>
@@ -1131,49 +1194,30 @@ export default function Screen1() {
               </header> */}
             </div>
 
-            <div className="home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10">
+            <div
+              id="main_content_zone1_hidden"
+              className="home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
+            >
               <h1 className="font-black flex flex-wrap items-start w-full">
                 <div
-                  className="w-max-content md:w-1/2 text-4xl md:text-5xl xl:text-6xl text-blue md:text-right pr-6 md:pr-12 js-tosplit"
+                  className="w-max-content md:w-1/2 text-xl md:text-4xl xl:text-4xl text-blue md:text-right pr-6 md:pr-12 js-tosplit"
                   data-cartapus="visible"
                   // style=""
                 >
-                  <div
-                    className="line"
-                  >
-                    <div
-                      className="word"
-                    >
-                      The
-                    </div>
-                    <div
-                      className="word"
-                    >
-                      world
-                    </div>
+                  <div className="line">
+                    <div className="word">{/* The */}</div>
+                    <div className="word">Développeur React.js</div>
                   </div>
-                  <div
-                    className="line"
-                  >
-                    <div
-                      className="word"
-                    >
-                      needs...
-                    </div>
+                  <div className="line">
+                    <div className="word">En recherche d'emploi</div>
                   </div>
                 </div>
                 <div
                   className="home-cover__you absolute md:relative md:right-0 md:top-0 md:-mt-4 lg:-mt-8 md:ml-auto pl-12 md:pr-10 lg:pr-24 xl:pr-40 md:pl-12 w-auto text-5xl md:text-6xl xl:text-9xl text-yellow js-tosplit"
                   data-cartapus="visible"
                 >
-                  <div
-                    className="line"
-                  >
-                    <div
-                      className="word"
-                    >
-                      you
-                    </div>
+                  <div className="line">
+                    <div className="word">{/* you */}</div>
                   </div>
                 </div>
               </h1>
@@ -1206,12 +1250,12 @@ export default function Screen1() {
             </div>
 
             <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2">
-              THINK<span>2</span>MORROW
+              {/* THINK<span>2</span>MORROW */}
+              CONTACT
             </div>
           </div>
         </div>
       </div>
-
     </>
   );
 }

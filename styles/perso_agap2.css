@@ -137,3 +137,22 @@ body {
   cursor: pointer;
   z-index: 10000;
 }
+
+.font-weight600 {
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "chalkboy";
+  src: url("../public/ChalkboyRegular-vmXe7.otf");
+  font-weight: 700;
+}
+
+.ccode {
+  font-size: 40px;
+  font-family: "chalkboy";
+  padding-top: 10px;
+  rotate: -10deg;
+  position: absolute;
+  color: rgba(2, 38, 70, 0.5);
+}

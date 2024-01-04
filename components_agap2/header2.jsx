@@ -21,9 +21,10 @@ export default function Header() {
         <div className="flex items-center h-full">
           <a
             href="https://www.agap2.fr"
-            className="header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
+            className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
           >
-            <svg
+            Amaury PICHAT
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               className="logo"
               viewBox="0 0 177.49 55.03"
@@ -52,7 +53,7 @@ export default function Header() {
                 fill="#0226AA"
                 d="M126.73,8.87a129.76,129.76,0,0,0-17.61,1.46V53H119V37.45s1.88,2.28,8.65,2.34c7.36-.24,13.9-5.74,13.9-15.39-.31-9.31-5.6-15.53-14.81-15.53m-1.34,22.84a41.55,41.55,0,0,1-6.4-.43V17.16c2.08-.19,3.84-.3,6-.3,4.88,0,7,3.22,7,7.73,0,4-2.74,7.12-6.64,7.12"
               ></path>
-            </svg>
+            </svg> */}
           </a>
 
           <div className="flex items-stretch categories__wrap pointer-events-none transition-opacity duration-1000 ease-out-quad opacity-0 js-departments">
@@ -129,7 +130,7 @@ export default function Header() {
                 href="https://www.agap2.fr/agap2/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
               >
-                agap2
+                Linkedin
               </a>
             </li>
             <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
@@ -137,7 +138,7 @@ export default function Header() {
                 href="https://www.agap2.fr/metiers/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
               >
-                Métiers
+                Github
               </a>
             </li>
             <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
@@ -145,7 +146,7 @@ export default function Header() {
                 href="https://www.agap2.fr/esprit/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
               >
-                Esprit
+                CV
               </a>
             </li>
             <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
@@ -185,7 +186,7 @@ export default function Header() {
                 </a>
               </div>
             </li>
-            <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
+            {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
               <a
                 href="https://www.agap2.fr/blog/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
@@ -216,10 +217,10 @@ export default function Header() {
               >
                 Offres d’emploi
               </a>
-            </li>
+            </li> */}
           </ul>
 
-          <ul className="lang-switcher leading-none">
+          {/* <ul className="lang-switcher leading-none">
             <li>
               <a
                 href="https://www.agap2.fr"
@@ -242,7 +243,7 @@ export default function Header() {
                 en
               </a>
             </li>
-          </ul>
+          </ul> */}
         </nav>
       </div>
     </header>
