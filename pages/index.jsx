@@ -95,7 +95,7 @@ function Home() {
     <>
       <Head>
         <title>Portfolio A.PICHAT</title>
-        <link rel="shortcut icon" href="/agap2/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       {/* <div
         style={{

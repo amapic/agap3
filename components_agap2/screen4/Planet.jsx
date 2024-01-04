@@ -1,7 +1,6 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 import * as THREE from "three";
-// import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 import { gsap } from "gsap";
@@ -10,7 +9,7 @@ import { SphereGeometry } from "three";
 gsap.registerPlugin(ScrollTrigger);
 
 const Planete = (props, ref) => {
-  const { nodes } = useLoader(GLTFLoader, "/agap2/low_poly_earth.gltf");
+  const { nodes } = useLoader(GLTFLoader, "/low_poly_earth.gltf");
 
   var ColorYellow="#ffcd00"
 
@@ -23,15 +22,6 @@ const Planete = (props, ref) => {
 
   useEffect(() => {
 
-    // if (window) {
-    //   ColorYellow = getComputedStyle(
-    //     document.documentElement
-    //   ).getPropertyValue("--color-yellow");
-  
-    //   ColorBlue = getComputedStyle(document.documentElement).getPropertyValue(
-    //     "--color-blue"
-    //   );
-    // }
     
     window.addEventListener("scroll", controlDirection);
     return () => {
@@ -54,31 +44,13 @@ const Planete = (props, ref) => {
       refLoc.current.rotation.y += rotationSpeed.current;
     }
 
-    // console.log(rotationSpeed.current);
-    // cumulDelta += delta;
-    // let measure = new THREE.Vector3();
-    // let box = ref.children[0].getSize(measure);
-    // if (Math.trunc(clock.getElapsedTime()) % 5 == 0) {
-    // console.log(clock.getElapsedTime());
-    // let measure = new THREE.Vector3();
-
-    // let box = ref.children[0].getSize(measure);
-    // refLoc.current.children[0].children[0].geometry.computeBoundingBox();
-
-    // refLoc.current.children[0].children[0].geometry.boundingBox.getSize(
-    //   measure
-    // );
-
-    // console.log(measure);
-    // }
+   
   });
 
   return (
     <group ref={refLoc}>
       <group ref={ref}>
-        {/* <mesh scale={[0.01, 0.01, 0.01]} geometry={nodes.mesh_0.geometry}>
-          <meshStandardMaterial color="#ff1" opacity={0.5} />
-        </mesh> */}
+
         <mesh scale={[0.01, 0.01, 0.01]} geometry={nodes.mesh_0_1.geometry}>
           <meshStandardMaterial color={ColorYellow} opacity={1} />
         </mesh>
@@ -87,10 +59,7 @@ const Planete = (props, ref) => {
           <sphereGeometry args={[0.96, 32, 16]} />
         </mesh>
       </group>
-      {/* <mesh>
-        <meshStandardMaterial color="#ff0" opacity={1} />
-        <sphereGeometry args={[15, 32, 16]} />
-      </mesh> */}
+
     </group>
   );
 };

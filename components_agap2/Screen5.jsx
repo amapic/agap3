@@ -134,7 +134,7 @@ export default function Home() {
         </div>
         <img
           id="plane"
-          src="/agap2/avion-test2-2.png.webp"
+          src="/avion-test2-2.png.webp"
           style={{
             width: "40vw",
             position: "fixed",

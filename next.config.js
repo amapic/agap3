@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath:"/agap2"
+  // basePath:"/agap2"
 
   // exportPathMap: async function (defaultPathMap) {
   //   return {

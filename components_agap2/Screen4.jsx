@@ -175,16 +175,7 @@ export default function Screen4() {
           <RightText />
         </div>
       </div>
-      {/* <div
-        style={{
-          height: "100vh",
-          backgroundColor: "pink",
-          zIndex: "100",
-        }}
-        className="screen6"
-      >
-        AAA
-      </div> */}
+
     </>
   );
 }
