@@ -149,9 +149,9 @@ export default function Header() {
                 CV
               </a>
             </li>
-            <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
+            {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
               <div className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4">
-                Carrière
+                Projets
                 <div className="points flex items-stretch ml-1">
                   <div className="bg-blue points__pt mr-px transform backface-hidden"></div>
                   <div className="bg-blue points__pt mx-px transform backface-hidden"></div>
@@ -185,7 +185,7 @@ export default function Header() {
                   Formation
                 </a>
               </div>
-            </li>
+            </li> */}
             {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
               <a
                 href="https://www.agap2.fr/blog/"

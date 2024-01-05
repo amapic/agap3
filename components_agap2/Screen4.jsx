@@ -155,7 +155,7 @@ export default function Screen4() {
             <Ttext2 />
             <Ttext3 />
             <div
-              className="bg-blue"
+              // className="bg-blue"
               id="bgCircle"
               style={{
                 left: "0vw",

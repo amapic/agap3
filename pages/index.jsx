@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 
 import { gsap } from "gsap";
+import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
+gsap.registerPlugin(MotionPathPlugin);
 import { useMediaQuery } from "react-responsive";
 import Header from "@/components_agap2/header2";
 import Screen1 from "@/components_agap2/Screen1";
@@ -41,17 +43,17 @@ function Home() {
         },
       });
 
-      tl.to(".pathnav", {
-        stroke: "#ffcd00",
-        ease: "none",
-        // backgroundColor: "#ffcd00",
-      });
+      // tl.to(".pathnav", {
+      //   stroke: "#ffcd00",
+      //   ease: "none",
+      //   // backgroundColor: "#ffcd00",
+      // });
 
-      tl2.to(".pathnav", {
-        stroke: "#fff",
-        ease: "none",
-        // backgroundColor: "#fff",
-      });
+      // tl2.to(".pathnav", {
+      //   stroke: "#fff",
+      //   ease: "none",
+      //   // backgroundColor: "#fff",
+      // });
     });
 
     // let circleToHover = null || document.querySelector(".circleToHover");

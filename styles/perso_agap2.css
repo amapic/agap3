@@ -100,6 +100,8 @@ body {
   width: 100px;
 }
 
+
+
 /* Carousel */
 
 .carousel-pager {
@@ -148,6 +150,15 @@ body {
   font-weight: 700;
 }
 
+@font-face {
+  font-family: "vscode";
+  src: url("../public/Consola.ttf");
+  font-weight: 700;
+}
+
+/* #################################################### */
+/* CODE APPARENT première page */
+/* #################################################### */
 .ccode {
   font-size: 40px;
   font-family: "chalkboy";
@@ -156,3 +167,82 @@ body {
   position: absolute;
   color: rgba(2, 38, 70, 0.5);
 }
+
+#code_contain{
+  z-Index:100;
+  font-family: "vscode";
+  position: absolute;
+  /* top:"25%"; */
+  right:0;
+  width:50%;
+  height: 100%;
+  margin-top: 100px;
+  color:#fff;
+  font-size: 20px;
+}
+
+.code_space{
+  margin-left: 10px;
+}
+
+.bg_grey{
+  background-color:rgb(31,31,31)
+}
+
+.vscode_orange{
+  color:rgb(206,145,120)
+}
+
+.vscode_rose{
+  color:rgb(197,134,192)
+}
+
+.vscode_bleu{
+  color:rgb(156,220,254)
+}
+
+.vscode_vert{
+  color:rgb(78,201,176)
+}
+
+.vscode_beige{
+  color:rgb(220,220,170)
+}
+
+.vscode_jaune{
+  color:rgb(255,215,0)
+}
+
+vscode_blanc{
+  color:rgb(255,255,255)
+}
+
+.vscode{
+  height:10px;
+}
+
+#AP_Hidden{
+  color:var(--color-brown);
+  z-index: 101;
+  /* position:absolute; */
+}
+
+#code_contain div{
+  height:20px;
+  color:rgb(156,220,254);
+  /* color: transparent; */
+  text-shadow: 1px 1px 2px white;
+  /* position:absolute; */
+}
+
+#main_content_zone1_hidden{
+  background-image:url("../public/photo-1578662996442-48f60103fc96.avif") ;
+  background-size: cover;
+  /* min-height: ; */
+}
+
+#bgCircle {
+  /* background-color: #0226aa; */
+  background-color: rgb(31,31,31);
+}
+

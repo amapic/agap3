@@ -43,20 +43,17 @@ export default function RightText() {
         </h2>
 
         <p className="home-numbers__agap text-4xl text-blue font-semibold">
-          agap<span className="text-yellow">2</span>
+          {/* agap<span className="text-yellow">2</span> */}
         </p>
         <h3 className="text-3xl mb-8">
-          est un acteur européen du conseil en ingénierie et des services
-          numériques
+          Après avoir travaillé 7 années dans l'informatique, je me suis formé
+          en React.js pendant 1 an.
         </h3>
 
         <div className="mce w-full xl:w-2/3">
           <p>
-            Depuis 17 ans maintenant, nous mettons notre expertise technique au
-            service de nos partenaires dans tous les grands secteurs de
-            l’industrie et de l’IT. Notre métier est d’accompagner nos clients
-            dans la réalisation de leurs projets et d’imaginer des réponses
-            nouvelles à leurs problématiques.
+            Je suis prêt à présent à travailler avec React.js. Je souhaite
+            travailler sur des projets ambitieux muni d'un design soigneux
           </p>
         </div>
 

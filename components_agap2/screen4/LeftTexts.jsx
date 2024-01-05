@@ -21,14 +21,14 @@ export default function Ttext1() {
           font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
           "
             >
-              +200
+             7
             </div>
             <div
               className="ml-1 w-50 text2 text-white
           font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
           "
             >
-              M€
+              années d'expérience
             </div>
           </div>
           <div
@@ -36,8 +36,8 @@ export default function Ttext1() {
         opacity-0 backface-hidden
         "
           >
-            {" "}
-            de chiffres d affaires
+            {/* {" "} */}
+            dans l'informatique
           </div>
         </div>
         <div
@@ -81,7 +81,7 @@ export function Ttext2() {
           font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
           "
             >
-              +2900{" "}
+              1 an 
             </div>
             {/* <div className="w-50 text2 blueLetter">M€</div> */}
           </div>
@@ -90,8 +90,7 @@ export function Ttext2() {
         font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
         "
           >
-            {" "}
-            collaborateurs
+            de formation
           </div>
         </div>
         <div
@@ -135,22 +134,22 @@ export function Ttext3() {
         text-yellow font-bold text-2-5xl md:text-3xl xl:text-3-5xl opacity-0 backface-hidden
         "
           >
-            9
+            4
           </div>
           <div
             className="w-50 text2 text-white
         font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
         "
           >
-            pays
+            sites
           </div>
           {/* </div> */}
           <div
             className="w-100 text3 text-white
         "
           >
-            {" "}
-            en Europe
+            {/* {" "} */}
+            développés
           </div>
         </div>
         <div

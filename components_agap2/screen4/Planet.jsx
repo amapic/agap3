@@ -2,7 +2,7 @@ import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { SphereGeometry } from "three";
@@ -17,7 +17,7 @@ const Planete = (props, ref) => {
 
   const refLoc = useRef(null);
 
-  const oldScrollY = useRef(0);
+  // const oldScrollY = useRef(0);
   const rotationSpeed = useRef(0.005);
 
   useEffect(() => {
@@ -64,7 +64,76 @@ const Planete = (props, ref) => {
   );
 };
 
-const PlaneteBis = forwardRef(Planete); //erreur si forward ref mis directement au début de <Planete />
+const PC = (props, ref) => {
+  const A = useLoader(FBXLoader, "/Comp_and_Floppy.fbx");
+
+  console.log("sfgsf",A)
+
+  var ColorYellow="#ffcd00"
+
+  var ColorBlue="#0226aa"
+
+  const refLoc = useRef(null);
+  const refFloppy1 = useRef(null);
+  const refFloppy2 = useRef(null);
+
+  // const oldScrollY = useRef(0);
+  const rotationSpeed = useRef(0.005);
+
+  useEffect(() => {
+
+    
+    window.addEventListener("scroll", controlDirection);
+    return () => {
+      window.removeEventListener("scroll", controlDirection);
+    };
+  }, []);
+
+  const controlDirection = (e) => {
+    rotationSpeed.current = 0.3;
+  };
+
+  // var cumulDelta = useRef(0);
+  useFrame(({ clock }) => {
+    rotationSpeed.current = 0.005;
+    // refLoc.current.rotation.y= 0.005;
+    // if (rotationSpeed.current >= 0.005) {
+    //   rotationSpeed.current -= 0.005;
+    // } else {
+    //   rotationSpeed.current = 0.005;
+    // }
+    // if (refLoc.current) {
+      refLoc.current.rotation.y += rotationSpeed.current;
+    // }
+
+   
+  });
+
+  return (
+    // <></>
+     <group ref={refLoc}>
+       <group ref={ref}>
+
+         <mesh scale={[0.005, 0.005, 0.005]} geometry={A.children[2].geometry}>
+          <meshStandardMaterial color={ColorYellow} opacity={1} />
+        </mesh>
+        <mesh ref={refFloppy1}  scale={[0.005, 0.005, 0.005]} geometry={A.children[1].geometry}>
+          <meshStandardMaterial color={ColorBlue} opacity={1} />
+        </mesh>
+        <mesh ref={refFloppy2}    position={[1,1,1]} scale={[0.005, 0.005, 0.005]} geometry={A.children[0].geometry}>
+          <meshStandardMaterial color={ColorBlue} opacity={1} />
+        </mesh>
+        <mesh scale={[0.01, 0.01, 0.01]}>
+          <meshStandardMaterial color={ColorBlue} opacity={1} />
+          <sphereGeometry args={[0.96, 32, 16]} />
+        </mesh> 
+       </group>
+
+     </group>
+  );
+};
+
+const PlaneteBis = forwardRef(PC); //erreur si forward ref mis directement au début de <Planete />
 
 const CanvasPlanete = () => {
   // let ColorYellow = window
@@ -93,17 +162,27 @@ const CanvasPlanete = () => {
           // pin: "#canvas",
         });
 
-        scrollSunTl.to(node.scale, {
-          x: 150,
-          y: 150,
-          z: 150,
-        });
+        // scrollSunTl.to(node.scale, {
+        //   x: 150,
+        //   y: 150,
+        //   z: 150,
+        // });
 
         // scrollSunTl.to(node.rotation, {
         //   x: 0,
         //   y: (3 * Math.PI) / 4,
         //   z: 0,
         // });
+
+        // scrollSunTl.to(
+        //   node.children[1].material.color,
+        //   {
+        //     r: 255 / 255,
+        //     g: 205 / 255,
+        //     b: 0 / 255,
+        //   },
+        //   "-=0.9"
+        // );
 
         scrollSunTl.to(
           node.children[1].material.color,

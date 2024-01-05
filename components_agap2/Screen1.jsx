@@ -1,5 +1,142 @@
 import React, { useRef, useEffect, useState, useLayoutEffect } from "react";
 import { gsap } from "gsap";
+import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
+gsap.registerPlugin(MotionPathPlugin);
+
+function VSCode() {
+  const getElementsWithNoChildren = (target) => {
+    let candidates;
+    // candidates = target.querySelectorAll("*");
+
+    if (target && typeof target.querySelectorAll === "function") {
+      candidates = target.querySelectorAll("*");
+    } else if (target && typeof target.length === "number") {
+      candidates = target;
+    } else {
+      candidates = document.querySelectorAll("*");
+    }
+
+    return Array.from(candidates).filter((elem) => {
+      return elem.children.length === 0;
+    });
+  };
+
+  useEffect(() => {
+    let elements = Array.prototype.slice.call(
+      document.getElementById("code_contain").children
+    );
+    // console.log(elements);
+    elements.forEach((element, i) => {
+      // gsap.to(element, 0, {
+      //   ease: "none",
+      //   rotation: 5 * Math.random() - 2.5,
+      //   transformOrigin: "50% 50%",
+      // });
+      if (i == 0) {
+        var tl = gsap.timeline({ repeat: -1 });
+        // tl.to(element, 20, {
+        //   motionPath: {
+        //     path: [
+        //       { x: "10vw", y: "50vh" },
+        //       { x: "-40vw", y: "-10vh" },
+        //       { x: "30vw", y: "-40vh" },
+        //     ], // you probably want more points here...or just use an SVG <path>!
+        //     curviness: 2,
+        //     // autoRotate: true
+        //   },
+        //   ease: "none",
+        //   // clearProps: 'all'
+        // });
+        // tl.to(element, 3, {
+        //   x: "0px",
+        //   y: "20vw",
+        // });
+        // tl.to(element, 3, {
+        //   x: "10px",
+        //   y: "0px",
+        // });
+        // tl.to(element, 3, {
+        //   x: "-10px",
+        //   y: "0px",
+        // });
+        // tl.to(element, 3, {
+        //   x: "0px",
+        //   y: "-20vw",
+        // });
+
+        tl.play();
+      }
+    });
+  }, []);
+  return (
+    <div id="code_contain" className="flex flex-col z-2">
+      <div>
+        <span className="vscode_rose">{"import "}</span>
+        <span>React,</span>
+        <span className="vscode_jaune">{"{"}</span>
+        <span>useRef, useEffect, useState, useLayoutEffect</span>{" "}
+        <span className="vscode_jaune">{"}"}</span>
+        <span className="vscode_rose">{"from"}</span>
+        <span className="vscode_orange"> "react"</span>;
+      </div>
+      <div></div>
+      <div>
+        {/* const FirstComponent: React.FC<{}> = () => { */}
+        <span className="vscode_rose">{"const "}</span>
+        <span>FirstComponent</span>
+        <span className="vscode_rose">:</span>{" "}
+
+        <span className="vscode_vert">{"React.FC"}</span>
+        <span className="vscode_blanc">{"<"}</span>
+        <span className="vscode_jaune">{"{"}</span>
+        <span className="vscode_jaune">{"}"}</span>
+        <span className="vscode_blanc">{">"}</span>{" "}
+        <span className="vscode_blanc">{"="}</span>{" "}
+        <span className="vscode_jaune">{"("}</span>{" "}
+        <span className="vscode_jaune">{")"}</span>{" "}
+
+        <span >{"=>"}</span>{" "}
+        <span className="vscode_jaune">{"{"}</span>{" "}
+      
+      </div>
+      {/* <span className="vscode vscode_orange">
+        import {(useEffect, useLayoutEffect)} from "react";
+      </span>
+      <br />
+      <span className="vscode vscode_bleu code_space">
+        <div id="EE" className="vscode vscode_orange">
+          {"export default function"}
+          <span>KKK</span>
+        </div>
+        <div id="EE" className="vscode vscode_orange">
+          {"{"}
+        </div>
+      </span>
+      <br />
+      <div className="vscode vscode_bleu">{"useEffect(() =>  {"}<span>hh</span></div>
+      <br /> */}
+
+      {/* //       import { useEffect, useLayoutEffect } from "react";
+
+// export default function Header() {
+//   useEffect(() => {
+//     const para = document.querySelector(".header__menu__el");
+
+//   });
+//   return (
+//     <header
+//       className="header fixed flex items-center w-full z-1000 rg:z-90"
+//       //   style="--header-bg-color:var(--color-white); --header-text-color:var(--color-brown);"
+//       data-text-color="brown"
+//       id="header_oprou"
+//       style={{
+//         height: "10vh",
+//         zIndex: "11",
+//       }}
+//     ></header>*/}
+    </div>
+  );
+}
 
 export default function Screen1() {
   const ref = useRef(null);
@@ -32,11 +169,33 @@ export default function Screen1() {
       }
     });
 
-    document.querySelector(".home-cover").addEventListener("click", () => {
+    function redresseCode(event) {
+      let myElement = document.getElementById("code_contain");
+
+      for (const child of myElement.children) {
+        let pos = child.getBoundingClientRect();
+        let dist_x = pos.x - event.screenX;
+        let dist_y = pos.y - event.screenY;
+        let dist = Math.sqrt(Math.pow(dist_x, 2) + Math.pow(dist_y, 2));
+        (function (child, dist) {
+          setTimeout(function () {
+            gsap.to(child, 0.5, {
+              ease: "none",
+              rotation: 0,
+              transformOrigin: "50% 50%",
+            });
+          }, dist);
+        })(child, dist);
+      }
+    }
+
+    document.querySelector(".home-cover").addEventListener("click", (event) => {
+      // console.log("ee",event)
       if (!clicked.current) {
         var clipPath = ref.current.style.getPropertyValue("clip-path");
 
         if (clipPath) {
+          redresseCode(event);
           clipPath = clipPath.split("at");
           clipPath = "circle(100vw at " + clipPath[1];
           clicked.current = true;
@@ -57,23 +216,6 @@ export default function Screen1() {
       function q(x) {
         return document.querySelectorAll(x);
       }
-      // gsap.fromTo(
-      //   ".home-cover__content .line:nth-of-type(1)",
-      //   {
-      //     zIndex: "10",
-      //   },
-      //   {
-      //     duration: 1.2,
-      //     // ease: "power2",
-      //     // backgroundColor: "red",
-      //     // color: "red",
-      //     // fontColor: "red",
-      //     y: "-40px",
-      //     zIndex: "10",
-      //     marginTop: "20px",
-      //     // lineHeight: "20px",
-      //   }
-      // );
 
       gsap.from(
         q(
@@ -88,55 +230,8 @@ export default function Screen1() {
         0
       );
 
-      // gsap.fromTo(
-      //   q(".home-cover__content .line:nth-child(1) .word:nth-child(2)"),
-      //   {
-      //     // backgroundColor: "red",
-      //     y: "10vh",
-      //     duration: "1",
-      //   },
-      //   {
-      //     // backgroundColor: "red",
-      //     y: "0vh",
-      //     duration: "1",
-      //     // position: "relative",
-      //   },
-      //   0.2
-      // );
-
-      // gsap.fromTo(
-      //   q(".home-cover__content .line:nth-child(2) .word:nth-child(1)"),
-      //   {
-      //     // backgroundColor: "red",
-      //     y: "10vh",
-      //     duration: "1",
-      //   },
-      //   {
-      //     // backgroundColor: "red",
-      //     y: "0vh",
-      //     duration: "1",
-      //   },
-      //   0
-      // );
-
-      // gsap.from(
-      //   q(".home-cover__you .line:nth-child(1) .word:nth-child(1)"),
-      //   {
-      //     // backgroundColor: "red",
-      //     y: "10vh",
-      //     duration: "1",
-      //   },
-      //   // {
-      //   //   // backgroundColor: "red",
-      //   //   y: "0vh",
-      //   //   duration: "1",
-      //   //   // position: "relative",
-      //   // },
-      //   0
-      // );
-
       let div = document.getElementById("screen1");
-      let wwidth=window.screen.width;
+      let wwidth = window.screen.width;
 
       // alert(wwidth)
 
@@ -149,7 +244,7 @@ export default function Screen1() {
         paragraph.style.top = (50 + step * 50).toString() + "px";
         paragraph.style.left = (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        div.appendChild(paragraph);
+        // div.appendChild(paragraph);
       }
 
       for (let step = 0; step < 10; step++) {
@@ -161,7 +256,7 @@ export default function Screen1() {
         paragraph.style.top = (50 + step * 50).toString() + "px";
         paragraph.style.left = 2 * (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        div.appendChild(paragraph);
+        // div.appendChild(paragraph);
       }
 
       for (let step = 0; step < 10; step++) {
@@ -171,9 +266,9 @@ export default function Screen1() {
 
         paragraph.textContent = "Hello, world!";
         paragraph.style.top = (50 + step * 50).toString() + "px";
-        paragraph.style.left = 3 *(wwidth / 5).toString() + "px";
+        paragraph.style.left = 3 * (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        div.appendChild(paragraph);
+        // div.appendChild(paragraph);
       }
 
       for (let step = 0; step < 10; step++) {
@@ -185,9 +280,8 @@ export default function Screen1() {
         paragraph.style.top = (50 + step * 50).toString() + "px";
         paragraph.style.left = 4 * (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        div.appendChild(paragraph);
+        // div.appendChild(paragraph);
       }
-
     });
 
     return () => ctx.revert();
@@ -199,7 +293,7 @@ export default function Screen1() {
         id="screen1"
         className={hoverr + " home-cover relative w-full h-screen z-100"}
       >
-        <div className="home-cover__wrapper relative w-full cursor-pointer overflow-hidden js-cover">
+        <div className="bg_grey home-cover__wrapper relative w-full cursor-pointer overflow-hidden js-cover">
           <div
             id="div_clip_path"
             className="w-full h-full home-cover__hover absolute top-0 left-0 z-30 backface-hidden"
@@ -217,10 +311,17 @@ export default function Screen1() {
               <div className=" header__container flex items-center justify-between w-full">
                 <div className="flex items-center h-full">
                   <a
+                    id="AP_Hidden"
+                    href="https://www.agap2.fr"
+                    className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
+                  >
+                    Amaury PICHAT
+                  </a>
+                  {/* <a
                     href="https://www.agap2.fr"
                     className="header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
-                  >
-                    <svg
+                  > */}
+                  {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="logo"
                       viewBox="0 0 177.49 55.03"
@@ -249,8 +350,8 @@ export default function Screen1() {
                         fill="#0226AA"
                         d="M126.73,8.87a129.76,129.76,0,0,0-17.61,1.46V53H119V37.45s1.88,2.28,8.65,2.34c7.36-.24,13.9-5.74,13.9-15.39-.31-9.31-5.6-15.53-14.81-15.53m-1.34,22.84a41.55,41.55,0,0,1-6.4-.43V17.16c2.08-.19,3.84-.3,6-.3,4.88,0,7,3.22,7,7.73,0,4-2.74,7.12-6.64,7.12"
                       ></path>
-                    </svg>
-                  </a>
+                    </svg> */}
+                  {/* </a> */}
 
                   <div className="flex items-stretch categories__wrap pointer-events-none transition-opacity duration-1000 ease-out-quad opacity-0 js-departments">
                     <div
@@ -332,6 +433,8 @@ export default function Screen1() {
                         href="https://www.agap2.fr/agap2/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
+                        {/* <img src="./../public/cv_blanc.png"/> */}
+                        {/* </img> */}
                         Linkedin
                       </a>
                     </li>
@@ -351,9 +454,9 @@ export default function Screen1() {
                         CV
                       </a>
                     </li>
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
+                    {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
                       <div className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4">
-                        Carrière
+                        Projets
                         <div className="points flex items-stretch ml-1">
                           <div className="bg-blue points__pt mr-px transform backface-hidden"></div>
                           <div className="bg-blue points__pt mx-px transform backface-hidden"></div>
@@ -387,7 +490,7 @@ export default function Screen1() {
                           Formation
                         </a>
                       </div>
-                    </li>
+                    </li> */}
                     {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
                         href="https://www.agap2.fr/blog/"
@@ -449,7 +552,7 @@ export default function Screen1() {
                 </nav>
               </div>
             </header>
-
+            <VSCode />
             <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
               {/* <header
                 id="header_mobile_1"
@@ -641,7 +744,7 @@ export default function Screen1() {
               </header> */}
             </div>
 
-            <video
+            {/* <video
               muted=""
               autoPlay=""
               loop=""
@@ -653,9 +756,9 @@ export default function Screen1() {
                 type="video/mp4"
               />
               Votre navigateur ne supporte pas cette vidéo.
-            </video>
+            </video> */}
 
-            <video
+            {/* <video
               muted=""
               autoPlay=""
               loop=""
@@ -667,11 +770,11 @@ export default function Screen1() {
                 type="video/mp4"
               />
               Votre navigateur ne supporte pas cette vidéo.
-            </video>
+            </video> */}
 
             <div
-              id="main_content_zone1"
-              className="home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
+              id="main_content_zone1_hidden"
+              className="bg_grey home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
             >
               <h1 className="font-black flex flex-wrap items-start w-full">
                 <div
@@ -684,7 +787,7 @@ export default function Screen1() {
                   >
                     <div
                       // style="position:relative;display:inline-block;"
-                      className="word"
+                      className="word "
                     >
                       {/* The */}
                     </div>
@@ -704,6 +807,28 @@ export default function Screen1() {
                       className="word"
                     >
                       En Recherche d'emploi
+                    </div>
+                  </div>
+                  <div
+                    className="line"
+                    // style="display: block; text-align: right; position: relative;"
+                  >
+                    <div
+                      // style="position:relative;display:inline-block;"
+                      className="word text-xl md:text-2xl xl:text-3xl"
+                    >
+                      06 88 91 80 19
+                    </div>
+                  </div>
+                  <div
+                    className="line text-xl md:text-2xl xl:text-3xl"
+                    // style="display: block; text-align: right; position: relative;"
+                  >
+                    <div
+                      // style="position:relative;display:inline-block;"
+                      className="word pb-2"
+                    >
+                      amaury.pichat@gmail.com
                     </div>
                   </div>
                 </div>
@@ -759,6 +884,7 @@ export default function Screen1() {
           </div>
 
           <div className="w-full h-full bg-yellow" id="part2">
+            {/* vscode_grey */}
             <header
               id="header_part2"
               className="header fixed flex items-center w-full opacity-0 invisible rg:opacity-100 rg:visible z-20"
@@ -776,36 +902,6 @@ export default function Screen1() {
                     className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
                   >
                     Amaury PICHAT
-                    {/* <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="logo"
-                      viewBox="0 0 177.49 55.03"
-                    >
-                      <path
-                        fill="#ffcd00"
-                        d="M147.32,42.32v-6.7L161,23c3.84-3.47,5.79-5.54,5.79-8.22,0-3.9-2.74-5.6-6.76-5.6-2.14,0-5.55.43-11.09,2.26l-2.14-8.47A45.34,45.34,0,0,1,161.64,0c10.6,0,15.3,6.15,15.3,13.28,0,6.15-4.14,10.77-9.63,15.7l-5.42,4.5h15.6v8.84Z"
-                      ></path>
-                      <path
-                        className="logo-letter"
-                        fill="#0226AA"
-                        d="M32.48,10.33v29H22.54v-2A12.94,12.94,0,0,1,14,40.23c-7.14,0-14-5.54-14-15.83C.25,15.08,5.67,8.87,14.81,8.87c5.6,0,8.71.43,17.67,1.46M9.57,24.58c0,4.45,2.74,7.49,6.64,7.49a9.66,9.66,0,0,0,6.33-2.55V17.16c-2-.19-3.83-.31-6-.31-4.82,0-7,3.23-7,7.73"
-                      ></path>
-                      <path
-                        className="logo-letter"
-                        fill="#0226AA"
-                        d="M104.52,10.33v29H94.59v-2a13,13,0,0,1-8.53,2.92c-7.13,0-14-5.54-14-15.83.24-9.32,5.67-15.53,14.8-15.53,5.61,0,8.72.43,17.67,1.46M81.61,24.58c0,4.45,2.74,7.49,6.64,7.49a9.69,9.69,0,0,0,6.34-2.55V17.16c-2-.19-3.84-.31-6-.31-4.81,0-7,3.23-7,7.73"
-                      ></path>
-                      <path
-                        className="logo-letter"
-                        fill="#0226AA"
-                        d="M50.9,8.87c-9.2,0-14.63,6.22-14.81,15.53,0,9,5.74,14.39,12.49,15.27.44,0,1.14.1,2,.14h2.22c2.26-.1,4.73-.57,5.93-2a16,16,0,0,1-.23,3.09c0,.16,0,.32-.08.47a10.15,10.15,0,0,1-.34,1.23l0,.08a3.54,3.54,0,0,1-.49,1c-1.24,2.08-3.52,3.19-6.94,3.19a55.31,55.31,0,0,1-9-1.22l-1.4,7.55A38.39,38.39,0,0,0,51,55C62.6,55,68.57,48.7,68.57,38.9V10.34c-6.52-.67-10-1.47-17.67-1.47m7.74,22.41a39.59,39.59,0,0,1-6.34.43c-3.9,0-6.64-3.11-6.64-7.13,0-4.5,2.13-7.73,7-7.73,2.14,0,4,.12,6,.3Z"
-                      ></path>
-                      <path
-                        className="logo-letter"
-                        fill="#0226AA"
-                        d="M126.73,8.87a129.76,129.76,0,0,0-17.61,1.46V53H119V37.45s1.88,2.28,8.65,2.34c7.36-.24,13.9-5.74,13.9-15.39-.31-9.31-5.6-15.53-14.81-15.53m-1.34,22.84a41.55,41.55,0,0,1-6.4-.43V17.16c2.08-.19,3.84-.3,6-.3,4.88,0,7,3.22,7,7.73,0,4-2.74,7.12-6.64,7.12"
-                      ></path>
-                    </svg> */}
                   </a>
 
                   <div className="flex items-stretch categories__wrap pointer-events-none transition-opacity duration-1000 ease-out-quad opacity-0 js-departments">
@@ -904,9 +1000,9 @@ export default function Screen1() {
                         CV
                       </a>
                     </li>
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
+                    {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
                       <div className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4">
-                        Carrière
+                        Projets
                         <div className="points flex items-stretch ml-1">
                           <div className="bg-blue points__pt mr-px transform backface-hidden"></div>
                           <div className="bg-blue points__pt mx-px transform backface-hidden"></div>
@@ -940,7 +1036,7 @@ export default function Screen1() {
                           Formation
                         </a>
                       </div>
-                    </li>
+                    </li> */}
                     {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
                         href="https://www.agap2.fr/blog/"
@@ -1195,7 +1291,7 @@ export default function Screen1() {
             </div>
 
             <div
-              id="main_content_zone1_hidden"
+              id="main_content_zone1_not_hidden"
               className="home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
             >
               <h1 className="font-black flex flex-wrap items-start w-full">
@@ -1204,14 +1300,58 @@ export default function Screen1() {
                   data-cartapus="visible"
                   // style=""
                 >
-                  <div className="line">
-                    <div className="word">{/* The */}</div>
-                    <div className="word">Développeur React.js</div>
+                  <div
+                    className="line"
+                    // style="display: block; text-align: right; position: relative;"
+                  >
+                    <div
+                      // style="position:relative;display:inline-block;"
+                      className="word "
+                    >
+                      {/* The */}
+                    </div>
+                    <div
+                      // style="position:relative;display:inline-block;"
+                      className="word"
+                    >
+                      Développeur React.js
+                    </div>
                   </div>
-                  <div className="line">
-                    <div className="word">En recherche d'emploi</div>
+                  <div
+                    className="line"
+                    // style="display: block; text-align: right; position: relative;"
+                  >
+                    <div
+                      // style="position:relative;display:inline-block;"
+                      className="word"
+                    >
+                      En Recherche d'emploi
+                    </div>
+                  </div>
+                  <div
+                    className="line"
+                    // style="display: block; text-align: right; position: relative;"
+                  >
+                    <div
+                      // style="position:relative;display:inline-block;"
+                      className="word text-xl md:text-2xl xl:text-3xl"
+                    >
+                      06 88 91 80 19
+                    </div>
+                  </div>
+                  <div
+                    className="line text-xl md:text-2xl xl:text-3xl"
+                    // style="display: block; text-align: right; position: relative;"
+                  >
+                    <div
+                      // style="position:relative;display:inline-block;"
+                      className="word pb-2"
+                    >
+                      amaury.pichat@gmail.com
+                    </div>
                   </div>
                 </div>
+
                 <div
                   className="home-cover__you absolute md:relative md:right-0 md:top-0 md:-mt-4 lg:-mt-8 md:ml-auto pl-12 md:pr-10 lg:pr-24 xl:pr-40 md:pl-12 w-auto text-5xl md:text-6xl xl:text-9xl text-yellow js-tosplit"
                   data-cartapus="visible"
@@ -1222,7 +1362,7 @@ export default function Screen1() {
                 </div>
               </h1>
 
-              <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
+              {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
                 <a
                   href="https://www.agap2.fr/carriere/offres-demploi/"
                   className="button relative flex items-center button--brown button--big"
@@ -1246,7 +1386,7 @@ export default function Screen1() {
                     </svg>
                   </div>
                 </a>
-              </div>
+              </div> */}
             </div>
 
             <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2">

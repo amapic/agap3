@@ -3934,7 +3934,8 @@ canvas {
 
 @media (min-width:1200px) {
     .home-cover__content {
-        width: 91.666667%;
+        /* width: 91.666667%; */
+        width: 100%;
         max-width: 1900px
     }
 }
