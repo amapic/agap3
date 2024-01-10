@@ -5,6 +5,7 @@
   --color-white: "#fff";
   --color-brown: "#544502";
   --color-yellow: "#ffcd00";
+  --color-green: rgb(78, 201, 176);
   --header-height: 114px;
   --header-margin: 10px;
   --font-family: "SofiaPro";
@@ -15,10 +16,11 @@
   --y: "50";
 }
 
-#container_move4 {
+#container_move4,#container_move6,#container_move7 {
 
   background-color: rgba(249, 249, 249, 1);
 }
+
 
 @font-face {
   font-family: "SofiaPro-Black";
@@ -72,8 +74,8 @@ body {
   text-align: right;
 }
 
-.text1 {
-  opacity: 0;
+#text_bas_37.text1,#text_bas_37.text1 {
+  opacity: 1;
 }
 
 .text2 {
@@ -168,81 +170,160 @@ body {
   color: rgba(2, 38, 70, 0.5);
 }
 
-#code_contain{
-  z-Index:100;
+#code_contain {
+  z-Index: 100;
   font-family: "vscode";
   position: absolute;
   /* top:"25%"; */
-  right:0;
-  width:50%;
+  right: 0;
+  width: 50%;
   height: 100%;
   margin-top: 100px;
-  color:#fff;
+  color: #fff;
   font-size: 20px;
 }
 
-.code_space{
-  margin-left: 10px;
+.code_space {
+  margin-left: 20px;
 }
 
-.bg_grey{
-  background-color:rgb(31,31,31)
+.bg_grey {
+  background-color: rgb(31, 31, 31)
 }
 
-.vscode_orange{
-  color:rgb(206,145,120)
+.vscode_orange {
+  color: rgb(206, 145, 120)
 }
 
-.vscode_rose{
-  color:rgb(197,134,192)
+.vscode_rose {
+  color: rgb(197, 134, 192)
 }
 
-.vscode_bleu{
-  color:rgb(156,220,254)
+.vscode_bleu {
+  color: rgb(156, 220, 254)
 }
 
-.vscode_vert{
-  color:rgb(78,201,176)
+.vscode_vert {
+  color: var(--color-green)
 }
 
-.vscode_beige{
-  color:rgb(220,220,170)
+.vscode_beige {
+  color: rgb(220, 220, 170)
 }
 
-.vscode_jaune{
-  color:rgb(255,215,0)
+.vscode_jaune {
+  color: rgb(255, 215, 0)
 }
 
-vscode_blanc{
-  color:rgb(255,255,255)
+.vscode_blanc {
+  color: rgb(255, 255, 255)
 }
 
-.vscode{
-  height:10px;
+.vscode {
+  height: 10px;
 }
 
-#AP_Hidden{
-  color:var(--color-brown);
+#AP_Hidden {
+  color: var(--color-brown);
   z-index: 101;
   /* position:absolute; */
 }
 
-#code_contain div{
-  height:20px;
-  color:rgb(156,220,254);
+#code_contain div {
+  height: 25px;
+  color: rgb(156, 220, 254);
   /* color: transparent; */
   text-shadow: 1px 1px 2px white;
   /* position:absolute; */
 }
 
-#main_content_zone1_hidden{
-  background-image:url("../public/photo-1578662996442-48f60103fc96.avif") ;
+#main_content_zone1_hidden {
+  background-image: url("../public/photo-1578662996442-48f60103fc96.avif");
   background-size: cover;
   /* min-height: ; */
 }
 
-#bgCircle {
+#bgCircle,#bgCircle6,#bgCircle7 {
   /* background-color: #0226aa; */
-  background-color: rgb(31,31,31);
+  background-color: rgb(31, 31, 31);
 }
 
+
+
+.img_site {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 50%;
+}
+
+.ttttick{
+  height: 15px;
+  width: 15px;
+}
+
+video{
+  height: 15px!important;
+  width: 15px;
+}
+
+.span_image{
+   background-image: url('../public/cv_blanc.png');
+   background-size: "cover",
+}
+
+.text-green {
+  /* color: #ffcd00; */
+  color: var(--color-green);
+}
+
+.effet_perso {
+  transition: color .5s cubic-bezier(.19, 1, .22, 1);
+  transition: color .5s var(--ease-out-expo)
+}
+
+.effet_perso:hover {
+  /* color: #ffcd00; */
+  color: var(--color-yellow);
+  border-color: var(--color-yellow);
+}
+
+.effet_perso:hover .header__submenu {
+  display: flex
+}
+
+.effet_perso:hover:before {
+  --transform-scale-y: 1
+}
+
+.effet_perso:hover .points__pt {
+  --transform-translate-y: -0.25rem;
+  /* background-color: #ffcd00; */
+  background-color: var(--color-green)
+}
+
+.effet_perso:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  background-color: var(--color-white);
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  transition-property: transform;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(.19, 1, .22, 1);
+  transition-timing-function: var(--ease-out-expo);
+  --transform-scale-y: 0;
+  transform-origin: bottom;
+  z-index: -1
+}

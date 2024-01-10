@@ -4,68 +4,162 @@ import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
 gsap.registerPlugin(MotionPathPlugin);
 
 function VSCode() {
-  const getElementsWithNoChildren = (target) => {
-    let candidates;
-    // candidates = target.querySelectorAll("*");
+  // const getElementsWithNoChildren = (target) => {
+  //   let candidates;
+  //   // candidates = target.querySelectorAll("*");
 
-    if (target && typeof target.querySelectorAll === "function") {
-      candidates = target.querySelectorAll("*");
-    } else if (target && typeof target.length === "number") {
-      candidates = target;
-    } else {
-      candidates = document.querySelectorAll("*");
-    }
+  //   if (target && typeof target.querySelectorAll === "function") {
+  //     candidates = target.querySelectorAll("*");
+  //   } else if (target && typeof target.length === "number") {
+  //     candidates = target;
+  //   } else {
+  //     candidates = document.querySelectorAll("*");
+  //   }
 
-    return Array.from(candidates).filter((elem) => {
-      return elem.children.length === 0;
-    });
-  };
+  //   return Array.from(candidates).filter((elem) => {
+  //     return elem.children.length === 0;
+  //   });
+  // };
 
   useEffect(() => {
     let elements = Array.prototype.slice.call(
       document.getElementById("code_contain").children
     );
     // console.log(elements);
+
+    // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+
+    elements.forEach((element, i) => {
+      if (i > 6) {
+        gsap.to(element, 0, {
+          x: 100 * Math.cos(-Math.PI / 2) + "vh",
+          y: 100 * Math.sin(Math.PI / 2) + "vw",
+          ease: "none",
+          // visibility:"none"
+        });
+      }
+    });
+
     elements.forEach((element, i) => {
       // gsap.to(element, 0, {
       //   ease: "none",
       //   rotation: 5 * Math.random() - 2.5,
       //   transformOrigin: "50% 50%",
       // });
-      if (i == 0) {
-        var tl = gsap.timeline({ repeat: -1 });
-        // tl.to(element, 20, {
+
+      // if (i == 3) {
+      //   // console.log(element)
+      //   gsap.to(element, 0, {
+      //     x: 100 * Math.cos(-Math.PI / 2) + "vh",
+      //     y: 100 * Math.sin(Math.PI / 2) + "vw",
+      //     ease: "none",
+      //     // visibility:"none"
+      //   });
+      // }
+
+      if (i == 2) {
+        var rect = element.getBoundingClientRect();
+        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        // tl.to(element, 10, {
         //   motionPath: {
         //     path: [
-        //       { x: "10vw", y: "50vh" },
-        //       { x: "-40vw", y: "-10vh" },
-        //       { x: "30vw", y: "-40vh" },
+        //       // { x: "0vh", y: "0vh" },
+        //       { x: "-40vw", y: "10vh" },
+        //       { x: "-10vw", y: "70vh" },
+        //       { x: "0vh", y: "0vw" },
         //     ], // you probably want more points here...or just use an SVG <path>!
-        //     curviness: 2,
+        //     // curviness: 2,
+        //     // align:"self"
         //     // autoRotate: true
         //   },
         //   ease: "none",
         //   // clearProps: 'all'
         // });
-        // tl.to(element, 3, {
-        //   x: "0px",
-        //   y: "20vw",
-        // });
-        // tl.to(element, 3, {
-        //   x: "10px",
-        //   y: "0px",
-        // });
-        // tl.to(element, 3, {
-        //   x: "-10px",
-        //   y: "0px",
-        // });
-        // tl.to(element, 3, {
-        //   x: "0px",
-        //   y: "-20vw",
-        // });
+      }
 
+      if (i == 3) {
+        var rect = element.getBoundingClientRect();
+        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        // tl.to(element, 10, {
+        //   motionPath: {
+        //     path: [
+        //       // { x: "0vh", y: "0vh" },
+        //       { x: "-10vw", y: "30vh" },
+        //       { x: "-10vw", y: "70vh" },
+        //       { x: "0vh", y: "0vw" },
+        //     ], // you probably want more points here...or just use an SVG <path>!
+        //     // curviness: 2,
+        //     // align:"self"
+        //     // autoRotate: true
+        //   },
+        //   ease: "none",
+        //   // clearProps: 'all'
+        // });
+      }
+
+      if (i == 4) {
+        var rect = element.getBoundingClientRect();
+        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        // tl.to(element, 15, {
+        //   motionPath: {
+        //     path: [
+        //       // { x: "0vh", y: "0vh" },
+        //       { x: "10vw", y: "30vh" },
+        //       { x: "-10vw", y: "10vh" },
+        //       { x: "-10vw", y: "-20vh" },
+        //       { x: "0vh", y: "0vw" },
+        //     ], // you probably want more points here...or just use an SVG <path>!
+        //     // curviness: 2,
+        //     // align:"self"
+        //     // autoRotate: true
+        //   },
+        //   ease: "none",
+        //   // clearProps: 'all'
+        // });
+      }
+
+      if (i == 5) {
+        var rect = element.getBoundingClientRect();
+        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        // tl.to(element, 15, {
+        //   motionPath: {
+        //     path: [
+        //       // { x: "0vh", y: "0vh" },
+        //       { x: "10vw", y: "10vh" },
+        //       { x: "-10vw", y: "10vh" },
+        //       { x: "-10vw", y: "-20vh" },
+        //       { x: "0vh", y: "0vw" },
+        //     ], // you probably want more points here...or just use an SVG <path>!
+        //     // curviness: 2,
+        //     // align:"self"
+        //     // autoRotate: true
+        //   },
+        //   ease: "none",
+        //   // clearProps: 'all'
+        // });
+      }
+      if (i == 0) {
+        var rect = element.getBoundingClientRect();
+        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        tl.to(element, 10, {
+          motionPath: {
+            path: [
+              // { x: "0vh", y: "0vh" },
+              { x: "10vw", y: "10vh" },
+              { x: "-10vw", y: "70vh" },
+              { x: "0vh", y: "0vw" },
+            ], // you probably want more points here...or just use an SVG <path>!
+            // curviness: 2,
+            // align:"self"
+            // autoRotate: true
+          },
+          ease: "none",
+          // clearProps: 'all'
+        });
         tl.play();
       }
+
+      // }
     });
   }, []);
   return (
@@ -74,66 +168,98 @@ function VSCode() {
         <span className="vscode_rose">{"import "}</span>
         <span>React,</span>
         <span className="vscode_jaune">{"{"}</span>
-        <span>useRef, useEffect, useState, useLayoutEffect</span>{" "}
-        <span className="vscode_jaune">{"}"}</span>
+        <span>useRef, useEffect, useState, useLayoutEffect</span>
+        <span className="vscode_jaune">{"}"}</span>{" "}
         <span className="vscode_rose">{"from"}</span>
         <span className="vscode_orange"> "react"</span>;
       </div>
+      <div>
+        <span>
+          interface <span className="vscode_jaune">User</span>{" "}
+          <span className="vscode_yellow">{"{"}</span>
+        </span>
+      </div>
+      <div>
+        <span className="code_space">
+          name<span className="vscode_blanc">:</span>{" "}
+          <span className="vscode_vert">string</span>
+        </span>
+      </div>
+      <div>
+        <span className="code_space">
+          age<span className="vscode_blanc">:</span>{" "}
+          <span className="vscode_vert">string</span>
+        </span>
+      </div>
+      <div>
+        <span className="vscode_jaune">{"}"}</span>
+      </div>
+
+      {/* function getUsers(): Promise<User[]> { */}
+      <div>
+      function <span>getUsers</span><span className="vscode_jaune">()</span><span className="vscode_blanc">:</span> <span className="vscode_vert">Promise</span>{"<"}<span className="vscode_vert">User</span><span className="vscode_jaune">[]</span>{">"}
+      </div>
+      
+      {/* <div style={{
+        width:"500px",
+        height:"100%",
+        // backgroundColor:"red"
+      }}>
+        <div class="x">
+          <img
+            class="y"
+            src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-Black-Large.png"
+            alt="codepen"
+          />
+        </div>
+      </div> */}
       <div></div>
       <div>
-        {/* const FirstComponent: React.FC<{}> = () => { */}
         <span className="vscode_rose">{"const "}</span>
         <span>FirstComponent</span>
         <span className="vscode_rose">:</span>{" "}
-
         <span className="vscode_vert">{"React.FC"}</span>
         <span className="vscode_blanc">{"<"}</span>
         <span className="vscode_jaune">{"{"}</span>
         <span className="vscode_jaune">{"}"}</span>
         <span className="vscode_blanc">{">"}</span>{" "}
         <span className="vscode_blanc">{"="}</span>{" "}
-        <span className="vscode_jaune">{"("}</span>{" "}
-        <span className="vscode_jaune">{")"}</span>{" "}
-
-        <span >{"=>"}</span>{" "}
+        <span className="vscode_jaune">{"("}</span>
+        <span className="vscode_jaune">{")"}</span> <span>{"=>"}</span>{" "}
         <span className="vscode_jaune">{"{"}</span>{" "}
-      
       </div>
-      {/* <span className="vscode vscode_orange">
-        import {(useEffect, useLayoutEffect)} from "react";
-      </span>
-      <br />
-      <span className="vscode vscode_bleu code_space">
-        <div id="EE" className="vscode vscode_orange">
-          {"export default function"}
-          <span>KKK</span>
-        </div>
-        <div id="EE" className="vscode vscode_orange">
-          {"{"}
-        </div>
-      </span>
-      <br />
-      <div className="vscode vscode_bleu">{"useEffect(() =>  {"}<span>hh</span></div>
-      <br /> */}
+      <div>
+        <span className="vscode_rose code_space">{"return ("}</span>
+      </div>
+      <div>
+        <span className="vscode_rose code_space" />
+        <span className="vscode_rose code_space">{"<div>"}</span>
+      </div>
 
-      {/* //       import { useEffect, useLayoutEffect } from "react";
+      <div>
+        <span className="vscode_rose code_space" />
+        <span className="vscode_rose code_space" />
+        <span className="vscode_rose code_space">{"<h3>"}</span>
+        <span className="">Liste des utilisateurs connectés</span>
+        <span className="vscode_rose ">{"</h3>"}</span>
+      </div>
 
-// export default function Header() {
-//   useEffect(() => {
-//     const para = document.querySelector(".header__menu__el");
-
-//   });
-//   return (
-//     <header
-//       className="header fixed flex items-center w-full z-1000 rg:z-90"
-//       //   style="--header-bg-color:var(--color-white); --header-text-color:var(--color-brown);"
-//       data-text-color="brown"
-//       id="header_oprou"
-//       style={{
-//         height: "10vh",
-//         zIndex: "11",
-//       }}
-//     ></header>*/}
+      <div>
+        <span className="vscode_rose code_space" />
+        <span className="vscode_rose code_space">{"</div>"}</span>
+      </div>
+      <div>
+        <span className="vscode_rose code_space">{");"}</span>
+      </div>
+      <div>
+        <span className="vscode_rose">{"};"}</span>
+      </div>
+      <div></div>
+      <div>
+        <span className="vscode_rose code_space2">
+          {"export default FirstComponent;"}
+        </span>
+      </div>
     </div>
   );
 }
@@ -189,13 +315,28 @@ export default function Screen1() {
       }
     }
 
+    function redresseCode2(event) {
+      let myElement = document.getElementById("code_contain");
+      let i = 0;
+      for (const child of myElement.children) {
+        i = i + 1;
+        gsap.killTweensOf(child);
+        gsap.to(child, 0.3, {
+          ease: "none",
+          x: "0px",
+          y: "0px",
+          delay: i * "0.02",
+        });
+      }
+    }
+
     document.querySelector(".home-cover").addEventListener("click", (event) => {
       // console.log("ee",event)
       if (!clicked.current) {
         var clipPath = ref.current.style.getPropertyValue("clip-path");
 
         if (clipPath) {
-          redresseCode(event);
+          redresseCode2(event);
           clipPath = clipPath.split("at");
           clipPath = "circle(100vw at " + clipPath[1];
           clicked.current = true;
@@ -430,17 +571,17 @@ export default function Screen1() {
                       className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1"
                     >
                       <a
-                        href="https://www.agap2.fr/agap2/"
+                        href="https://www.linkedin.com/in/amaurypichat/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        {/* <img src="./../public/cv_blanc.png"/> */}
+                        {/* <span className="span_image h-full"><img src="./../cv_blanc.png"/></span> */}
                         {/* </img> */}
                         Linkedin
                       </a>
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/metiers/"
+                        href="https://github.com/amaurypichat"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Github
@@ -448,7 +589,7 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/esprit/"
+                        href="https://amaurypichat.fr/images/cv_AmauryPICHAT.pdf"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         CV
@@ -878,9 +1019,9 @@ export default function Screen1() {
               </div> */}
             </div>
 
-            <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2">
+            {/* <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2">
               CONTACT
-            </div>
+            </div> */}
           </div>
 
           <div className="w-full h-full bg-yellow" id="part2">
@@ -978,7 +1119,7 @@ export default function Screen1() {
                   <ul className="flex rg:mr-6 lg:mr-10 xl:mr-32">
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/agap2/"
+                        href="https://www.linkedin.com/in/amaurypichat/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Linkedin
@@ -986,7 +1127,7 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/metiers/"
+                        href="https://github.com/amaurypichat"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Github
@@ -994,7 +1135,7 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/esprit/"
+                        href="https://amaurypichat.fr/images/cv_AmauryPICHAT.pdf"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         CV
@@ -1389,10 +1530,10 @@ export default function Screen1() {
               </div> */}
             </div>
 
-            <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2">
-              {/* THINK<span>2</span>MORROW */}
-              CONTACT
-            </div>
+            {/* <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2"> */}
+            {/* THINK<span>2</span>MORROW */}
+            {/* CONTACT */}
+            {/* </div> */}
           </div>
         </div>
       </div>

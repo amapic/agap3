@@ -1,15 +1,15 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+// import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { SphereGeometry } from "three";
+// import { SphereGeometry } from "three";
 gsap.registerPlugin(ScrollTrigger);
 
 const Planete = (props, ref) => {
-  const { nodes } = useLoader(GLTFLoader, "/low_poly_earth.gltf");
+  // const { nodes } = useLoader(GLTFLoader, "/low_poly_earth.gltf");
 
   var ColorYellow = "#ffcd00";
 
@@ -89,7 +89,7 @@ const PC = (props, ref) => {
   useFrame(({ clock }) => {
     if (refFloppy1.current) {
       if (
-        refFloppy1.current.position.x == 0.001 
+        refFloppy1.current.position.x == 0.001
         // ||
         // ref.current.rotation.y != Math.PI / 4 - Math.PI / 2 - Math.PI / 16
       ) {
@@ -162,102 +162,51 @@ const CanvasPlanete = () => {
   //   .getPropertyValue("--color-yellow");
 
   // console.log(ColorYellow);
-  const ref = useCallback((node) => {
-    if (node === null) {
-      // DOM node referenced by ref has been unmounted
-    } else {
-      // console.log("EE", node.children[1].position);
-      // DOM node referenced by ref has changed and exists
-      let ctx = gsap.context(() => {
-        var scrollSunTl = gsap.timeline();
-        // console.log("color", node.children[0].material.color);
-        ScrollTrigger.create({
-          trigger: "#main",
-          // endTrigger: ".screen6",
-          start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-          end: "bottom-=10% bottom",
-          // end: "+=200",
-          toggleActions: "play pause resume reset",
-          // markers: true,
-          scrub: 3,
-          animation: scrollSunTl,
-          // pin: "#canvas",
-        });
 
-        // scrollSunTl.fromTo(
-        //   node.scale,
-        //   {
-        //     x: 0.001,
-        //     y: 0.001,
-        //     z: 0.001,
-        //   },
-        //   { x: 0.005, y: 0.005, z: 0.001 }
-        // );
-
-        scrollSunTl.to(
-          node.scale,
-          {
-            x: 1,
-            y: 1,
-            z: 1,
-          }
-          // "-=0.9"
-        );
-
-        // scrollSunTl.to(node.scale, {
-        //   x: 0.001,
-        //   y: 0.001,
-        //   z: 0.001,
-        // }, "-=0.9");
-
-        // scrollSunTl.to(node.rotation, {
-        //   x: 0,
-        //   y: (3 * Math.PI) / 4,
-        //   z: 0,
-        // });
-
-        // scrollSunTl.to(
-        //   node.children[1].material.color,
-        //   {
-        //     r: 255 / 255,
-        //     g: 205 / 255,
-        //     b: 0 / 255,
-        //   },
-        //   "-=0.9"
-        // );
-
-        scrollSunTl.to(
-          node.children[0].position,
-          {
-            x: 0.001,
-            y: 0.001,
-            z: 0.001,
-          },
-          "20%"
-        );
-
-        scrollSunTl.to(
-          node.children[1].position,
-          {
-            x: 0.001,
-            y: 0.001,
-            z: 0.001,
-          },
-          ">"
-        );
-        // scrollSunTl.to(
-        //   node.rotation,
-        //   {y: 360, duration: '50s', ease: "elastic"},
-        //   ">"
-        // );
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      var scrollSunTl = gsap.timeline();
+      // console.log("color", node.children[0].material.color);
+      ScrollTrigger.create({
+        trigger: "#main7",
+        // endTrigger: ".screen6",
+        start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        end: "bottom-=10% bottom",
+        // end: "+=200",
+        toggleActions: "play pause resume reset",
+        // markers: true,
+        scrub: 3,
+        animation: scrollSunTl,
+        // pin: "#canvas",
       });
-      return () => ctx.revert();
-    }
-  }, []); // adjust deps
+
+      scrollSunTl.fromTo(
+        "#canvas7",
+        {
+          x: "-50vw",
+        },
+        {
+          x: "5vw",
+        }
+        // { x: "0vw" }
+      );
+    });
+    return () => ctx.revert();
+  });
+  // const ref = useCallback((node) => {
+  //   if (node === null) {
+  //     // DOM node referenced by ref has been unmounted
+  //   } else {
+  //     // console.log("EE", node.children[1].position);
+  //     // DOM node referenced by ref has changed and exists
+
+  //   }
+  // }, []); // adjust deps
 
   return (
     <div
-      id="main"
+      id="main7"
+      className="z-20"
       style={{
         height: "300vh",
         overflow: "hidden",
@@ -266,7 +215,7 @@ const CanvasPlanete = () => {
       }}
     >
       <div
-        id="canvas"
+        id="canvas7"
         style={{
           height: "100vh",
           overflow: "hidden",
@@ -274,15 +223,23 @@ const CanvasPlanete = () => {
           left: "0vh",
           width: "40vw",
           zIndex: "50",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
-        <Canvas>
-          <ambientLight intensity={0.3} />
-          <spotLight position={[10, 10, 10]} angle={45} penumbra={1} />
-          <pointLight position={[-10, -10, -10]} />
+        {/* <div
+        className="relative h-full"> */}
+        <a href="https://amaurypichat.fr/slide/" className="img_site">
+          <img
+            // className="img_site"
+            style={{
+              backgroundSize: "contain",
+            }}
+            src="./../../sunflower2.jpg"
+          ></img>
+        </a>
 
-          <PlaneteBis ref={ref} />
-        </Canvas>
+        {/* </div> */}
       </div>
     </div>
   );

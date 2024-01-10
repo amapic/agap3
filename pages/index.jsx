@@ -11,6 +11,8 @@ import Header from "@/components_agap2/header2";
 import Screen1 from "@/components_agap2/Screen1";
 import Screen4 from "@/components_agap2/Screen4";
 import Screen5 from "@/components_agap2/Screen5";
+import Screen6 from "@/components_agap2/Screen6";
+import Screen7 from "@/components_agap2/Screen7";
 // import Navv, { Carousel } from "@/components_agap2/Nav";
 // import {
 //   BrowserView,
@@ -33,15 +35,25 @@ function Home() {
         },
       });
 
-      let tl2 = gsap.timeline({
+      let tl6 = gsap.timeline({
         scrollTrigger: {
-          trigger: "#container_move5",
+          trigger: "#screen6",
           start: "top top+=50%", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-          end: "bottom bottom",
+          end: "bottom bottom+=50%",
           // markers: true,
           toggleActions: "play none none reset",
         },
       });
+
+      // let tl2 = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: "#container_move5",
+      //     start: "top top+=50%", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+      //     end: "bottom bottom",
+      //     // markers: true,
+      //     toggleActions: "play none none reset",
+      //   },
+      // });
 
       // tl.to(".pathnav", {
       //   stroke: "#ffcd00",
@@ -83,7 +95,7 @@ function Home() {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [cursorWidth]);
 
   // const [_isMobile, setMobile] = useState(false);
 
@@ -107,7 +119,7 @@ function Home() {
       > */}
       {/* <Navv /> */}
       {/* <Carousel /> */}
-      {!isTabletOrMobile && (
+      {/* {!isTabletOrMobile && ( */}
         <>
           <div
             id="mousemove"
@@ -128,11 +140,14 @@ function Home() {
           ></div>
           <Header />
           <Screen1 />
-          <Screen4 />
-          <Screen5 />
+          {/* <Screen4 /> */}
+          <Screen6 />
+          <Screen7 />
+          {/* <Screen5 /> */}
+          {/* <Screen5 /> */}
         </>
-      )}
-      {isTabletOrMobile && (
+      {/* )} */}
+      {/* {isTabletOrMobile && (
         <div
           style={{
             backgroundColor: "white",
@@ -146,7 +161,7 @@ function Home() {
         >
           Site non prévu pour Smartphone
         </div>
-      )}
+      )} */}
     </>
   );
 }

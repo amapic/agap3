@@ -1,0 +1,35 @@
+$size: 100px;
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+// img, div {
+//   width: $size;
+//   height: $size;
+// }
+
+.x {
+  animation: x 3s linear infinite alternate;
+  width: $size;
+  height: $size;
+}
+
+.y {
+  animation: y 7s linear infinite alternate;
+  width: $size;
+  height: $size;
+}
+
+@keyframes x {
+  100% {
+    transform: translateX(calc(50vw - #{$size}));
+  }
+}
+
+@keyframes y {
+  100% {
+    transform: translateY(calc(50vh - #{$size}));
+  }
+}

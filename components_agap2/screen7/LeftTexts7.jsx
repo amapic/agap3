@@ -21,7 +21,7 @@ export default function Ttext1() {
           font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
           "
             >
-             7
+              7
             </div>
             <div
               className="ml-1 w-50 text2 text-white
@@ -81,7 +81,7 @@ export function Ttext2() {
           font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
           "
             >
-              1 an 
+              1 an
             </div>
             {/* <div className="w-50 text2 blueLetter">M€</div> */}
           </div>
@@ -112,47 +112,54 @@ export function Ttext2() {
   );
 }
 
-export function Ttext3() {
+export function Ttext37() {
+  function followlink() {
+    window.open("https://amaurypichat.fr/siteWeb1/index.html", "_blank");
+  }
   return (
     <div
-      id="texte_bas"
+      id="texte_bas_37"
       style={{
         // width: "300px",
-        zIndex: "20",
+        zIndex: "30",
         top: "80vh",
-        left: "25vw",
+        left: "15vw",
         position: "absolute",
         size: "40px",
         // textAlign: "right",
       }}
     >
       <div className="w-full h-full">
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-start">
           {/* <div className="flex flex-row"> */}
           <div
-            className="w-50 text1 text-yellow
-        text-yellow font-bold text-2-5xl md:text-3xl xl:text-3-5xl opacity-0 backface-hidden
+            className="w-50 text1 
+        text-green font-bold text-2xl md:text-2-5xl xl:text-3xl opacity-1 backface-hidden border-2 p-2
         "
           >
-            4
+            <ul>
+              <li className="effet_perso" onClick={followlink}>
+                <a href="https://amaurypichat.fr/siteWeb1/index.html">
+                  Voir la réalisation
+                </a>
+              </li>
+            </ul>
           </div>
-          <div
+          {/* <div
             className="w-50 text2 text-white
         font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
         "
           >
             sites
           </div>
-          {/* </div> */}
           <div
             className="w-100 text3 text-white
         "
           >
-            {/* {" "} */}
             développés
-          </div>
+          </div> */}
         </div>
-        <div
+        {/* <div
           id="cercle3"
           className="opacity-0"
           style={{
@@ -165,7 +172,7 @@ export function Ttext3() {
             height: "1px",
             zIndex: "10",
           }}
-        ></div>
+        ></div> */}
       </div>
     </div>
   );
@@ -369,94 +376,94 @@ export function Timeline2(scrollSunTl, q) {
 }
 
 export function Timeline3(scrollSunTl, q) {
-  scrollSunTl.fromTo(
-    q("#texte_bas .text1"),
-    {
-      y: 20,
-    },
-    {
-      scrollTrigger: {
-        trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-        end: "top+=90% bottom",
-        // end: "+=200",
-        toggleActions: "play none none reset",
-        // markers: true,
-        scrub: 1,
-      },
+  // scrollSunTl.fromTo(
+  //   q("#texte_bas_37 .text1"),
+  //   {
+  //     opacity: 0
+  //   },
+  //   {
+  //     scrollTrigger: {
+  //       trigger: "#screen7",
+  //       // endTrigger: ".screen6",
+  //       start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+  //       end: "top+=90% bottom",
+  //       // end: "+=200",
+  //       toggleActions: "play none none reset",
+  //       // markers: true,
+  //       scrub: 1,
+  //     },
 
-      opacity: 1,
-      y: 0,
-    }
-  );
+  //     opacity: 1,
+  //     // y: 0,
+  //   }
+  // );
 
-  scrollSunTl.fromTo(
-    q("#texte_bas .text2"),
-    {
-      y: 40,
-    },
-    {
-      scrollTrigger: {
-        trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-        end: "top+=91% bottom",
-        // end: "+=200",
-        toggleActions: "play none none reset",
-        // markers: true,
-        scrub: 1,
-      },
+  // scrollSunTl.fromTo(
+  //   q("#texte_bas37 .text2"),
+  //   {
+  //     y: 40,
+  //   },
+  //   {
+  //     scrollTrigger: {
+  //       trigger: "#screen4",
+  //       // endTrigger: ".screen6",
+  //       start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+  //       end: "top+=91% bottom",
+  //       // end: "+=200",
+  //       toggleActions: "play none none reset",
+  //       // markers: true,
+  //       scrub: 1,
+  //     },
 
-      opacity: 1,
-      y: 0,
-    }
-  );
+  //     opacity: 1,
+  //     y: 0,
+  //   }
+  // );
 
-  scrollSunTl.fromTo(
-    q("#texte_bas .text3"),
-    {
-      y: 70,
-    },
-    {
-      scrollTrigger: {
-        trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-        end: "top+=91% bottom",
-        // end: "+=200",
-        toggleActions: "play none none reset",
-        // markers: true,
-        scrub: 1,
-      },
+  // scrollSunTl.fromTo(
+  //   q("#texte_bas37 .text3"),
+  //   {
+  //     y: 70,
+  //   },
+  //   {
+  //     scrollTrigger: {
+  //       trigger: "#screen4",
+  //       // endTrigger: ".screen6",
+  //       start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+  //       end: "top+=91% bottom",
+  //       // end: "+=200",
+  //       toggleActions: "play none none reset",
+  //       // markers: true,
+  //       scrub: 1,
+  //     },
 
-      opacity: 1,
-      y: 0,
-    }
-  );
+  //     opacity: 1,
+  //     y: 0,
+  //   }
+  // );
 
-  scrollSunTl.to(
-    q("#cercle3"),
+  // scrollSunTl.to(
+  //   q("#cercle3"),
 
-    {
-      scrollTrigger: {
-        trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-        end: "top+=91% bottom",
-        // end: "+=200",
-        toggleActions: "play none none reset",
-        // markers: true,
-        scrub: 1,
-      },
+  //   {
+  //     scrollTrigger: {
+  //       trigger: "#screen4",
+  //       // endTrigger: ".screen6",
+  //       start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+  //       end: "top+=91% bottom",
+  //       // end: "+=200",
+  //       toggleActions: "play none none reset",
+  //       // markers: true,
+  //       scrub: 1,
+  //     },
 
-      opacity: 1,
-      width: "24px",
-      height: "24px",
-      x: "-12px",
-      y: "-12px",
-    }
-  );
+  //     opacity: 1,
+  //     width: "24px",
+  //     height: "24px",
+  //     x: "-12px",
+  //     y: "-12px",
+  //   }
+  // );
 
   return scrollSunTl;
 }
