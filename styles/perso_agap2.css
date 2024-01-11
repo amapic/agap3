@@ -356,13 +356,13 @@ video {
   }
 }
 
-#texte_bas_36{
+/* #texte_bas_36{
   zIndex: "20",
   top: "80vh",
   left: "15vw",
   position: "absolute",
   size: "40px",
-}
+} */
 
 /* .h-screen-1/4	height: 25vh;	Set the element's height to 25vh. */
 /* .h-screen-3/4	height: 75vh; */

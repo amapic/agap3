@@ -77,7 +77,7 @@ export default function RightText6() {
           className="text-blue mb-4 rg:mb-12  xl:mb-12"
           data-cartapus="visible"
         >
-          <span className="text-center rg:text-start">Site web institutionnel entièrement responsive</span>
+          <span className="text-center rg:text-start">Réalisation un : Site web institutionnel entièrement responsive</span>
         </h2>
 
         <p className="home-numbers__agap text-4xl text-blue font-semibold">
