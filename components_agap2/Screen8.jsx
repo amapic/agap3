@@ -4,18 +4,18 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-import CanvasPlanete from "./screen7/Planet7";
+import CanvasPlanete from "./screen8/Planet8";
 import Ttext1, {
   Ttext2,
-  Ttext37,
+  Ttext38,
   // Timeline1,
   // Timeline2,
   Timeline3,
-} from "./screen7/LeftTexts7";
+} from "./screen8/LeftTexts8";
 
-import RightText7 from "./screen7/RightText7";
+import RightText8 from "./screen8/RightText8";
 
-export default function Screen7() {
+export default function Screen8() {
   const zoom = useRef(null);
   let el = useRef();
 
@@ -35,7 +35,7 @@ export default function Screen7() {
       const mm = gsap.matchMedia();
       mm.add(
         {
-          isSmall: "(min-width: 0px)",
+          isSmall: "(max-width: 0px)",
           isLarge: "(min-width: 769px) and (max-width: 1300px)",
           isXLarge: "(min-width: 1301px)",
         },
@@ -45,21 +45,21 @@ export default function Screen7() {
 
 
           //mouvement gén éral
-          scrollSunTl.to("#container_move7", {
+          scrollSunTl.to("#container_move8", {
             scrollTrigger: {
-              trigger: "#screen7",
+              trigger: "#screen8",
               start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
               end: "top+=100% bottom",
               toggleActions: "play none none reset",
               // markers: true,
               scrub: 1,
-              pin: "#container_move7",
+              pin: "#container_move8",
             },
           });
 
-            scrollSunTl.to("#bgCircle7", {
+            scrollSunTl.to("#bgCircle8", {
               scrollTrigger: {
-                trigger: "#screen7",
+                trigger: "#screen8",
                 start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
                 end: "top+=70% bottom",
                 toggleActions: "play none none reset",
@@ -110,7 +110,7 @@ export default function Screen7() {
           //les timeline se passe les unes après les autres
           // Timeline1(scrollSunTl, q);
           // Timeline2(scrollSunTl, q);
-          // Timeline3(scrollSunTl, q);
+          Timeline3(scrollSunTl, q);
           // TimelineDroite(scrollSunTl, q);
         //   TimelineImage(scrollSunTl, q);
         }
@@ -122,7 +122,7 @@ export default function Screen7() {
   return (
     <>
       <div
-        id="screen7"
+        id="screen8"
         style={{
           height: "300vh",
           position: "relative",
@@ -134,7 +134,7 @@ export default function Screen7() {
         ref={zoom}
       >
         <div
-          id="container_move7"
+          id="container_move8"
           className="home-numbers__wrapper relative w-full h-full flex flex-wrap items-stretch overflow-hidden z-0"
         >
           <div
@@ -144,10 +144,10 @@ export default function Screen7() {
             <CanvasPlanete />
             {/* <Ttext1 /> */}
             {/* <Ttext2 /> */}
-            <Ttext37 />
+            <Ttext38 />
             <div
               // className="bg-blue"
-              id="bgCircle7"
+              id="bgCircle8"
               style={{
                 left: "0vw",
                 borderRadius: "999px",
@@ -163,7 +163,7 @@ export default function Screen7() {
             ></div>
           </div>
 
-          <RightText7 />
+          <RightText8 />
         </div>
       </div>
 

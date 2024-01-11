@@ -4,14 +4,14 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 
 
-export default function RightText6() {
+export default function RightText8() {
   useEffect(() => {
     let ctx = gsap.context(() => {
       // alert("fghd")
       var scrollSunTl = gsap.timeline();
       // // console.log("color", node.children[0].material.color);
       ScrollTrigger.create({
-        trigger: "#screen6PartieDroite",
+        trigger: "#screen8PartieDroite",
         // endTrigger: ".screen6",
         start: "top+=30% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "bottom-=10% bottom",
@@ -24,7 +24,7 @@ export default function RightText6() {
       });
 
       scrollSunTl.to(
-        "#tech61",
+        "#tech81",
         {
           x: "20px",
           duration: "0.3",
@@ -36,7 +36,7 @@ export default function RightText6() {
       scrollSunTl.addLabel("un", 0);
 
       scrollSunTl.to(
-        "#tech61",
+        "#tech81",
         {
           x: "0px",
           duration: "0.3",
@@ -46,7 +46,7 @@ export default function RightText6() {
       );
 
       scrollSunTl.to(
-        "#tech62",
+        "#tech82",
         {
           x: "20px",
           duration: "0.3",
@@ -55,7 +55,7 @@ export default function RightText6() {
       );
 
       scrollSunTl.to(
-        "#tech62",
+        "#tech82",
         {
           x: "0px",
           duration: "0.3",
@@ -69,22 +69,22 @@ export default function RightText6() {
   return (
     // <div id="screen4PartieDroite">
     <div
-      id="screen6PartieDroite"
-      className="relative container-main w-full rg:w-1/2 py-10 rg:py-16 rg:pl-8  xl:pl-40 order-1 rg:order-2 text-center rg:text-start"
+      id="screen8PartieDroite"
+      className="relative container-main w-full rg:w-1/2 py-10 rg:py-16 rg:pl-8  xl:pl-40 order-1 rg:order-2"
     >
       <div className="js-home-gl-text home-numbers__wrap backface-hidden">
         <h2
           className="text-blue mb-4 rg:mb-12  xl:mb-12"
           data-cartapus="visible"
         >
-          <span className="text-center rg:text-start">Site web institutionnel entièrement responsive</span>
+          <span>Site web institutionnel entièrement responsive</span>
         </h2>
 
         <p className="home-numbers__agap text-4xl text-blue font-semibold">
           {/* agap<span className="text-yellow">2</span> */}
         </p>
 
-        <div className="mce w-full rg:w-2/3 text-center rg:text-start">
+        <div className="mce w-full rg:w-2/3">
           <p>
             J'ai réalisé ce projet afin de valider mes compétences 
             React.js
@@ -93,16 +93,16 @@ export default function RightText6() {
             animations mettant en valeur son contenu
           </p>
         </div>
-        <h3 className="text-3xl mt-8 text-center rg:text-start">
+        <h3 className="text-3xl mt-8">
           Technologies utilisées:
           <ul>
             <li
-              id="tech61"
+              id="tech81"
               // <img classname="ttttick" src="../../tick.gif" />
               className="px-6"
             >
               <span
-                className="px-6 git1 text-center rg:text-start"
+                className="px-6 git1"
                 style={
                   {
                     // backgroundImage: `url("../../ezgif.com-speed (2).gif")`,
@@ -112,7 +112,7 @@ export default function RightText6() {
               ></span>
               - React.js
             </li>
-            <li id="tech62" className="px-6 git2 text-center rg:text-start">
+            <li id="tech82" className="px-6 git2">
               <span
                 
                 className="px-6"
@@ -128,6 +128,16 @@ export default function RightText6() {
           </ul>
         </h3>
 
+        {/* <a
+          href="https://www.agap2.fr/agap2/"
+          className="points-link mt-6 py-2 inline-block"
+        >
+          <div className="points flex items-stretch ml-1">
+            <div className="bg-blue points__pt mr-px transform backface-hidden"></div>
+            <div className="bg-blue points__pt mx-px transform backface-hidden"></div>
+            <div className="bg-blue points__pt ml-px transform backface-hidden"></div>
+          </div>
+        </a> */}
       </div>
 
       

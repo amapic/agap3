@@ -165,110 +165,73 @@ const CanvasPlanete = () => {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      const mm = gsap.matchMedia();
-      mm.add(
+      var scrollSunTl = gsap.timeline();
+      // console.log("color", node.children[0].material.color);
+      ScrollTrigger.create({
+        trigger: "#main8",
+        // endTrigger: ".screen6",
+        start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        end: "bottom-=10% bottom",
+        // end: "+=200",
+        toggleActions: "play pause resume reset",
+        // markers: true,
+        scrub: 3,
+        animation: scrollSunTl,
+        // pin: "#canvas",
+      });
+
+      scrollSunTl.fromTo(
+        "#canvas8",
         {
-          // isSmall: "(max-width: 0px)",
-          isLarge: "(min-width: 1000px)",
-          // isXLarge: "(min-width: 1301px)",
+          x: "-50vw",
         },
-        (c) => {
-          var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
-          ScrollTrigger.create({
-            trigger: "#main6",
-            // endTrigger: ".screen6",
-            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-            end: "bottom-=10% bottom",
-            // end: "+=200",
-            toggleActions: "play pause resume reset",
-            // markers: true,
-            scrub: 3,
-            animation: scrollSunTl,
-            // pin: "#canvas",
-          });
-
-          scrollSunTl.fromTo(
-            "#canvas6",
-            {
-              x: "-60vw",
-            },
-            {
-              x: "2vw",
-            }
-          );
-        }
-      );
-
-      mm.add(
         {
-          isSmall: "(max-width: 999px)",
-          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
-          // isXLarge: "(min-width: 1301px)",
-        },
-        (c) => {
-          var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
-          ScrollTrigger.create({
-            trigger: "#main6",
-            // endTrigger: ".screen6",
-            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-            end: "bottom-=10% bottom",
-            // end: "+=200",
-            toggleActions: "play pause resume reset",
-            // markers: true,
-            scrub: 3,
-            animation: scrollSunTl,
-            // pin: "#canvas",
-          });
-
-          scrollSunTl.fromTo(
-            "#canvas6",
-            {
-              x: "-100vw",
-            },
-            {
-              x: "7vw",
-            }
-          );
+          x: "5vw",
         }
+        // { x: "0vw" }
       );
     });
     return () => ctx.revert();
   });
+  // const ref = useCallback((node) => {
+  //   if (node === null) {
+  //     // DOM node referenced by ref has been unmounted
+  //   } else {
+  //     // console.log("EE", node.children[1].position);
+  //     // DOM node referenced by ref has changed and exists
 
+  //   }
+  // }, []); // adjust deps
 
   return (
     <div
-      id="main6"
-      className="z-20 w-fulll"
+      id="main8"
+      className="z-20"
       style={{
         height: "300vh",
         overflow: "hidden",
         position: "relative",
-        // width: "100%",
+        width: "100%",
       }}
     >
       <div
-      className="w-full rg:w-40vw pb-10 h-screen-1/2 rg:h-screen"
-        id="canvas6"
+        id="canvas8"
         style={{
-          // height: "100vh",
+          height: "100vh",
           overflow: "hidden",
           position: "absolute",
           left: "0vh",
-          // width: "40vw",
+          width: "40vw",
           zIndex: "50",
           display: "flex",
           justifyContent: "center",
-          
         }}
       >
         {/* <div
         className="relative h-full"> */}
-        <a href="https://amaurypichat.fr/slide/" className="img_site flex content-center rg:justify-center">
+        <a href="https://amaurypichat.fr/slide/" className="img_site">
           <img
-            className="w-screen-1/2 rg:h-screen-1/2"
+            // className="img_site"
             style={{
               backgroundSize: "contain",
             }}

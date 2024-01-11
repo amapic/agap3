@@ -13,7 +13,6 @@ import Screen4 from "@/components_agap2/Screen4";
 import Screen5 from "@/components_agap2/Screen5";
 import Screen6 from "@/components_agap2/Screen6";
 import Screen7 from "@/components_agap2/Screen7";
-// import Navv, { Carousel } from "@/components_agap2/Nav";
 // import {
 //   BrowserView,
 //   MobileView,
@@ -21,14 +20,14 @@ import Screen7 from "@/components_agap2/Screen7";
 //   isMobile,
 // } from "react-device-detect";
 
-export default function Home() {
+function Home() {
   useEffect(() => {
     // let q = gsap.utils.selector(".accordion-menu");
     let openMenu = null;
     let ctx = gsap.context(() => {
       gsap.utils.toArray(".accordion-menu").forEach((menu, i) => {
         // menus.forEach((menu) => {
-        
+
         let box = menu.parentNode.querySelector(".accordion-content"),
           // let box = q(".accordion-content"),
           items = box.querySelectorAll("li"),
@@ -36,53 +35,53 @@ export default function Home() {
           compteur = i;
         // console.log(menu.onclick)
         // if (undefined == menu.onclick) {
-            console.log("dfh");
-          // console.log("ee", box);
-          // console.log("ee", items);
-          gsap.set(items, { y: "-30vh" });
+        console.log("dfh");
+        // console.log("ee", box);
+        // console.log("ee", items);
+        gsap.set(items, { y: "-30vh" });
 
-          menu.open = () => {
-            if (!isOpen) {
-              // alert("dh");
-              isOpen = true;
-              // openMenu && openMenu.close();
-              openMenu = menu;
-              gsap.to(box, {
-                height: "75vh",
-                duration: 1,
-                ease: "elastic",
-                overwrite: true,
-              });
-              gsap.to(items, {
-                y: "25vh",
-                overwrite: true,
-                duration: 1.5,
-                stagger: 0.1,
-                ease: "elastic",
-              });
-            }
-          };
+        menu.open = () => {
+          if (!isOpen) {
+            // alert("dh");
+            isOpen = true;
+            // openMenu && openMenu.close();
+            openMenu = menu;
+            gsap.to(box, {
+              height: "75vh",
+              duration: 1,
+              ease: "elastic",
+              overwrite: true,
+            });
+            gsap.to(items, {
+              y: "25vh",
+              overwrite: true,
+              duration: 1.5,
+              stagger: 0.1,
+              ease: "elastic",
+            });
+          }
+        };
 
-          menu.close = () => {
-            if (isOpen) {
-              console.log("rr", compteur);
-              isOpen = false;
-              openMenu = null;
-              gsap.to(box, {
-                height: 0,
-                overwrite: true,
-                onComplete: () => gsap.set(items, { y: -30, overwrite: true }),
-              });
-            }
-          };
+        menu.close = () => {
+          if (isOpen) {
+            console.log("rr", compteur);
+            isOpen = false;
+            openMenu = null;
+            gsap.to(box, {
+              height: 0,
+              overwrite: true,
+              onComplete: () => gsap.set(items, { y: -30, overwrite: true }),
+            });
+          }
+        };
 
-          menu.addEventListener("click", () => {
-            //   console.log("gsfg");
-              isOpen ? menu.close() : menu.open();
-          });
-        // }
-    //   });
+        menu.addEventListener("click", () => {
+          //   console.log("gsfg");
+          isOpen ? menu.close() : menu.open();
         });
+        // }
+        //   });
+      });
     });
 
     return () => ctx.revert();
@@ -186,6 +185,6 @@ export default function Home() {
   );
 }
 
-// export default dynamic(() => Promise.resolve(Home), {
-//   ssr: false,
-// });
+export default dynamic(() => Promise.resolve(Home), {
+  ssr: false,
+});

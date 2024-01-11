@@ -57,7 +57,6 @@ export default function ParralaxBackground() {
         />
         <img
           ref={ref2}
-          src="/agap2/siteWeb1/brownSquare.png"
           height={"50px"}
           width={"50px"}
           className="position-absolute d-none d-sm-block kibouge fadeIn animated"
@@ -71,7 +70,6 @@ export default function ParralaxBackground() {
         />
 
         <img
-          src="/agap2/siteWeb1/darkBrownSquare.png"
           height={"50px"}
           width={"50px"}
           className="position-absolute kibouge d-none d-sm-block fadeIn animated"
@@ -84,7 +82,6 @@ export default function ParralaxBackground() {
         />
 
         <img
-          src="/agap2/siteWeb1/darkBrownSquare.png"
           height={"50px"}
           width={"50px"}
           className="position-absolute kibouge d-block fadeIn animated"
@@ -98,7 +95,6 @@ export default function ParralaxBackground() {
         />
 
         <img
-          src="/agap2/siteWeb1/brownCircle.png"
           height={"50px"}
           width={"50px"}
           className="position-absolute kibouge d-block fadeIn animated"
@@ -112,7 +108,6 @@ export default function ParralaxBackground() {
         />
 
         <img
-          src="/agap2/siteWeb1/darkBrownSquare.png"
           height={"50px"}
           width={"50px"}
           className="position-absolute kibouge d-none d-xxl-block fadeIn animated"
@@ -126,7 +121,6 @@ export default function ParralaxBackground() {
         />
 
         <img
-          src="/agap2/siteWeb1/redSquare.png"
           height={"50px"}
           width={"50px"}
           className="position-absolute d-none d-sm-block kibouge fadeIn animated"

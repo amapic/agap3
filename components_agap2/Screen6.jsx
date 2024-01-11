@@ -5,15 +5,14 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import CanvasPlanete from "./screen6/Planet6";
-import  {
-  
+import {
   Ttext36,
   // Timeline1,
   // Timeline2,
   Timeline3,
 } from "./screen6/LeftTexts6";
 
-import RightText6, { TimelineDroite } from "./screen6/RightText6";
+import RightText6 from "./screen6/RightText6";
 
 export default function Screen6() {
   const zoom = useRef(null);
@@ -24,25 +23,16 @@ export default function Screen6() {
     let q = gsap.utils.selector(zoom);
 
     let ctx = gsap.context(() => {
-      // var mediaQueries = [
-      //   { id: "x-small", media: "(max-width: 400px)" },
-      //   { id: "small", media: "(min-width: 400px) and (max-width: 700px)" },
-      //   { id: "medium", media: "(min-width: 700px) and (max-width: 1000px)" },
-      //   { id: "large", media: "(min-width: 1000px) and (max-width: 1300px)" },
-      //   { id: "x-large", media: "(min-width: 1300px)" },
-      // ];
 
       const mm = gsap.matchMedia();
       mm.add(
         {
-          isSmall: "(max-width: 768px)",
-          isLarge: "(min-width: 1201px) and (max-width: 1300px)",
-          isXLarge: "(min-width: 1301px)",
+          // isSmall: "(min-width: 0px)",
+          isLarge: "(min-width: 1000px)",
+          // isXLarge: "(min-width: 1301px)",
         },
         (c) => {
-          var scrollSunTl = gsap.timeline({ invalidateOnRefresh: false});
-
-
+          var scrollSunTl = gsap.timeline({ invalidateOnRefresh: false });
 
           //mouvement gén éral
           scrollSunTl.to("#container_move6", {
@@ -67,19 +57,19 @@ export default function Screen6() {
           //cercle
           // console.log("size", c.conditions);
           // if (c.conditions.isXLarge) {
-            scrollSunTl.to("#bgCircle6", {
-              scrollTrigger: {
-                trigger: "#screen6",
-                start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-                end: "top+=70% bottom",
-                toggleActions: "play none none reset",
-                scrub: 1,
-              },
-              transform: "scale(100)",
-              transformOrigin: "center",
-              // left: "-20vw",
-              borderRadius: "10px",
-            });
+          scrollSunTl.to("#bgCircle6", {
+            scrollTrigger: {
+              trigger: "#screen6",
+              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              end: "top+=70% bottom",
+              toggleActions: "play none none reset",
+              scrub: 1,
+            },
+            transform: "scale(100)",
+            transformOrigin: "center",
+            // left: "-20vw",
+            borderRadius: "10px",
+          });
           // }
           // if (c.conditions.isLarge) {
           //   scrollSunTl.to("#bgCircle", {
@@ -121,8 +111,49 @@ export default function Screen6() {
           // Timeline1(scrollSunTl, q);
           // Timeline2(scrollSunTl, q);
           Timeline3(scrollSunTl, q);
-          TimelineDroite(scrollSunTl, q);
-        //   TimelineImage(scrollSunTl, q);
+          // TimelineDroite(scrollSunTl, q);
+          //   TimelineImage(scrollSunTl, q);
+        }
+      );
+
+      mm.add(
+        {
+          isSmall: "(max-width: 999px)"
+        },
+        (c) => {
+          var scrollSunTl = gsap.timeline({ invalidateOnRefresh: false });
+
+          //mouvement gén éral
+          scrollSunTl.to("#container_move4", {
+            scrollTrigger: {
+              trigger: "#screen6",
+              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              end: "top+=100% bottom",
+              toggleActions: "play none none reset",
+              // markers: true,
+              scrub: 1,
+              pin: "#container_move6",
+            },
+          });
+
+          // );
+
+          //cercle
+          // console.log("size", c.conditions);
+          // if (c.conditions.isXLarge) {
+          scrollSunTl.to("#bgCircle", {
+            scrollTrigger: {
+              trigger: "#screen6",
+              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              end: "top+=70% bottom",
+              toggleActions: "play none none reset",
+              scrub: 1,
+            },
+            transform: "scale(100)",
+            transformOrigin: "center",
+            // left: "-20vw",
+            borderRadius: "10px",
+          });
         }
       );
     });
@@ -145,18 +176,16 @@ export default function Screen6() {
       >
         <div
           id="container_move6"
-          className="home-numbers__wrapper relative w-full h-full flex flex-wrap items-stretch overflow-hidden z-0"
+          className="home-numbers__wrapper relative w-full h-full flex flex-col rg:flex-row overflow-hidden z-0"
         >
           <div
-            // id="AAA"
-            className="home-numbers__gl js-home-gl relative w-full rg:w-1/2 order-2 rg:order-1"
+            id="AAA"
+            className="home-numbers__gl js-home-gl relative w-full h-screen-1/2 rg:w-1/2 order-2 rg:order-1"
           >
             <CanvasPlanete />
-            {/* <Ttext1 /> */}
-            {/* <Ttext2 /> */}
             <Ttext36 />
             <div
-              // className="bg-blue"
+              // className="opacity-0 rg:opacity-1"
               id="bgCircle6"
               style={{
                 left: "0vw",
@@ -176,7 +205,6 @@ export default function Screen6() {
           <RightText6 />
         </div>
       </div>
-
     </>
   );
 }

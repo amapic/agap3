@@ -8,19 +8,19 @@ export default function Header() {
   });
   return (
     <header
-      className="header fixed flex items-center w-full z-1000 rg:z-90"
+      className="header fixed flex items-center w-full z-1000 rg:hidden"
       //   style="--header-bg-color:var(--color-white); --header-text-color:var(--color-brown);"
       data-text-color="brown"
       id="header_oprou"
       style={{
-        height: "10vh",
-        zIndex: "11",
+        height: "8vh",
+        zIndex: "110",
       }}
     >
       <div className="header__container flex items-center justify-between w-full">
         <div className="flex items-center h-full">
           <a
-            href="https://www.agap2.fr"
+            // href="https://www.agap2.fr"
             className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
           >
             Amaury PICHAT
@@ -127,7 +127,6 @@ export default function Header() {
           <ul className="flex rg:mr-6 lg:mr-10 xl:mr-32">
             <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
               <a
-                href="https://www.agap2.fr/agap2/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
               >
                 Linkedin
@@ -135,7 +134,6 @@ export default function Header() {
             </li>
             <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
               <a
-                href="https://www.agap2.fr/metiers/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
               >
                 Github
@@ -143,7 +141,6 @@ export default function Header() {
             </li>
             <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
               <a
-                href="https://www.agap2.fr/esprit/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
               >
                 CV
@@ -161,25 +158,21 @@ export default function Header() {
 
               <div className="header__submenu absolute top-full left-0 bg-white text-base flex-col items-start py-6 pl-6 pr-12 hidden">
                 <a
-                  href="https://www.agap2.fr/carriere/devenir-consultant/"
                   className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                 >
                   Devenir Consultant en ingénierie
                 </a>
                 <a
-                  href="https://www.agap2.fr/carriere/devenir-ingenieur-d-affaires/"
                   className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                 >
                   Devenir Ingénieur d’affaires
                 </a>
                 <a
-                  href="https://www.agap2.fr/carriere/parcours-agapiens/"
                   className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                 >
                   Parcours agapiens
                 </a>
                 <a
-                  href="https://www.agap2.fr/carriere/formation/"
                   className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                 >
                   Formation
@@ -188,7 +181,6 @@ export default function Header() {
             </li> */}
             {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
               <a
-                href="https://www.agap2.fr/blog/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
               >
                 Blog
@@ -196,7 +188,6 @@ export default function Header() {
             </li>
             <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
               <a
-                href="https://www.agap2.fr/categorie/presse/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
               >
                 Presse
@@ -204,7 +195,6 @@ export default function Header() {
             </li>
             <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
               <a
-                href="https://www.agap2.fr/contact/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
               >
                 Contact
@@ -212,7 +202,6 @@ export default function Header() {
             </li>
             <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 border rounded-l-full rounded-r-full overflow-hidden">
               <a
-                href="https://www.agap2.fr/carriere/offres-demploi/"
                 className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
               >
                 Offres d’emploi
@@ -223,7 +212,6 @@ export default function Header() {
           {/* <ul className="lang-switcher leading-none">
             <li>
               <a
-                href="https://www.agap2.fr"
                 data-router-disabled=""
                 data-noprefetch=""
                 data-lang="fr"
@@ -234,7 +222,6 @@ export default function Header() {
             </li>
             <li>
               <a
-                href="https://www.agap2.fr/en/"
                 data-router-disabled=""
                 data-noprefetch=""
                 data-lang="en"

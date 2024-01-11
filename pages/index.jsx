@@ -13,6 +13,7 @@ import Screen4 from "@/components_agap2/Screen4";
 import Screen5 from "@/components_agap2/Screen5";
 import Screen6 from "@/components_agap2/Screen6";
 import Screen7 from "@/components_agap2/Screen7";
+import Screen8 from "@/components_agap2/Screen8";
 // import Navv, { Carousel } from "@/components_agap2/Nav";
 // import {
 //   BrowserView,
@@ -138,11 +139,12 @@ function Home() {
               zIndex: "1000",
             }}
           ></div>
-          <Header />
+          {/* <Header /> */}
           <Screen1 />
           {/* <Screen4 /> */}
           <Screen6 />
           <Screen7 />
+          <Screen8 />
           {/* <Screen5 /> */}
           {/* <Screen5 /> */}
         </>

@@ -1,62 +1,12 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { SphereGeometry } from "three";
 gsap.registerPlugin(ScrollTrigger);
 
-const Planete = (props, ref) => {
-  const { nodes } = useLoader(GLTFLoader, "/low_poly_earth.gltf");
 
-  var ColorYellow = "#ffcd00";
-
-  var ColorBlue = "#0226aa";
-
-  const refLoc = useRef(null);
-
-  // const oldScrollY = useRef(0);
-  const rotationSpeed = useRef(0.005);
-
-  useEffect(() => {
-    window.addEventListener("scroll", controlDirection);
-    return () => {
-      window.removeEventListener("scroll", controlDirection);
-    };
-  }, []);
-
-  const controlDirection = (e) => {
-    rotationSpeed.current = 0.3;
-  };
-
-  // var cumulDelta = useRef(0);
-  useFrame(({ clock }) => {
-    if (rotationSpeed.current >= 0.005) {
-      rotationSpeed.current -= 0.005;
-    } else {
-      rotationSpeed.current = 0.005;
-    }
-    if (refLoc.current) {
-      refLoc.current.rotation.y += rotationSpeed.current;
-    }
-  });
-
-  return (
-    <group ref={refLoc}>
-      <group ref={ref}>
-        <mesh scale={[0.01, 0.01, 0.01]} geometry={nodes.mesh_0_1.geometry}>
-          <meshStandardMaterial color={ColorYellow} opacity={1} />
-        </mesh>
-        <mesh scale={[0.01, 0.01, 0.01]}>
-          <meshStandardMaterial color={ColorBlue} opacity={1} />
-          <sphereGeometry args={[0.96, 32, 16]} />
-        </mesh>
-      </group>
-    </group>
-  );
-};
 
 const PC = (props, ref) => {
   const A = useLoader(FBXLoader, "/Comp_and_Floppy.fbx");
@@ -157,17 +107,11 @@ const PC = (props, ref) => {
 const PlaneteBis = forwardRef(PC); //erreur si forward ref mis directement au début de <Planete />
 
 const CanvasPlanete = () => {
-  // let ColorYellow = window
-  //   .getComputedStyle(document.documentElement)
-  //   .getPropertyValue("--color-yellow");
 
-  // console.log(ColorYellow);
   const ref = useCallback((node) => {
     if (node === null) {
       // DOM node referenced by ref has been unmounted
     } else {
-      // console.log("EE", node.children[1].position);
-      // DOM node referenced by ref has changed and exists
       let ctx = gsap.context(() => {
         var scrollSunTl = gsap.timeline();
         // console.log("color", node.children[0].material.color);
@@ -184,15 +128,7 @@ const CanvasPlanete = () => {
           // pin: "#canvas",
         });
 
-        // scrollSunTl.fromTo(
-        //   node.scale,
-        //   {
-        //     x: 0.001,
-        //     y: 0.001,
-        //     z: 0.001,
-        //   },
-        //   { x: 0.005, y: 0.005, z: 0.001 }
-        // );
+  
 
         scrollSunTl.to(
           node.scale,
@@ -204,27 +140,6 @@ const CanvasPlanete = () => {
           // "-=0.9"
         );
 
-        // scrollSunTl.to(node.scale, {
-        //   x: 0.001,
-        //   y: 0.001,
-        //   z: 0.001,
-        // }, "-=0.9");
-
-        // scrollSunTl.to(node.rotation, {
-        //   x: 0,
-        //   y: (3 * Math.PI) / 4,
-        //   z: 0,
-        // });
-
-        // scrollSunTl.to(
-        //   node.children[1].material.color,
-        //   {
-        //     r: 255 / 255,
-        //     g: 205 / 255,
-        //     b: 0 / 255,
-        //   },
-        //   "-=0.9"
-        // );
 
         scrollSunTl.to(
           node.children[0].position,
@@ -245,34 +160,41 @@ const CanvasPlanete = () => {
           },
           ">"
         );
-        // scrollSunTl.to(
-        //   node.rotation,
-        //   {y: 360, duration: '50s', ease: "elastic"},
-        //   ">"
-        // );
+        
       });
       return () => ctx.revert();
     }
   }, []); // adjust deps
 
   return (
+    // className="relative container-main w-full rg:w-1/2 py-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2"
     <div
       id="main"
       style={{
-        height: "300vh",
+        zIndex:"40",
+        // height: "300vh",
         overflow: "hidden",
         position: "relative",
-        width: "100%",
+        // width: "100%",
       }}
     >
       <div
         id="canvas"
+        // style={{
+        //   height: "100vh",
+        //   overflow: "hidden",
+        //   position: "absolute",
+        //   left: "0vh",
+        //   width: "40vw",
+        //   zIndex: "50",
+        // }}
         style={{
-          height: "100vh",
+          height: "40vh",
           overflow: "hidden",
-          position: "absolute",
+          // position: "absolute",
           left: "0vh",
-          width: "40vw",
+          bottom:"0vh",
+          width: "100vw",
           zIndex: "50",
         }}
       >

@@ -41,102 +41,24 @@ function VSCode() {
     });
 
     elements.forEach((element, i) => {
-      // gsap.to(element, 0, {
-      //   ease: "none",
-      //   rotation: 5 * Math.random() - 2.5,
-      //   transformOrigin: "50% 50%",
-      // });
-
-      // if (i == 3) {
-      //   // console.log(element)
-      //   gsap.to(element, 0, {
-      //     x: 100 * Math.cos(-Math.PI / 2) + "vh",
-      //     y: 100 * Math.sin(Math.PI / 2) + "vw",
-      //     ease: "none",
-      //     // visibility:"none"
-      //   });
-      // }
-
       if (i == 2) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
-        // tl.to(element, 10, {
-        //   motionPath: {
-        //     path: [
-        //       // { x: "0vh", y: "0vh" },
-        //       { x: "-40vw", y: "10vh" },
-        //       { x: "-10vw", y: "70vh" },
-        //       { x: "0vh", y: "0vw" },
-        //     ], // you probably want more points here...or just use an SVG <path>!
-        //     // curviness: 2,
-        //     // align:"self"
-        //     // autoRotate: true
-        //   },
-        //   ease: "none",
-        //   // clearProps: 'all'
-        // });
       }
 
       if (i == 3) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
-        // tl.to(element, 10, {
-        //   motionPath: {
-        //     path: [
-        //       // { x: "0vh", y: "0vh" },
-        //       { x: "-10vw", y: "30vh" },
-        //       { x: "-10vw", y: "70vh" },
-        //       { x: "0vh", y: "0vw" },
-        //     ], // you probably want more points here...or just use an SVG <path>!
-        //     // curviness: 2,
-        //     // align:"self"
-        //     // autoRotate: true
-        //   },
-        //   ease: "none",
-        //   // clearProps: 'all'
-        // });
       }
 
       if (i == 4) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
-        // tl.to(element, 15, {
-        //   motionPath: {
-        //     path: [
-        //       // { x: "0vh", y: "0vh" },
-        //       { x: "10vw", y: "30vh" },
-        //       { x: "-10vw", y: "10vh" },
-        //       { x: "-10vw", y: "-20vh" },
-        //       { x: "0vh", y: "0vw" },
-        //     ], // you probably want more points here...or just use an SVG <path>!
-        //     // curviness: 2,
-        //     // align:"self"
-        //     // autoRotate: true
-        //   },
-        //   ease: "none",
-        //   // clearProps: 'all'
-        // });
       }
 
       if (i == 5) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
-        // tl.to(element, 15, {
-        //   motionPath: {
-        //     path: [
-        //       // { x: "0vh", y: "0vh" },
-        //       { x: "10vw", y: "10vh" },
-        //       { x: "-10vw", y: "10vh" },
-        //       { x: "-10vw", y: "-20vh" },
-        //       { x: "0vh", y: "0vw" },
-        //     ], // you probably want more points here...or just use an SVG <path>!
-        //     // curviness: 2,
-        //     // align:"self"
-        //     // autoRotate: true
-        //   },
-        //   ease: "none",
-        //   // clearProps: 'all'
-        // });
       }
       if (i == 0) {
         var rect = element.getBoundingClientRect();
@@ -163,15 +85,15 @@ function VSCode() {
     });
   }, []);
   return (
-    <div id="code_contain" className="flex flex-col z-2">
-      <div>
+    <div id="code_contain" className="overflow-hidden flex flex-col z-2 text-base relative h-3/5 pl-12 bottom-0 md:h-full md:right-0 md:w-1/2 md:pl-32 md:pt-24">
+      <div className="overflow-hidden">
         <span className="vscode_rose">{"import "}</span>
-        <span>React,</span>
-        <span className="vscode_jaune">{"{"}</span>
+        <span>React</span>
+        {/* <span className="vscode_jaune">{"{"}</span>
         <span>useRef, useEffect, useState, useLayoutEffect</span>
-        <span className="vscode_jaune">{"}"}</span>{" "}
+  <span className="vscode_jaune">{"}"}</span>{" "}*/}
         <span className="vscode_rose">{"from"}</span>
-        <span className="vscode_orange"> "react"</span>;
+         <span className="vscode_orange"> "react"</span>
       </div>
       <div>
         <span>
@@ -197,9 +119,16 @@ function VSCode() {
 
       {/* function getUsers(): Promise<User[]> { */}
       <div>
-      function <span>getUsers</span><span className="vscode_jaune">()</span><span className="vscode_blanc">:</span> <span className="vscode_vert">Promise</span>{"<"}<span className="vscode_vert">User</span><span className="vscode_jaune">[]</span>{">"}
+        function <span>getUsers</span>
+        <span className="vscode_jaune">()</span>
+        <span className="vscode_blanc">:</span>{" "}
+        <span className="vscode_vert">Promise</span>
+        {"<"}
+        <span className="vscode_vert">User</span>
+        <span className="vscode_jaune">[]</span>
+        {">"}
       </div>
-      
+
       {/* <div style={{
         width:"500px",
         height:"100%",
@@ -336,9 +265,14 @@ export default function Screen1() {
         var clipPath = ref.current.style.getPropertyValue("clip-path");
 
         if (clipPath) {
+          let height=window.innerHeight,width=window.innerWidth;
+          let dim="vw";
+          if (height > width){
+            dim="vh";
+          }
           redresseCode2(event);
           clipPath = clipPath.split("at");
-          clipPath = "circle(100vw at " + clipPath[1];
+          clipPath = "circle(100"+ dim + " at " + clipPath[1];
           clicked.current = true;
           gsap.to("#div_clip_path", {
             duration: 3,
@@ -432,12 +366,15 @@ export default function Screen1() {
     <>
       <div
         id="screen1"
-        className={hoverr + " home-cover relative w-full h-screen z-100"}
+        style={{
+          backgroundColor:"rgb(0,0,0)"
+        }}
+        className={hoverr + " home-cover relative w-full h-screen z-100 "}
       >
         <div className="bg_grey home-cover__wrapper relative w-full cursor-pointer overflow-hidden js-cover">
           <div
             id="div_clip_path"
-            className="w-full h-full home-cover__hover absolute top-0 left-0 z-30 backface-hidden"
+            className="w-full h-full home-cover__hover absolute top-0 left-0 z-30 backface-hidden "
             ref={ref}
           >
             <header
@@ -453,46 +390,11 @@ export default function Screen1() {
                 <div className="flex items-center h-full">
                   <a
                     id="AP_Hidden"
-                    href="https://www.agap2.fr"
+                    // href="https://www.agap2.fr"
                     className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
                   >
                     Amaury PICHAT
                   </a>
-                  {/* <a
-                    href="https://www.agap2.fr"
-                    className="header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
-                  > */}
-                  {/* <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="logo"
-                      viewBox="0 0 177.49 55.03"
-                    >
-                      <path
-                        fill="#ffcd00"
-                        d="M147.32,42.32v-6.7L161,23c3.84-3.47,5.79-5.54,5.79-8.22,0-3.9-2.74-5.6-6.76-5.6-2.14,0-5.55.43-11.09,2.26l-2.14-8.47A45.34,45.34,0,0,1,161.64,0c10.6,0,15.3,6.15,15.3,13.28,0,6.15-4.14,10.77-9.63,15.7l-5.42,4.5h15.6v8.84Z"
-                      ></path>
-                      <path
-                        className="logo-letter"
-                        fill="#0226AA"
-                        d="M32.48,10.33v29H22.54v-2A12.94,12.94,0,0,1,14,40.23c-7.14,0-14-5.54-14-15.83C.25,15.08,5.67,8.87,14.81,8.87c5.6,0,8.71.43,17.67,1.46M9.57,24.58c0,4.45,2.74,7.49,6.64,7.49a9.66,9.66,0,0,0,6.33-2.55V17.16c-2-.19-3.83-.31-6-.31-4.82,0-7,3.23-7,7.73"
-                      ></path>
-                      <path
-                        className="logo-letter"
-                        fill="#0226AA"
-                        d="M104.52,10.33v29H94.59v-2a13,13,0,0,1-8.53,2.92c-7.13,0-14-5.54-14-15.83.24-9.32,5.67-15.53,14.8-15.53,5.61,0,8.72.43,17.67,1.46M81.61,24.58c0,4.45,2.74,7.49,6.64,7.49a9.69,9.69,0,0,0,6.34-2.55V17.16c-2-.19-3.84-.31-6-.31-4.81,0-7,3.23-7,7.73"
-                      ></path>
-                      <path
-                        className="logo-letter"
-                        fill="#0226AA"
-                        d="M50.9,8.87c-9.2,0-14.63,6.22-14.81,15.53,0,9,5.74,14.39,12.49,15.27.44,0,1.14.1,2,.14h2.22c2.26-.1,4.73-.57,5.93-2a16,16,0,0,1-.23,3.09c0,.16,0,.32-.08.47a10.15,10.15,0,0,1-.34,1.23l0,.08a3.54,3.54,0,0,1-.49,1c-1.24,2.08-3.52,3.19-6.94,3.19a55.31,55.31,0,0,1-9-1.22l-1.4,7.55A38.39,38.39,0,0,0,51,55C62.6,55,68.57,48.7,68.57,38.9V10.34c-6.52-.67-10-1.47-17.67-1.47m7.74,22.41a39.59,39.59,0,0,1-6.34.43c-3.9,0-6.64-3.11-6.64-7.13,0-4.5,2.13-7.73,7-7.73,2.14,0,4,.12,6,.3Z"
-                      ></path>
-                      <path
-                        className="logo-letter"
-                        fill="#0226AA"
-                        d="M126.73,8.87a129.76,129.76,0,0,0-17.61,1.46V53H119V37.45s1.88,2.28,8.65,2.34c7.36-.24,13.9-5.74,13.9-15.39-.31-9.31-5.6-15.53-14.81-15.53m-1.34,22.84a41.55,41.55,0,0,1-6.4-.43V17.16c2.08-.19,3.84-.3,6-.3,4.88,0,7,3.22,7,7.73,0,4-2.74,7.12-6.64,7.12"
-                      ></path>
-                    </svg> */}
-                  {/* </a> */}
 
                   <div className="flex items-stretch categories__wrap pointer-events-none transition-opacity duration-1000 ease-out-quad opacity-0 js-departments">
                     <div
@@ -607,25 +509,21 @@ export default function Screen1() {
 
                       <div className="header__submenu absolute top-full left-0 bg-white text-base flex-col items-start py-6 pl-6 pr-12 hidden">
                         <a
-                          href="https://www.agap2.fr/carriere/devenir-consultant/"
                           className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                         >
                           Devenir Consultant en ingénierie
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/devenir-ingenieur-d-affaires/"
                           className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                         >
                           Devenir Ingénieur d’affaires
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/parcours-agapiens/"
                           className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                         >
                           Parcours agapiens
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/formation/"
                           className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                         >
                           Formation
@@ -634,7 +532,6 @@ export default function Screen1() {
                     </li> */}
                     {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/blog/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Blog
@@ -642,7 +539,6 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/categorie/presse/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Presse
@@ -650,7 +546,6 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/contact/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Contact
@@ -658,7 +553,6 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 border rounded-l-full rounded-r-full overflow-hidden">
                       <a
-                        href="https://www.agap2.fr/carriere/offres-demploi/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Projets
@@ -669,7 +563,6 @@ export default function Screen1() {
                   {/* <ul className="lang-switcher leading-none">
                     <li>
                       <a
-                        href="https://www.agap2.fr"
                         data-router-disabled=""
                         data-noprefetch=""
                         data-lang="fr"
@@ -680,7 +573,6 @@ export default function Screen1() {
                     </li>
                     <li>
                       <a
-                        href="https://www.agap2.fr/en/"
                         data-router-disabled=""
                         data-noprefetch=""
                         data-lang="en"
@@ -693,9 +585,12 @@ export default function Screen1() {
                 </nav>
               </div>
             </header>
-            <VSCode />
-            <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
-              {/* <header
+
+            {/* <div> */}
+            {/* <div id="rrrj" className="h-full w-full flex flex-col md:flex-row"> */}
+              <VSCode />
+              <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
+               <header
                 id="header_mobile_1"
                 className="header fixed flex flex-wrap w-full"
                 // style={{ backgroundColor: "rgba(0, 0, 255, 0.5)" }}
@@ -763,7 +658,6 @@ export default function Screen1() {
                   <ul className="flex flex-col overflow-x-hidden">
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/agap2/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         agap2
@@ -771,7 +665,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/metiers/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Métiers
@@ -779,7 +672,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/esprit/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Esprit
@@ -797,25 +689,21 @@ export default function Screen1() {
 
                       <div className="menu-mobile__submenu absolute flex flex-col text-white transition-all duration-500 overflow-hidden py-8">
                         <a
-                          href="https://www.agap2.fr/carriere/devenir-consultant/"
                           className="text-lg mb-4 last:mb-0"
                         >
                           Devenir Consultant en ingénierie
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/devenir-ingenieur-d-affaires/"
                           className="text-lg mb-4 last:mb-0"
                         >
                           Devenir Ingénieur d’affaires
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/parcours-agapiens/"
                           className="text-lg mb-4 last:mb-0"
                         >
                           Parcours agapiens
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/formation/"
                           className="text-lg mb-4 last:mb-0"
                         >
                           Formation
@@ -824,7 +712,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/blog/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Blog
@@ -832,7 +719,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/categorie/presse/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Presse
@@ -840,7 +726,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/contact/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Contact
@@ -848,7 +733,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/carriere/offres-demploi/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Offres d’emploi
@@ -858,7 +742,6 @@ export default function Screen1() {
                       <ul className="lang-switcher leading-none">
                         <li>
                           <a
-                            href="https://www.agap2.fr"
                             data-router-disabled=""
                             data-noprefetch=""
                             data-lang="fr"
@@ -869,7 +752,6 @@ export default function Screen1() {
                         </li>
                         <li>
                           <a
-                            href="https://www.agap2.fr/en/"
                             data-router-disabled=""
                             data-noprefetch=""
                             data-lang="en"
@@ -882,10 +764,10 @@ export default function Screen1() {
                     </li>
                   </ul>
                 </nav>
-              </header> */}
-            </div>
+              </header> 
+              </div>
 
-            {/* <video
+              {/* <video
               muted=""
               autoPlay=""
               loop=""
@@ -893,13 +775,12 @@ export default function Screen1() {
               className="absolute inset-0 object-cover w-full h-full z-0 hidden md:block"
             >
               <source
-                src="https://www.agap2.fr/app/uploads/2020/10/agap-animate-yannis.mp4"
                 type="video/mp4"
               />
               Votre navigateur ne supporte pas cette vidéo.
             </video> */}
 
-            {/* <video
+              {/* <video
               muted=""
               autoPlay=""
               loop=""
@@ -907,94 +788,92 @@ export default function Screen1() {
               className="absolute inset-0 object-cover w-full h-full z-0 md:hidden"
             >
               <source
-                src="https://www.agap2.fr/app/uploads/2020/10/agap-mobile-yannis.mp4"
                 type="video/mp4"
               />
               Votre navigateur ne supporte pas cette vidéo.
             </video> */}
 
-            <div
-              id="main_content_zone1_hidden"
-              className="bg_grey home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
-            >
-              <h1 className="font-black flex flex-wrap items-start w-full">
-                <div
-                  className="w-max-content md:w-1/2 text-xl md:text-4xl xl:text-4xl text-yellow md:text-right pr-6 md:pr-12 js-tosplit"
-                  // style=""
-                >
+              <div
+                id="main_content_zone1_hidden"
+                className="bg_grey home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
+              >
+                <h1 className="font-black flex flex-wrap items-start w-full">
                   <div
-                    className="line"
-                    // style="display: block; text-align: right; position: relative;"
+                    className="w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
+                    // style=""
                   >
                     <div
-                      // style="position:relative;display:inline-block;"
-                      className="word "
+                      className="line"
+                      // style="display: block; text-align: right; position: relative;"
                     >
-                      {/* The */}
+                      <div
+                        // style="position:relative;display:inline-block;"
+                        className="word "
+                      >
+                        {/* The */}
+                      </div>
+                      <div
+                        // style="position:relative;display:inline-block;"
+                        className="word"
+                      >
+                        Développeur React.js
+                      </div>
                     </div>
                     <div
-                      // style="position:relative;display:inline-block;"
-                      className="word"
+                      className="line"
+                      // style="display: block; text-align: right; position: relative;"
                     >
-                      Développeur React.js
+                      <div
+                        // style="position:relative;display:inline-block;"
+                        className="word"
+                      >
+                        En Recherche d'emploi
+                      </div>
+                    </div>
+                    <div
+                      className="line"
+                      // style="display: block; text-align: right; position: relative;"
+                    >
+                      <div
+                        // style="position:relative;display:inline-block;"
+                        className="word text-xl md:text-2xl xl:text-3-5xl"
+                      >
+                        06 88 91 80 19
+                      </div>
+                    </div>
+                    <div
+                      className="line text-xl md:text-2xl xl:text-3-5xl"
+                      // style="display: block; text-align: right; position: relative;"
+                    >
+                      <div
+                        // style="position:relative;display:inline-block;"
+                        className="word pb-2"
+                      >
+                        amaury.pichat@gmail.com
+                      </div>
                     </div>
                   </div>
                   <div
-                    className="line"
-                    // style="display: block; text-align: right; position: relative;"
+                    className="home-cover__you absolute md:relative md:right-0 md:top-0 md:-mt-4 lg:-mt-8 md:ml-auto pl-12 md:pr-10 lg:pr-24 xl:pr-40 md:pl-12 w-auto text-5xl md:text-6xl xl:text-9xl text-yellow js-tosplit"
+                    data-cartapus="visible"
+                    // style=""
                   >
                     <div
-                      // style="position:relative;display:inline-block;"
-                      className="word"
+                      className="line"
+                      // style="display: block; text-align: start; position: relative;"
                     >
-                      En Recherche d'emploi
+                      <div
+                        // style="position:relative;display:inline-block;"
+                        className="word"
+                      >
+                        {/* you */}
+                      </div>
                     </div>
                   </div>
-                  <div
-                    className="line"
-                    // style="display: block; text-align: right; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word text-xl md:text-2xl xl:text-3xl"
-                    >
-                      06 88 91 80 19
-                    </div>
-                  </div>
-                  <div
-                    className="line text-xl md:text-2xl xl:text-3xl"
-                    // style="display: block; text-align: right; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word pb-2"
-                    >
-                      amaury.pichat@gmail.com
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="home-cover__you absolute md:relative md:right-0 md:top-0 md:-mt-4 lg:-mt-8 md:ml-auto pl-12 md:pr-10 lg:pr-24 xl:pr-40 md:pl-12 w-auto text-5xl md:text-6xl xl:text-9xl text-yellow js-tosplit"
-                  data-cartapus="visible"
-                  // style=""
-                >
-                  <div
-                    className="line"
-                    // style="display: block; text-align: start; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word"
-                    >
-                      {/* you */}
-                    </div>
-                  </div>
-                </div>
-              </h1>
+                </h1>
 
-              {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
+                {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
                 <a
-                  href="https://www.agap2.fr/carriere/offres-demploi/"
                   className="button relative flex items-center button--white button--big"
                 >
                   <div className="button__text flex-1 backface-hidden transition-transform duration-500 ease-out-quad transform mr-12">
@@ -1017,8 +896,8 @@ export default function Screen1() {
                   </div>
                 </a>
               </div> */}
-            </div>
-
+              </div>
+            {/* </div> */}
             {/* <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2">
               CONTACT
             </div> */}
@@ -1039,7 +918,6 @@ export default function Screen1() {
               <div className="header__container flex items-center justify-between w-full">
                 <div className="flex items-center h-full">
                   <a
-                    href="https://www.agap2.fr"
                     className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
                   >
                     Amaury PICHAT
@@ -1153,25 +1031,21 @@ export default function Screen1() {
 
                       <div className="header__submenu absolute top-full left-0 bg-white text-base flex-col items-start py-6 pl-6 pr-12 hidden">
                         <a
-                          href="https://www.agap2.fr/carriere/devenir-consultant/"
                           className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                         >
                           Devenir Consultant en ingénierie
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/devenir-ingenieur-d-affaires/"
                           className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                         >
                           Devenir Ingénieur d’affaires
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/parcours-agapiens/"
                           className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                         >
                           Parcours agapiens
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/formation/"
                           className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
                         >
                           Formation
@@ -1180,7 +1054,6 @@ export default function Screen1() {
                     </li> */}
                     {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/blog/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Blog
@@ -1188,7 +1061,6 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/categorie/presse/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Presse
@@ -1196,7 +1068,6 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://www.agap2.fr/contact/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Contact
@@ -1204,7 +1075,6 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 border rounded-l-full rounded-r-full overflow-hidden">
                       <a
-                        href="https://www.agap2.fr/carriere/offres-demploi/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         Projets
@@ -1215,7 +1085,6 @@ export default function Screen1() {
                   {/* <ul className="lang-switcher leading-none">
                     <li>
                       <a
-                        href="https://www.agap2.fr"
                         data-router-disabled=""
                         data-noprefetch=""
                         data-lang="fr"
@@ -1226,7 +1095,6 @@ export default function Screen1() {
                     </li>
                     <li>
                       <a
-                        href="https://www.agap2.fr/en/"
                         data-router-disabled=""
                         data-noprefetch=""
                         data-lang="en"
@@ -1241,7 +1109,7 @@ export default function Screen1() {
             </header>
 
             <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
-              {/* <header
+             <header
                 id="header_mobile_2"
                 className="hidden header fixed flex flex-wrap w-full"
                 // style="background-color: var(--color-transparent);"
@@ -1309,7 +1177,6 @@ export default function Screen1() {
                   <ul className="flex flex-col overflow-x-hidden">
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/agap2/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         agap2
@@ -1317,7 +1184,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/metiers/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Métiers
@@ -1325,7 +1191,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/esprit/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Esprit
@@ -1343,25 +1208,21 @@ export default function Screen1() {
 
                       <div className="menu-mobile__submenu absolute flex flex-col text-white transition-all duration-500 overflow-hidden py-8">
                         <a
-                          href="https://www.agap2.fr/carriere/devenir-consultant/"
                           className="text-lg mb-4 last:mb-0"
                         >
                           Devenir Consultant en ingénierie
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/devenir-ingenieur-d-affaires/"
                           className="text-lg mb-4 last:mb-0"
                         >
                           Devenir Ingénieur d’affaires
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/parcours-agapiens/"
                           className="text-lg mb-4 last:mb-0"
                         >
                           Parcours agapiens
                         </a>
                         <a
-                          href="https://www.agap2.fr/carriere/formation/"
                           className="text-lg mb-4 last:mb-0"
                         >
                           Formation
@@ -1370,7 +1231,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/blog/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Blog
@@ -1378,7 +1238,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/categorie/presse/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Presse
@@ -1386,7 +1245,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/contact/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Contact
@@ -1394,7 +1252,6 @@ export default function Screen1() {
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
                       <a
-                        href="https://www.agap2.fr/carriere/offres-demploi/"
                         className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
                       >
                         Offres d’emploi
@@ -1404,7 +1261,6 @@ export default function Screen1() {
                       <ul className="lang-switcher leading-none">
                         <li>
                           <a
-                            href="https://www.agap2.fr"
                             data-router-disabled=""
                             data-noprefetch=""
                             data-lang="fr"
@@ -1415,7 +1271,6 @@ export default function Screen1() {
                         </li>
                         <li>
                           <a
-                            href="https://www.agap2.fr/en/"
                             data-router-disabled=""
                             data-noprefetch=""
                             data-lang="en"
@@ -1428,7 +1283,7 @@ export default function Screen1() {
                     </li>
                   </ul>
                 </nav>
-              </header> */}
+              </header> 
             </div>
 
             <div
@@ -1437,7 +1292,7 @@ export default function Screen1() {
             >
               <h1 className="font-black flex flex-wrap items-start w-full">
                 <div
-                  className="w-max-content md:w-1/2 text-xl md:text-4xl xl:text-4xl text-blue md:text-right pr-6 md:pr-12 js-tosplit"
+                  className="w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-blue md:text-right pr-6 md:pr-12 js-tosplit"
                   data-cartapus="visible"
                   // style=""
                 >
@@ -1505,7 +1360,6 @@ export default function Screen1() {
 
               {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
                 <a
-                  href="https://www.agap2.fr/carriere/offres-demploi/"
                   className="button relative flex items-center button--brown button--big"
                 >
                   <div className="button__text flex-1 backface-hidden transition-transform duration-500 ease-out-quad transform mr-12">

@@ -19,6 +19,6 @@ test("Item 1 menu", async () => {
 
   await screen.findByRole("menu");
 
-  expect(screen.getByRole("menu")).toHaveTextContent("agap2");
+  expect(screen.getByRole("menu")).toHaveTextContent("gg");
   //   expect(screen.getByRole('button')).toBeDisabled()
 });

@@ -35,8 +35,8 @@ export default function Screen4() {
       const mm = gsap.matchMedia();
       mm.add(
         {
-          isSmall: "(max-width: 768px)",
-          isLarge: "(min-width: 1201px) and (max-width: 1300px)",
+          isSmall: "(max-width: 0px)",
+          isLarge: "(min-width: 769px) and (max-width: 1300px)",
           isXLarge: "(min-width: 1301px)",
         },
         (c) => {
@@ -57,10 +57,6 @@ export default function Screen4() {
             },
           });
 
-          // scrollSunTl.to("#bgCircle",{
-          //   opacity:"1",
-          //   duration:"0"
-          // },
 
           // );
 
@@ -124,6 +120,8 @@ export default function Screen4() {
           TimelineDroite(scrollSunTl, q);
         }
       );
+
+     
     });
     return () => ctx.revert();
   });
@@ -138,39 +136,43 @@ export default function Screen4() {
           zIndex: "10",
           overflow: "hidden",
         }}
-        // className="screen5"
 
         ref={zoom}
       >
         <div
           id="container_move4"
-          className="home-numbers__wrapper relative w-full h-full flex flex-wrap items-stretch overflow-hidden z-0"
+          // style={{
+          //   flexDirection:"column"
+          // }}
+          className="home-numbers__wrapper relative w-full h-full flex flex-col rg:flex-row overflow-hidden z-0"
         >
-          <div
-            // id="AAA"
-            className="home-numbers__gl js-home-gl relative w-full rg:w-1/2 order-2 rg:order-1"
+          {/* <div
+          id="partie4gauche"
+            className="home-numbers__gl js-home-gl relative w-full h-screen-1\/2  rg:w-1/2 rg:h-full order-2 rg:order-1"
+            // className="relative container-main w-full rg:w-1/2 py-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2"
           >
             <CanvasPlanete />
             <Ttext1 />
             <Ttext2 />
             <Ttext3 />
             <div
-              // className="bg-blue"
+              className="bg-blue"
               id="bgCircle"
               style={{
-                left: "0vw",
+                zIndex:"60",
+                // left: "0vw",
                 borderRadius: "999px",
                 width: "1vw",
                 height: "1vw",
                 zIndex: "10",
-                top: "calc(50vh - 5px)",
+                // top: "calc(50vh - 5px)",
                 // opacity:"0",
                 // bottom: "30vh",
                 // margin: "auto 0",
                 position: "absolute",
               }}
             ></div>
-          </div>
+          </div> */}
 
           <RightText />
         </div>

@@ -80,7 +80,7 @@ export function Carousel() {
           <div className="carousel-pager-item"></div>
         </button>
       </a>
-      <a href="/agap2/agap2.html">
+      <a >
         <button
           className={isActive == 2 ? "active" : ""}
           onClick={() => handleClick(2)}
