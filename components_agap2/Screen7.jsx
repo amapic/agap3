@@ -4,13 +4,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-import CanvasPlanete from "./screen7/Planet7";
-import Ttext1, {
-  Ttext2,
+import CanvasImage from "./screen7/Planet7";
+import {
+  
   Ttext37,
-  // Timeline1,
-  // Timeline2,
-  Timeline3,
+
 } from "./screen7/LeftTexts7";
 
 import RightText7 from "./screen7/RightText7";
@@ -20,8 +18,8 @@ export default function Screen7() {
   let el = useRef();
 
   useEffect(() => {
-    const element = zoom.current;
-    let q = gsap.utils.selector(zoom);
+    // const element = zoom.current;
+    // let q = gsap.utils.selector(zoom);
 
     let ctx = gsap.context(() => {
       // var mediaQueries = [
@@ -70,49 +68,7 @@ export default function Screen7() {
               // left: "-20vw",
               borderRadius: "10px",
             });
-          // }
-          // if (c.conditions.isLarge) {
-          //   scrollSunTl.to("#bgCircle", {
-          //     scrollTrigger: {
-          //       trigger: "#screen4",
-          //       start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-          //       end: "top+=70% bottom",
-          //       toggleActions: "play none none reset",
-          //       scrub: 1,
-          //     },
-          //     transform: "scale(100)",
-          //     transformOrigin: "center",
-          //     // backgroundColor: "red",
-          //     // borderColor: "red",
-          //     // left: "-20vw",
-          //     borderRadius: "10px",
-          //   });
-          // }
-
-          // if (c.conditions.isSmall) {
-          //   scrollSunTl.to("#bgCircle", {
-          //     scrollTrigger: {
-          //       trigger: "#screen4",
-          //       start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-          //       end: "top+=70% bottom",
-          //       toggleActions: "play none none reset",
-          //       scrub: 1,
-          //     },
-          //     transform: "scale(100)",
-          //     transformOrigin: "center",
-          //     // backgroundColor: "red",
-          //     // borderColor: "red",
-          //     // left: "-20vw",
-          //     borderRadius: "10px",
-          //   });
-          // }
-
-          //les timeline se passe les unes après les autres
-          // Timeline1(scrollSunTl, q);
-          // Timeline2(scrollSunTl, q);
-          // Timeline3(scrollSunTl, q);
-          // TimelineDroite(scrollSunTl, q);
-        //   TimelineImage(scrollSunTl, q);
+         
         }
       );
     });
@@ -135,15 +91,14 @@ export default function Screen7() {
       >
         <div
           id="container_move7"
-          className="home-numbers__wrapper relative w-full h-full flex flex-wrap items-stretch overflow-hidden z-0"
+          className="home-numbers__wrapper relative w-full h-full justify-center md:justify-normal flex flex-wrap items-stretch overflow-hidden z-0"
         >
           <div
             // id="AAA"
             className="home-numbers__gl js-home-gl relative w-full rg:w-1/2 order-2 rg:order-1"
           >
-            <CanvasPlanete />
-            {/* <Ttext1 /> */}
-            {/* <Ttext2 /> */}
+            <CanvasImage />
+
             <Ttext37 />
             <div
               // className="bg-blue"

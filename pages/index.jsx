@@ -142,9 +142,9 @@ function Home() {
           {/* <Header /> */}
           <Screen1 />
           {/* <Screen4 /> */}
-          <Screen6 />
+          {/* <Screen6 /> */}
           <Screen7 />
-          <Screen8 />
+          {/* <Screen8 /> */}
           {/* <Screen5 /> */}
           {/* <Screen5 /> */}
         </>

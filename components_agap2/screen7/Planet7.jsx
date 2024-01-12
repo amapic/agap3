@@ -165,43 +165,85 @@ const CanvasPlanete = () => {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      var scrollSunTl = gsap.timeline();
-      // console.log("color", node.children[0].material.color);
-      ScrollTrigger.create({
-        trigger: "#main7",
-        // endTrigger: ".screen6",
-        start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-        end: "bottom-=10% bottom",
-        // end: "+=200",
-        toggleActions: "play pause resume reset",
-        // markers: true,
-        scrub: 3,
-        animation: scrollSunTl,
-        // pin: "#canvas",
-      });
-
-      scrollSunTl.fromTo(
-        "#canvas7",
+      const mm = gsap.matchMedia();
+      mm.add(
         {
-          x: "-50vw",
+          isSmall: "(max-width: 999px)",
+          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
+          // isXLarge: "(min-width: 1301px)",
         },
-        {
-          x: "5vw",
+        (c) => {
+          var scrollSunTl = gsap.timeline();
+          // console.log("color", node.children[0].material.color);
+          ScrollTrigger.create({
+            trigger: "#main7",
+            // endTrigger: ".screen6",
+            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            end: "bottom-=10% bottom",
+            // end: "+=200",
+            toggleActions: "play pause resume reset",
+            // markers: true,
+            scrub: 3,
+            animation: scrollSunTl,
+            // pin: "#canvas",
+          });
+
+
+
+          scrollSunTl.fromTo(
+            "#canvas7",
+            {
+              x: "-100vw",
+              y: "-30vh",
+              width: "100vw",
+              padding:"0 20vw 0 20vw"
+            },
+            {
+              x: "2vw",
+              y: "-30vh",
+              width: "100vw",
+              padding:"0 20vw 0 20vw"
+            }
+          );
         }
-        // { x: "0vw" }
+      );
+      mm.add(
+        // mm.add(
+        {
+          isSmall: "(min-width: 1000px)",
+          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
+          // isXLarge: "(min-width: 1301px)",
+        },
+        (c) => {
+          var scrollSunTl = gsap.timeline();
+          // console.log("color", node.children[0].material.color);
+          ScrollTrigger.create({
+            trigger: "#main7",
+            // endTrigger: ".screen6",
+            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            end: "bottom-=10% bottom",
+            // end: "+=200",
+            toggleActions: "play pause resume reset",
+            // markers: true,
+            scrub: 3,
+            animation: scrollSunTl,
+            // pin: "#canvas",
+          });
+          scrollSunTl.fromTo(
+            "#canvas7",
+            {
+              x: "-50vw",
+            },
+            {
+              x: "5vw",
+            }
+          );
+        }
       );
     });
     return () => ctx.revert();
   });
-  // const ref = useCallback((node) => {
-  //   if (node === null) {
-  //     // DOM node referenced by ref has been unmounted
-  //   } else {
-  //     // console.log("EE", node.children[1].position);
-  //     // DOM node referenced by ref has changed and exists
 
-  //   }
-  // }, []); // adjust deps
 
   return (
     <div
@@ -231,7 +273,6 @@ const CanvasPlanete = () => {
         className="relative h-full"> */}
         <a href="https://amaurypichat.fr/slide/" className="img_site">
           <img
-            // className="img_site"
             style={{
               backgroundSize: "contain",
             }}
