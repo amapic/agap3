@@ -4,8 +4,6 @@ import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
 gsap.registerPlugin(MotionPathPlugin);
 
 function VSCode() {
- 
-
   useEffect(() => {
     let elements = Array.prototype.slice.call(
       document.getElementById("code_contain").children
@@ -70,7 +68,10 @@ function VSCode() {
     });
   }, []);
   return (
-    <div id="code_contain" className="overflow-hidden flex flex-col z-2 text-base relative h-3/5 pl-12 bottom-0 md:h-full md:right-0 md:w-1/2 md:pl-32 md:pt-24">
+    <div
+      id="code_contain"
+      className="overflow-hidden flex flex-col z-2 text-base relative h-3/5 pl-12 bottom-0 md:h-full md:right-0 md:w-1/2 md:pl-32 md:pt-24"
+    >
       <div className="overflow-hidden">
         <span className="vscode_rose">{"import "}</span>
         <span>React</span>{" "}
@@ -78,30 +79,136 @@ function VSCode() {
         <span>useRef, useEffect, useState, useLayoutEffect</span>
   <span className="vscode_jaune">{"}"}</span>{" "}*/}
         <span className="vscode_rose">{"from"}</span>
-         <span className="vscode_orange"> "react"</span>
+        <span className="vscode_orange"> "react"</span>
       </div>
       <div>
         <span>
-          interface <span className="vscode_jaune">User</span>{" "}
+          interface <span className="vscode_jaune">IPost</span>{" "}
           <span className="vscode_yellow">{"{"}</span>
         </span>
       </div>
       <div>
         <span className="code_space">
-          name<span className="vscode_blanc">:</span>{" "}
+          id<span className="vscode_blanc">:</span>{" "}
+          <span className="vscode_vert">number</span>
+        </span>
+      </div>
+      <div>
+        <span className="code_space">
+          userId?<span className="vscode_blanc">:</span>{" "}
+          <span className="vscode_vert">number</span>
+        </span>
+      </div>
+      <div>
+        <span className="code_space">
+          title<span className="vscode_blanc">:</span>{" "}
           <span className="vscode_vert">string</span>
         </span>
       </div>
       <div>
         <span className="code_space">
-          age<span className="vscode_blanc">:</span>{" "}
+          body<span className="vscode_blanc">:</span>{" "}
           <span className="vscode_vert">string</span>
         </span>
       </div>
       <div>
         <span className="vscode_jaune">{"}"}</span>
       </div>
+      <div></div>
+      {/* const App = () => { */}
+      <div>
+        const App
+        <span className="vscode_blanc">=</span>
+        <span className="vscode_yellow">{"()"}</span>
+        {"=>"}
+        <span className="vscode_jaune">{"{"}</span>
+      </div>
+      <div>
+        {/* const defaultPosts: IPost[] = []; */}
+        <span className="code_space">
+          const defaultPosts<span className="vscode_blanc">:</span>{" "}
+          <span className="vscode_vert">IPost</span>{" "}
+          <span className="vscode_jaune">[]</span> =
+          <span className="vscode_jaune">[]</span>;
+        </span>
+      </div>
+      <div></div>
+      {/* const [posts, setPosts]: [IPost[], (posts: IPost[]) => void] = React.useState( */}
+      <div>
+        <span className="code_space">
+          const <span className="vscode_rose">{"["}</span> posts,
+          <span className="vscode_jaune">setPosts</span>{" "}
+          <span className="vscode_rose">{"]"}</span>
+          <span className="vscode_blanc">:</span>
+          <span className="vscode_rose">{"["}</span>
+          <span className="vscode_vert">IPost</span>
+          []
+          <span className="vscode_blanc">,</span>
+          {"("}posts
+          <span className="vscode_blanc">:</span>
+          <span className="vscode_vert">IPost</span>
+          <span className="vscode_jaune">[]</span>
+          {") =>"}
+          <span className="vscode_vert">void</span>
+          <span className="vscode_rose">{"]"}</span>=
+          <span className="vscode_vert">React.</span>
+          <span className="vscode_yellow">useState</span>
+          <span className="vscode_rose">{"("}</span>
+        </span>
+      </div>
+      <div>
+        <span className="code_space">
+          <span className="code_space">defaultPosts</span>
+        </span>
+      </div>
+      <div>
+        <span className="code_space vscode_rose">{")"}</span>;
+      </div>
+      <div>
+        {/* const [loading, setLoading]: [
+    boolean,
+    (loading: boolean) => void
+  ] = React.useState<boolean>(true); */}
+        <span className="code_space">
+          const <span className="vscode_rose">{"["}</span> loading,
+          <span className="vscode_jaune">setLoading</span>{" "}
+          <span className="vscode_rose">{"]"}</span>
+          <span className="vscode_blanc">:</span>
+          <span className="vscode_rose">{"["}</span>
+        </span>
+      </div>
+      <div className="code_space">
+        <span class="vscode_vert">boolean</span>,
+      </div>
+      <div className="code_space">
+        {"(loading)"}
+        <span class="vscode_blanc">:</span>
+        <span class="vscode_vert">boolean</span>
+        {"=>"}
+        <span class="vscode_vert">void</span>
+      </div>
+      <div className="code_space">
+        <span class="vscode_rose">{"]"}</span>
+        <span class="vscode_blanc">=</span>
+        <span class="vscode_vert">React</span>
+        <span class="vscode_yellow">useState</span>
+        <span class="vscode_blanc">{"<"}</span>
+        <span class="vscode_vert">boolean</span>
+        
+        <span class="vscode_blanc">{">"}</span>
+        <span class="vscode_rose">{"("}</span>
+        true
+        <span class="vscode_rose">{")"}</span>
+      </div>
 
+      <div></div>
+      
+      <div>
+      {/* React.useEffect(()=> {...} */}
+    {/* }, []); */}
+      </div>
+
+      
       {/* function getUsers(): Promise<User[]> { */}
       <div>
         function <span>getUsers</span>
@@ -114,19 +221,6 @@ function VSCode() {
         {">"}
       </div>
 
-      {/* <div style={{
-        width:"500px",
-        height:"100%",
-        // backgroundColor:"red"
-      }}>
-        <div class="x">
-          <img
-            class="y"
-            src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-Black-Large.png"
-            alt="codepen"
-          />
-        </div>
-      </div> */}
       <div></div>
       <div>
         <span className="vscode_rose">{"const "}</span>
@@ -250,14 +344,15 @@ export default function Screen1() {
         var clipPath = ref.current.style.getPropertyValue("clip-path");
 
         if (clipPath) {
-          let height=window.innerHeight,width=window.innerWidth;
-          let dim="vw";
-          if (height > width){
-            dim="vh";
+          let height = window.innerHeight,
+            width = window.innerWidth;
+          let dim = "vw";
+          if (height > width) {
+            dim = "vh";
           }
           redresseCode2(event);
           clipPath = clipPath.split("at");
-          clipPath = "circle(100"+ dim + " at " + clipPath[1];
+          clipPath = "circle(100" + dim + " at " + clipPath[1];
           clicked.current = true;
           gsap.to("#div_clip_path", {
             duration: 3,
@@ -352,7 +447,7 @@ export default function Screen1() {
       <div
         id="screen1"
         style={{
-          backgroundColor:"rgb(0,0,0)"
+          backgroundColor: "rgb(0,0,0)",
         }}
         className={hoverr + " home-cover relative w-full h-screen z-100 "}
       >
@@ -573,9 +668,9 @@ export default function Screen1() {
 
             {/* <div> */}
             {/* <div id="rrrj" className="h-full w-full flex flex-col md:flex-row"> */}
-              <VSCode />
-              <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
-               <header
+            <VSCode />
+            <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
+              <header
                 id="header_mobile_1"
                 className="header fixed flex flex-wrap w-full"
                 // style={{ backgroundColor: "rgba(0, 0, 255, 0.5)" }}
@@ -642,23 +737,17 @@ export default function Screen1() {
                 <nav className="menu-mobile__nav w-full overflow-y-auto">
                   <ul className="flex flex-col overflow-x-hidden">
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         agap2
                       </a>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Métiers
                       </a>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Esprit
                       </a>
                     </li>
@@ -673,53 +762,35 @@ export default function Screen1() {
                       </div>
 
                       <div className="menu-mobile__submenu absolute flex flex-col text-white transition-all duration-500 overflow-hidden py-8">
-                        <a
-                          className="text-lg mb-4 last:mb-0"
-                        >
+                        <a className="text-lg mb-4 last:mb-0">
                           Devenir Consultant en ingénierie
                         </a>
-                        <a
-                          className="text-lg mb-4 last:mb-0"
-                        >
+                        <a className="text-lg mb-4 last:mb-0">
                           Devenir Ingénieur d’affaires
                         </a>
-                        <a
-                          className="text-lg mb-4 last:mb-0"
-                        >
+                        <a className="text-lg mb-4 last:mb-0">
                           Parcours agapiens
                         </a>
-                        <a
-                          className="text-lg mb-4 last:mb-0"
-                        >
-                          Formation
-                        </a>
+                        <a className="text-lg mb-4 last:mb-0">Formation</a>
                       </div>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Blog
                       </a>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Presse
                       </a>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Contact
                       </a>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Offres d’emploi
                       </a>
                     </li>
@@ -749,10 +820,10 @@ export default function Screen1() {
                     </li>
                   </ul>
                 </nav>
-              </header> 
-              </div>
+              </header>
+            </div>
 
-              {/* <video
+            {/* <video
               muted=""
               autoPlay=""
               loop=""
@@ -765,7 +836,7 @@ export default function Screen1() {
               Votre navigateur ne supporte pas cette vidéo.
             </video> */}
 
-              {/* <video
+            {/* <video
               muted=""
               autoPlay=""
               loop=""
@@ -778,86 +849,86 @@ export default function Screen1() {
               Votre navigateur ne supporte pas cette vidéo.
             </video> */}
 
-              <div
-                id="main_content_zone1_hidden"
-                className="bg_grey home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
-              >
-                <h1 className="font-black flex flex-wrap items-start w-full">
+            <div
+              id="main_content_zone1_hidden"
+              className="bg_grey home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
+            >
+              <h1 className="font-black flex flex-wrap items-start w-full">
+                <div
+                  className="w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
+                  // style=""
+                >
                   <div
-                    className="w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
-                    // style=""
+                    className="line"
+                    // style="display: block; text-align: right; position: relative;"
                   >
                     <div
-                      className="line"
-                      // style="display: block; text-align: right; position: relative;"
+                      // style="position:relative;display:inline-block;"
+                      className="word "
                     >
-                      <div
-                        // style="position:relative;display:inline-block;"
-                        className="word "
-                      >
-                        {/* The */}
-                      </div>
-                      <div
-                        // style="position:relative;display:inline-block;"
-                        className="word"
-                      >
-                        Développeur React.js
-                      </div>
+                      {/* The */}
                     </div>
                     <div
-                      className="line"
-                      // style="display: block; text-align: right; position: relative;"
+                      // style="position:relative;display:inline-block;"
+                      className="word"
                     >
-                      <div
-                        // style="position:relative;display:inline-block;"
-                        className="word"
-                      >
-                        En Recherche d'emploi
-                      </div>
-                    </div>
-                    <div
-                      className="line"
-                      // style="display: block; text-align: right; position: relative;"
-                    >
-                      <div
-                        // style="position:relative;display:inline-block;"
-                        className="word text-xl md:text-2xl xl:text-3-5xl"
-                      >
-                        06 88 91 80 19
-                      </div>
-                    </div>
-                    <div
-                      className="line text-xl md:text-2xl xl:text-3-5xl"
-                      // style="display: block; text-align: right; position: relative;"
-                    >
-                      <div
-                        // style="position:relative;display:inline-block;"
-                        className="word pb-2"
-                      >
-                        amaury.pichat@gmail.com
-                      </div>
+                      Développeur React.js
                     </div>
                   </div>
                   <div
-                    className="home-cover__you absolute md:relative md:right-0 md:top-0 md:-mt-4 lg:-mt-8 md:ml-auto pl-12 md:pr-10 lg:pr-24 xl:pr-40 md:pl-12 w-auto text-5xl md:text-6xl xl:text-9xl text-yellow js-tosplit"
-                    data-cartapus="visible"
-                    // style=""
+                    className="line"
+                    // style="display: block; text-align: right; position: relative;"
                   >
                     <div
-                      className="line"
-                      // style="display: block; text-align: start; position: relative;"
+                      // style="position:relative;display:inline-block;"
+                      className="word"
                     >
-                      <div
-                        // style="position:relative;display:inline-block;"
-                        className="word"
-                      >
-                        {/* you */}
-                      </div>
+                      En Recherche d'emploi
                     </div>
                   </div>
-                </h1>
+                  <div
+                    className="line"
+                    // style="display: block; text-align: right; position: relative;"
+                  >
+                    <div
+                      // style="position:relative;display:inline-block;"
+                      className="word text-xl md:text-2xl xl:text-3-5xl"
+                    >
+                      06 88 91 80 19
+                    </div>
+                  </div>
+                  <div
+                    className="line text-xl md:text-2xl xl:text-3-5xl"
+                    // style="display: block; text-align: right; position: relative;"
+                  >
+                    <div
+                      // style="position:relative;display:inline-block;"
+                      className="word pb-2"
+                    >
+                      amaury.pichat@gmail.com
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="home-cover__you absolute md:relative md:right-0 md:top-0 md:-mt-4 lg:-mt-8 md:ml-auto pl-12 md:pr-10 lg:pr-24 xl:pr-40 md:pl-12 w-auto text-5xl md:text-6xl xl:text-9xl text-yellow js-tosplit"
+                  data-cartapus="visible"
+                  // style=""
+                >
+                  <div
+                    className="line"
+                    // style="display: block; text-align: start; position: relative;"
+                  >
+                    <div
+                      // style="position:relative;display:inline-block;"
+                      className="word"
+                    >
+                      {/* you */}
+                    </div>
+                  </div>
+                </div>
+              </h1>
 
-                {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
+              {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
                 <a
                   className="button relative flex items-center button--white button--big"
                 >
@@ -881,7 +952,7 @@ export default function Screen1() {
                   </div>
                 </a>
               </div> */}
-              </div>
+            </div>
             {/* </div> */}
             {/* <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2">
               CONTACT
@@ -902,9 +973,7 @@ export default function Screen1() {
             >
               <div className="header__container flex items-center justify-between w-full">
                 <div className="flex items-center h-full">
-                  <a
-                    className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
-                  >
+                  <a className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5">
                     Amaury PICHAT
                   </a>
 
@@ -1094,7 +1163,7 @@ export default function Screen1() {
             </header>
 
             <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
-             <header
+              <header
                 id="header_mobile_2"
                 className="hidden header fixed flex flex-wrap w-full"
                 // style="background-color: var(--color-transparent);"
@@ -1161,23 +1230,17 @@ export default function Screen1() {
                 <nav className="menu-mobile__nav w-full overflow-y-auto">
                   <ul className="flex flex-col overflow-x-hidden">
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         agap2
                       </a>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Métiers
                       </a>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Esprit
                       </a>
                     </li>
@@ -1192,53 +1255,35 @@ export default function Screen1() {
                       </div>
 
                       <div className="menu-mobile__submenu absolute flex flex-col text-white transition-all duration-500 overflow-hidden py-8">
-                        <a
-                          className="text-lg mb-4 last:mb-0"
-                        >
+                        <a className="text-lg mb-4 last:mb-0">
                           Devenir Consultant en ingénierie
                         </a>
-                        <a
-                          className="text-lg mb-4 last:mb-0"
-                        >
+                        <a className="text-lg mb-4 last:mb-0">
                           Devenir Ingénieur d’affaires
                         </a>
-                        <a
-                          className="text-lg mb-4 last:mb-0"
-                        >
+                        <a className="text-lg mb-4 last:mb-0">
                           Parcours agapiens
                         </a>
-                        <a
-                          className="text-lg mb-4 last:mb-0"
-                        >
-                          Formation
-                        </a>
+                        <a className="text-lg mb-4 last:mb-0">Formation</a>
                       </div>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Blog
                       </a>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Presse
                       </a>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Contact
                       </a>
                     </li>
                     <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a
-                        className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500"
-                      >
+                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
                         Offres d’emploi
                       </a>
                     </li>
@@ -1268,7 +1313,7 @@ export default function Screen1() {
                     </li>
                   </ul>
                 </nav>
-              </header> 
+              </header>
             </div>
 
             <div
@@ -1315,13 +1360,13 @@ export default function Screen1() {
                   >
                     <div
                       // style="position:relative;display:inline-block;"
-                      className="word text-xl md:text-2xl xl:text-3xl"
+                      className="word text-xl md:text-2xl xl:text-3-5xl"
                     >
                       06 88 91 80 19
                     </div>
                   </div>
                   <div
-                    className="line text-xl md:text-2xl xl:text-3xl"
+                    className="line text-xl md:text-2xl xl:text-3-5xl"
                     // style="display: block; text-align: right; position: relative;"
                   >
                     <div
