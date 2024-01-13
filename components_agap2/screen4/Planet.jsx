@@ -110,7 +110,6 @@ const CanvasPlanete = () => {
 
   const ref = useCallback((node) => {
     if (node === null) {
-      // DOM node referenced by ref has been unmounted
     } else {
       let ctx = gsap.context(() => {
         var scrollSunTl = gsap.timeline();

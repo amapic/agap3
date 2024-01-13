@@ -2,7 +2,7 @@ import React ,{useEffect} from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-export function Ttext37() {
+export default function Ttext37() {
   useEffect(() => {
     let ctx = gsap.context(() => {
       const mm = gsap.matchMedia();

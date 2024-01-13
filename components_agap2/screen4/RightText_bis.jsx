@@ -1,31 +1,31 @@
 import * as React from "react";
 
-// export function TimelineDroite(scrollSunTl, q) {
+export function TimelineDroite(scrollSunTl, q) {
 //   let ColorWhite = getComputedStyle(document.documentElement).getPropertyValue(
 //     "--color-white"
 //   );
 
-//   scrollSunTl.fromTo(
-//     q("#screen4PartieDroite"),
-//     {
-//       y: "25vh",
-//     },
-//     {
-//       scrollTrigger: {
-//         trigger: "#screen4",
-//         start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-//         end: "top+=90% bottom",
-//         toggleActions: "play none none reset",
-//         // markers: true,
-//         scrub: 1,
-//       },
+  scrollSunTl.fromTo(
+    q("#screen4PartieDroite"),
+    {
+      y: "25vh",
+    },
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        end: "top+=90% bottom",
+        toggleActions: "play none none reset",
+        // markers: true,
+        scrub: 1,
+      },
 
-//       y: 0,
-//     }
-//   );
+      y: 0,
+    }
+  );
 
-//   return scrollSunTl;
-// }
+  return scrollSunTl;
+}
 
 export default function RightText() {
   return (

@@ -4,22 +4,7 @@ import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
 gsap.registerPlugin(MotionPathPlugin);
 
 function VSCode() {
-  // const getElementsWithNoChildren = (target) => {
-  //   let candidates;
-  //   // candidates = target.querySelectorAll("*");
-
-  //   if (target && typeof target.querySelectorAll === "function") {
-  //     candidates = target.querySelectorAll("*");
-  //   } else if (target && typeof target.length === "number") {
-  //     candidates = target;
-  //   } else {
-  //     candidates = document.querySelectorAll("*");
-  //   }
-
-  //   return Array.from(candidates).filter((elem) => {
-  //     return elem.children.length === 0;
-  //   });
-  // };
+ 
 
   useEffect(() => {
     let elements = Array.prototype.slice.call(
@@ -88,7 +73,7 @@ function VSCode() {
     <div id="code_contain" className="overflow-hidden flex flex-col z-2 text-base relative h-3/5 pl-12 bottom-0 md:h-full md:right-0 md:w-1/2 md:pl-32 md:pt-24">
       <div className="overflow-hidden">
         <span className="vscode_rose">{"import "}</span>
-        <span>React</span>
+        <span>React</span>{" "}
         {/* <span className="vscode_jaune">{"{"}</span>
         <span>useRef, useEffect, useState, useLayoutEffect</span>
   <span className="vscode_jaune">{"}"}</span>{" "}*/}

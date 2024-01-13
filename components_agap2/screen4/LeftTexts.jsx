@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import { gsap } from "gsap";
 export default function Ttext1() {
   return (
     <div
@@ -21,10 +21,10 @@ export default function Ttext1() {
           font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
           "
             >
-             7
+              7
             </div>
             <div
-              className="ml-1 w-50 text2 text-white
+              className="ml-1 w-50 text2 text-green rg:text-white
           font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
           "
             >
@@ -32,7 +32,7 @@ export default function Ttext1() {
             </div>
           </div>
           <div
-            className="w-100 text3 text-white
+            className="w-100 text3 text-green rg:text-white
         opacity-0 backface-hidden
         "
           >
@@ -81,12 +81,12 @@ export function Ttext2() {
           font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
           "
             >
-              1 an 
+              1 an
             </div>
             {/* <div className="w-50 text2 blueLetter">M€</div> */}
           </div>
           <div
-            className="w-100 text3 text-white 
+            className="w-100 text3 text-green rg:text-white 
         font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
         "
           >
@@ -137,7 +137,7 @@ export function Ttext3() {
             4
           </div>
           <div
-            className="w-50 text2 text-white
+            className="w-50 text2 text-green rg:text-white
         font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
         "
           >
@@ -145,7 +145,7 @@ export function Ttext3() {
           </div>
           {/* </div> */}
           <div
-            className="w-100 text3 text-white
+            className="w-100 text3 text-green rg:text-white
         "
           >
             {/* {" "} */}
@@ -154,7 +154,7 @@ export function Ttext3() {
         </div>
         <div
           id="cercle3"
-          className="opacity-0"
+          className="opacity-0 hidden rg:block"
           style={{
             top: "-5vh",
             left: "0vh",
@@ -178,6 +178,40 @@ export function Timeline1(scrollSunTl, q) {
   );
 
   // console.log("white", ColorWhite);
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    {
+      isSmall: "(max-width: 1000px)",
+    },
+    (c) => {
+      scrollSunTl.fromTo(
+        q("#texte_haut"),
+        {
+          y: 0,
+          left:"10vh"
+        },
+        {
+          scrollTrigger: {
+            trigger: "#screen4",
+            // endTrigger: ".screen6",
+            start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            end: "top+=90% bottom",
+            // end: "+=200",
+            toggleActions: "play none none reset",
+            // markers: true,
+            scrub: 1,
+            // fontColor: "red",
+          },
+
+          // opacity:0,
+          left:"10vh",
+          top: "1vh",
+          // backgroundColor:"rgb(10,10,10)"
+        }
+      );
+    }
+  );
 
   scrollSunTl.fromTo(
     q("#texte_haut .text1"),
@@ -275,6 +309,40 @@ export function Timeline1(scrollSunTl, q) {
 }
 
 export function Timeline2(scrollSunTl, q) {
+  let ColorWhite = getComputedStyle(document.documentElement).getPropertyValue(
+    "--color-red"
+  );
+  const mm = gsap.matchMedia();
+  mm.add(
+    {
+      isSmall: "(max-width: 1000px)",
+    },
+    (c) => {
+      scrollSunTl.fromTo(
+        q("#texte_droite"),
+        {
+          y: 0,
+        },
+        {
+          scrollTrigger: {
+            trigger: "#screen4",
+            // endTrigger: ".screen6",
+            start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            end: "top+=90% bottom",
+            // end: "+=200",
+            toggleActions: "play none none reset",
+            // markers: true,
+            scrub: 1,
+            // fontColor: "red",
+          },
+
+          // opacity:0,
+          y: -110,
+          // backgroundColor:"rgb(10,10,10)"
+        }
+      );
+    }
+  );
   scrollSunTl.fromTo(
     q("#texte_droite .text1"),
     {
@@ -301,6 +369,7 @@ export function Timeline2(scrollSunTl, q) {
     q("#texte_droite .text2"),
     {
       y: 40,
+      color:ColorWhite,
     },
     {
       scrollTrigger: {
@@ -313,7 +382,7 @@ export function Timeline2(scrollSunTl, q) {
         // markers: true,
         scrub: 1,
       },
-
+      color:ColorWhite,
       opacity: 1,
       y: 0,
     }
@@ -369,6 +438,60 @@ export function Timeline2(scrollSunTl, q) {
 }
 
 export function Timeline3(scrollSunTl, q) {
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    {
+      isSmall: "(max-width: 1000px)",
+    },
+    (c) => {
+      scrollSunTl.fromTo(
+        q("#texte_bas"),
+        {
+          left: "10vw",
+          top: "30vh",
+        },
+        {
+          scrollTrigger: {
+            trigger: "#screen4",
+            // endTrigger: ".screen6",
+            start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            end: "top+=90% bottom",
+            // end: "+=200",
+            toggleActions: "play none none reset",
+            // markers: true,
+            scrub: 1,
+            // fontColor: "red",
+          },
+
+          // opacity:0,
+          left: "10vw",
+          top: "30vh",
+          // backgroundColor:"rgb(10,10,10)"
+        }
+      );
+      q("#cercle3"),
+        {
+          opacity:0
+        },
+        {
+          scrollTrigger: {
+            trigger: "#screen4",
+            // endTrigger: ".screen6",
+            start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            end: "top+=90% bottom",
+            // end: "+=200",
+            toggleActions: "play none none reset",
+            // markers: true,
+            scrub: 1,
+            // fontColor: "red",
+          },
+
+          opacity:0
+        }
+      // );
+    }
+  );
   scrollSunTl.fromTo(
     q("#texte_bas .text1"),
     {

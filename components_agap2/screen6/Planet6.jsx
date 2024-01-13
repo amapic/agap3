@@ -1,62 +1,12 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
-import * as THREE from "three";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-// import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 // import { SphereGeometry } from "three";
 gsap.registerPlugin(ScrollTrigger);
 
-const Planete = (props, ref) => {
-  // const { nodes } = useLoader(GLTFLoader, "/low_poly_earth.gltf");
 
-  var ColorYellow = "#ffcd00";
-
-  var ColorBlue = "#0226aa";
-
-  const refLoc = useRef(null);
-
-  // const oldScrollY = useRef(0);
-  const rotationSpeed = useRef(0.005);
-
-  useEffect(() => {
-    window.addEventListener("scroll", controlDirection);
-    return () => {
-      window.removeEventListener("scroll", controlDirection);
-    };
-  }, []);
-
-  const controlDirection = (e) => {
-    rotationSpeed.current = 0.3;
-  };
-
-  // var cumulDelta = useRef(0);
-  useFrame(({ clock }) => {
-    if (rotationSpeed.current >= 0.005) {
-      rotationSpeed.current -= 0.005;
-    } else {
-      rotationSpeed.current = 0.005;
-    }
-    if (refLoc.current) {
-      refLoc.current.rotation.y += rotationSpeed.current;
-    }
-  });
-
-  return (
-    <group ref={refLoc}>
-      <group ref={ref}>
-        <mesh scale={[0.01, 0.01, 0.01]} geometry={nodes.mesh_0_1.geometry}>
-          <meshStandardMaterial color={ColorYellow} opacity={1} />
-        </mesh>
-        <mesh scale={[0.01, 0.01, 0.01]}>
-          <meshStandardMaterial color={ColorBlue} opacity={1} />
-          <sphereGeometry args={[0.96, 32, 16]} />
-        </mesh>
-      </group>
-    </group>
-  );
-};
 
 const PC = (props, ref) => {
   const A = useLoader(FBXLoader, "/Comp_and_Floppy.fbx");
@@ -168,40 +118,6 @@ const CanvasPlanete = () => {
       const mm = gsap.matchMedia();
       mm.add(
         {
-          // isSmall: "(max-width: 0px)",
-          isLarge: "(min-width: 1000px)",
-          // isXLarge: "(min-width: 1301px)",
-        },
-        (c) => {
-          var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
-          ScrollTrigger.create({
-            trigger: "#main6",
-            // endTrigger: ".screen6",
-            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-            end: "bottom-=10% bottom",
-            // end: "+=200",
-            toggleActions: "play pause resume reset",
-            // markers: true,
-            scrub: 3,
-            animation: scrollSunTl,
-            // pin: "#canvas",
-          });
-
-          scrollSunTl.fromTo(
-            "#canvas6",
-            {
-              x: "-60vw",
-            },
-            {
-              x: "2vw",
-            }
-          );
-        }
-      );
-
-      mm.add(
-        {
           isSmall: "(max-width: 999px)",
           // isLarge: "(min-width: 769px) and (max-width: 1300px)",
           // isXLarge: "(min-width: 1301px)",
@@ -222,13 +138,54 @@ const CanvasPlanete = () => {
             // pin: "#canvas",
           });
 
+
+
           scrollSunTl.fromTo(
             "#canvas6",
             {
               x: "-100vw",
+              y: "-30vh",
+              width: "100vw",
+              padding:"0 20vw 0 20vw"
             },
             {
-              x: "7vw",
+              x: "2vw",
+              y: "-30vh",
+              width: "100vw",
+              padding:"0 20vw 0 20vw"
+            }
+          );
+        }
+      );
+      mm.add(
+        // mm.add(
+        {
+          isSmall: "(min-width: 1000px)",
+          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
+          // isXLarge: "(min-width: 1301px)",
+        },
+        (c) => {
+          var scrollSunTl = gsap.timeline();
+          // console.log("color", node.children[0].material.color);
+          ScrollTrigger.create({
+            trigger: "#main6",
+            // endTrigger: ".screen6",
+            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            end: "bottom-=10% bottom",
+            // end: "+=200",
+            toggleActions: "play pause resume reset",
+            // markers: true,
+            scrub: 3,
+            animation: scrollSunTl,
+            // pin: "#canvas",
+          });
+          scrollSunTl.fromTo(
+            "#canvas6",
+            {
+              x: "-50vw",
+            },
+            {
+              x: "5vw",
             }
           );
         }
@@ -241,40 +198,38 @@ const CanvasPlanete = () => {
   return (
     <div
       id="main6"
-      className="z-20 w-fulll"
+      className="z-20"
       style={{
         height: "300vh",
         overflow: "hidden",
         position: "relative",
-        // width: "100%",
+        width: "100%",
       }}
     >
       <div
-      className="w-full rg:w-40vw pb-10 h-screen-1/2 rg:h-screen"
         id="canvas6"
         style={{
-          // height: "100vh",
+          height: "100vh",
           overflow: "hidden",
           position: "absolute",
           left: "0vh",
-          // width: "40vw",
+          width: "40vw",
           zIndex: "50",
           display: "flex",
           justifyContent: "center",
-          
         }}
       >
         {/* <div
         className="relative h-full"> */}
-        <a href="https://amaurypichat.fr/slide/" className="img_site flex content-center rg:justify-center">
+        <a href="https://amaurypichat.fr/slide/" className="img_site">
           <img
-            className="w-screen-1/2 rg:h-screen-1/2"
             style={{
               backgroundSize: "contain",
             }}
-            src="./../../SiteExemple.jpg"
+            src="./../../sunflower2.jpg"
           ></img>
         </a>
+
         {/* </div> */}
       </div>
     </div>

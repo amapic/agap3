@@ -5,11 +5,11 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import CanvasImage from "./screen7/Planet7";
-import {
+import 
   
-  Ttext37,
+  Ttext37
 
-} from "./screen7/LeftTexts7";
+ from "./screen7/LeftTexts7";
 
 import RightText7 from "./screen7/RightText7";
 

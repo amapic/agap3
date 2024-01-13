@@ -8,55 +8,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 // import { SphereGeometry } from "three";
 gsap.registerPlugin(ScrollTrigger);
 
-const Planete = (props, ref) => {
-  // const { nodes } = useLoader(GLTFLoader, "/low_poly_earth.gltf");
 
-  var ColorYellow = "#ffcd00";
-
-  var ColorBlue = "#0226aa";
-
-  const refLoc = useRef(null);
-
-  // const oldScrollY = useRef(0);
-  const rotationSpeed = useRef(0.005);
-
-  useEffect(() => {
-    window.addEventListener("scroll", controlDirection);
-    return () => {
-      window.removeEventListener("scroll", controlDirection);
-    };
-  }, []);
-
-  const controlDirection = (e) => {
-    rotationSpeed.current = 0.3;
-  };
-
-  // var cumulDelta = useRef(0);
-  useFrame(({ clock }) => {
-    if (rotationSpeed.current >= 0.005) {
-      rotationSpeed.current -= 0.005;
-    } else {
-      rotationSpeed.current = 0.005;
-    }
-    if (refLoc.current) {
-      refLoc.current.rotation.y += rotationSpeed.current;
-    }
-  });
-
-  return (
-    <group ref={refLoc}>
-      <group ref={ref}>
-        <mesh scale={[0.01, 0.01, 0.01]} geometry={nodes.mesh_0_1.geometry}>
-          <meshStandardMaterial color={ColorYellow} opacity={1} />
-        </mesh>
-        <mesh scale={[0.01, 0.01, 0.01]}>
-          <meshStandardMaterial color={ColorBlue} opacity={1} />
-          <sphereGeometry args={[0.96, 32, 16]} />
-        </mesh>
-      </group>
-    </group>
-  );
-};
 
 const PC = (props, ref) => {
   const A = useLoader(FBXLoader, "/Comp_and_Floppy.fbx");
@@ -104,17 +56,7 @@ const PC = (props, ref) => {
         }
       }
     }
-    // rotationSpeed.current = 0.005;
-    // refLoc.current.rotation.y = 6;
-    // refLoc.current.rotation.y= 0.005;
-    // if (rotationSpeed.current >= 0.009) {
-    //   rotationSpeed.current -= 0.009;
-    // } else {
-    //   rotationSpeed.current = 0.009;
-    // }
-    // if (refLoc.current) {
-    // refLoc.current.rotation.y += rotationSpeed.current;
-    // }
+
   });
 
   return (
@@ -156,7 +98,7 @@ const PC = (props, ref) => {
 
 const PlaneteBis = forwardRef(PC); //erreur si forward ref mis directement au début de <Planete />
 
-const CanvasPlanete = () => {
+const CanvasImage = () => {
   // let ColorYellow = window
   //   .getComputedStyle(document.documentElement)
   //   .getPropertyValue("--color-yellow");
@@ -165,43 +107,85 @@ const CanvasPlanete = () => {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      var scrollSunTl = gsap.timeline();
-      // console.log("color", node.children[0].material.color);
-      ScrollTrigger.create({
-        trigger: "#main8",
-        // endTrigger: ".screen6",
-        start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-        end: "bottom-=10% bottom",
-        // end: "+=200",
-        toggleActions: "play pause resume reset",
-        // markers: true,
-        scrub: 3,
-        animation: scrollSunTl,
-        // pin: "#canvas",
-      });
-
-      scrollSunTl.fromTo(
-        "#canvas8",
+      const mm = gsap.matchMedia();
+      mm.add(
         {
-          x: "-50vw",
+          isSmall: "(max-width: 999px)",
+          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
+          // isXLarge: "(min-width: 1301px)",
         },
-        {
-          x: "5vw",
+        (c) => {
+          var scrollSunTl = gsap.timeline();
+          // console.log("color", node.children[0].material.color);
+          ScrollTrigger.create({
+            trigger: "#main8",
+            // endTrigger: ".screen6",
+            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            end: "bottom-=10% bottom",
+            // end: "+=200",
+            toggleActions: "play pause resume reset",
+            // markers: true,
+            scrub: 3,
+            animation: scrollSunTl,
+            // pin: "#canvas",
+          });
+
+
+
+          scrollSunTl.fromTo(
+            "#canvas8",
+            {
+              x: "-100vw",
+              y: "-30vh",
+              width: "100vw",
+              padding:"0 20vw 0 20vw"
+            },
+            {
+              x: "2vw",
+              y: "-30vh",
+              width: "100vw",
+              padding:"0 20vw 0 20vw"
+            }
+          );
         }
-        // { x: "0vw" }
+      );
+      mm.add(
+        // mm.add(
+        {
+          isSmall: "(min-width: 1000px)",
+          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
+          // isXLarge: "(min-width: 1301px)",
+        },
+        (c) => {
+          var scrollSunTl = gsap.timeline();
+          // console.log("color", node.children[0].material.color);
+          ScrollTrigger.create({
+            trigger: "#main8",
+            // endTrigger: ".screen6",
+            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            end: "bottom-=10% bottom",
+            // end: "+=200",
+            toggleActions: "play pause resume reset",
+            // markers: true,
+            scrub: 3,
+            animation: scrollSunTl,
+            // pin: "#canvas",
+          });
+          scrollSunTl.fromTo(
+            "#canvas8",
+            {
+              x: "-50vw",
+            },
+            {
+              x: "5vw",
+            }
+          );
+        }
       );
     });
     return () => ctx.revert();
   });
-  // const ref = useCallback((node) => {
-  //   if (node === null) {
-  //     // DOM node referenced by ref has been unmounted
-  //   } else {
-  //     // console.log("EE", node.children[1].position);
-  //     // DOM node referenced by ref has changed and exists
 
-  //   }
-  // }, []); // adjust deps
 
   return (
     <div
@@ -227,21 +211,19 @@ const CanvasPlanete = () => {
           justifyContent: "center",
         }}
       >
-        {/* <div
-        className="relative h-full"> */}
+    
         <a href="https://amaurypichat.fr/slide/" className="img_site">
           <img
-            // className="img_site"
             style={{
               backgroundSize: "contain",
             }}
-            src="./../../SiteExemple.jpg"
+            src="./../../sunflower2.jpg"
           ></img>
         </a>
-        {/* </div> */}
+
       </div>
     </div>
   );
 };
 
-export default CanvasPlanete;
+export default CanvasImage;
