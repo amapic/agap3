@@ -212,12 +212,12 @@ const CanvasImage = () => {
         }}
       >
     
-        <a href="https://amaurypichat.fr/slide/" className="img_site">
+        <a href="https://amaurypichat.fr/planet/" className="img_site">
           <img
             style={{
               backgroundSize: "contain",
             }}
-            src="./../../sunflower2.jpg"
+            src="./../../planet.jpg"
           ></img>
         </a>
 

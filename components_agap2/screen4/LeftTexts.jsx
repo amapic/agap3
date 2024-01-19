@@ -440,6 +440,48 @@ export function Timeline2(scrollSunTl, q) {
 export function Timeline3(scrollSunTl, q) {
 
   const mm = gsap.matchMedia();
+
+  mm.add(
+    {
+      isNotHeight: "(max-heigth: 650px)",
+    },
+    (c) => {
+      gsap.to("#texte_bas",
+        {
+          // display:"none",
+          opacity:0
+        }
+      )
+      // scrollSunTl.to(
+      //   q("#texte_bas"),
+      //   {
+      //     display:"none"
+      //     // left: "10vw",
+      //     // top: "30vh",
+      //   },
+      //   // {
+      //     scrollTrigger: {
+      //       trigger: "#screen4",
+      //       // endTrigger: ".screen6",
+      //       start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+      //       end: "top+=90% bottom",
+      //       // end: "+=200",
+      //       toggleActions: "play none none reset",
+      //       // markers: true,
+      //       scrub: 1,
+      //       // fontColor: "red",
+      //     },
+
+      //   //   // opacity:0,
+      //   //   left: "10vw",
+      //   //   top: "30vh",
+      //   //   // backgroundColor:"rgb(10,10,10)"
+      //   // }
+      // );
+     
+    }
+
+  )
   mm.add(
     {
       isSmall: "(max-width: 1000px)",

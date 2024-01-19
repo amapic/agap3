@@ -8,9 +8,7 @@ function VSCode() {
     let elements = Array.prototype.slice.call(
       document.getElementById("code_contain").children
     );
-    // console.log(elements);
 
-    // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
 
     elements.forEach((element, i) => {
       if (i > 6) {
@@ -24,29 +22,117 @@ function VSCode() {
     });
 
     elements.forEach((element, i) => {
-      if (i == 2) {
+      if (i == 2 || i == 12) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        tl.to(element, 10 + 2 * Math.random(), {
+          motionPath: {
+            path: [
+              // { x: "0vh", y: "0vh" },
+              { x: "-40vw", y: "10vh" },
+              { x: "-10vw", y: "70vh" },
+              { x: "0vh", y: "0vw" },
+            ], // you probably want more points here...or just use an SVG <path>!
+          },
+          ease: "none",
+        });
       }
 
-      if (i == 3) {
+      if (i == 3 || i == 6 || i == 13) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        tl.to(element, 10 + 2 * Math.random(), {
+          motionPath: {
+            path: [
+              // { x: "0vh", y: "0vh" },
+              { x: "-10vw", y: "30vh" },
+              { x: "-10vw", y: "70vh" },
+              { x: "0vh", y: "0vw" },
+            ], // you probably want more points here...or just use an SVG <path>!
+
+          },
+          ease: "none",
+        });
       }
 
-      if (i == 4) {
+      if (i == 4 || i == 8 || i == 1 || i == 14) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        tl.to(element, 15 + 4 * Math.random(), {
+          motionPath: {
+            path: [
+              // { x: "0vh", y: "0vh" },
+              { x: "10vw", y: "30vh" },
+              { x: "-10vw", y: "10vh" },
+              { x: "-10vw", y: "-20vh" },
+              { x: "0vh", y: "0vw" },
+            ], // you probably want more points here...or just use an SVG <path>!
+
+          },
+          ease: "none",
+          // clearProps: 'all'
+        });
       }
 
-      if (i == 5) {
+      if (i == 9 || i == 7) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        tl.to(element, 30 + 4 * Math.random(), {
+          motionPath: {
+            path: [
+              // { x: "0vh", y: "0vh" },
+              { x: "10vw", y: "10vh" },
+              { x: "0vw", y: "10vh" },
+              { x: "-50vw", y: "20vh" },
+              { x: "-50vw", y: "-10vh" },
+              { x: "0vh", y: "0vw" },
+            ], // you probably want more points here...or just use an SVG <path>!
+          },
+          ease: "none",
+          // clearProps: 'all'
+        });
       }
-      if (i == 0) {
+
+      if (i == 5 || i == 10 || i == 16) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
-        tl.to(element, 10, {
+        tl.to(element, 15 + 4 * Math.random(), {
+          motionPath: {
+            path: [
+              // { x: "0vh", y: "0vh" },
+              { x: "10vw", y: "10vh" },
+              { x: "-10vw", y: "10vh" },
+              { x: "-10vw", y: "-20vh" },
+              { x: "0vh", y: "0vw" },
+            ], // you probably want more points here...or just use an SVG <path>!
+          },
+          ease: "none",
+          // clearProps: 'all'
+        });
+      }
+
+      if (i == 11 || i == 15) {
+        var rect = element.getBoundingClientRect();
+        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        tl.to(element, 20 + 4 * Math.random(), {
+          motionPath: {
+            path: [
+              // { x: "0vh", y: "0vh" },
+              { x: "-50vw", y: "10vh" },
+              { x: "60vw", y: "-10vh" },
+              { x: "-50vw", y: "-20vh" },
+              { x: "0vh", y: "0vw" },
+            ], // you probably want more points here...or just use an SVG <path>!
+          },
+          ease: "none",
+          // clearProps: 'all'
+        });
+      }
+
+      if (i == 0 || i == 6 || i == 17) {
+        var rect = element.getBoundingClientRect();
+        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        tl.to(element, 10 + 4 * Math.random(), {
           motionPath: {
             path: [
               // { x: "0vh", y: "0vh" },
@@ -54,9 +140,6 @@ function VSCode() {
               { x: "-10vw", y: "70vh" },
               { x: "0vh", y: "0vw" },
             ], // you probably want more points here...or just use an SVG <path>!
-            // curviness: 2,
-            // align:"self"
-            // autoRotate: true
           },
           ease: "none",
           // clearProps: 'all'
@@ -70,9 +153,9 @@ function VSCode() {
   return (
     <div
       id="code_contain"
-      className="overflow-hidden flex flex-col z-2 text-base relative h-3/5 pl-12 bottom-0 md:h-full md:right-0 md:w-1/2 md:pl-32 md:pt-24"
+      className="flex flex-col z-2 text-base relative h-3/5 pl-6   md:bottom-0 md:h-full md:right-0 md:w-1/2 md:pl-32 md:pt-24"
     >
-      <div className="overflow-hidden">
+      <div className="">
         <span className="vscode_rose">{"import "}</span>
         <span>React</span>{" "}
         {/* <span className="vscode_jaune">{"{"}</span>
@@ -81,31 +164,31 @@ function VSCode() {
         <span className="vscode_rose">{"from"}</span>
         <span className="vscode_orange"> "react"</span>
       </div>
-      <div>
+      <div className="">
         <span>
           interface <span className="vscode_jaune">IPost</span>{" "}
           <span className="vscode_yellow">{"{"}</span>
         </span>
       </div>
-      <div>
+      <div className="">
         <span className="code_space">
           id<span className="vscode_blanc">:</span>{" "}
           <span className="vscode_vert">number</span>
         </span>
       </div>
-      <div>
+      <div className="">
         <span className="code_space">
           userId?<span className="vscode_blanc">:</span>{" "}
           <span className="vscode_vert">number</span>
         </span>
       </div>
-      <div>
+      <div className="">
         <span className="code_space">
           title<span className="vscode_blanc">:</span>{" "}
           <span className="vscode_vert">string</span>
         </span>
       </div>
-      <div>
+      <div className="">
         <span className="code_space">
           body<span className="vscode_blanc">:</span>{" "}
           <span className="vscode_vert">string</span>
@@ -127,30 +210,30 @@ function VSCode() {
         {/* const defaultPosts: IPost[] = []; */}
         <span className="code_space">
           const defaultPosts<span className="vscode_blanc">:</span>{" "}
-          <span className="vscode_vert">IPost</span>{" "}
-          <span className="vscode_jaune">[]</span> =
+          <span className="vscode_vert">IPost</span>
+          <span className="vscode_jaune">[]</span> ={" "}
           <span className="vscode_jaune">[]</span>;
         </span>
       </div>
       <div></div>
       {/* const [posts, setPosts]: [IPost[], (posts: IPost[]) => void] = React.useState( */}
-      <div>
+      <div className="overflow-x-hidden">
         <span className="code_space">
           const <span className="vscode_rose">{"["}</span> posts,
           <span className="vscode_jaune">setPosts</span>{" "}
           <span className="vscode_rose">{"]"}</span>
-          <span className="vscode_blanc">:</span>
+          <span className="vscode_blanc">:</span>{" "}
           <span className="vscode_rose">{"["}</span>
           <span className="vscode_vert">IPost</span>
           []
-          <span className="vscode_blanc">,</span>
-          {"("}posts
-          <span className="vscode_blanc">:</span>
+          <span className="vscode_blanc">,</span> {"("}posts
+          <span className="vscode_blanc">:</span>{" "}
           <span className="vscode_vert">IPost</span>
           <span className="vscode_jaune">[]</span>
-          {") =>"}
+          {" ) => "}
           <span className="vscode_vert">void</span>
-          <span className="vscode_rose">{"]"}</span>=
+          <span className="vscode_rose">{"]"}</span>
+          {" = "}
           <span className="vscode_vert">React.</span>
           <span className="vscode_yellow">useState</span>
           <span className="vscode_rose">{"("}</span>
@@ -170,31 +253,32 @@ function VSCode() {
     (loading: boolean) => void
   ] = React.useState<boolean>(true); */}
         <span className="code_space">
-          const <span className="vscode_rose">{"["}</span> loading,
+          const <span className="vscode_rose">{"["}</span> loading,{" "}
           <span className="vscode_jaune">setLoading</span>{" "}
           <span className="vscode_rose">{"]"}</span>
-          <span className="vscode_blanc">:</span>
+          <span className="vscode_blanc">:</span>{" "}
           <span className="vscode_rose">{"["}</span>
         </span>
       </div>
       <div className="code_space">
-        <span class="vscode_vert">boolean</span>,
+        <span class="vscode_vert code_space">boolean</span>,
       </div>
       <div className="code_space">
-        {"(loading)"}
-        <span class="vscode_blanc">:</span>
-        <span class="vscode_vert">boolean</span>
-        {"=>"}
-        <span class="vscode_vert">void</span>
+        <span className="code_space">
+          {"(loading)"}
+          <span class="vscode_blanc">{" : "}</span>
+          <span class="vscode_vert">boolean</span>
+          {" => "}
+          <span class="vscode_vert">void</span>
+        </span>
       </div>
       <div className="code_space">
         <span class="vscode_rose">{"]"}</span>
-        <span class="vscode_blanc">=</span>
+        <span class="vscode_blanc">{" = "}</span>
         <span class="vscode_vert">React</span>
         <span class="vscode_yellow">useState</span>
         <span class="vscode_blanc">{"<"}</span>
         <span class="vscode_vert">boolean</span>
-        
         <span class="vscode_blanc">{">"}</span>
         <span class="vscode_rose">{"("}</span>
         true
@@ -202,13 +286,66 @@ function VSCode() {
       </div>
 
       <div></div>
-      
+
       <div>
-      {/* React.useEffect(()=> {...} */}
-    {/* }, []); */}
+        {/* React.useEffect(()=> {...} */}
+        {/* }, []); */}
       </div>
 
-      
+      {/* return (
+    <div className="App">
+      {loading && <button onClick={handleCancelClick}>Cancel</button>}
+      <ul className="posts">
+        {posts.map((post) => (
+          <li key={post.id}>
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
+          </li>
+        ))}
+      </ul> */}
+      <div>
+        <span className="vscode_rose">{"return ("}</span>
+      </div>
+      <div>
+        <span className="code_space">{"<div className="} </span>
+        <span className="vscode_orange">{'"App"'} </span>
+        {">"}
+      </div>
+      <div className="overflow-x-hidden">
+        <span className="code_space">
+          <span className="code_space">
+            <span>{"{loading"}</span>
+            <span className="vscode_blanc">{" && "}</span>
+            <span className="">{"<button onClick="}</span>
+            <span className="vscode_jaune">{"{"}</span>
+            <span className="vscode_jaune">{"handleCancelClick"}</span>
+            <span className="vscode_jaune">{"}"}</span>
+            {">"}
+            <span className="vscode_blanc">{"Cancel"}</span>
+            <span className="">{"</button>}"}</span>
+          </span>
+        </span>
+      </div>
+      <div>
+        <span className="code_space">
+          <span className="code_space">{"<ul className"}</span>
+          <span className="vscode_blanc">{"="}</span>
+          <span className="vscode_orange">{'"=posts"'}</span>
+          {">"}
+        </span>
+      </div>
+
+      <ul className="posts"></ul>
+
+      {/* <span > {loading && <button onClick={handleCancelClick}>Cancel</button>} </span>
+        </span>
+          </span>
+          {"<div className="} </span>
+        <span className="vscode_orange">{"App"} </span>
+         && <button onClick={handleCancelClick}>Cancel</button>}
+        {">"}
+      </div> */}
+
       {/* function getUsers(): Promise<User[]> { */}
       <div>
         function <span>getUsers</span>
@@ -283,7 +420,7 @@ export default function Screen1() {
   useEffect(() => {
     // var leaveAnimation;
     document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
-      if (!clicked.current) {
+      if (!clicked.current && ref.current) {
         ref.current.style.setProperty(
           "clip-path",
           "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
@@ -303,28 +440,9 @@ export default function Screen1() {
       }
     });
 
-    function redresseCode(event) {
-      let myElement = document.getElementById("code_contain");
-
-      for (const child of myElement.children) {
-        let pos = child.getBoundingClientRect();
-        let dist_x = pos.x - event.screenX;
-        let dist_y = pos.y - event.screenY;
-        let dist = Math.sqrt(Math.pow(dist_x, 2) + Math.pow(dist_y, 2));
-        (function (child, dist) {
-          setTimeout(function () {
-            gsap.to(child, 0.5, {
-              ease: "none",
-              rotation: 0,
-              transformOrigin: "50% 50%",
-            });
-          }, dist);
-        })(child, dist);
-      }
-    }
-
     function redresseCode2(event) {
       let myElement = document.getElementById("code_contain");
+
       let i = 0;
       for (const child of myElement.children) {
         i = i + 1;
@@ -351,14 +469,44 @@ export default function Screen1() {
             dim = "vh";
           }
           redresseCode2(event);
-          clipPath = clipPath.split("at");
-          clipPath = "circle(100" + dim + " at " + clipPath[1];
+          let clipPath1 = clipPath.split("at");
+          clipPath1 = "circle(100" + dim + " at " + clipPath1[1];
+          let clipPath2 = clipPath.split("at");
+          clipPath2 = "circle(15" + dim + " at " + clipPath2[1];
+
           clicked.current = true;
-          gsap.to("#div_clip_path", {
-            duration: 3,
-            ease: "power2",
-            clipPath: clipPath,
-          });
+
+          var tl = gsap.timeline();
+
+          tl.to(
+            "#div_clip_path",
+            {
+              duration: 0.2,
+              ease: "power1.out",
+              clipPath: clipPath2,
+            },
+            0.2
+          );
+          tl.to(
+            "#div_clip_path",
+            {
+              duration: 0.2,
+              ease: "power1.out",
+              clipPath: clipPath2.replace("circle(15", "circle(10"),
+            },
+            ">"
+          );
+          tl.to(
+            "#div_clip_path",
+            {
+              duration: 5,
+              ease: "power2",
+              clipPath: clipPath1,
+            },
+            ">"
+          );
+
+          // tl.play()
         }
       }
     });
@@ -668,7 +816,7 @@ export default function Screen1() {
 
             {/* <div> */}
             {/* <div id="rrrj" className="h-full w-full flex flex-col md:flex-row"> */}
-            <VSCode />
+            {/* <VSCode /> */}
             <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
               <header
                 id="header_mobile_1"
@@ -927,6 +1075,8 @@ export default function Screen1() {
                   </div>
                 </div>
               </h1>
+
+              <VSCode />
 
               {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
                 <a
@@ -1319,10 +1469,12 @@ export default function Screen1() {
             <div
               id="main_content_zone1_not_hidden"
               className="home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
+              // bg_grey home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10
             >
               <h1 className="font-black flex flex-wrap items-start w-full">
                 <div
-                  className="w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-blue md:text-right pr-6 md:pr-12 js-tosplit"
+                  className="w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-blue tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
+                  // w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit
                   data-cartapus="visible"
                   // style=""
                 >

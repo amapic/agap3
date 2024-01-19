@@ -25,6 +25,8 @@ function Home() {
   let cursorWidth = "40";
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
   useEffect(() => {
+    // alert(window.innerHeight)//648
+    // alert(window.innerWidth)//360
     let ctx = gsap.context(() => {
       let tl = gsap.timeline({
         scrollTrigger: {

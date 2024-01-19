@@ -31,7 +31,7 @@ export default function Ttext37() {
           scrollSunTl.fromTo(
             "#texte_bas_38",
             {
-              top: "40vh",
+              top: "35vh",
               margin: "0 30vw 0 30vw",
               width: "40vw",
               opacity: "0",
@@ -40,7 +40,7 @@ export default function Ttext37() {
               // position:"fixed"
             },
             {
-              top: "40vh",
+              top: "35vh",
               margin: "0 30vw 0 30vw",
               width: "40vw",
               opacity: "1",
@@ -101,13 +101,10 @@ export default function Ttext37() {
       id="texte_bas_38"
       className="flex justify-center"
       style={{
-        // width: "300px",
         zIndex: "30",
-        // top: "80vh",
-        // left: "15vw",
+
         position: "absolute",
         size: "40px",
-        // textAlign: "right",
       }}
     >
       <div className="w-full h-full">
@@ -120,7 +117,7 @@ export default function Ttext37() {
           >
             <ul>
               <li
-                className="effet_perso flex justify-center"
+                className="effet_perso flex justify-center text-center"
                 onClick={followlink}
               >
                 <a href="https://amaurypichat.fr/siteWeb1/index.html">

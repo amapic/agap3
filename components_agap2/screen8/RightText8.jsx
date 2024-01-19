@@ -47,12 +47,12 @@ export default function RightText_() {
       className="relative container-main w-full h-screen-1/2 rg:h-full rg:w-1/2 py-6  rg:py-10 pr-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2 rg:text-start text-center"
       // rg:w-1/2
     >
-      <div className="js-home-gl-text home-numbers__wrap backface-hidden">
+      <div className="js-home-gl-text home-numbers__wrap backface-hidden rg:text-start">
         <h2
           className="text-blue mb-4 rg:mb-12 lg:mb-4 xl:mb-12"
           data-cartapus="visible"
         >
-          <span className="">Création d'un effet de profondeur sur une surface en 3D</span>
+          <span className="">Réalisation 3 : Planisphère réalisé entièrement en 3D</span>
         </h2>
 
         <p className="home-numbers__agap text-4xl text-blue font-semibold">
@@ -61,9 +61,9 @@ export default function RightText_() {
 
         <div className="mce w-full">
           <p>
-            Techniquement poussé, ce projet m'a permis de maitriser des techniques ambitieuses comme Three.js et WebGl.
+            Ce projet réalisé en 3D me permet de maitriser des technologies 
             <br />
-            Le site surprend l'internaute en donnant une impression de profondeur inédite.
+            donnant de nouvelles possibilités en terme d'ergonomie et de créativité
           </p>
         </div>
         <h3 className="text-3xl mt-8">
@@ -85,7 +85,7 @@ export default function RightText_() {
               ></span>
               - React.js
             </li>
-            <li  className="px-6 git2 text-center rg:text-start">
+            <li  className="px-6 git2">
               <span
                 id="tech27"
                 className="px-6"
@@ -98,19 +98,7 @@ export default function RightText_() {
               ></span>
               - Three.js
             </li>
-            <li  className="px-6 git2 text-center rg:text-start">
-              <span
-                id="tech28"
-                className="px-6"
-                style={
-                  {
-                    // backgroundImage: `url("../../ezgif.com-speed (2).gif")`,
-                    // backgroundSize: "cover",
-                  }
-                }
-              ></span>
-              - WebGL
-            </li>
+           
           </ul>
         </h3>
 

@@ -31,7 +31,7 @@ export function Ttext36() {
           scrollSunTl.fromTo(
             "#texte_bas_36",
             {
-              top: "40vh",
+              top: "35vh",
               margin:"0 30vw 0 30vw",
               width:"40vw",
               opacity:"0"
@@ -40,7 +40,7 @@ export function Ttext36() {
               // position:"fixed"
             },
             {
-              top: "40vh",
+              top: "35vh",
               margin:"0 30vw 0 30vw",
               width:"40vw",
               opacity:"1"
@@ -119,7 +119,7 @@ export function Ttext36() {
         "
           >
             <ul>
-              <li className="effet_perso flex justify-center" onClick={followlink}>
+              <li className="effet_perso flex justify-center text-center" onClick={followlink}>
                 <a href="https://amaurypichat.fr/siteWeb1/index.html">
                   Voir la réalisation
                 </a>

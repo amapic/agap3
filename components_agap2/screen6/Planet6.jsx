@@ -226,7 +226,7 @@ const CanvasPlanete = () => {
             style={{
               backgroundSize: "contain",
             }}
-            src="./../../sunflower2.jpg"
+            src="./../../SiteExemple.jpg"
           ></img>
         </a>
 

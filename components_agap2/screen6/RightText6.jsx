@@ -47,12 +47,12 @@ export default function RightText6() {
       className="relative container-main w-full h-screen-1/2 rg:h-full rg:w-1/2 py-6  rg:py-10 pr-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2 rg:text-start text-center"
       // rg:w-1/2
     >
-      <div className="js-home-gl-text home-numbers__wrap backface-hidden">
+      <div className="js-home-gl-text home-numbers__wrap backface-hidden rg:text-start">
         <h2
           className="text-blue mb-4 rg:mb-12 lg:mb-4 xl:mb-12"
           data-cartapus="visible"
         >
-          <span className="">Création d'un effet de profondeur sur une surface en 3D</span>
+          <span className="">Réalisation 1 : Site d'entreprise responsive</span>
         </h2>
 
         <p className="home-numbers__agap text-4xl text-blue font-semibold">
@@ -61,9 +61,9 @@ export default function RightText6() {
 
         <div className="mce w-full">
           <p>
-            Techniquement poussé, ce projet m'a permis de maitriser des techniques ambitieuses comme Three.js et WebGl.
+            J'ai réalisé ce projet afin de valider mes compétences de base concernant React.js
             <br />
-            Le site surprend l'internaute en donnant une impression de profondeur inédite.
+            Il comprend des animations mettant en valeur son contenu
           </p>
         </div>
         <h3 className="text-3xl mt-8">
@@ -83,9 +83,9 @@ export default function RightText6() {
                   }
                 }
               ></span>
-              - React.js
+               {"  "} - React.js
             </li>
-            <li  className="px-6 git2 text-center rg:text-start">
+            <li  className="px-6 git2 ">
               <span
                 id="tech27"
                 className="px-6"
@@ -96,9 +96,9 @@ export default function RightText6() {
                   }
                 }
               ></span>
-              - Three.js
+              - GSAP
             </li>
-            <li  className="px-6 git2 text-center rg:text-start">
+            <li  className="px-6 git2 ">
               <span
                 id="tech27"
                 className="px-6"
@@ -109,7 +109,7 @@ export default function RightText6() {
                   }
                 }
               ></span>
-              - WebGL
+              - Next.js
             </li>
           </ul>
         </h3>
