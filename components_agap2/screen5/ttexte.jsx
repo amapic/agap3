@@ -17,7 +17,7 @@ export default function Ttexte() {
             className="text-3-5xl font-bold opacity-0 backface-hidden"
             // style="transform: translate(0px, 0px); opacity: 1;"
           >
-            20
+            06
           </p>
           <div className="ml-2 md:ml-0">
             <p
@@ -25,7 +25,7 @@ export default function Ttexte() {
               className="text-2xl font-bold opacity-0 backface-hidden"
               //   style="transform: translate(0px, 0px); opacity: 1;"
             >
-              postes
+              88 91 80 19
             </p>
             <p
               id="disponibles"
@@ -44,7 +44,7 @@ export default function Ttexte() {
             // style="color: rgb(255, 255, 255); opacity: 0; transform: translate(0px, 0px);"
           >
             {" "}
-            Aéronautique, Spatial et Défense
+            Contacter moi
           </h2>
 
           <div
@@ -52,7 +52,7 @@ export default function Ttexte() {
             className="mce -mt-10 md:mt-4 opacity-0 js-zoom-mce backface-hidden"
             // style="transform: translate(0px, 0px); opacity: 1;"
           >
-            <h4>Faire décoller vos projets !</h4>
+            <h4>Faites décoller vos projets !</h4>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
 gsap.registerPlugin(MotionPathPlugin);
 import { useMediaQuery } from "react-responsive";
-import Header from "@/components_agap2/header2";
+// import Header from "@/components_agap2/header2";
 import Screen1 from "@/components_agap2/Screen1";
 import Screen4 from "@/components_agap2/Screen4_bis";
 import Screen5 from "@/components_agap2/Screen5";

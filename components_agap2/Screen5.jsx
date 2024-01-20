@@ -44,11 +44,8 @@ export default function Home() {
     backgroundColor: "rgba(0, 0, 0, 0)",
     borderWidth: "2px",
     borderColor: "#ffe26e",
-    // width: widthSmallerCircle.current, //"470px",
-    // height: widthSmallerCircle.current, //"470px",
     width: "400px",
     height: "400px",
-    // margin: "auto",
     left: 0,
     right: 0,
     position: "absolute",
@@ -60,7 +57,6 @@ export default function Home() {
   useEffect(() => {
     widthBiggerCircle.current = Math.round((1200 / 4) * 1.4, 2) + "px";
     widthSmallerCircle.current = Math.round((1200 / 4 - 30) * 1.4, 2) + "px";
-    // console.log("w cercle", widthBiggerCircle.current);
   });
 
   return (

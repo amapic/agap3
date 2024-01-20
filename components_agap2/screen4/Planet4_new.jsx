@@ -48,7 +48,7 @@ const PC = (props, ref) => {
           rotationSpeed.current = 0.005;
         }
         if (refLoc.current) {
-            refLoc.current.rotation.y += rotationSpeed.current;
+          refLoc.current.rotation.y += rotationSpeed.current;
         }
       }
     }
@@ -155,25 +155,29 @@ const CanvasPlanete = () => {
               // "-=0.9"
             );
 
-            scrollSunTl.to(
-              node.children[0].position,
-              {
-                x: 0.001,
-                y: 0.001,
-                z: 0.001,
-              },
-              "20%"
-            );
+            if (node.children[0]) {
+              scrollSunTl.to(
+                node.children[0].position,
+                {
+                  x: 0.001,
+                  y: 0.001,
+                  z: 0.001,
+                },
+                "20%"
+              );
+            }
 
-            scrollSunTl.to(
-              node.children[1].position,
-              {
-                x: 0.001,
-                y: 0.001,
-                z: 0.001,
-              },
-              ">"
-            );
+            if (node.children[1]) {
+              scrollSunTl.to(
+                node.children[1].position,
+                {
+                  x: 0.001,
+                  y: 0.001,
+                  z: 0.001,
+                },
+                ">"
+              );
+            }
           });
         }
       );

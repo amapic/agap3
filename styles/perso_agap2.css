@@ -18,7 +18,8 @@
 
 #container_move4,
 #container_move6,
-#container_move7 {
+#container_move7,
+#container_move8 {
 
   background-color: rgba(249, 249, 249, 1);
 }
@@ -401,7 +402,7 @@ video {
   }
 }
 
-@media (min-width:500px) and (max-width:1000px ) {
+@media (min-width:500px) and (max-width:1000px) {
   #code_contain {
     top: 33vh;
   }

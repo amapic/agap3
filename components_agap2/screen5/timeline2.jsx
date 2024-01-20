@@ -12,21 +12,21 @@ export default function Timeline(width, height, initFontSizeZoom) {
   var h = window.innerHeight;
   var w = window.innerWidth;
 
-  // ScrollTrigger.create({
-  //   animation: scrollSunTl,
-  //   trigger: "#container_move5",
-  //   start: "center center", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-  //   end: "+=900 center",
-  //   toggleActions: "play none none reset",
-  //   scrub: 1,
-  //   pin: "#container_move5",
-  //   snap: {
-  //     snapTo: "labelsDirectional", // snap to the closest label in the timeline
-  //     duration: { min: 0.2, max: 0.5 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-  //     delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
-  //     ease: "none", // the ease of the snap animation ("power3" by default)
-  //   },
-  // });
+  ScrollTrigger.create({
+    animation: scrollSunTl,
+    trigger: "#container_move5",
+    start: "center center", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+    end: "+=900 center",
+    toggleActions: "play none none reset",
+    scrub: 1,
+    pin: "#container_move5",
+    snap: {
+      snapTo: "labelsDirectional", // snap to the closest label in the timeline
+      duration: { min: 0.2, max: 0.5 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+      delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
+      ease: "none", // the ease of the snap animation ("power3" by default)
+    },
+  });
 
   scrollSunTl.addLabel("un", 0);
 
