@@ -13,12 +13,10 @@ import React from "react";
 test("Item 1 menu", async () => {
 
   var hh = "";
-  // act(() => {
   const result = render(<Screen1 />);
 
 
   await screen.findByRole("menu");
 
-  expect(screen.getByRole("menu")).toHaveTextContent("gg");
-  //   expect(screen.getByRole('button')).toBeDisabled()
+  expect(screen.getByRole("menu")).toHaveTextContent("Linkedin");
 });

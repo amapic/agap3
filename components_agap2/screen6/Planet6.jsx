@@ -226,7 +226,7 @@ const CanvasPlanete = () => {
             style={{
               backgroundSize: "contain",
             }}
-            src="./../../SiteExemple.jpg"
+            src="https://amaurypichat.fr/siteExemple.jpg"
           ></img>
         </a>
 

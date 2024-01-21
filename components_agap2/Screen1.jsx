@@ -9,7 +9,6 @@ function VSCode() {
       document.getElementById("code_contain").children
     );
 
-
     elements.forEach((element, i) => {
       if (i > 6) {
         gsap.to(element, 0, {
@@ -49,7 +48,6 @@ function VSCode() {
               { x: "-10vw", y: "70vh" },
               { x: "0vh", y: "0vw" },
             ], // you probably want more points here...or just use an SVG <path>!
-
           },
           ease: "none",
         });
@@ -67,7 +65,6 @@ function VSCode() {
               { x: "-10vw", y: "-20vh" },
               { x: "0vh", y: "0vw" },
             ], // you probably want more points here...or just use an SVG <path>!
-
           },
           ease: "none",
           // clearProps: 'all'
@@ -153,7 +150,7 @@ function VSCode() {
   return (
     <div
       id="code_contain"
-      className="flex flex-col z-2 text-base relative h-3/5 pl-6   md:bottom-0 md:h-full md:right-0 md:w-1/2 md:pl-32 md:pt-24"
+      className="flex flex-col z-2 text-base relative h-3/5 pl-6  md:bottom-0 md:h-full md:right-0 md:w-1/2 md:pl-32 md:pt-12"
     >
       <div className="">
         <span className="vscode_rose">{"import "}</span>
@@ -197,7 +194,7 @@ function VSCode() {
       <div>
         <span className="vscode_jaune">{"}"}</span>
       </div>
-      <div></div>
+      {/* <div></div> */}
       {/* const App = () => { */}
       <div>
         const App
@@ -215,9 +212,8 @@ function VSCode() {
           <span className="vscode_jaune">[]</span>;
         </span>
       </div>
-      <div></div>
-      {/* const [posts, setPosts]: [IPost[], (posts: IPost[]) => void] = React.useState( */}
-      <div className="overflow-x-hidden">
+    
+      <div className="mini:overflow-x-hidden ">
         <span className="code_space">
           const <span className="vscode_rose">{"["}</span> posts,
           <span className="vscode_jaune">setPosts</span>{" "}
@@ -240,14 +236,14 @@ function VSCode() {
         </span>
       </div>
       <div>
-        <span className="code_space">
+        <span className="code_space ">
           <span className="code_space">defaultPosts</span>
         </span>
       </div>
       <div>
         <span className="code_space vscode_rose">{")"}</span>;
       </div>
-      <div>
+      <div className="hidden md:block">
         {/* const [loading, setLoading]: [
     boolean,
     (loading: boolean) => void
@@ -260,37 +256,32 @@ function VSCode() {
           <span className="vscode_rose">{"["}</span>
         </span>
       </div>
-      <div className="code_space">
-        <span class="vscode_vert code_space">boolean</span>,
+      <div className="code_space hidden md:block">
+        <span className="vscode_vert code_space">boolean</span>,
       </div>
-      <div className="code_space">
+      <div className="code_space hidden md:block">
         <span className="code_space">
           {"(loading)"}
-          <span class="vscode_blanc">{" : "}</span>
-          <span class="vscode_vert">boolean</span>
+          <span className="vscode_blanc">{" : "}</span>
+          <span className="vscode_vert">boolean</span>
           {" => "}
-          <span class="vscode_vert">void</span>
+          <span className="vscode_vert">void</span>
         </span>
       </div>
-      <div className="code_space">
-        <span class="vscode_rose">{"]"}</span>
-        <span class="vscode_blanc">{" = "}</span>
-        <span class="vscode_vert">React</span>
-        <span class="vscode_yellow">useState</span>
-        <span class="vscode_blanc">{"<"}</span>
-        <span class="vscode_vert">boolean</span>
-        <span class="vscode_blanc">{">"}</span>
-        <span class="vscode_rose">{"("}</span>
+      <div className="code_space hidden md:block">
+        <span className="vscode_rose">{"]"}</span>
+        <span className="vscode_blanc">{" = "}</span>
+        <span className="vscode_vert">React</span>
+        <span className="vscode_yellow">useState</span>
+        <span className="vscode_blanc">{"<"}</span>
+        <span className="vscode_vert">boolean</span>
+        <span className="vscode_blanc">{">"}</span>
+        <span className="vscode_rose">{"("}</span>
         true
-        <span class="vscode_rose">{")"}</span>
+        <span className="vscode_rose">{")"}</span>
       </div>
 
-      <div></div>
 
-      <div>
-        {/* React.useEffect(()=> {...} */}
-        {/* }, []); */}
-      </div>
 
       {/* return (
     <div className="App">
@@ -303,15 +294,15 @@ function VSCode() {
           </li>
         ))}
       </ul> */}
-      <div>
+      <div className="code_space">
         <span className="vscode_rose">{"return ("}</span>
       </div>
-      <div>
-        <span className="code_space">{"<div className="} </span>
-        <span className="vscode_orange">{'"App"'} </span>
+      <div className="code_space">
+        <span className="code_space">{"<div className="}</span>
+        <span className="vscode_orange">{'"App"'}</span>
         {">"}
       </div>
-      <div className="overflow-x-hidden">
+      <div className="overflow-x-hidden code_space">
         <span className="code_space">
           <span className="code_space">
             <span>{"{loading"}</span>
@@ -326,16 +317,86 @@ function VSCode() {
           </span>
         </span>
       </div>
-      <div>
+      <div className="code_space">
         <span className="code_space">
           <span className="code_space">{"<ul className"}</span>
           <span className="vscode_blanc">{"="}</span>
-          <span className="vscode_orange">{'"=posts"'}</span>
+          <span className="vscode_orange">{'"posts"'}</span>
           {">"}
         </span>
       </div>
+      <div className="code_space">
+        <span className="code_space">
+          <span className="code_space">
+            <span className="code_space">
+              {"{posts"}
+              <span className="vscode_jaune_pal">.map</span>
+              <span className="vscode_jaune">{"("}</span>
+              <span className="vscode_rose">{"("}</span>
+              post
+              <span className="vscode_rose">{")"}</span>
+              {"=>"}
+              <span className="vscode_rose">{"("}</span>
+            </span>
+          </span>
+        </span>
+      </div>
+      <div className="code_space">
+        <span className="code_space">
+          <span className="code_space">
+            <span className="code_space">{"<li key={post.id}>"}</span>
+          </span>
+        </span>
+      </div>
+      <div className="code_space">
+        <span className="code_space">
+          <span className="code_space">
+            <span className="code_space">
+              <span className="code_space">{"<h3>{post.title}</h3>  "}</span>
+            </span>
+          </span>
+        </span>
+      </div>
+      <div className="code_space">
+        <span className="code_space">
+          <span className="code_space">
+            <span className="code_space">{"</li>"}</span>
+          </span>
+        </span>
+      </div>
+      <div className="code_space">
+        <span className="code_space">
+          <span className="code_space">
+            <span className="code_space">
+              <span className="vscode_rose">{")"}</span>
+              <span className="vscode_jaune">{")"}</span>
+              {"}"}
+            </span>
+          </span>
+        </span>
+      </div>
+      <div className="code_space">
+        <span className="code_space">
+          <span className="code_space">{"</ul>"}</span>
+        </span>
+      </div>
+      <div className="code_space">
+          <span className="code_space">{"</div>"}</span>
+      </div>
+      <div className="code_space">
+          <span className="vscode_rose">{")"}</span>
+          {/* <span className="vscode_jaune">{"}"}</span> */}
+      </div>
+      <div className="">
+          <span className="vscode_jaune">{"}"}</span>
+      </div>
 
-      <ul className="posts"></ul>
+      {/* */}
+      {/* <p>{post.body}</p> */}
+
+      {/* */}
+
+      {/* <ul className="posts"></ul> */}
 
       {/* <span > {loading && <button onClick={handleCancelClick}>Cancel</button>} </span>
         </span>
@@ -347,7 +408,7 @@ function VSCode() {
       </div> */}
 
       {/* function getUsers(): Promise<User[]> { */}
-      <div>
+      {/* <div>
         function <span>getUsers</span>
         <span className="vscode_jaune">()</span>
         <span className="vscode_blanc">:</span>{" "}
@@ -356,7 +417,7 @@ function VSCode() {
         <span className="vscode_vert">User</span>
         <span className="vscode_jaune">[]</span>
         {">"}
-      </div>
+      </div> 
 
       <div></div>
       <div>
@@ -404,7 +465,7 @@ function VSCode() {
         <span className="vscode_rose code_space2">
           {"export default FirstComponent;"}
         </span>
-      </div>
+      </div>*/}
     </div>
   );
 }

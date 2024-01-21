@@ -8,12 +8,12 @@ import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
 gsap.registerPlugin(MotionPathPlugin);
 import { useMediaQuery } from "react-responsive";
 // import Header from "@/components_agap2/header2";
-import Screen1 from "@/components_agap2/Screen1";
-import Screen4 from "@/components_agap2/Screen4_bis";
-import Screen5 from "@/components_agap2/Screen5";
-import Screen6 from "@/components_agap2/Screen6";
-import Screen7 from "@/components_agap2/Screen7";
-import Screen8 from "@/components_agap2/Screen8";
+import Screen1 from "./../components_agap2/Screen1";
+import Screen4 from "./../components_agap2/Screen4_bis";
+import Screen5 from "./../components_agap2/Screen5";
+import Screen6 from "./../components_agap2/Screen6";
+import Screen7 from "./../components_agap2/Screen7";
+import Screen8 from "./../components_agap2/Screen8";
 // import Navv, { Carousel } from "@/components_agap2/Nav";
 // import {
 //   BrowserView,
@@ -147,7 +147,7 @@ function Home() {
           <Screen6 />
           <Screen7 />
           <Screen8 />
-          <Screen5 />
+          {/* <Screen5 /> */}
           {/* <Screen5 /> */}
         </>
       {/* )} */}
