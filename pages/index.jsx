@@ -14,6 +14,8 @@ import Screen5 from "./../components_agap2/Screen5";
 import Screen6 from "./../components_agap2/Screen6";
 import Screen7 from "./../components_agap2/Screen7";
 import Screen8 from "./../components_agap2/Screen8";
+import ContactForm from "./contactForm"
+import ScrollToTopFab from "../components_agap2/scrollToTop.jsx"
 // import Navv, { Carousel } from "@/components_agap2/Nav";
 // import {
 //   BrowserView,
@@ -114,15 +116,7 @@ function Home() {
         <title>Portfolio A.PICHAT</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      {/* <div
-        style={{
-          overflow: "hidden",
-          display: _isMobile ? "none" : "block",
-        }}
-      > */}
-      {/* <Navv /> */}
-      {/* <Carousel /> */}
-      {/* {!isTabletOrMobile && ( */}
+
         <>
           <div
             id="mousemove"
@@ -135,8 +129,6 @@ function Home() {
               left: "0",
               pointerEvents: "none",
               borderRadius: "999px",
-              // borderColor: "red",
-              // border: "12px solid",
               backgroundColor: "rgba(100,100,100,0.3)",
               zIndex: "1000",
             }}
@@ -147,25 +139,12 @@ function Home() {
           <Screen6 />
           <Screen7 />
           <Screen8 />
+          {/* <ContactForm /> */}
           {/* <Screen5 /> */}
+          <ScrollToTopFab />
           {/* <Screen5 /> */}
         </>
-      {/* )} */}
-      {/* {isTabletOrMobile && (
-        <div
-          style={{
-            backgroundColor: "white",
-            height: "100vh",
-            width: "100wh",
-            color: "black",
-            textAlign: "center",
-            lineHeight: "25vh",
-            // display: _isMobile ? "block" : "none",
-          }}
-        >
-          Site non prévu pour Smartphone
-        </div>
-      )} */}
+
     </>
   );
 }

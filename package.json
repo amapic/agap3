@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 4000",
-    "build": "next build && next export -o ../prod/",
+    "build": "next build && next export -o ../../prod/",
     "start": "next start",
     "lint": "next lint",
     "test": "jest"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@mui/material": "^5.15.6",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.13",
     "@next/font": "13.1.5",
     "@react-spring/three": "^9.6.1",
     "@react-three/cannon": "^6.5.0",
@@ -24,6 +27,7 @@
     "gsap": "^3.11.4",
     "html-react-parser": "^3.0.12",
     "lodash": "^4.17.21",
+    "material-ui": "^0.20.2",
     "next": "13.1.5",
     "next-absolute-url": "^1.2.2",
     "postcss": "^8.4.21",
@@ -36,6 +40,7 @@
     "react-scroll": "^1.8.9",
     "react-useportal": "^1.0.17",
     "sass": "^1.57.1",
+    "styled-components": "^6.1.8",
     "tailwindcss": "^3.2.4",
     "three": "^0.149.0",
     "three-stdlib": "^2.21.8",
@@ -49,6 +54,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "typescript": "5.3.3"
   }
 }
