@@ -144,7 +144,7 @@ function Home() {
         {/* <ScrollToTopFab /> */}
         {/* <RightScrollMenu /> */}
         {/* <Xfgsf /> */}
-        {/* <ContactForm /> */}
+        <ContactForm />
         {/* <Screen5 /> */}
       </>
     </>
