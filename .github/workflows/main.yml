@@ -4,7 +4,7 @@ name: DeploymentWorkflow
 on:
   push:
     branches:
-      - responsive
+      - amin2
 
 jobs:
   deploy:
@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} # Your server's SSH private key
           script: |
             cd /var/www/html/dev/ # Specify the path to your app directory on the server
-            git pull origin responsive
+            git pull origin main2
             npm install --legacy-peer-deps
             npm run test
             npm run build

@@ -8,6 +8,7 @@ const config = {
       transform: {
         '\\.(js|jsx)$': ['babel-jest', { configFile: './babel.config.testing.js' }]
       },
+      "roots": ["test/"]
   };
   
   module.exports = config;
