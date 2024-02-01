@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-
-
 export default function RightText6() {
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -35,8 +33,6 @@ export default function RightText6() {
       //   backgroundSize: "cover",
       //   markers: true,
       // });
-
-
     });
     return () => ctx.revert();
   });
@@ -61,7 +57,8 @@ export default function RightText6() {
 
         <div className="mce w-full">
           <p>
-            J'ai réalisé ce projet afin de valider mes compétences de base concernant React.js
+            J'ai réalisé ce projet afin de valider mes compétences de base
+            concernant React.js
             <br />
             Il comprend des animations mettant en valeur son contenu
           </p>
@@ -73,52 +70,27 @@ export default function RightText6() {
               // <img classname="ttttick" src="../../tick.gif" />
               className="px-6 max-h-20"
             >
-              {/* <span
-                id="tech17"
-                className="px-6 git1"
-                style={
-                  {
-                    // backgroundImage: `url("../../ezgif.com-speed (2).gif")`,
-                    // backgroundSize: "cover",
-                  }
-                }
-              ></span> */}
-                <br />
-               <span className="borderComp borderComp1 left-12 text-start">  React.js</span>
+              <br />
+              <span className="borderComp borderComp1 left-12 text-start">
+                {" "}
+                React.js
+              </span>
             </li>
-            <li  className="px-6 git2">
-              {/* <span
-                id="tech27"
-                className="px-6"
-                style={
-                  {
-                    // backgroundImage: `url("../../ezgif.com-speed (2).gif")`,
-                    // backgroundSize: "cover",
-                  }
-                }
-              ></span> */}
-              {/* <br /> */}
-              <span className="borderComp borderComp2 right-12 text-start">  GSAP</span>
+            <li className="px-6 git2">
+              <span className="borderComp borderComp2 right-12 text-start">
+                {" "}
+                GSAP
+              </span>
             </li>
-            <li  className="px-6 git2">
-              {/* <span
-                id="tech27"
-                className="px-6"
-                style={
-                  {
-                    // backgroundImage: `url("../../ezgif.com-speed (2).gif")`,
-                    // backgroundSize: "cover",
-                  }
-                }
-              ></span> */}
-               <span className="borderComp borderComp3 left-12 text-start">  Next.js</span>
+            <li className="px-6 git2">
+              <span className="borderComp borderComp3 left-12 text-start">
+                {" "}
+                Next.js
+              </span>
             </li>
           </ul>
         </h3>
-
       </div>
-
-      
     </div>
     // </div>
   );

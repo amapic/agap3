@@ -6,6 +6,7 @@
   --color-brown: "#544502";
   --color-yellow: "#ffcd00";
   --color-blue: rgb(2, 38, 170);
+  --color-blue-fonce: "#0226aa";
   --color-green: rgb(78, 201, 176);
   --header-height: 114px;
   --header-margin: 10px;
@@ -545,9 +546,74 @@ video {
   width: 100vw;
   padding: 10vh 10vw 10vh 10vw;
   background-color: red;
-  
+
 }
 
-#scrollbutton span:before{
-  content: "\2191";
+#rightscroll{
+  font-family: "Sofia-pro";
+  font-weight: 300;
+}
+
+#scrollbutton span:before {
+  /* content: "\2191"; */
+  /* font-weight: 600; */
+}
+
+#scrollbutton:hover {
+  /* animation-name: example; */
+  /* animation-duration: 1s; */
+  /* animation-fill-mode: forwards; */
+}
+
+@keyframes example {
+
+  /* from {background-color: red;} */
+  to {
+    background-color: var(--color-blue-dark);
+  }
+}
+
+.bg-dark-blue {
+  background-color: var(--color-blue-dark);
+}
+
+.bg-light-blue {
+  background-color: var(--color-green);
+}
+
+.min-h-32 {
+  min-height: 50px;
+
+}
+
+.opa-0 {
+  /* opacity: 0; */
+  animation-name: opa-0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.opa-1 {
+  /* opacity: 1; */
+  animation-name: opa-1;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes opa-0 {
+
+  /* from {background-color: red;} */
+  to {
+    /* background-color: var(--color-blue-dark); */
+    opacity: 0;
+  }
+}
+
+@keyframes opa-1 {
+
+  /* from {background-color: red;} */
+  to {
+    /* background-color: var(--color-blue-dark); */
+    opacity: 1;
+  }
 }

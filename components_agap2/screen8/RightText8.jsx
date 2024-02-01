@@ -22,19 +22,7 @@ export default function RightText_() {
         // pin: "#canvas",
       });
 
-      // gsap.to("#tech17", {
-      //   scrollTrigger: "#tech17", // start the animation when ".box" enters the viewport (once)
-      //   backgroundImage: `url("../../ezgif.com-speed (2).gif")`,
-      //   backgroundSize: "cover",
-      //   markers: true,
-      // });
 
-      // gsap.to("#tech27", {
-      //   scrollTrigger: "#tech27", // start the animation when ".box" enters the viewport (once)
-      //   backgroundImage: `url("../../ezgif.com-speed (2).gif")`,
-      //   backgroundSize: "cover",
-      //   markers: true,
-      // });
 
 
     });
@@ -66,7 +54,7 @@ export default function RightText_() {
             donnant de nouvelles possibilités en terme d'ergonomie et de créativité
           </p>
         </div>
-        <h3 className="text-3xl mt-8">
+        <h3 className="text-3xl mt-8 hidden">
           Technologies utilisées:
           <ul>
             <li
@@ -99,6 +87,33 @@ export default function RightText_() {
               - Three.js
             </li>
            
+          </ul>
+        </h3>
+        <h3 className="text-3xl mt-8 ">
+          Technologies utilisées:
+          <ul className="mt-8 md:ml-24">
+            <li
+              // <img classname="ttttick" src="../../tick.gif" />
+              className="px-6 min-h-32"
+            >
+              {/* <br /> */}
+              <span className="borderComp borderComp1 left-12 text-start">
+                {" "}
+                React.js
+              </span>
+            </li>
+            <li className="px-6 git2 min-h-32">
+              <span className="borderComp borderComp2 right-12 text-start">
+                {" "}
+                Three.js
+              </span>
+            </li>
+            {/* <li className="px-6 git2 min-h-32">
+              <span className="borderComp borderComp3 left-12 text-start">
+                {" "}
+                WebGL
+              </span>
+            </li> */}
           </ul>
         </h3>
 

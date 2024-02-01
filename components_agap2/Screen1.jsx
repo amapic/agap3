@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useState, useLayoutEffect } from "react";
+import React, { useRef, useEffect, useState, Suspense } from "react";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
 gsap.registerPlugin(MotionPathPlugin);
-
+import Image from 'next/image'
 function VSCode() {
   useEffect(() => {
     let elements = Array.prototype.slice.call(
@@ -212,7 +212,7 @@ function VSCode() {
           <span className="vscode_jaune">[]</span>;
         </span>
       </div>
-    
+
       <div className="mini:overflow-x-hidden ">
         <span className="code_space">
           const <span className="vscode_rose">{"["}</span> posts,
@@ -280,8 +280,6 @@ function VSCode() {
         true
         <span className="vscode_rose">{")"}</span>
       </div>
-
-
 
       {/* return (
     <div className="App">
@@ -381,14 +379,14 @@ function VSCode() {
         </span>
       </div>
       <div className="code_space">
-          <span className="code_space">{"</div>"}</span>
+        <span className="code_space">{"</div>"}</span>
       </div>
       <div className="code_space">
-          <span className="vscode_rose">{")"}</span>
-          {/* <span className="vscode_jaune">{"}"}</span> */}
+        <span className="vscode_rose">{")"}</span>
+        {/* <span className="vscode_jaune">{"}"}</span> */}
       </div>
       <div className="">
-          <span className="vscode_jaune">{"}"}</span>
+        <span className="vscode_jaune">{"}"}</span>
       </div>
 
       {/* */}
@@ -650,6 +648,13 @@ export default function Screen1() {
 
     return () => ctx.revert();
   });
+
+  // <Image
+  //     src="/profile.png"
+  //     width={500}
+  //     height={500}
+  //     alt="Picture of the author"
+  //   />
 
   return (
     <>
@@ -1062,6 +1067,12 @@ export default function Screen1() {
               id="main_content_zone1_hidden"
               className="bg_grey home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
             >
+              <Image
+                src="/photo-1578662996442-48f60103fc96.avif"
+                fill={true}
+                alt={"Background Image"}
+                priority={true}
+              />
               <h1 className="font-black flex flex-wrap items-start w-full">
                 <div
                   className="w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
@@ -1637,3 +1648,5 @@ export default function Screen1() {
     </>
   );
 }
+
+// export default <Suspense ><Screen1 /></Suspense>;

@@ -3,5 +3,5 @@
     height="100%" viewBox="0 0 23 38" version="1.1" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
     style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
-    <path d="M2.75,1.5l17.5,17.5l-17.5,17.5" className="pathfleche" style="fill:none;stroke-width:1px;" />
+    <path d="M2.75,1.5l17.5,17.5l-17.5,17.5" className="pathfleche" style="fill:none;strokeWidth:1px;" />
 </svg>

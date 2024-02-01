@@ -7,7 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import gsap from "gsap"
+import gsap from "gsap";
 {
   /* <div className="App"></div> */
 }
@@ -26,7 +26,30 @@ export class ContactForm extends Component {
     message: "",
   };
 
+  sendEmail(e) {
+    e.preventDefault(); //This is important, i'm not sure why, but the email won't send without it
+
+    emailjs
+      .sendForm(
+        "service_pidbxsw",
+        "template_xeg35zr",
+        e.target,
+        "4P5LQMujV6zLr0o1N"
+      )
+      .then(
+        (result) => {
+          // alert(result)
+          window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+        },
+        (error) => {
+          // alert(error.text)
+          console.log(error.text);
+        }
+      );
+  }
+
   // Handle submit button
+
   handleSubmit = async (event) => {
     const { userName, email, message } = this.state;
 
@@ -64,6 +87,21 @@ export class ContactForm extends Component {
     event.preventDefault();
   };
 
+  sendEmail(e) {
+    e.preventDefault(); //This is important, i'm not sure why, but the email won't send without it
+
+    emailjs
+      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
+      .then(
+        (result) => {
+          window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  }
+
   // Handle fields change
   handleChange = (input) => (event) => {
     const { name, value } = event.target;
@@ -71,7 +109,7 @@ export class ContactForm extends Component {
     this.setState({ [name]: value });
   };
 
-  componentDidMount(){
+  componentDidMount() {
     // gsap.to("#KakaWrapper", 1, {
     //     backgroundColor:"rgb(0,15,155)"
     //   });
