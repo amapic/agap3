@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "@material-ui/core": "^4.12.4",
     "@mui/material": "^5.15.6",
     "@mui/styled-engine-sc": "^6.0.0-alpha.13",
@@ -32,6 +33,8 @@
     "next": "13.1.5",
     "next-absolute-url": "^1.2.2",
     "postcss": "^8.4.21",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^9.3.0",
     "purify-css": "^1.2.5",
     "react": "18.2.0",
     "react-device-detect": "^2.2.3",

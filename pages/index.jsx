@@ -114,7 +114,7 @@ function Home() {
     <>
       <Head>
         <title>Portfolio A.PICHAT</title>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        {/* <link rel="shortcut icon" href="/favicon.ico" /> */}
       </Head>
 
       <>
