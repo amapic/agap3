@@ -1,32 +1,34 @@
 import Head from "next/head";
 // import { isMobile } from "react-device-detect";
 import dynamic from "next/dynamic";
-import React,{ useState, useEffect,Suspense } from "react";
+import React, { useState, useEffect, Suspense,useRef } from "react";
 
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
 gsap.registerPlugin(MotionPathPlugin);
 import { useMediaQuery } from "react-responsive";
-// import Header from "@/components_agap2/header2";
-const Screen4 = React.lazy(() => import("./../components_agap2/Screen4_bis"));
-const Screen6 = React.lazy(() => import("./../components_agap2/Screen6"));
-const Screen7 = React.lazy(() => import("./../components_agap2/Screen7"));
-const Screen8 = React.lazy(() => import("./../components_agap2/Screen8"));
-import Screen1 from "./../components_agap2/Screen1";
-// import Screen4 from "./../components_agap2/Screen4_bis";
-import Screen5 from "./../components_agap2/Screen5";
-// import Screen6 from "./../components_agap2/Screen6";
-// import Screen7 from "./../components_agap2/Screen7";
-// import Screen8 from "./../components_agap2/Screen8";
+// import Header from "@/components/header2";
+const Screen4 = React.lazy(() => import("./../components/Screen4_bis"));
+const Screen6 = React.lazy(() => import("./../components/Screen6"));
+const Screen7 = React.lazy(() => import("./../components/Screen7"));
+const Screen8 = React.lazy(() => import("./../components/Screen8"));
+import Screen1 from "./../components/Screen1";
+// import Screen4 from "./../components/Screen4_bis";
+import Screen5 from "./../components/Screen5";
+// import Screen6 from "./../components/Screen6";
+// import Screen7 from "./../components/Screen7";
+// import Screen8 from "./../components/Screen8";
 import ContactForm from "./contactForm";
-import ScrollToTopFab from "../components_agap2/scrollToTop";
-import RightScrollMenu from "../components_agap2/RightScrollmenu";
-import Xfgsf from "../components_agap2/sendemail"
+import ScrollToTopFab from "../components/scrollToTop";
+// import RightScrollMenu from "../components/RightScrollmenu";
+import RightScrollMenu from "../components/ScrollMenuSansimage";
+import Formulaire from "../components/sendemail";
 
 function Home() {
   let cursorWidth = "40";
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   useEffect(() => {
+   // alert(window.innerHeight)
     // alert(window.innerHeight)//648
     // alert(window.innerWidth)//360
     let ctx = gsap.context(() => {
@@ -102,11 +104,18 @@ function Home() {
     return () => ctx.revert();
   }, [cursorWidth]);
 
+  // const activeProject = useRef(0);
   // const [_isMobile, setMobile] = useState(false);
 
   // useEffect(() => {
   //   setMobile(isMobile);
   // }, [setMobile]);
+
+  // useEffect(() => {
+  // setMobile(isMobile);
+  // }, [setMobile]);
+
+  
 
   // console.log("mobile", _isMobile);
 
@@ -114,7 +123,7 @@ function Home() {
     <>
       <Head>
         <title>Portfolio A.PICHAT</title>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        {/* <link rel="shortcut icon" href="/favicon2.ico" /> */}
       </Head>
 
       <>
@@ -139,12 +148,12 @@ function Home() {
         <Screen6 />
         <Screen7 />
         <Screen8 />
-        
+
         {/* <Screen5 /> */}
-        {/* <ScrollToTopFab /> */}
-        {/* <RightScrollMenu /> */}
-        {/* <Xfgsf /> */}
-        <ContactForm />
+        <ScrollToTopFab />
+        <RightScrollMenu />
+        <Formulaire />
+        {/* <ContactForm /> */}
         {/* <Screen5 /> */}
       </>
     </>
@@ -152,7 +161,11 @@ function Home() {
 }
 
 function SuspenseHome() {
-  return <Suspense fallback={<Loading />}><Home /></Suspense>;
+  return (
+    <Suspense fallback={<Loading />}>
+      <Home />
+    </Suspense>
+  );
 }
 
 // import "./Loading.css";
@@ -238,7 +251,6 @@ const Loading = () => {
   );
 };
 // export default Loading;
-
 
 export default dynamic(() => Promise.resolve(SuspenseHome), {
   ssr: false,

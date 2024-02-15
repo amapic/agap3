@@ -211,8 +211,8 @@ const CanvasImage = () => {
           justifyContent: "center",
         }}
       >
-    
-        <a href="https://amaurypichat.fr/planet/" className="img_site">
+    {/*  */}
+        <a href="https://amaurypichat.fr/planet/" className="img_site hidden lg:block">
           <img
             style={{
               backgroundSize: "contain",

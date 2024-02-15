@@ -10,7 +10,7 @@ const purify = require("purify-css")
 // }
 // purify(content, css, options)
 
-var content = ["**/components_agap2/*.jsx","**/pages/index.jsx"];
+var content = ["**/components/*.jsx","**/pages/index.jsx"];
 var css = ["**/styles/*.css"];
 
 var options = {

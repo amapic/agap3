@@ -2,7 +2,7 @@ import { render, screen, act } from "@testing-library/react";
 // import userEvent from '@testing-library/user-event'
 import "@testing-library/jest-dom";
 // import Home from "../pages/index";
-import Screen1 from "../components_agap2/Screen1";
+import Screen1 from "../components/Screen1";
 import React from "react";
 
 // const setup = () => {

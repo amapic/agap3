@@ -87,20 +87,26 @@ export class ContactForm extends Component {
     event.preventDefault();
   };
 
-  sendEmail(e) {
+  handleSubmit2 = async (event) => {
+    // const { userName, email, message } = this.state;
+    // sendEmail(e) {
     e.preventDefault(); //This is important, i'm not sure why, but the email won't send without it
 
     emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
+      .sendForm("service_pidbxsw",
+      "template_xeg35zr", e.target, "4P5LQMujV6zLr0o1N")
       .then(
         (result) => {
-          window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+          alert("caca")
+          // window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
         },
         (error) => {
+          alert(error.text)
           console.log(error.text);
         }
       );
-  }
+  };
+  // }
 
   // Handle fields change
   handleChange = (input) => (event) => {
@@ -109,18 +115,18 @@ export class ContactForm extends Component {
     this.setState({ [name]: value });
   };
 
-  componentDidMount() {
-    // gsap.to("#KakaWrapper", 1, {
-    //     backgroundColor:"rgb(0,15,155)"
-    //   });
-  }
+  // componentDidMount() {
+  //   // gsap.to("#KakaWrapper", 1, {
+  //   //     backgroundColor:"rgb(0,15,155)"
+  //   //   });
+  // }
 
   render() {
     const { classes } = this.props;
     const { userName, email, message } = this.state;
     return (
-      <div id="KakaWrapper">
-        <div id="Kaka" className={classes.container}>
+      <div id="formWrapper">
+        <div id="form" className={classes.container}>
           <CssBaseline />
           <Typography variant="h4" align="center" component="h1" gutterBottom>
             {"Contact Form".toUpperCase()}
@@ -135,7 +141,7 @@ export class ContactForm extends Component {
               <form
                 id="contact-form"
                 className={classes.contactForm}
-                onSubmit={this.handleSubmit}
+                onSubmit={this.handleSubmit2}
               >
                 <Grid item>
                   <TextField
@@ -143,6 +149,7 @@ export class ContactForm extends Component {
                     required
                     id="name"
                     label="Name"
+                    // from_name
                     name="userName"
                     className={classes.inputField}
                     onChange={this.handleChange("userName")}
@@ -156,6 +163,7 @@ export class ContactForm extends Component {
                     id="email"
                     label="Email"
                     name="email"
+                    // from_email
                     className={classes.inputField}
                     onChange={this.handleChange("email")}
                     margin="normal"
@@ -168,6 +176,7 @@ export class ContactForm extends Component {
                     id="message"
                     label="Message"
                     name="message"
+                    // subject
                     className={classes.inputField}
                     onChange={this.handleChange("message")}
                     margin="normal"

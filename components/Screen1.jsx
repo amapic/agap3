@@ -226,11 +226,12 @@ function VSCode() {
           <span className="vscode_blanc">:</span>{" "}
           <span className="vscode_vert">IPost</span>
           <span className="vscode_jaune">[]</span>
-          {" ) => "}
+          {") => "}
           <span className="vscode_vert">void</span>
           <span className="vscode_rose">{"]"}</span>
           {" = "}
-          <span className="vscode_vert">React.</span>
+          <span className="vscode_vert">React</span>
+          <span className="vscode_blanc">.</span>
           <span className="vscode_yellow">useState</span>
           <span className="vscode_rose">{"("}</span>
         </span>
@@ -273,6 +274,7 @@ function VSCode() {
         <span className="vscode_blanc">{" = "}</span>
         <span className="vscode_vert">React</span>
         <span className="vscode_yellow">useState</span>
+        <span className="vscode_blanc">.</span>
         <span className="vscode_blanc">{"<"}</span>
         <span className="vscode_vert">boolean</span>
         <span className="vscode_blanc">{">"}</span>
@@ -1065,18 +1067,28 @@ export default function Screen1() {
 
             <div
               id="main_content_zone1_hidden"
-              className="bg_grey home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
+              className="bg-transparent home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
             >
               <Image
+                id="dfdh"
                 src="/photo-1578662996442-48f60103fc96.avif"
                 fill={true}
                 alt={"Background Image"}
                 priority={true}
+                style={{
+                  zIndex:9
+                }}
               />
-              <h1 className="font-black flex flex-wrap items-start w-full">
+              <h1 className="font-black flex flex-wrap items-start w-full"
+              style={{
+                zIndex:10
+              }}
+              >
                 <div
-                  className="w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
-                  // style=""
+                  className="w-max-content md:w-1/2 text-2xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
+                  style={{
+                    // fontFamily:"chalkboy"
+                  }}
                 >
                   <div
                     className="line"
@@ -1545,7 +1557,7 @@ export default function Screen1() {
             >
               <h1 className="font-black flex flex-wrap items-start w-full">
                 <div
-                  className="w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-blue tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
+                  className="w-max-content md:w-1/2 text-2xl md:text-3xl xl:text-5xl text-blue tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
                   // w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit
                   data-cartapus="visible"
                   // style=""

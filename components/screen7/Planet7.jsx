@@ -271,7 +271,7 @@ const CanvasPlanete = () => {
       >
         {/* <div
         className="relative h-full"> */}
-        <a href="https://amaurypichat.fr/slide/" className="img_site">
+      <a href="https://amaurypichat.fr/slide/index.html" className="img_site hidden lg:block">
           <img
             style={{
               backgroundSize: "contain",

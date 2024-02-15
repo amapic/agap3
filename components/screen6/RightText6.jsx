@@ -65,24 +65,24 @@ export default function RightText6() {
         </div>
         <h3 className="text-3xl mt-8 ">
           Technologies utilisées:
-          <ul className="md:ml-20">
+          <ul className="md:ml-24">
             <li
               // <img classname="ttttick" src="../../tick.gif" />
-              className="px-6 max-h-20"
+              className="px-6 py-1 min-h-32"
             >
               <br />
               <span className="borderComp borderComp1 left-12 text-start">
-                {" "}
+                {/* {" "} */}
                 React.js
               </span>
             </li>
-            <li className="px-6 git2">
+            <li className="px-6 git2 min-h-32">
               <span className="borderComp borderComp2 right-12 text-start">
                 {" "}
                 GSAP
               </span>
             </li>
-            <li className="px-6 git2">
+            <li className="px-6 git2 min-h-32">
               <span className="borderComp borderComp3 left-12 text-start">
                 {" "}
                 Next.js

@@ -42,7 +42,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components_agap2/scrollToTop.jsx"  ],
+, "components/scrollToTop.jsx"  ],
   "exclude": [
     "node_modules"
   ]

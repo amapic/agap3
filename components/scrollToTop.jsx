@@ -23,7 +23,9 @@ function ScrollToTopFab() {
       let scrolledFromTop2 = document
         .querySelector("#screen1")
         .getBoundingClientRect();
-      setVisible(scrolledFromTop2.y < -window.innerHeight*4 ? 1 : 0);
+      
+        setVisible(scrolledFromTop2.y < -window.innerHeight * 4 ? 1 : 0);
+      // }
     });
   }, []);
 
@@ -32,8 +34,8 @@ function ScrollToTopFab() {
     padding: "1rem 2rem",
     fontSize: "20px",
     bottom: "40px",
-    right: "40px",
-    backgroundColor: "#0C9",
+    right: "10px",
+    // backgroundColor: "#0C9",
     color: "#fff",
     textAlign: "center",
     opacity: visible,
@@ -49,6 +51,7 @@ function ScrollToTopFab() {
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       }}
       style={style}
+      className="br-2 bg-light-blue"
     >
       <span></span>
       <img className="w-4 h-4" src="/top_arrow.png" />
