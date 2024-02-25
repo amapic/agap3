@@ -359,7 +359,7 @@ body {
 }
 
 #main_content_zone1_hidden {
-  background-image: url("../public/photo-1578662996442-48f60103fc96.avif");
+  /* background-image: url("../public/photo-1578662996442-48f60103fc96.avif"); */
   background-size: cover;
   /* min-height: ; */
 }

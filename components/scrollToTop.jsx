@@ -52,9 +52,11 @@ function ScrollToTopFab() {
       }}
       style={style}
       className="br-2 bg-light-blue"
+      role="button"
+      title="go to top"
     >
       <span></span>
-      <img className="w-4 h-4" src="/top_arrow.png" />
+      <img className="w-4 h-4" src="/top_arrow.png" alt="go top" />
       {/* {"\u1f51d"} */}
     </button>
   );

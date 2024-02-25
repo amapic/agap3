@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, Suspense } from "react";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
 gsap.registerPlugin(MotionPathPlugin);
-import Image from 'next/image'
+import Image from "next/image";
 function VSCode() {
   useEffect(() => {
     let elements = Array.prototype.slice.call(
@@ -478,178 +478,178 @@ export default function Screen1() {
   const x = useRef(0);
   const y = useRef(0);
 
-  useEffect(() => {
-    // var leaveAnimation;
-    document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
-      if (!clicked.current && ref.current) {
-        ref.current.style.setProperty(
-          "clip-path",
-          "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
-        );
+  // useEffect(() => {
+  //   // var leaveAnimation;
+  //   document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
+  //     if (!clicked.current && ref.current) {
+  //       ref.current.style.setProperty(
+  //         "clip-path",
+  //         "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
+  //       );
 
-        gsap.killTweensOf("#div_clip_path");
-      }
-    });
+  //       gsap.killTweensOf("#div_clip_path");
+  //     }
+  //   });
 
-    document.querySelector(".home-cover").addEventListener("mouseleave", () => {
-      if (!clicked.current) {
-        gsap.to("#div_clip_path", {
-          duration: 1,
-          ease: "power2",
-          clipPath: "circle(200px at 72vw 50%)",
-        });
-      }
-    });
+  //   document.querySelector(".home-cover").addEventListener("mouseleave", () => {
+  //     if (!clicked.current) {
+  //       gsap.to("#div_clip_path", {
+  //         duration: 1,
+  //         ease: "power2",
+  //         clipPath: "circle(200px at 72vw 50%)",
+  //       });
+  //     }
+  //   });
 
-    function redresseCode2(event) {
-      let myElement = document.getElementById("code_contain");
+  //   function redresseCode2(event) {
+  //     let myElement = document.getElementById("code_contain");
 
-      let i = 0;
-      for (const child of myElement.children) {
-        i = i + 1;
-        gsap.killTweensOf(child);
-        gsap.to(child, 0.3, {
-          ease: "none",
-          x: "0px",
-          y: "0px",
-          delay: i * "0.02",
-        });
-      }
-    }
+  //     let i = 0;
+  //     for (const child of myElement.children) {
+  //       i = i + 1;
+  //       gsap.killTweensOf(child);
+  //       gsap.to(child, 0.3, {
+  //         ease: "none",
+  //         x: "0px",
+  //         y: "0px",
+  //         delay: i * "0.02",
+  //       });
+  //     }
+  //   }
 
-    document.querySelector(".home-cover").addEventListener("click", (event) => {
-      // console.log("ee",event)
-      if (!clicked.current) {
-        var clipPath = ref.current.style.getPropertyValue("clip-path");
+  //   document.querySelector(".home-cover").addEventListener("click", (event) => {
+  //     // console.log("ee",event)
+  //     if (!clicked.current) {
+  //       var clipPath = ref.current.style.getPropertyValue("clip-path");
 
-        if (clipPath) {
-          let height = window.innerHeight,
-            width = window.innerWidth;
-          let dim = "vw";
-          if (height > width) {
-            dim = "vh";
-          }
-          redresseCode2(event);
-          let clipPath1 = clipPath.split("at");
-          clipPath1 = "circle(100" + dim + " at " + clipPath1[1];
-          let clipPath2 = clipPath.split("at");
-          clipPath2 = "circle(15" + dim + " at " + clipPath2[1];
+  //       if (clipPath) {
+  //         let height = window.innerHeight,
+  //           width = window.innerWidth;
+  //         let dim = "vw";
+  //         if (height > width) {
+  //           dim = "vh";
+  //         }
+  //         redresseCode2(event);
+  //         let clipPath1 = clipPath.split("at");
+  //         clipPath1 = "circle(100" + dim + " at " + clipPath1[1];
+  //         let clipPath2 = clipPath.split("at");
+  //         clipPath2 = "circle(15" + dim + " at " + clipPath2[1];
 
-          clicked.current = true;
+  //         clicked.current = true;
 
-          var tl = gsap.timeline();
+  //         var tl = gsap.timeline();
 
-          tl.to(
-            "#div_clip_path",
-            {
-              duration: 0.2,
-              ease: "power1.out",
-              clipPath: clipPath2,
-            },
-            0.2
-          );
-          tl.to(
-            "#div_clip_path",
-            {
-              duration: 0.2,
-              ease: "power1.out",
-              clipPath: clipPath2.replace("circle(15", "circle(10"),
-            },
-            ">"
-          );
-          tl.to(
-            "#div_clip_path",
-            {
-              duration: 5,
-              ease: "power2",
-              clipPath: clipPath1,
-            },
-            ">"
-          );
+  //         tl.to(
+  //           "#div_clip_path",
+  //           {
+  //             duration: 0.2,
+  //             ease: "power1.out",
+  //             clipPath: clipPath2,
+  //           },
+  //           0.2
+  //         );
+  //         tl.to(
+  //           "#div_clip_path",
+  //           {
+  //             duration: 0.2,
+  //             ease: "power1.out",
+  //             clipPath: clipPath2.replace("circle(15", "circle(10"),
+  //           },
+  //           ">"
+  //         );
+  //         tl.to(
+  //           "#div_clip_path",
+  //           {
+  //             duration: 5,
+  //             ease: "power2",
+  //             clipPath: clipPath1,
+  //           },
+  //           ">"
+  //         );
 
-          // tl.play()
-        }
-      }
-    });
-  }, []);
+  //         // tl.play()
+  //       }
+  //     }
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      // let q = document.querySelector(".line:nth-child(1) .word:nth-child(1)");
+  // useEffect(() => {
+  //   let ctx = gsap.context(() => {
+  //     // let q = document.querySelector(".line:nth-child(1) .word:nth-child(1)");
 
-      function q(x) {
-        return document.querySelectorAll(x);
-      }
+  //     function q(x) {
+  //       return document.querySelectorAll(x);
+  //     }
 
-      gsap.from(
-        q(
-          "#div_clip_path .home-cover__content .line:nth-child(1) .word:nth-child(1)"
-        ),
-        {
-          // backgroundColor: "red",
-          y: "-30px",
-          duration: "1",
-          ease: "linear",
-        },
-        0
-      );
+  //     gsap.from(
+  //       q(
+  //         "#div_clip_path .home-cover__content .line:nth-child(1) .word:nth-child(1)"
+  //       ),
+  //       {
+  //         // backgroundColor: "red",
+  //         y: "-30px",
+  //         duration: "1",
+  //         ease: "linear",
+  //       },
+  //       0
+  //     );
 
-      let div = document.getElementById("screen1");
-      let wwidth = window.screen.width;
+  //     let div = document.getElementById("screen1");
+  //     let wwidth = window.screen.width;
 
-      // alert(wwidth)
+  //     // alert(wwidth)
 
-      for (let step = 0; step < 10; step++) {
-        let paragraph = document.createElement("p");
-        paragraph.classList.add("ccode");
-        paragraph.classList.add("my-1");
+  //     for (let step = 0; step < 10; step++) {
+  //       let paragraph = document.createElement("p");
+  //       paragraph.classList.add("ccode");
+  //       paragraph.classList.add("my-1");
 
-        paragraph.textContent = "Hello, world!";
-        paragraph.style.top = (50 + step * 50).toString() + "px";
-        paragraph.style.left = (wwidth / 5).toString() + "px";
-        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        // div.appendChild(paragraph);
-      }
+  //       paragraph.textContent = "Hello, world!";
+  //       paragraph.style.top = (50 + step * 50).toString() + "px";
+  //       paragraph.style.left = (wwidth / 5).toString() + "px";
+  //       paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+  //       // div.appendChild(paragraph);
+  //     }
 
-      for (let step = 0; step < 10; step++) {
-        let paragraph = document.createElement("p");
-        paragraph.classList.add("ccode");
-        paragraph.classList.add("my-1");
+  //     for (let step = 0; step < 10; step++) {
+  //       let paragraph = document.createElement("p");
+  //       paragraph.classList.add("ccode");
+  //       paragraph.classList.add("my-1");
 
-        paragraph.textContent = "Hello, world!";
-        paragraph.style.top = (50 + step * 50).toString() + "px";
-        paragraph.style.left = 2 * (wwidth / 5).toString() + "px";
-        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        // div.appendChild(paragraph);
-      }
+  //       paragraph.textContent = "Hello, world!";
+  //       paragraph.style.top = (50 + step * 50).toString() + "px";
+  //       paragraph.style.left = 2 * (wwidth / 5).toString() + "px";
+  //       paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+  //       // div.appendChild(paragraph);
+  //     }
 
-      for (let step = 0; step < 10; step++) {
-        let paragraph = document.createElement("p");
-        paragraph.classList.add("ccode");
-        paragraph.classList.add("my-1");
+  //     for (let step = 0; step < 10; step++) {
+  //       let paragraph = document.createElement("p");
+  //       paragraph.classList.add("ccode");
+  //       paragraph.classList.add("my-1");
 
-        paragraph.textContent = "Hello, world!";
-        paragraph.style.top = (50 + step * 50).toString() + "px";
-        paragraph.style.left = 3 * (wwidth / 5).toString() + "px";
-        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        // div.appendChild(paragraph);
-      }
+  //       paragraph.textContent = "Hello, world!";
+  //       paragraph.style.top = (50 + step * 50).toString() + "px";
+  //       paragraph.style.left = 3 * (wwidth / 5).toString() + "px";
+  //       paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+  //       // div.appendChild(paragraph);
+  //     }
 
-      for (let step = 0; step < 10; step++) {
-        let paragraph = document.createElement("p");
-        paragraph.classList.add("ccode");
-        paragraph.classList.add("my-1");
+  //     for (let step = 0; step < 10; step++) {
+  //       let paragraph = document.createElement("p");
+  //       paragraph.classList.add("ccode");
+  //       paragraph.classList.add("my-1");
 
-        paragraph.textContent = "Hello, world!";
-        paragraph.style.top = (50 + step * 50).toString() + "px";
-        paragraph.style.left = 4 * (wwidth / 5).toString() + "px";
-        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        // div.appendChild(paragraph);
-      }
-    });
+  //       paragraph.textContent = "Hello, world!";
+  //       paragraph.style.top = (50 + step * 50).toString() + "px";
+  //       paragraph.style.left = 4 * (wwidth / 5).toString() + "px";
+  //       paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+  //       // div.appendChild(paragraph);
+  //     }
+  //   });
 
-    return () => ctx.revert();
-  });
+  //   return () => ctx.revert();
+  // });
 
   // <Image
   //     src="/profile.png"
@@ -885,7 +885,7 @@ export default function Screen1() {
             {/* <div> */}
             {/* <div id="rrrj" className="h-full w-full flex flex-col md:flex-row"> */}
             {/* <VSCode /> */}
-            <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
+            {/* <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
               <header
                 id="header_mobile_1"
                 className="header fixed flex flex-wrap w-full"
@@ -1037,7 +1037,7 @@ export default function Screen1() {
                   </ul>
                 </nav>
               </header>
-            </div>
+            </div> */}
 
             {/* <video
               muted=""
@@ -1067,28 +1067,55 @@ export default function Screen1() {
 
             <div
               id="main_content_zone1_hidden"
-              className="bg-transparent home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
-            >
-              <Image
-                id="dfdh"
-                src="/photo-1578662996442-48f60103fc96.avif"
-                fill={true}
-                alt={"Background Image"}
-                priority={true}
-                style={{
-                  zIndex:9
-                }}
-              />
-              <h1 className="font-black flex flex-wrap items-start w-full"
+              className="bg-black home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0"
               style={{
-                zIndex:10
+                zIndex: 8,
               }}
+            >
+
+               {/* <picture>
+                <source
+                  srcset="https://dummyimage.com/1200x300/2a9c2a/ffffff"
+                  media="(min-width: 1200px)"
+                />
+                <source
+                  srcset="https://dummyimage.com/992x300/2a9c2a/ffffff"
+                  media="(min-width: 992px)"
+                />
+                <source
+                  srcset="https://dummyimage.com/768x300/2a9c2a/ffffff"
+                  media="(min-width: 768px)"
+                />
+                <source
+                  srcset="https://dummyimage.com/576x300/2a9c2a/ffffff"
+                  media="(min-width: 576px)"
+                />
+                <img src="https://dummyimage.com/576x300/2a9c2a/ffffff" />
+              </picture> */}
+             
+               {/* //<Image
+                // id="dfdh"
+                // src="/background.avif"
+                // fill={true}
+                // alt={"Background Image"}
+                // priority={true}
+                // style={{
+                  // zIndex:9
+                // }}
+               ///> */}
+              <h1
+                className="font-black flex flex-wrap items-start w-full"
+                style={{
+                  zIndex: 10,
+                }}
               >
                 <div
-                  className="w-max-content md:w-1/2 text-2xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
-                  style={{
-                    // fontFamily:"chalkboy"
-                  }}
+                  className="w-max-content md:w-1/2 text-2xl md:text-3xl  text-green tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
+                  style={
+                    {
+                      // fontFamily:"chalkboy"
+                    }
+                  }
                 >
                   <div
                     className="line"
@@ -1113,7 +1140,7 @@ export default function Screen1() {
                   >
                     <div
                       // style="position:relative;display:inline-block;"
-                      className="word"
+                      className="word text-white"
                     >
                       En Recherche d'emploi
                     </div>
@@ -1135,7 +1162,7 @@ export default function Screen1() {
                   >
                     <div
                       // style="position:relative;display:inline-block;"
-                      className="word pb-2"
+                      className="word pb-2 text-white"
                     >
                       amaury.pichat@gmail.com
                     </div>
@@ -1160,7 +1187,7 @@ export default function Screen1() {
                 </div>
               </h1>
 
-              <VSCode />
+              {/* <VSCode /> */}
 
               {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
                 <a
@@ -1193,7 +1220,7 @@ export default function Screen1() {
             </div> */}
           </div>
 
-          <div className="w-full h-full bg-yellow" id="part2">
+          <div className="w-full h-full " id="part2">
             {/* vscode_grey */}
             <header
               id="header_part2"
@@ -1396,7 +1423,7 @@ export default function Screen1() {
               </div>
             </header>
 
-            <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
+            {/* <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
               <header
                 id="header_mobile_2"
                 className="hidden header fixed flex flex-wrap w-full"
@@ -1548,7 +1575,7 @@ export default function Screen1() {
                   </ul>
                 </nav>
               </header>
-            </div>
+            </div> */}
 
             <div
               id="main_content_zone1_not_hidden"
@@ -1557,7 +1584,7 @@ export default function Screen1() {
             >
               <h1 className="font-black flex flex-wrap items-start w-full">
                 <div
-                  className="w-max-content md:w-1/2 text-2xl md:text-3xl xl:text-5xl text-blue tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
+                  className="w-max-content md:w-1/2 text-2xl md:text-3xl  text-blue tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
                   // w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit
                   data-cartapus="visible"
                   // style=""

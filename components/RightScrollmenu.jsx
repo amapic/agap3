@@ -30,17 +30,37 @@ function RightScrollMenu() {
         setClasss(scrolledFromTop2.y < -2300 ? "opa-0" : "opa-1");
       }
     });
+
+    // let ctx = gsap.context(() => {
+    //   var scrollSunTl = gsap.timeline();
+    //   // scrollSunTl.to("#rightscroll", {
+    //   //   x: "-40vh",
+    //   //   duration: 10,
+    //   // });
+    gsap.to("#rightscroll", {
+    //   ease: "none",
+    //   left: "40vh",
+    //   // y: "0px",
+    //   duration: 1,
+    //   // delay: i * "0.02",
+    // });
+    // });
+    // return () => ctx.revert();
+
+    // function percentToPixel(_elem, _perc){
+    //   return (_elem.parent().outerWidth()/100)* parseFloat(_perc);
+    // }
   }, []);
 
   return (
     <div
-      ref={ref}
+      //ref={ref}
+      ref={(el) => (ref.current = el)}
       id="rightscroll"
       style={{
         zIndex: 10000,
         right: "0px",
         top: "33%",
-  
       }}
       onMouseEnter={() => {
         setHover(true);
@@ -49,7 +69,7 @@ function RightScrollMenu() {
         setHover(false);
       }}
       className={
-        "w-1/6 h-1/3 flex fixed right-3 top-1/3 flex-col gap-3  " + classs
+        "w-1/6 h-1/3 flex fixed right-3 top-1/3 flex-col gap-3 x-0 " + classs
       }
     >
       <div
@@ -62,10 +82,7 @@ function RightScrollMenu() {
           });
         }}
       >
-        <span
-          className="text-white"
-        
-        >
+        <span className="text-white">
           {/* {hover ? "Voir le projet 1" : "dh"} */}
           Projet 1
         </span>

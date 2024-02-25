@@ -2646,7 +2646,7 @@ h3.white span {
 }
 
 .frm_opt_container input[type=checkbox]:checked:after {
-    content: url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8.79L6.79 13 16 5' stroke='%232A2A2A' stroke-width='1.5'/%3E%3C/svg%3E")
+    content: url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8.79L6.79 13 16 5' stroke='%232A2A2A' strokeWidth='1.5'/%3E%3C/svg%3E")
 }
 
 .frm_opt_container input[type=radio]:after,

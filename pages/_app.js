@@ -1,10 +1,10 @@
-import "./../styles/globals_agap2.css";
-import "./../styles/copysiteOrig_agap2.css";
-import "./../styles/perso_agap2.css";
-import "./../styles/tailwind_agap2.css";
+// import "./../styles/globals_agap2.css";
+// import "./../styles/copysiteOrig_agap2.css";
+import "./../styles/main.css";
+import "./../styles/tailwind.css";
 
-import "./../styles/globals_siteWeb1.css";
-import "./../styles/perso_siteWeb1.css";
+// import "./../styles/globals_siteWeb1.css";
+// import "./../styles/perso_siteWeb1.css";
 
 import "./../styles/loading.css";
 

@@ -99,7 +99,7 @@ function RightScrollMenu({ activeProject }) {
         setHover(false);
       }}
       className={
-        "w-auto h-1/3 b-2 flex fixed right-3 top-1/3 flex-col gap-3  " + classs
+        "w-auto h-1/3 b-2 flex fixed right-3 top-1/3 flex-col gap-3 x-0 " + classs
       }
     >
       <div
