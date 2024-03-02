@@ -4,7 +4,7 @@ name: DeploymentWorkflow
 on:
   push:
     branches:
-      - amin2
+      - main2
 
 jobs:
   deploy:
