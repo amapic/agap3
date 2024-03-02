@@ -1,7 +1,7 @@
 import Head from "next/head";
 // import { isMobile } from "react-device-detect";
 import dynamic from "next/dynamic";
-import React, {  useEffect, Suspense } from "react";
+import React, { useEffect, Suspense } from "react";
 
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
@@ -12,6 +12,7 @@ const Screen4 = React.lazy(() => import("./../components/Screen4_bis"));
 const Screen6 = React.lazy(() => import("./../components/Screen6"));
 const Screen7 = React.lazy(() => import("./../components/Screen7"));
 const Screen8 = React.lazy(() => import("./../components/Screen8"));
+const Screen9 = React.lazy(() => import("./../components/Screen9"));
 import Screen1 from "./../components/Screen1";
 // import Screen4 from "./../components/Screen4_bis";
 import Screen5 from "./../components/Screen5";
@@ -20,7 +21,9 @@ import Screen5 from "./../components/Screen5";
 // import Screen8 from "./../components/Screen8";
 const ScrollToTopFab = React.lazy(() => import("./../components/scrollToTop"));
 // import ScrollToTopFab from "../components/scrollToTop";
-const RightScrollMenu = React.lazy(() => import("./../components/ScrollMenuSansimage"));
+const RightScrollMenu = React.lazy(() =>
+  import("./../components/ScrollMenuSansimage")
+);
 // import RightScrollMenu from "../components/RightScrollmenu";
 // import RightScrollMenu from "../components/ScrollMenuSansimage";
 // import Formulaire from "../components/sendemail";
@@ -143,14 +146,15 @@ function Home() {
           }}
         ></div>
         <Screen1 />
-        {/* <Screen4 />
-        <Screen6 />
-        <Screen7 />
-        <Screen8 />
-
-        
+        <Suspense>
+          <Screen4 />
+          <Screen6 />
+          <Screen7 />
+          <Screen8 />
+          <Screen9 />
+        </Suspense>
         <RightScrollMenu />
-        <Formulaire /> */}
+        <Formulaire />
       </>
     </>
   );
@@ -158,9 +162,11 @@ function Home() {
 
 function SuspenseHome() {
   return (
-    <Suspense fallback={<Loading />}>
-      <Home />
-    </Suspense>
+    <>
+      <Suspense fallback={<Loading />}>
+        <Home />
+      </Suspense>
+    </>
   );
 }
 
@@ -249,5 +255,5 @@ const Loading = () => {
 // export default Loading;
 
 export default dynamic(() => Promise.resolve(SuspenseHome), {
-  ssr: false,
+  ssr: true,
 });

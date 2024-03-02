@@ -478,178 +478,178 @@ export default function Screen1() {
   const x = useRef(0);
   const y = useRef(0);
 
-  // useEffect(() => {
-  //   // var leaveAnimation;
-  //   document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
-  //     if (!clicked.current && ref.current) {
-  //       ref.current.style.setProperty(
-  //         "clip-path",
-  //         "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
-  //       );
+  useEffect(() => {
+    // var leaveAnimation;
+    document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
+      if (!clicked.current && ref.current) {
+        ref.current.style.setProperty(
+          "clip-path",
+          "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
+        );
 
-  //       gsap.killTweensOf("#div_clip_path");
-  //     }
-  //   });
+        gsap.killTweensOf("#div_clip_path");
+      }
+    });
 
-  //   document.querySelector(".home-cover").addEventListener("mouseleave", () => {
-  //     if (!clicked.current) {
-  //       gsap.to("#div_clip_path", {
-  //         duration: 1,
-  //         ease: "power2",
-  //         clipPath: "circle(200px at 72vw 50%)",
-  //       });
-  //     }
-  //   });
+    document.querySelector(".home-cover").addEventListener("mouseleave", () => {
+      if (!clicked.current) {
+        gsap.to("#div_clip_path", {
+          duration: 1,
+          ease: "power2",
+          clipPath: "circle(200px at 72vw 50%)",
+        });
+      }
+    });
 
-  //   function redresseCode2(event) {
-  //     let myElement = document.getElementById("code_contain");
+    function redresseCode2(event) {
+      let myElement = document.getElementById("code_contain");
 
-  //     let i = 0;
-  //     for (const child of myElement.children) {
-  //       i = i + 1;
-  //       gsap.killTweensOf(child);
-  //       gsap.to(child, 0.3, {
-  //         ease: "none",
-  //         x: "0px",
-  //         y: "0px",
-  //         delay: i * "0.02",
-  //       });
-  //     }
-  //   }
+      let i = 0;
+      for (const child of myElement.children) {
+        i = i + 1;
+        gsap.killTweensOf(child);
+        gsap.to(child, 0.3, {
+          ease: "none",
+          x: "0px",
+          y: "0px",
+          delay: i * "0.02",
+        });
+      }
+    }
 
-  //   document.querySelector(".home-cover").addEventListener("click", (event) => {
-  //     // console.log("ee",event)
-  //     if (!clicked.current) {
-  //       var clipPath = ref.current.style.getPropertyValue("clip-path");
+    document.querySelector(".home-cover").addEventListener("click", (event) => {
+      // console.log("ee",event)
+      if (!clicked.current) {
+        var clipPath = ref.current.style.getPropertyValue("clip-path");
 
-  //       if (clipPath) {
-  //         let height = window.innerHeight,
-  //           width = window.innerWidth;
-  //         let dim = "vw";
-  //         if (height > width) {
-  //           dim = "vh";
-  //         }
-  //         redresseCode2(event);
-  //         let clipPath1 = clipPath.split("at");
-  //         clipPath1 = "circle(100" + dim + " at " + clipPath1[1];
-  //         let clipPath2 = clipPath.split("at");
-  //         clipPath2 = "circle(15" + dim + " at " + clipPath2[1];
+        if (clipPath) {
+          let height = window.innerHeight,
+            width = window.innerWidth;
+          let dim = "vw";
+          if (height > width) {
+            dim = "vh";
+          }
+          redresseCode2(event);
+          let clipPath1 = clipPath.split("at");
+          clipPath1 = "circle(100" + dim + " at " + clipPath1[1];
+          let clipPath2 = clipPath.split("at");
+          clipPath2 = "circle(15" + dim + " at " + clipPath2[1];
 
-  //         clicked.current = true;
+          clicked.current = true;
 
-  //         var tl = gsap.timeline();
+          var tl = gsap.timeline();
 
-  //         tl.to(
-  //           "#div_clip_path",
-  //           {
-  //             duration: 0.2,
-  //             ease: "power1.out",
-  //             clipPath: clipPath2,
-  //           },
-  //           0.2
-  //         );
-  //         tl.to(
-  //           "#div_clip_path",
-  //           {
-  //             duration: 0.2,
-  //             ease: "power1.out",
-  //             clipPath: clipPath2.replace("circle(15", "circle(10"),
-  //           },
-  //           ">"
-  //         );
-  //         tl.to(
-  //           "#div_clip_path",
-  //           {
-  //             duration: 5,
-  //             ease: "power2",
-  //             clipPath: clipPath1,
-  //           },
-  //           ">"
-  //         );
+          tl.to(
+            "#div_clip_path",
+            {
+              duration: 0.2,
+              ease: "power1.out",
+              clipPath: clipPath2,
+            },
+            0.2
+          );
+          tl.to(
+            "#div_clip_path",
+            {
+              duration: 0.2,
+              ease: "power1.out",
+              clipPath: clipPath2.replace("circle(15", "circle(10"),
+            },
+            ">"
+          );
+          tl.to(
+            "#div_clip_path",
+            {
+              duration: 5,
+              ease: "power2",
+              clipPath: clipPath1,
+            },
+            ">"
+          );
 
-  //         // tl.play()
-  //       }
-  //     }
-  //   });
-  // }, []);
+          // tl.play()
+        }
+      }
+    });
+  }, []);
 
-  // useEffect(() => {
-  //   let ctx = gsap.context(() => {
-  //     // let q = document.querySelector(".line:nth-child(1) .word:nth-child(1)");
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // let q = document.querySelector(".line:nth-child(1) .word:nth-child(1)");
 
-  //     function q(x) {
-  //       return document.querySelectorAll(x);
-  //     }
+      function q(x) {
+        return document.querySelectorAll(x);
+      }
 
-  //     gsap.from(
-  //       q(
-  //         "#div_clip_path .home-cover__content .line:nth-child(1) .word:nth-child(1)"
-  //       ),
-  //       {
-  //         // backgroundColor: "red",
-  //         y: "-30px",
-  //         duration: "1",
-  //         ease: "linear",
-  //       },
-  //       0
-  //     );
+      gsap.from(
+        q(
+          "#div_clip_path .home-cover__content .line:nth-child(1) .word:nth-child(1)"
+        ),
+        {
+          // backgroundColor: "red",
+          y: "-30px",
+          duration: "1",
+          ease: "linear",
+        },
+        0
+      );
 
-  //     let div = document.getElementById("screen1");
-  //     let wwidth = window.screen.width;
+      let div = document.getElementById("screen1");
+      let wwidth = window.screen.width;
 
-  //     // alert(wwidth)
+      // alert(wwidth)
 
-  //     for (let step = 0; step < 10; step++) {
-  //       let paragraph = document.createElement("p");
-  //       paragraph.classList.add("ccode");
-  //       paragraph.classList.add("my-1");
+      for (let step = 0; step < 10; step++) {
+        let paragraph = document.createElement("p");
+        paragraph.classList.add("ccode");
+        paragraph.classList.add("my-1");
 
-  //       paragraph.textContent = "Hello, world!";
-  //       paragraph.style.top = (50 + step * 50).toString() + "px";
-  //       paragraph.style.left = (wwidth / 5).toString() + "px";
-  //       paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-  //       // div.appendChild(paragraph);
-  //     }
+        paragraph.textContent = "Hello, world!";
+        paragraph.style.top = (50 + step * 50).toString() + "px";
+        paragraph.style.left = (wwidth / 5).toString() + "px";
+        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+        // div.appendChild(paragraph);
+      }
 
-  //     for (let step = 0; step < 10; step++) {
-  //       let paragraph = document.createElement("p");
-  //       paragraph.classList.add("ccode");
-  //       paragraph.classList.add("my-1");
+      for (let step = 0; step < 10; step++) {
+        let paragraph = document.createElement("p");
+        paragraph.classList.add("ccode");
+        paragraph.classList.add("my-1");
 
-  //       paragraph.textContent = "Hello, world!";
-  //       paragraph.style.top = (50 + step * 50).toString() + "px";
-  //       paragraph.style.left = 2 * (wwidth / 5).toString() + "px";
-  //       paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-  //       // div.appendChild(paragraph);
-  //     }
+        paragraph.textContent = "Hello, world!";
+        paragraph.style.top = (50 + step * 50).toString() + "px";
+        paragraph.style.left = 2 * (wwidth / 5).toString() + "px";
+        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+        // div.appendChild(paragraph);
+      }
 
-  //     for (let step = 0; step < 10; step++) {
-  //       let paragraph = document.createElement("p");
-  //       paragraph.classList.add("ccode");
-  //       paragraph.classList.add("my-1");
+      for (let step = 0; step < 10; step++) {
+        let paragraph = document.createElement("p");
+        paragraph.classList.add("ccode");
+        paragraph.classList.add("my-1");
 
-  //       paragraph.textContent = "Hello, world!";
-  //       paragraph.style.top = (50 + step * 50).toString() + "px";
-  //       paragraph.style.left = 3 * (wwidth / 5).toString() + "px";
-  //       paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-  //       // div.appendChild(paragraph);
-  //     }
+        paragraph.textContent = "Hello, world!";
+        paragraph.style.top = (50 + step * 50).toString() + "px";
+        paragraph.style.left = 3 * (wwidth / 5).toString() + "px";
+        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+        // div.appendChild(paragraph);
+      }
 
-  //     for (let step = 0; step < 10; step++) {
-  //       let paragraph = document.createElement("p");
-  //       paragraph.classList.add("ccode");
-  //       paragraph.classList.add("my-1");
+      for (let step = 0; step < 10; step++) {
+        let paragraph = document.createElement("p");
+        paragraph.classList.add("ccode");
+        paragraph.classList.add("my-1");
 
-  //       paragraph.textContent = "Hello, world!";
-  //       paragraph.style.top = (50 + step * 50).toString() + "px";
-  //       paragraph.style.left = 4 * (wwidth / 5).toString() + "px";
-  //       paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-  //       // div.appendChild(paragraph);
-  //     }
-  //   });
+        paragraph.textContent = "Hello, world!";
+        paragraph.style.top = (50 + step * 50).toString() + "px";
+        paragraph.style.left = 4 * (wwidth / 5).toString() + "px";
+        paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
+        // div.appendChild(paragraph);
+      }
+    });
 
-  //   return () => ctx.revert();
-  // });
+    return () => ctx.revert();
+  });
 
   // <Image
   //     src="/profile.png"
@@ -1072,37 +1072,40 @@ export default function Screen1() {
                 zIndex: 8,
               }}
             >
-
-               {/* <picture>
+              {/* <picture>
                 <source
                   srcset="https://dummyimage.com/1200x300/2a9c2a/ffffff"
                   media="(min-width: 1200px)"
+                  type="image/avif"
                 />
                 <source
                   srcset="https://dummyimage.com/992x300/2a9c2a/ffffff"
                   media="(min-width: 992px)"
+                  type="image/avif"
                 />
                 <source
                   srcset="https://dummyimage.com/768x300/2a9c2a/ffffff"
                   media="(min-width: 768px)"
+                  type="image/avif"
                 />
                 <source
                   srcset="https://dummyimage.com/576x300/2a9c2a/ffffff"
                   media="(min-width: 576px)"
+                  type="image/avif"
                 />
                 <img src="https://dummyimage.com/576x300/2a9c2a/ffffff" />
               </picture> */}
-             
-               {/* //<Image
-                // id="dfdh"
-                // src="/background.avif"
-                // fill={true}
-                // alt={"Background Image"}
-                // priority={true}
-                // style={{
-                  // zIndex:9
-                // }}
-               ///> */}
+
+              <Image
+                id="dfdh"
+                src="/background.avif"
+                fill={true}
+                alt={"Background Image"}
+                priority={true}
+                style={{
+                  zIndex: 9,
+                }}
+              />
               <h1
                 className="font-black flex flex-wrap items-start w-full"
                 style={{
@@ -1187,7 +1190,7 @@ export default function Screen1() {
                 </div>
               </h1>
 
-              {/* <VSCode /> */}
+              <VSCode />
 
               {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
                 <a
