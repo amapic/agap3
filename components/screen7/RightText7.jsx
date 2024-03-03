@@ -52,7 +52,7 @@ export default function RightText7() {
           className="text-blue mb-4 rg:mb-12 lg:mb-4 xl:mb-12"
           data-cartapus="visible"
         >
-          <span className="">Réalisation 2 : Création d'un effet de profondeur sur une surface en 3D</span>
+          <span className="">Réalisation 1 : Création d'un effet de profondeur sur une surface en 3D</span>
         </h2>
 
         <p className="home-numbers__agap text-4xl text-blue font-semibold">

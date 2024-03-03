@@ -94,7 +94,7 @@ export default function Ttext37() {
   });
 
   function followlink() {
-    window.open("https://amaurypichat.fr/siteWeb1/index.html", "_blank");
+    window.open("https://amaurypichat.fr/slide/index.html", "_blank");
   }
   return (
     <div
@@ -120,7 +120,7 @@ export default function Ttext37() {
           >
             <ul>
               <li className="effet_perso flex justify-center text-center" onClick={followlink}>
-                <a href="https://amaurypichat.fr/siteWeb1/index.html">
+                <a href="https://amaurypichat.fr/slide/index.html">
                   Voir la réalisation
                 </a>
               </li>

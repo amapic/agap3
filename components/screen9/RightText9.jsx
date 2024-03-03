@@ -40,7 +40,7 @@ export default function RightText_() {
           className="text-blue mb-4 rg:mb-12 lg:mb-4 xl:mb-12"
           data-cartapus="visible"
         >
-          <span className="">Réalisation 4 : Appel d'une API en Vue.js</span>
+          <span className="">Réalisation 3 : Appel d'une API en Vue.js</span>
         </h2>
 
         <p className="home-numbers__agap text-4xl text-blue font-semibold">

@@ -48,7 +48,7 @@ export default function RightText6() {
           className="text-blue mb-4 rg:mb-12 lg:mb-4 xl:mb-12"
           data-cartapus="visible"
         >
-          <span className="">Réalisation 1 : Site d'entreprise responsive</span>
+          <span className="">Réalisation 4 : Site d'entreprise responsive</span>
         </h2>
 
         <p className="home-numbers__agap text-4xl text-blue font-semibold">

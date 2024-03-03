@@ -14,8 +14,6 @@ export default function Screen8() {
   let el = useRef();
 
   useEffect(() => {
-    // const element = zoom.current;
-    // let q = gsap.utils.selector(zoom);
 
     let ctx = gsap.context(() => {
       // var mediaQueries = [
@@ -78,7 +76,6 @@ export default function Screen8() {
           zIndex: "10",
           overflow: "hidden",
         }}
-        // className="screen5"
 
         ref={zoom}
       >
@@ -91,7 +88,6 @@ export default function Screen8() {
 
             <Ttext38 />
             <div
-              // className="bg-blue"
               id="bgCircle8"
               style={{
                 left: "0vw",
@@ -100,9 +96,6 @@ export default function Screen8() {
                 height: "1vw",
                 zIndex: "10",
                 top: "calc(50vh - 5px)",
-                // opacity:"0",
-                // bottom: "30vh",
-                // margin: "auto 0",
                 position: "absolute",
               }}
             ></div>

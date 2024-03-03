@@ -126,7 +126,6 @@ function Home() {
     <>
       <Head>
         <title>Portfolio A.PICHAT</title>
-        {/* <link rel="shortcut icon" href="/favicon_copy.ico" /> */}
       </Head>
 
       <>
@@ -148,10 +147,10 @@ function Home() {
         <Screen1 />
         <Suspense>
           <Screen4 />
-          <Screen6 />
           <Screen7 />
           <Screen8 />
           <Screen9 />
+          <Screen6 />
         </Suspense>
         <RightScrollMenu />
         <Formulaire />

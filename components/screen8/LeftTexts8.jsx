@@ -9,23 +9,16 @@ export default function Ttext37() {
       mm.add(
         {
           isSmall: "(max-width: 999px)",
-          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
-          // isXLarge: "(min-width: 1301px)",
         },
         (c) => {
           var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
             trigger: "#main8",
-            // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
-            // end: "+=200",
             toggleActions: "play pause resume reset",
-            // markers: true,
             scrub: 3,
             animation: scrollSunTl,
-            // pin: "#canvas",
           });
 
           scrollSunTl.fromTo(
@@ -94,7 +87,7 @@ export default function Ttext37() {
   });
 
   function followlink() {
-    window.open("https://amaurypichat.fr/siteWeb1/index.html", "_blank");
+    window.open("https://amaurypichat.fr/planet/index.html", "_blank");
   }
   return (
     <div
@@ -109,7 +102,6 @@ export default function Ttext37() {
     >
       <div className="w-full h-full">
         <div className="flex flex-col justify-start">
-          {/* <div className="flex flex-row"> */}
           <div
             className="w-50 text1 
         text-green font-bold text-2xl md:text-2-5xl xl:text-3xl opacity-1 backface-hidden border-2 p-2
@@ -120,7 +112,7 @@ export default function Ttext37() {
                 className="effet_perso flex justify-center text-center"
                 onClick={followlink}
               >
-                <a href="https://amaurypichat.fr/siteWeb1/index.html">
+                <a href="https://amaurypichat.fr/planet/index.html">
                   Voir la réalisation
                 </a>
               </li>
