@@ -151,9 +151,9 @@ function Home() {
           <Screen8 />
           <Screen9 />
           <Screen6 />
+          <RightScrollMenu />
+          <Formulaire />
         </Suspense>
-        <RightScrollMenu />
-        <Formulaire />
       </>
     </>
   );

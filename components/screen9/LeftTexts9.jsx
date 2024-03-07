@@ -16,7 +16,7 @@ export default function Ttext37() {
           var scrollSunTl = gsap.timeline();
           // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
-            trigger: "#main8",
+            trigger: "#main9",
             // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
@@ -29,7 +29,7 @@ export default function Ttext37() {
           });
 
           scrollSunTl.fromTo(
-            "#texte_bas_38",
+            "#texte_bas_39",
             {
               top: "35vh",
               margin: "0 30vw 0 30vw",
@@ -75,7 +75,7 @@ export default function Ttext37() {
             // pin: "#canvas",
           });
           scrollSunTl.fromTo(
-            "#texte_bas_38",
+            "#texte_bas_39",
             {
               top: "80vh",
               left: "15vw",
@@ -98,7 +98,7 @@ export default function Ttext37() {
   }
   return (
     <div
-      id="texte_bas_38"
+      id="texte_bas_39"
       className="flex justify-center"
       style={{
         zIndex: "30",

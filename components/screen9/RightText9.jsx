@@ -10,7 +10,7 @@ export default function RightText_() {
       var scrollSunTl = gsap.timeline();
       // console.log("color", node.children[0].material.color);
       ScrollTrigger.create({
-        trigger: "#main8",
+        trigger: "#main9",
         // endTrigger: ".screen6",
         start: "top+=10% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
         end: "bottom-=10% bottom",
@@ -31,7 +31,7 @@ export default function RightText_() {
   return (
     // <div id="screen4PartieDroite">
     <div
-      id="screen8PartieDroite"
+      id="screen9PartieDroite"
       className="relative container-main w-full h-screen-1/2 rg:h-full rg:w-1/2 py-6  rg:py-10 pr-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2 rg:text-start text-center"
       // rg:w-1/2
     >
@@ -49,7 +49,7 @@ export default function RightText_() {
 
         <div className="mce w-full">
           <p>
-            Ce projet m'a permis de réaliser une première page en vue.js
+            Ce projet m'a permis de monter en compétence sur vue3.js
           </p>
         </div>
         <h3 className="text-3xl mt-8 hidden">

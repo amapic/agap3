@@ -160,7 +160,7 @@ const CanvasImage = () => {
           var scrollSunTl = gsap.timeline();
           // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
-            trigger: "#main8",
+            trigger: "#main9",
             // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
@@ -172,7 +172,7 @@ const CanvasImage = () => {
             // pin: "#canvas",
           });
           scrollSunTl.fromTo(
-            "#canvas8",
+            "#canvas9",
             {
               x: "-50vw",
             },
@@ -189,7 +189,7 @@ const CanvasImage = () => {
 
   return (
     <div
-      id="main8"
+      id="main9"
       className="z-20"
       style={{
         height: "300vh",
@@ -199,7 +199,7 @@ const CanvasImage = () => {
       }}
     >
       <div
-        id="canvas8"
+        id="canvas9"
         style={{
           height: "100vh",
           overflow: "hidden",
