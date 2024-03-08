@@ -1190,7 +1190,7 @@ export default function Screen1() {
                 </div>
               </h1>
 
-              <VSCode />
+              {/* <VSCode /> */}
 
               {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
                 <a
