@@ -1,6 +1,12 @@
 import React, { useRef, useEffect, useState, Suspense } from "react";
 import { gsap } from "gsap";
+import dynamic from "next/dynamic";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
+// import Aaa from "./vtk/scene";
+
+const ModelVtk = dynamic(() => import("./vtk/vtk"), {
+  loading: () => <p>Loading...</p>,
+});
 gsap.registerPlugin(MotionPathPlugin);
 import Image from "next/image";
 function VSCode() {
@@ -474,14 +480,46 @@ export default function Screen1() {
   const ref = useRef(null);
   const [hoverr, setHover] = useState("");
   const clicked = useRef(false);
+  const animated = useRef(false);
+  const mouse_pos = useRef([]);
 
   const x = useRef(0);
   const y = useRef(0);
 
   useEffect(() => {
+    var tl2 = gsap.timeline({ repeat: -1 });
+
+    tl2.to(
+      "#shrink_button",
+      0.2,
+
+      {
+        scale: 1.5,
+      },
+	  3
+    );
+
+    tl2.to(
+      "#shrink_button",
+      0.2,
+      {
+        scale: 1,
+      },
+
+    );
+	
+	tl2.to(
+      "#shrink_button",
+	  1,
+       {rotation:360, transformOrigin:"center center"}
+
+    );
+
+    tl2.play();
+
     // var leaveAnimation;
     document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
-      if (!clicked.current && ref.current) {
+      if (!clicked.current && ref.current && !animated.current) {
         ref.current.style.setProperty(
           "clip-path",
           "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
@@ -489,10 +527,12 @@ export default function Screen1() {
 
         gsap.killTweensOf("#div_clip_path");
       }
+
+      mouse_pos.current = [e.pageX, e.pageY];
     });
 
     document.querySelector(".home-cover").addEventListener("mouseleave", () => {
-      if (!clicked.current) {
+      if (!clicked.current && !animated.current) {
         gsap.to("#div_clip_path", {
           duration: 1,
           ease: "power2",
@@ -517,11 +557,56 @@ export default function Screen1() {
       }
     }
 
+    document
+      .querySelector("#shrink_button")
+      .addEventListener("click", (event) => {
+		  // console.log("aa")
+        if (clicked.current) {
+			event.stopPropagation()
+          var clipPath = ref.current.style.getPropertyValue("clip-path");
+
+          if (clipPath) {
+            gsap.killTweensOf("#div_clip_path");
+            let height = window.innerHeight,
+              width = window.innerWidth;
+            let dim = "vw";
+            if (height > width) {
+              dim = "vh";
+            }
+            let clipPath1 = clipPath.split("at");
+            clipPath1 =
+              "circle(15" +
+              dim +
+              " at " +
+              mouse_pos.current[0] +
+              "px " +
+              mouse_pos.current[1] +
+              "px)";
+			setTimeout(clicked.current = false,500)
+            
+
+            var tl = gsap.timeline();
+
+            tl.to(
+              "#div_clip_path",
+              {
+                duration: 0.2,
+                ease: "power2",
+                clipPath: clipPath1,
+              },
+              0
+            );
+
+            // tl.play()
+          }
+        }
+      });
+
     document.querySelector(".home-cover").addEventListener("click", (event) => {
       // console.log("ee",event)
       if (!clicked.current) {
+		  // console.log("bb")
         var clipPath = ref.current.style.getPropertyValue("clip-path");
-
         if (clipPath) {
           let height = window.innerHeight,
             width = window.innerWidth;
@@ -529,7 +614,7 @@ export default function Screen1() {
           if (height > width) {
             dim = "vh";
           }
-          redresseCode2(event);
+          // redresseCode2(event);
           let clipPath1 = clipPath.split("at");
           clipPath1 = "circle(100" + dim + " at " + clipPath1[1];
           let clipPath2 = clipPath.split("at");
@@ -570,6 +655,8 @@ export default function Screen1() {
           // tl.play()
         }
       }
+
+      // clicked.current = !clicked.current
     });
   }, []);
 
@@ -651,13 +738,6 @@ export default function Screen1() {
     return () => ctx.revert();
   });
 
-  // <Image
-  //     src="/profile.png"
-  //     width={500}
-  //     height={500}
-  //     alt="Picture of the author"
-  //   />
-
   return (
     <>
       <div
@@ -667,6 +747,7 @@ export default function Screen1() {
         }}
         className={hoverr + " home-cover relative w-full h-screen z-100 "}
       >
+        
         <div className="bg_grey home-cover__wrapper relative w-full cursor-pointer overflow-hidden js-cover">
           <div
             id="div_clip_path"
@@ -793,91 +874,7 @@ export default function Screen1() {
                         CV
                       </a>
                     </li>
-                    {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
-                      <div className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4">
-                        Projets
-                        <div className="points flex items-stretch ml-1">
-                          <div className="bg-blue points__pt mr-px transform backface-hidden"></div>
-                          <div className="bg-blue points__pt mx-px transform backface-hidden"></div>
-                          <div className="bg-blue points__pt ml-px transform backface-hidden"></div>
-                        </div>
-                      </div>
-
-                      <div className="header__submenu absolute top-full left-0 bg-white text-base flex-col items-start py-6 pl-6 pr-12 hidden">
-                        <a
-                          className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
-                        >
-                          Devenir Consultant en ingénierie
-                        </a>
-                        <a
-                          className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
-                        >
-                          Devenir Ingénieur d’affaires
-                        </a>
-                        <a
-                          className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
-                        >
-                          Parcours agapiens
-                        </a>
-                        <a
-                          className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
-                        >
-                          Formation
-                        </a>
-                      </div>
-                    </li> */}
-                    {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
-                      <a
-                        className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
-                      >
-                        Blog
-                      </a>
-                    </li>
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
-                      <a
-                        className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
-                      >
-                        Presse
-                      </a>
-                    </li>
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
-                      <a
-                        className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
-                      >
-                        Contact
-                      </a>
-                    </li>
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 border rounded-l-full rounded-r-full overflow-hidden">
-                      <a
-                        className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
-                      >
-                        Projets
-                      </a>
-                    </li> */}
                   </ul>
-
-                  {/* <ul className="lang-switcher leading-none">
-                    <li>
-                      <a
-                        data-router-disabled=""
-                        data-noprefetch=""
-                        data-lang="fr"
-                        className="font-semibold uppercase text-sm "
-                      >
-                        fr
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        data-router-disabled=""
-                        data-noprefetch=""
-                        data-lang="en"
-                        className="font-semibold uppercase text-sm  line-through"
-                      >
-                        en
-                      </a>
-                    </li>
-                  </ul> */}
                 </nav>
               </div>
             </header>
@@ -885,217 +882,19 @@ export default function Screen1() {
             {/* <div> */}
             {/* <div id="rrrj" className="h-full w-full flex flex-col md:flex-row"> */}
             {/* <VSCode /> */}
-            {/* <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
-              <header
-                id="header_mobile_1"
-                className="header fixed flex flex-wrap w-full"
-                // style={{ backgroundColor: "rgba(0, 0, 255, 0.5)" }}
-              >
-                <div className="header__container flex items-center justify-between w-full">
-                  <div className="flex items-center">
-                    <a
-                      href="https://www.agap2.fr"
-                      className="header__logo flex items-center justify-center h-full container-main-l rg:px-8 mr-2 sm:mr-5"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="129"
-                        height="40.001"
-                        viewBox="0 0 129 40.001"
-                      >
-                        <g id="logo" transform="translate(-55.971 -44.738)">
-                          <g id="Groupe_1" data-name="Groupe 1">
-                            <path
-                              id="Tracé_1"
-                              data-name="Tracé 1"
-                              d="M163.048,75.5V70.629l9.921-9.206c2.791-2.522,4.207-4.027,4.207-5.974,0-2.834-1.991-4.073-4.916-4.073a26.381,26.381,0,0,0-8.059,1.64l-1.553-6.153a32.981,32.981,0,0,1,10.807-2.124c7.707,0,11.117,4.468,11.117,9.649,0,4.47-3.011,7.833-7,11.418l-3.94,3.273h11.338V75.5Z"
-                              fill="#ffcd00"
-                            ></path>
-                            <path
-                              id="Tracé_2"
-                              data-name="Tracé 2"
-                              d="M79.578,52.251V73.318h-7.22V71.858a9.458,9.458,0,0,1-6.2,2.125c-5.184,0-10.188-4.029-10.188-11.505.179-6.773,4.118-11.289,10.762-11.289,4.074,0,6.334.312,12.845,1.063M62.925,62.608c0,3.232,1.993,5.445,4.826,5.445a7.042,7.042,0,0,0,4.607-1.859V57.21c-1.462-.135-2.791-.223-4.339-.223-3.5,0-5.094,2.347-5.094,5.62"
-                              fill="#fff"
-                            ></path>
-                            <path
-                              id="Tracé_3"
-                              data-name="Tracé 3"
-                              d="M131.937,52.251V73.318h-7.218V71.858a9.467,9.467,0,0,1-6.2,2.125c-5.182,0-10.187-4.029-10.187-11.505.177-6.773,4.12-11.289,10.76-11.289,4.074,0,6.334.312,12.845,1.063M115.284,62.608c0,3.232,1.993,5.445,4.827,5.445a7.047,7.047,0,0,0,4.608-1.859V57.21c-1.462-.135-2.792-.223-4.341-.223-3.5,0-5.094,2.347-5.094,5.62"
-                              fill="#fff"
-                            ></path>
-                            <path
-                              id="Tracé_4"
-                              data-name="Tracé 4"
-                              d="M92.966,51.19c-6.689,0-10.629,4.516-10.763,11.288,0,6.542,4.171,10.458,9.076,11.093.324.036.828.079,1.438.1.562,0,1.093,0,1.618-.006,1.643-.076,3.434-.413,4.305-1.422a11.879,11.879,0,0,1-.161,2.246c-.018.115-.039.228-.062.341a6.9,6.9,0,0,1-.249.891l-.023.062a2.713,2.713,0,0,1-.358.7c-.9,1.516-2.56,2.32-5.042,2.32a40.332,40.332,0,0,1-6.512-.885l-1.017,5.487a27.944,27.944,0,0,0,7.794,1.329c8.458,0,12.8-4.6,12.8-11.728V52.252c-4.738-.487-7.263-1.063-12.842-1.063m5.625,16.288a29.08,29.08,0,0,1-4.608.309,4.871,4.871,0,0,1-4.826-5.18c0-3.273,1.549-5.619,5.093-5.619,1.549,0,2.88.088,4.341.222Z"
-                              fill="#fff"
-                            ></path>
-                            <path
-                              id="Tracé_5"
-                              data-name="Tracé 5"
-                              d="M148.081,51.188a93.75,93.75,0,0,0-12.8,1.064V83.277h7.176V71.958s1.362,1.659,6.286,1.7c5.351-.17,10.1-4.167,10.1-11.181-.223-6.772-4.073-11.289-10.763-11.289m-.973,16.6a29.551,29.551,0,0,1-4.651-.309V57.21c1.507-.134,2.789-.222,4.384-.222,3.545,0,5.094,2.346,5.094,5.619a4.872,4.872,0,0,1-4.827,5.18"
-                              fill="#fff"
-                            ></path>
-                          </g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-
-                  <div className="container-main-r">
-                    <div className="js-menu-mobile-hamburger hamburger hamburger--white active ml-auto w-6 rg:hidden">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <nav className="menu-mobile__nav w-full overflow-y-auto">
-                  <ul className="flex flex-col overflow-x-hidden">
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        agap2
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Métiers
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Esprit
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group submenu">
-                      <div className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500 break-all">
-                        Carrière
-                        <div className="points flex items-stretch ml-1">
-                          <div className="bg-blue points__pt mr-px transform backface-hidden"></div>
-                          <div className="bg-blue points__pt mx-px transform backface-hidden"></div>
-                          <div className="bg-blue points__pt ml-px transform backface-hidden"></div>
-                        </div>
-                      </div>
-
-                      <div className="menu-mobile__submenu absolute flex flex-col text-white transition-all duration-500 overflow-hidden py-8">
-                        <a className="text-lg mb-4 last:mb-0">
-                          Devenir Consultant en ingénierie
-                        </a>
-                        <a className="text-lg mb-4 last:mb-0">
-                          Devenir Ingénieur d’affaires
-                        </a>
-                        <a className="text-lg mb-4 last:mb-0">
-                          Parcours agapiens
-                        </a>
-                        <a className="text-lg mb-4 last:mb-0">Formation</a>
-                      </div>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Blog
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Presse
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Contact
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Offres d’emploi
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <ul className="lang-switcher leading-none">
-                        <li>
-                          <a
-                            data-router-disabled=""
-                            data-noprefetch=""
-                            data-lang="fr"
-                            className="font-semibold uppercase text-sm "
-                          >
-                            fr
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            data-router-disabled=""
-                            data-noprefetch=""
-                            data-lang="en"
-                            className="font-semibold uppercase text-sm  line-through"
-                          >
-                            en
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </nav>
-              </header>
-            </div> */}
-
-            {/* <video
-              muted=""
-              autoPlay=""
-              loop=""
-              playsInline=""
-              className="absolute inset-0 object-cover w-full h-full z-0 hidden md:block"
-            >
-              <source
-                type="video/mp4"
-              />
-              Votre navigateur ne supporte pas cette vidéo.
-            </video> */}
-
-            {/* <video
-              muted=""
-              autoPlay=""
-              loop=""
-              playsInline=""
-              className="absolute inset-0 object-cover w-full h-full z-0 md:hidden"
-            >
-              <source
-                type="video/mp4"
-              />
-              Votre navigateur ne supporte pas cette vidéo.
-            </video> */}
+            <ModelVtk  />
+			<div id="shrink_button">
+          <img src="b (2).png" />
+        </div>
+			
 
             <div
               id="main_content_zone1_hidden"
-              className="bg-black home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0"
+              className="hidden bg-black home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0"
               style={{
                 zIndex: 8,
               }}
             >
-              {/* <picture>
-                <source
-                  srcset="https://dummyimage.com/1200x300/2a9c2a/ffffff"
-                  media="(min-width: 1200px)"
-                  type="image/avif"
-                />
-                <source
-                  srcset="https://dummyimage.com/992x300/2a9c2a/ffffff"
-                  media="(min-width: 992px)"
-                  type="image/avif"
-                />
-                <source
-                  srcset="https://dummyimage.com/768x300/2a9c2a/ffffff"
-                  media="(min-width: 768px)"
-                  type="image/avif"
-                />
-                <source
-                  srcset="https://dummyimage.com/576x300/2a9c2a/ffffff"
-                  media="(min-width: 576px)"
-                  type="image/avif"
-                />
-                <img src="https://dummyimage.com/576x300/2a9c2a/ffffff" />
-              </picture> */}
-
               <Image
                 id="dfdh"
                 src="/background.avif"
@@ -1189,38 +988,7 @@ export default function Screen1() {
                   </div>
                 </div>
               </h1>
-
-              {/* <VSCode /> */}
-
-              {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
-                <a
-                  className="button relative flex items-center button--white button--big"
-                >
-                  <div className="button__text flex-1 backface-hidden transition-transform duration-500 ease-out-quad transform mr-12">
-                    join us
-                  </div>
-
-                  <div className="button__plus backface-hidden border border-solid flex items-center justify-center h-16 w-16 absolute right-0">
-                    <svg
-                      width="300"
-                      height="300"
-                      viewBox="0 0 300 300"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M132 36V132H36V168H132V264H168V168H264V132H168V36H132Z"
-                        fill="black"
-                      ></path>
-                    </svg>
-                  </div>
-                </a>
-              </div> */}
             </div>
-            {/* </div> */}
-            {/* <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2">
-              CONTACT
-            </div> */}
           </div>
 
           <div className="w-full h-full " id="part2">
@@ -1337,248 +1105,10 @@ export default function Screen1() {
                         CV
                       </a>
                     </li>
-                    {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 submenu">
-                      <div className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4">
-                        Projets
-                        <div className="points flex items-stretch ml-1">
-                          <div className="bg-blue points__pt mr-px transform backface-hidden"></div>
-                          <div className="bg-blue points__pt mx-px transform backface-hidden"></div>
-                          <div className="bg-blue points__pt ml-px transform backface-hidden"></div>
-                        </div>
-                      </div>
-
-                      <div className="header__submenu absolute top-full left-0 bg-white text-base flex-col items-start py-6 pl-6 pr-12 hidden">
-                        <a
-                          className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
-                        >
-                          Devenir Consultant en ingénierie
-                        </a>
-                        <a
-                          className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
-                        >
-                          Devenir Ingénieur d’affaires
-                        </a>
-                        <a
-                          className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
-                        >
-                          Parcours agapiens
-                        </a>
-                        <a
-                          className="text-body mb-4 whitespace-no-wrap transform backface-hidden"
-                        >
-                          Formation
-                        </a>
-                      </div>
-                    </li> */}
-                    {/* <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
-                      <a
-                        className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
-                      >
-                        Blog
-                      </a>
-                    </li>
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
-                      <a
-                        className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
-                      >
-                        Presse
-                      </a>
-                    </li>
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
-                      <a
-                        className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
-                      >
-                        Contact
-                      </a>
-                    </li>
-                    <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1 border rounded-l-full rounded-r-full overflow-hidden">
-                      <a
-                        className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
-                      >
-                        Projets
-                      </a>
-                    </li> */}
                   </ul>
-
-                  {/* <ul className="lang-switcher leading-none">
-                    <li>
-                      <a
-                        data-router-disabled=""
-                        data-noprefetch=""
-                        data-lang="fr"
-                        className="font-semibold uppercase text-sm "
-                      >
-                        fr
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        data-router-disabled=""
-                        data-noprefetch=""
-                        data-lang="en"
-                        className="font-semibold uppercase text-sm  line-through"
-                      >
-                        en
-                      </a>
-                    </li>
-                  </ul> */}
                 </nav>
               </div>
             </header>
-
-            {/* <div className="js-menu-mobile menu-mobile fixed top-0 left-0 inset-0 bg-blue z-1000 pointer-events-none select-none rg:hidden">
-              <header
-                id="header_mobile_2"
-                className="hidden header fixed flex flex-wrap w-full"
-                // style="background-color: var(--color-transparent);"
-              >
-                <div className="header__container flex items-center justify-between w-full">
-                  <div className="flex items-center">
-                    <a
-                      href="https://www.agap2.fr"
-                      className="header__logo flex items-center justify-center h-full container-main-l rg:px-8 mr-2 sm:mr-5"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="129"
-                        height="40.001"
-                        viewBox="0 0 129 40.001"
-                      >
-                        <g id="logo" transform="translate(-55.971 -44.738)">
-                          <g id="Groupe_1" data-name="Groupe 1">
-                            <path
-                              id="Tracé_1"
-                              data-name="Tracé 1"
-                              d="M163.048,75.5V70.629l9.921-9.206c2.791-2.522,4.207-4.027,4.207-5.974,0-2.834-1.991-4.073-4.916-4.073a26.381,26.381,0,0,0-8.059,1.64l-1.553-6.153a32.981,32.981,0,0,1,10.807-2.124c7.707,0,11.117,4.468,11.117,9.649,0,4.47-3.011,7.833-7,11.418l-3.94,3.273h11.338V75.5Z"
-                              fill="#ffcd00"
-                            ></path>
-                            <path
-                              id="Tracé_2"
-                              data-name="Tracé 2"
-                              d="M79.578,52.251V73.318h-7.22V71.858a9.458,9.458,0,0,1-6.2,2.125c-5.184,0-10.188-4.029-10.188-11.505.179-6.773,4.118-11.289,10.762-11.289,4.074,0,6.334.312,12.845,1.063M62.925,62.608c0,3.232,1.993,5.445,4.826,5.445a7.042,7.042,0,0,0,4.607-1.859V57.21c-1.462-.135-2.791-.223-4.339-.223-3.5,0-5.094,2.347-5.094,5.62"
-                              fill="#fff"
-                            ></path>
-                            <path
-                              id="Tracé_3"
-                              data-name="Tracé 3"
-                              d="M131.937,52.251V73.318h-7.218V71.858a9.467,9.467,0,0,1-6.2,2.125c-5.182,0-10.187-4.029-10.187-11.505.177-6.773,4.12-11.289,10.76-11.289,4.074,0,6.334.312,12.845,1.063M115.284,62.608c0,3.232,1.993,5.445,4.827,5.445a7.047,7.047,0,0,0,4.608-1.859V57.21c-1.462-.135-2.792-.223-4.341-.223-3.5,0-5.094,2.347-5.094,5.62"
-                              fill="#fff"
-                            ></path>
-                            <path
-                              id="Tracé_4"
-                              data-name="Tracé 4"
-                              d="M92.966,51.19c-6.689,0-10.629,4.516-10.763,11.288,0,6.542,4.171,10.458,9.076,11.093.324.036.828.079,1.438.1.562,0,1.093,0,1.618-.006,1.643-.076,3.434-.413,4.305-1.422a11.879,11.879,0,0,1-.161,2.246c-.018.115-.039.228-.062.341a6.9,6.9,0,0,1-.249.891l-.023.062a2.713,2.713,0,0,1-.358.7c-.9,1.516-2.56,2.32-5.042,2.32a40.332,40.332,0,0,1-6.512-.885l-1.017,5.487a27.944,27.944,0,0,0,7.794,1.329c8.458,0,12.8-4.6,12.8-11.728V52.252c-4.738-.487-7.263-1.063-12.842-1.063m5.625,16.288a29.08,29.08,0,0,1-4.608.309,4.871,4.871,0,0,1-4.826-5.18c0-3.273,1.549-5.619,5.093-5.619,1.549,0,2.88.088,4.341.222Z"
-                              fill="#fff"
-                            ></path>
-                            <path
-                              id="Tracé_5"
-                              data-name="Tracé 5"
-                              d="M148.081,51.188a93.75,93.75,0,0,0-12.8,1.064V83.277h7.176V71.958s1.362,1.659,6.286,1.7c5.351-.17,10.1-4.167,10.1-11.181-.223-6.772-4.073-11.289-10.763-11.289m-.973,16.6a29.551,29.551,0,0,1-4.651-.309V57.21c1.507-.134,2.789-.222,4.384-.222,3.545,0,5.094,2.346,5.094,5.619a4.872,4.872,0,0,1-4.827,5.18"
-                              fill="#fff"
-                            ></path>
-                          </g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-
-                  <div className="container-main-r">
-                    <div className="js-menu-mobile-hamburger hamburger hamburger--white active ml-auto w-6 rg:hidden">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <nav className="menu-mobile__nav w-full overflow-y-auto">
-                  <ul className="flex flex-col overflow-x-hidden">
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        agap2
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Métiers
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Esprit
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group submenu">
-                      <div className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500 break-all">
-                        Carrière
-                        <div className="points flex items-stretch ml-1">
-                          <div className="bg-blue points__pt mr-px transform backface-hidden"></div>
-                          <div className="bg-blue points__pt mx-px transform backface-hidden"></div>
-                          <div className="bg-blue points__pt ml-px transform backface-hidden"></div>
-                        </div>
-                      </div>
-
-                      <div className="menu-mobile__submenu absolute flex flex-col text-white transition-all duration-500 overflow-hidden py-8">
-                        <a className="text-lg mb-4 last:mb-0">
-                          Devenir Consultant en ingénierie
-                        </a>
-                        <a className="text-lg mb-4 last:mb-0">
-                          Devenir Ingénieur d’affaires
-                        </a>
-                        <a className="text-lg mb-4 last:mb-0">
-                          Parcours agapiens
-                        </a>
-                        <a className="text-lg mb-4 last:mb-0">Formation</a>
-                      </div>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Blog
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Presse
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Contact
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <a className="menu-mobile__link absolute top-0 left-0 mt-10 pl-6 transition-all duration-500">
-                        Offres d’emploi
-                      </a>
-                    </li>
-                    <li className="menu-mobile__item relative font-semibold w-7/12 h-20 pl-6 border-t ml-auto backface-hidden first:border-0 border-white text-white text-2-5xl group">
-                      <ul className="lang-switcher leading-none">
-                        <li>
-                          <a
-                            data-router-disabled=""
-                            data-noprefetch=""
-                            data-lang="fr"
-                            className="font-semibold uppercase text-sm "
-                          >
-                            fr
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            data-router-disabled=""
-                            data-noprefetch=""
-                            data-lang="en"
-                            className="font-semibold uppercase text-sm  line-through"
-                          >
-                            en
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </nav>
-              </header>
-            </div> */}
 
             <div
               id="main_content_zone1_not_hidden"
@@ -1653,37 +1183,7 @@ export default function Screen1() {
                   </div>
                 </div>
               </h1>
-
-              {/* <div className="home-cover__btn w-1/2 hidden md:flex justify-end pr-12 mt-12">
-                <a
-                  className="button relative flex items-center button--brown button--big"
-                >
-                  <div className="button__text flex-1 backface-hidden transition-transform duration-500 ease-out-quad transform mr-12">
-                    join us
-                  </div>
-
-                  <div className="button__plus backface-hidden border border-solid flex items-center justify-center h-16 w-16 absolute right-0">
-                    <svg
-                      width="300"
-                      height="300"
-                      viewBox="0 0 300 300"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M132 36V132H36V168H132V264H168V168H264V132H168V36H132Z"
-                        fill="black"
-                      ></path>
-                    </svg>
-                  </div>
-                </a>
-              </div> */}
             </div>
-
-            {/* <div className="home-cover__label bottom-0 bg-white text-blue z-1 font-bold text-xl px-6 py-2"> */}
-            {/* THINK<span>2</span>MORROW */}
-            {/* CONTACT */}
-            {/* </div> */}
           </div>
         </div>
       </div>

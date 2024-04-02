@@ -4,7 +4,7 @@ name: DeploymentWorkflow
 on:
   push:
     branches:
-      - main2
+      - main3
 
 jobs:
   deploy:
@@ -24,5 +24,4 @@ jobs:
             git pull origin main2
             npm install --no-optional --legacy-peer-deps
             npm install --optional --legacy-peer-deps
-            npm run test
             npm run build

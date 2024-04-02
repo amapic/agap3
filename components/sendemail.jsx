@@ -81,7 +81,7 @@ export default function ContactUs() {
                       minWidth: "70px",
                       display: "inline-block",
                     }}
-                    for="form_sname"
+                    // for="form_sname"
                   >
                     Nom
                   </label>
@@ -95,7 +95,7 @@ export default function ContactUs() {
                       minWidth: "70px",
                       display: "inline-block",
                     }}
-                    for="form_ssubject"
+                    // for="form_ssubject"
                   >
                     Email
                   </label>
@@ -109,7 +109,7 @@ export default function ContactUs() {
                       minWidth: "70px",
                       display: "inline-block",
                     }}
-                    for="form_ssubject"
+                    // for="form_ssubject"
                   >
                     Sujet
                   </label>
@@ -131,7 +131,7 @@ export default function ContactUs() {
                   minHeight: "100px",
                 }}
               >
-                <label for="html_message" className="px-2 text-center">Message</label>
+                <label  className="px-2 text-center">Message</label>
                 <textarea
                   ref={Message}
                   name="html_message"

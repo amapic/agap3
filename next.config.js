@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+
+const withTM = require("next-transpile-modules")(["@kitware/vtk.js"]);
 const nextConfig = {
   reactStrictMode: false,
   images: {
@@ -7,6 +9,31 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  webpack: (config, { isServer }) => {
+    // If client-side, don't polyfill `fs`
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+        net: 'empty'
+      };
+    }
+    
+
+    // config.resolve = {
+    //   "extensions": [".web.js", ".js"]
+    // }
+
+    return config;
+  },
+//   webpack: (config, { isServer }) => {
+//     if (!isServer) {
+//         config.node = {
+//             net: 'empty'
+//         };
+//     }
+
+//     return config;
+// }
   // basePath:"/agap2"
 
   // exportPathMap: async function (defaultPathMap) {
@@ -18,6 +45,6 @@ const nextConfig = {
   // trailingSlash: true,
 };
 
-module.exports = nextConfig;
+module.exports = withTM(nextConfig);
 
 // export default nextConfig

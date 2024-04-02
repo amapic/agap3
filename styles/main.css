@@ -235,7 +235,9 @@ body {
 #bgCircle6,
 #bgCircle7,
 #bgCircle8, 
-#bgCircle9 
+#bgCircle9 ,
+#bgCircle10 ,
+#bgCircle11 
 {
   /* background-color: #0226aa; */
   background-color: rgb(31, 31, 31);
@@ -764,4 +766,14 @@ textarea {
   #formcontact{
     height: 55vh;
   }
+}
+
+#shrink_button{
+  position: absolute;
+  z-Index:100;
+  height: 7vh;
+  width: 7vh;
+  right:10vh;
+  top:20vh;
+  /* display: */
 }

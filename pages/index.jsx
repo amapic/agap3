@@ -1,24 +1,54 @@
 import Head from "next/head";
 // import { isMobile } from "react-device-detect";
 import dynamic from "next/dynamic";
-import React, { useEffect, Suspense } from "react";
-
+import React, { useEffect, Suspense, useState, lazy, useRef } from "react";
+import pMinDelay from "p-min-delay";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
+import { Provider } from "react-redux";
+import store from "../components/store";
 gsap.registerPlugin(MotionPathPlugin);
-// import { useMediaQuery } from "react-responsive";
-// import Header from "@/components/header2";
-const Screen4 = React.lazy(() => import("./../components/Screen4_bis"));
-const Screen6 = React.lazy(() => import("./../components/Screen6"));
-const Screen7 = React.lazy(() => import("./../components/Screen7"));
-const Screen8 = React.lazy(() => import("./../components/Screen8"));
-const Screen9 = React.lazy(() => import("./../components/Screen9"));
-import Screen1 from "./../components/Screen1";
-// import Screen4 from "./../components/Screen4_bis";
+import { useSelector } from "react-redux";
+
+const Screen4 = dynamic(() => import("./../components/Screen4_bis"), {
+  // loading: () => <p>Loading...</p>,
+});
+
+const Screen6 = dynamic(() => import("./../components/Screen6"), {
+  // loading: () => <p>Loading...</p>,
+});
+
+const Screen7 = dynamic(() => import("./../components/Screen7"), {
+  // loading: () => <p>Loading...</p>,
+});
+
+const Screen8 = dynamic(() => import("./../components/Screen8"), {
+  // loading: () => <p>Loading...</p>,
+});
+
+const Screen9 = dynamic(() => import("./../components/Screen9"), {
+  // loading: () => <p>Loading...</p>,
+});
+
+const Screen10 = lazy(() => pMinDelay(import("./../components/Screen10"), 1));
+
+// const Screen10 = dynamic(() => import("./../components/Screen10"), {
+// loading: () => <p>Loading...</p>,
+// });
+
+const Screen11 = lazy(() => pMinDelay(import("./../components/Screen11"), 1));
+
+// const Screen11 = dynamic(() => import("./../components/Screen11"), {
+// loading: () => <p>Loading...</p>,
+// });
+
+const Screen1 = dynamic(() => import("./../components/Screen1"), {
+  // loading: () => <p>Loading...</p>,
+});
+
+// import Screen1 from "./../components/Screen1";
 import Screen5 from "./../components/Screen5";
-// import Screen6 from "./../components/Screen6";
-// import Screen7 from "./../components/Screen7";
-// import Screen8 from "./../components/Screen8";
+
 const ScrollToTopFab = React.lazy(() => import("./../components/scrollToTop"));
 // import ScrollToTopFab from "../components/scrollToTop";
 const RightScrollMenu = React.lazy(() =>
@@ -29,10 +59,13 @@ const RightScrollMenu = React.lazy(() =>
 // import Formulaire from "../components/sendemail";
 const Formulaire = React.lazy(() => import("./../components/sendemail"));
 
+// import Aaa from "./../components/vtk/vtk";
+
 function Home() {
   let cursorWidth = "40";
   // const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   useEffect(() => {
+    // createStreamChat("dfhdf")
     // alert(window.innerHeight)
     // alert(window.innerHeight)//648
     // alert(window.innerWidth)//360
@@ -125,7 +158,7 @@ function Home() {
   return (
     <>
       <Head>
-        <title>Portfolio A.PICHAT</title>
+        <title>Site Web A.PICHAT</title>
       </Head>
 
       <>
@@ -147,26 +180,97 @@ function Home() {
         <Screen1 />
         <Suspense>
           <Screen4 />
-          <Screen7 />
-          <Screen8 />
-          <Screen9 />
-          <Screen6 />
-          
-          <RightScrollMenu />
-          <Formulaire />
-          </Suspense>
+        </Suspense>
+
+        <Suspense>
+          <Screen10 />
+        </Suspense>
+        <Suspense>
+          <Screen11 />
+        </Suspense>
+
        
+        <Suspense>
+          <Screen7 />
+        </Suspense>
+        <Suspense>
+          <Screen8 />
+        </Suspense>
+        <Suspense>
+          <Screen9 />
+        </Suspense>
+        <Suspense>
+          <Screen6 />
+        </Suspense>
+       
+
+        <RightScrollMenu />
+        <Formulaire />
+
+        {/* </Suspense> */}
       </>
     </>
   );
 }
 
-function SuspenseHome() {
+async function addFile(e) {
+  // if (!inputElement.current) return;
+  fetch("Aee.vtkjs.zip", { mode: "no-cors" })
+    // fetch("/vtk/Aee.vtkjs.zip",{mode: 'no-cors'})
+
+    .then((response) => response.blob())
+
+    .then((yy) => {
+      // console.log("rrr",yy)
+      setFileType({
+        file: yy,
+        type: "vtkjs",
+      });
+    });
+
+  // setFileType({
+  //         file: inputElement.current.files[0],
+  //         type: "vtkjs",
+  //       });
+}
+
+export function Home2() {
+  const [showFirstContent, setShowFirstContent] = useState("hidden");
+  // const score = useSelector((state) => state);
+  const count = useSelector((state) => state.counter.value);
+  const ref = useRef();
+
+  useEffect(() => {
+    var ll = document.getElementsByTagName("header");
+
+    for (var i = 0; i < ll.length; i++) {
+      ll[i].style.visibility = "hidden";
+    }
+  }, []);
+
+  useEffect(() => {
+    if (count > 4) {
+      ref.current.style.visibility = "visible";
+      var ll = document.getElementsByTagName("header");
+
+      for (var i = 0; i < ll.length; i++) {
+        ll[i].style.visibility = "visible";
+      }
+    }
+  }, [count]);
+
   return (
     <>
-      <Suspense fallback={<Loading />}>
+      {/* {count} */}
+      {count < 5 && <Loading />}
+      <div
+        ref={ref}
+        style={{
+          visibility: "hidden",
+        }}
+      >
         <Home />
-      </Suspense>
+      </div>
     </>
   );
 }
@@ -253,8 +357,28 @@ const Loading = () => {
     </div>
   );
 };
+export function SuspenseHome() {
+  return (
+    <>
+      <Suspense fallback={<Loading />}>
+        <Provider store={store}>
+          <Home2 />
+        </Provider>
+      </Suspense>
+    </>
+  );
+}
 // export default Loading;
 
-export default dynamic(() => Promise.resolve(SuspenseHome), {
-  ssr: true,
-});
+// export default async function Aa(){
+
+//   return(
+//     <Suspense fallback={<LoadingPage />}></Suspense>
+//   )
+// }
+
+// () => Promise.resolve(SuspenseHome), {
+//   ssr: true,
+// });
+
+export default dynamic(() => Promise.resolve(SuspenseHome), { ssr: false });

@@ -47,12 +47,13 @@ export default function RightText() {
         </p>
         <h3 className="text-3xl mb-8">
           Après avoir travaillé 7 années dans l'informatique, je me suis formé
-          en React.js pendant 1 an.
+          avec React.js, Vue.js et la représentation scientifique pendant 2 années.
+        
         </h3>
 
         <div className="mce w-full xl:w-2/3">
           <p>
-            Je suis prêt à présent à travailler avec React.js. Je souhaite
+            Je suis prêt à présent à travailler. Je souhaite
             travailler sur des projets ambitieux muni d'un design soigneux
           </p>
         </div>
