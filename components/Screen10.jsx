@@ -14,10 +14,7 @@ export default function Screen9() {
   let el = useRef();
 
   useEffect(() => {
-
     let ctx = gsap.context(() => {
-
-
       const mm = gsap.matchMedia();
       mm.add(
         {
@@ -28,14 +25,13 @@ export default function Screen9() {
         (c) => {
           var scrollSunTl = gsap.timeline({ invalidateOnRefresh: false });
 
-          //mouvement gén éral
           scrollSunTl.to("#container_move10", {
             scrollTrigger: {
               trigger: "#screen10",
-              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              start: "top top",
               end: "top+=100% bottom",
               toggleActions: "play none none reset",
-              // markers: true,
+
               scrub: 1,
               pin: "#container_move10",
             },
@@ -44,14 +40,14 @@ export default function Screen9() {
           scrollSunTl.to("#bgCircle10", {
             scrollTrigger: {
               trigger: "#screen10",
-              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              start: "top top",
               end: "top+=70% bottom",
               toggleActions: "play none none reset",
               scrub: 1,
             },
             transform: "scale(100)",
             transformOrigin: "center",
-            // left: "-20vw",
+
             borderRadius: "10px",
           });
         }
@@ -70,7 +66,6 @@ export default function Screen9() {
           zIndex: "10",
           overflow: "hidden",
         }}
-
         ref={zoom}
       >
         <div
@@ -82,7 +77,6 @@ export default function Screen9() {
 
             <Ttext39 />
             <div
-              // className="bg-blue"
               id="bgCircle10"
               style={{
                 left: "0vw",

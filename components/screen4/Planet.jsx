@@ -21,7 +21,7 @@ const PC = (props, ref) => {
   const refFloppy1 = useRef(null);
   const refFloppy2 = useRef(null);
 
-  // const oldScrollY = useRef(0);
+  
   const rotationSpeed = useRef(0.005);
 
   useEffect(() => {
@@ -32,18 +32,18 @@ const PC = (props, ref) => {
   }, []);
 
   const controlDirection = (e) => {
-    // rotationSpeed.current = 0.03;
+    
   };
 
-  // var cumulDelta = useRef(0);
+  
   useFrame(({ clock }) => {
     if (refFloppy1.current) {
       if (
         refFloppy1.current.position.x == 0.001 
-        // ||
-        // ref.current.rotation.y != Math.PI / 4 - Math.PI / 2 - Math.PI / 16
+        
+        
       ) {
-        // console.log("rr");
+        
         if (rotationSpeed.current >= 0.005) {
           rotationSpeed.current -= 0.005;
         } else {
@@ -54,21 +54,21 @@ const PC = (props, ref) => {
         }
       }
     }
-    // rotationSpeed.current = 0.005;
-    // refLoc.current.rotation.y = 6;
-    // refLoc.current.rotation.y= 0.005;
-    // if (rotationSpeed.current >= 0.009) {
-    //   rotationSpeed.current -= 0.009;
-    // } else {
-    //   rotationSpeed.current = 0.009;
-    // }
-    // if (refLoc.current) {
-    // refLoc.current.rotation.y += rotationSpeed.current;
-    // }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   });
 
   return (
-    // <></>
+    
     <group ref={refLoc}>
       <group
         ref={ref}
@@ -104,7 +104,7 @@ const PC = (props, ref) => {
   );
 };
 
-const PlaneteBis = forwardRef(PC); //erreur si forward ref mis directement au début de <Planete />
+const PlaneteBis = forwardRef(PC); 
 
 const CanvasPlanete = () => {
 
@@ -113,18 +113,18 @@ const CanvasPlanete = () => {
     } else {
       let ctx = gsap.context(() => {
         var scrollSunTl = gsap.timeline();
-        // console.log("color", node.children[0].material.color);
+        
         ScrollTrigger.create({
           trigger: "#main",
-          // endTrigger: ".screen6",
-          start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+          
+          start: "top top", 
           end: "bottom-=10% bottom",
-          // end: "+=200",
+          
           toggleActions: "play pause resume reset",
-          // markers: true,
+          
           scrub: 3,
           animation: scrollSunTl,
-          // pin: "#canvas",
+          
         });
 
   
@@ -136,7 +136,7 @@ const CanvasPlanete = () => {
             y: 1,
             z: 1,
           }
-          // "-=0.9"
+          
         );
 
 
@@ -163,34 +163,34 @@ const CanvasPlanete = () => {
       });
       return () => ctx.revert();
     }
-  }, []); // adjust deps
+  }, []); 
 
   return (
-    // className="relative container-main w-full rg:w-1/2 py-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2"
+    
     <div
       id="main"
       style={{
         zIndex:"40",
-        // height: "300vh",
+        
         overflow: "hidden",
         position: "relative",
-        // width: "100%",
+        
       }}
     >
       <div
         id="canvas"
-        // style={{
-        //   height: "100vh",
-        //   overflow: "hidden",
-        //   position: "absolute",
-        //   left: "0vh",
-        //   width: "40vw",
-        //   zIndex: "50",
-        // }}
+        
+        
+        
+        
+        
+        
+        
+        
         style={{
           height: "40vh",
           overflow: "hidden",
-          // position: "absolute",
+          
           left: "0vh",
           bottom:"0vh",
           width: "100vw",

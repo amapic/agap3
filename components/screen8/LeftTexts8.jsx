@@ -28,19 +28,14 @@ export default function Ttext37() {
               margin: "0 30vw 0 30vw",
               width: "40vw",
               opacity: "0",
-              // alignSelf: "center",
-              // padding:"auto"
-              // position:"fixed"
+           
             },
             {
               top: "35vh",
               margin: "0 30vw 0 30vw",
               width: "40vw",
               opacity: "1",
-              // alignSelf: "center",
-              // padding:"auto",
-              // width:"50%"
-              // position:"fixed"
+              
             }
           );
         }
@@ -86,9 +81,7 @@ export default function Ttext37() {
     return () => ctx.revert();
   });
 
-  function followlink() {
-    window.open("https://amaurypichat.fr/planet/index.html", "_blank");
-  }
+  
   return (
     <div
       id="texte_bas_38"
@@ -110,7 +103,6 @@ export default function Ttext37() {
             <ul>
               <li
                 className="effet_perso flex justify-center text-center"
-                onClick={followlink}
               >
                 <a href="https://amaurypichat.fr/planet/index.html">
                   Voir la réalisation

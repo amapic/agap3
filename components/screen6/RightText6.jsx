@@ -6,42 +6,42 @@ export default function RightText6() {
   useEffect(() => {
     let ctx = gsap.context(() => {
       var scrollSunTl = gsap.timeline();
-      // console.log("color", node.children[0].material.color);
+      
       ScrollTrigger.create({
         trigger: "#main6",
-        // endTrigger: ".screen6",
-        start: "top+=10% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=10% top", 
         end: "bottom-=10% bottom",
-        // end: "+=200",
+        
         toggleActions: "play pause resume reset",
-        // markers: true,
+        
         scrub: 3,
         animation: scrollSunTl,
-        // pin: "#canvas",
+        
       });
 
-      // gsap.to("#tech17", {
-      //   scrollTrigger: "#tech17", // start the animation when ".box" enters the viewport (once)
-      //   backgroundImage: `url("../../ezgif.com-speed (2).gif")`,
-      //   backgroundSize: "cover",
-      //   markers: true,
-      // });
+      
+      
+      
+      
+      
+      
 
-      // gsap.to("#tech27", {
-      //   scrollTrigger: "#tech27", // start the animation when ".box" enters the viewport (once)
-      //   backgroundImage: `url("../../ezgif.com-speed (2).gif")`,
-      //   backgroundSize: "cover",
-      //   markers: true,
-      // });
+      
+      
+      
+      
+      
+      
     });
     return () => ctx.revert();
   });
   return (
-    // <div id="screen4PartieDroite">
+    
     <div
       id="screen6PartieDroite"
       className="relative container-main w-full h-screen-1/2 rg:h-full rg:w-1/2 py-6  rg:py-10 pr-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2 rg:text-start text-center"
-      // rg:w-1/2
+      
     >
       <div className="js-home-gl-text home-numbers__wrap backface-hidden rg:text-start">
         <h2
@@ -67,7 +67,7 @@ export default function RightText6() {
           Technologies utilisées:
           <ul className="md:ml-24">
             <li
-              // <img classname="ttttick" src="../../tick.gif" />
+              
               className="px-6 py-1 min-h-32"
             >
               <br />
@@ -92,6 +92,6 @@ export default function RightText6() {
         </h3>
       </div>
     </div>
-    // </div>
+    
   );
 }

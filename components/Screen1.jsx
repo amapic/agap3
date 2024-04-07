@@ -2,8 +2,6 @@ import React, { useRef, useEffect, useState, Suspense } from "react";
 import { gsap } from "gsap";
 import dynamic from "next/dynamic";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
-// import Aaa from "./vtk/scene";
-
 const ModelVtk = dynamic(() => import("./vtk/vtk"), {
   loading: () => <p>Loading...</p>,
 });
@@ -14,18 +12,15 @@ function VSCode() {
     let elements = Array.prototype.slice.call(
       document.getElementById("code_contain").children
     );
-
     elements.forEach((element, i) => {
       if (i > 6) {
         gsap.to(element, 0, {
           x: 100 * Math.cos(-Math.PI / 2) + "vh",
           y: 100 * Math.sin(Math.PI / 2) + "vw",
           ease: "none",
-          // visibility:"none"
         });
       }
     });
-
     elements.forEach((element, i) => {
       if (i == 2 || i == 12) {
         var rect = element.getBoundingClientRect();
@@ -33,124 +28,104 @@ function VSCode() {
         tl.to(element, 10 + 2 * Math.random(), {
           motionPath: {
             path: [
-              // { x: "0vh", y: "0vh" },
               { x: "-40vw", y: "10vh" },
               { x: "-10vw", y: "70vh" },
               { x: "0vh", y: "0vw" },
-            ], // you probably want more points here...or just use an SVG <path>!
+            ],
           },
           ease: "none",
         });
       }
-
       if (i == 3 || i == 6 || i == 13) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 10 + 2 * Math.random(), {
           motionPath: {
             path: [
-              // { x: "0vh", y: "0vh" },
               { x: "-10vw", y: "30vh" },
               { x: "-10vw", y: "70vh" },
               { x: "0vh", y: "0vw" },
-            ], // you probably want more points here...or just use an SVG <path>!
+            ],
           },
           ease: "none",
         });
       }
-
       if (i == 4 || i == 8 || i == 1 || i == 14) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 15 + 4 * Math.random(), {
           motionPath: {
             path: [
-              // { x: "0vh", y: "0vh" },
               { x: "10vw", y: "30vh" },
               { x: "-10vw", y: "10vh" },
               { x: "-10vw", y: "-20vh" },
               { x: "0vh", y: "0vw" },
-            ], // you probably want more points here...or just use an SVG <path>!
+            ],
           },
           ease: "none",
-          // clearProps: 'all'
         });
       }
-
       if (i == 9 || i == 7) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 30 + 4 * Math.random(), {
           motionPath: {
             path: [
-              // { x: "0vh", y: "0vh" },
               { x: "10vw", y: "10vh" },
               { x: "0vw", y: "10vh" },
               { x: "-50vw", y: "20vh" },
               { x: "-50vw", y: "-10vh" },
               { x: "0vh", y: "0vw" },
-            ], // you probably want more points here...or just use an SVG <path>!
+            ],
           },
           ease: "none",
-          // clearProps: 'all'
         });
       }
-
       if (i == 5 || i == 10 || i == 16) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 15 + 4 * Math.random(), {
           motionPath: {
             path: [
-              // { x: "0vh", y: "0vh" },
               { x: "10vw", y: "10vh" },
               { x: "-10vw", y: "10vh" },
               { x: "-10vw", y: "-20vh" },
               { x: "0vh", y: "0vw" },
-            ], // you probably want more points here...or just use an SVG <path>!
+            ],
           },
           ease: "none",
-          // clearProps: 'all'
         });
       }
-
       if (i == 11 || i == 15) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 20 + 4 * Math.random(), {
           motionPath: {
             path: [
-              // { x: "0vh", y: "0vh" },
               { x: "-50vw", y: "10vh" },
               { x: "60vw", y: "-10vh" },
               { x: "-50vw", y: "-20vh" },
               { x: "0vh", y: "0vw" },
-            ], // you probably want more points here...or just use an SVG <path>!
+            ],
           },
           ease: "none",
-          // clearProps: 'all'
         });
       }
-
       if (i == 0 || i == 6 || i == 17) {
         var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 10 + 4 * Math.random(), {
           motionPath: {
             path: [
-              // { x: "0vh", y: "0vh" },
               { x: "10vw", y: "10vh" },
               { x: "-10vw", y: "70vh" },
               { x: "0vh", y: "0vw" },
-            ], // you probably want more points here...or just use an SVG <path>!
+            ],
           },
           ease: "none",
-          // clearProps: 'all'
         });
         tl.play();
       }
-
-      // }
     });
   }, []);
   return (
@@ -161,9 +136,6 @@ function VSCode() {
       <div className="">
         <span className="vscode_rose">{"import "}</span>
         <span>React</span>{" "}
-        {/* <span className="vscode_jaune">{"{"}</span>
-        <span>useRef, useEffect, useState, useLayoutEffect</span>
-  <span className="vscode_jaune">{"}"}</span>{" "}*/}
         <span className="vscode_rose">{"from"}</span>
         <span className="vscode_orange"> "react"</span>
       </div>
@@ -200,8 +172,7 @@ function VSCode() {
       <div>
         <span className="vscode_jaune">{"}"}</span>
       </div>
-      {/* <div></div> */}
-      {/* const App = () => { */}
+      {}
       <div>
         const App
         <span className="vscode_blanc">=</span>
@@ -210,7 +181,7 @@ function VSCode() {
         <span className="vscode_jaune">{"{"}</span>
       </div>
       <div>
-        {/* const defaultPosts: IPost[] = []; */}
+        {}
         <span className="code_space">
           const defaultPosts<span className="vscode_blanc">:</span>{" "}
           <span className="vscode_vert">IPost</span>
@@ -218,7 +189,6 @@ function VSCode() {
           <span className="vscode_jaune">[]</span>;
         </span>
       </div>
-
       <div className="mini:overflow-x-hidden ">
         <span className="code_space">
           const <span className="vscode_rose">{"["}</span> posts,
@@ -251,10 +221,7 @@ function VSCode() {
         <span className="code_space vscode_rose">{")"}</span>;
       </div>
       <div className="hidden md:block">
-        {/* const [loading, setLoading]: [
-    boolean,
-    (loading: boolean) => void
-  ] = React.useState<boolean>(true); */}
+        {}
         <span className="code_space">
           const <span className="vscode_rose">{"["}</span> loading,{" "}
           <span className="vscode_jaune">setLoading</span>{" "}
@@ -288,18 +255,6 @@ function VSCode() {
         true
         <span className="vscode_rose">{")"}</span>
       </div>
-
-      {/* return (
-    <div className="App">
-      {loading && <button onClick={handleCancelClick}>Cancel</button>}
-      <ul className="posts">
-        {posts.map((post) => (
-          <li key={post.id}>
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-          </li>
-        ))}
-      </ul> */}
       <div className="code_space">
         <span className="vscode_rose">{"return ("}</span>
       </div>
@@ -391,146 +346,48 @@ function VSCode() {
       </div>
       <div className="code_space">
         <span className="vscode_rose">{")"}</span>
-        {/* <span className="vscode_jaune">{"}"}</span> */}
       </div>
       <div className="">
         <span className="vscode_jaune">{"}"}</span>
       </div>
-
-      {/* */}
-      {/* <p>{post.body}</p> */}
-
-      {/* */}
-
-      {/* <ul className="posts"></ul> */}
-
-      {/* <span > {loading && <button onClick={handleCancelClick}>Cancel</button>} </span>
-        </span>
-          </span>
-          {"<div className="} </span>
-        <span className="vscode_orange">{"App"} </span>
-         && <button onClick={handleCancelClick}>Cancel</button>}
-        {">"}
-      </div> */}
-
-      {/* function getUsers(): Promise<User[]> { */}
-      {/* <div>
-        function <span>getUsers</span>
-        <span className="vscode_jaune">()</span>
-        <span className="vscode_blanc">:</span>{" "}
-        <span className="vscode_vert">Promise</span>
-        {"<"}
-        <span className="vscode_vert">User</span>
-        <span className="vscode_jaune">[]</span>
-        {">"}
-      </div> 
-
-      <div></div>
-      <div>
-        <span className="vscode_rose">{"const "}</span>
-        <span>FirstComponent</span>
-        <span className="vscode_rose">:</span>{" "}
-        <span className="vscode_vert">{"React.FC"}</span>
-        <span className="vscode_blanc">{"<"}</span>
-        <span className="vscode_jaune">{"{"}</span>
-        <span className="vscode_jaune">{"}"}</span>
-        <span className="vscode_blanc">{">"}</span>{" "}
-        <span className="vscode_blanc">{"="}</span>{" "}
-        <span className="vscode_jaune">{"("}</span>
-        <span className="vscode_jaune">{")"}</span> <span>{"=>"}</span>{" "}
-        <span className="vscode_jaune">{"{"}</span>{" "}
-      </div>
-      <div>
-        <span className="vscode_rose code_space">{"return ("}</span>
-      </div>
-      <div>
-        <span className="vscode_rose code_space" />
-        <span className="vscode_rose code_space">{"<div>"}</span>
-      </div>
-
-      <div>
-        <span className="vscode_rose code_space" />
-        <span className="vscode_rose code_space" />
-        <span className="vscode_rose code_space">{"<h3>"}</span>
-        <span className="">Liste des utilisateurs connectés</span>
-        <span className="vscode_rose ">{"</h3>"}</span>
-      </div>
-
-      <div>
-        <span className="vscode_rose code_space" />
-        <span className="vscode_rose code_space">{"</div>"}</span>
-      </div>
-      <div>
-        <span className="vscode_rose code_space">{");"}</span>
-      </div>
-      <div>
-        <span className="vscode_rose">{"};"}</span>
-      </div>
-      <div></div>
-      <div>
-        <span className="vscode_rose code_space2">
-          {"export default FirstComponent;"}
-        </span>
-      </div>*/}
+      {}
+      {}
     </div>
   );
 }
-
 export default function Screen1() {
   const ref = useRef(null);
-  const [hoverr, setHover] = useState("");
   const clicked = useRef(false);
   const animated = useRef(false);
   const mouse_pos = useRef([]);
-
-  const x = useRef(0);
-  const y = useRef(0);
-
   useEffect(() => {
     var tl2 = gsap.timeline({ repeat: -1 });
-
     tl2.to(
       "#shrink_button",
       0.2,
-
       {
         scale: 1.5,
       },
-	  3
+      3
     );
-
-    tl2.to(
-      "#shrink_button",
-      0.2,
-      {
-        scale: 1,
-      },
-
-    );
-	
-	tl2.to(
-      "#shrink_button",
-	  1,
-       {rotation:360, transformOrigin:"center center"}
-
-    );
-
+    tl2.to("#shrink_button", 0.2, {
+      scale: 1,
+    });
+    tl2.to("#shrink_button", 1, {
+      rotation: 360,
+      transformOrigin: "center center",
+    });
     tl2.play();
-
-    // var leaveAnimation;
     document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
       if (!clicked.current && ref.current && !animated.current) {
         ref.current.style.setProperty(
           "clip-path",
           "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
         );
-
         gsap.killTweensOf("#div_clip_path");
       }
-
       mouse_pos.current = [e.pageX, e.pageY];
     });
-
     document.querySelector(".home-cover").addEventListener("mouseleave", () => {
       if (!clicked.current && !animated.current) {
         gsap.to("#div_clip_path", {
@@ -540,10 +397,8 @@ export default function Screen1() {
         });
       }
     });
-
     function redresseCode2(event) {
       let myElement = document.getElementById("code_contain");
-
       let i = 0;
       for (const child of myElement.children) {
         i = i + 1;
@@ -556,17 +411,15 @@ export default function Screen1() {
         });
       }
     }
-
     document
       .querySelector("#shrink_button")
       .addEventListener("click", (event) => {
-		  // console.log("aa")
         if (clicked.current) {
-			event.stopPropagation()
+          event.stopPropagation();
           var clipPath = ref.current.style.getPropertyValue("clip-path");
-
           if (clipPath) {
             gsap.killTweensOf("#div_clip_path");
+            gsap.to("#shrink_button", { duration: 1, opacity: 0 });
             let height = window.innerHeight,
               width = window.innerWidth;
             let dim = "vw";
@@ -582,30 +435,23 @@ export default function Screen1() {
               "px " +
               mouse_pos.current[1] +
               "px)";
-			setTimeout(clicked.current = false,500)
-            
-
+            setTimeout((clicked.current = false), 500);
             var tl = gsap.timeline();
-
             tl.to(
               "#div_clip_path",
               {
-                duration: 0.2,
+                duration: 1,
                 ease: "power2",
                 clipPath: clipPath1,
               },
               0
             );
-
-            // tl.play()
           }
         }
       });
-
     document.querySelector(".home-cover").addEventListener("click", (event) => {
-      // console.log("ee",event)
       if (!clicked.current) {
-		  // console.log("bb")
+        gsap.to("#shrink_button", { duration: 1, opacity: 1 });
         var clipPath = ref.current.style.getPropertyValue("clip-path");
         if (clipPath) {
           let height = window.innerHeight,
@@ -614,16 +460,12 @@ export default function Screen1() {
           if (height > width) {
             dim = "vh";
           }
-          // redresseCode2(event);
           let clipPath1 = clipPath.split("at");
           clipPath1 = "circle(100" + dim + " at " + clipPath1[1];
           let clipPath2 = clipPath.split("at");
           clipPath2 = "circle(15" + dim + " at " + clipPath2[1];
-
           clicked.current = true;
-
           var tl = gsap.timeline();
-
           tl.to(
             "#div_clip_path",
             {
@@ -651,93 +493,69 @@ export default function Screen1() {
             },
             ">"
           );
-
-          // tl.play()
         }
       }
-
-      // clicked.current = !clicked.current
     });
   }, []);
-
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // let q = document.querySelector(".line:nth-child(1) .word:nth-child(1)");
-
       function q(x) {
         return document.querySelectorAll(x);
       }
-
       gsap.from(
         q(
           "#div_clip_path .home-cover__content .line:nth-child(1) .word:nth-child(1)"
         ),
         {
-          // backgroundColor: "red",
           y: "-30px",
           duration: "1",
           ease: "linear",
         },
         0
       );
-
       let div = document.getElementById("screen1");
       let wwidth = window.screen.width;
-
-      // alert(wwidth)
-
       for (let step = 0; step < 10; step++) {
         let paragraph = document.createElement("p");
         paragraph.classList.add("ccode");
         paragraph.classList.add("my-1");
-
         paragraph.textContent = "Hello, world!";
         paragraph.style.top = (50 + step * 50).toString() + "px";
         paragraph.style.left = (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        // div.appendChild(paragraph);
       }
-
       for (let step = 0; step < 10; step++) {
         let paragraph = document.createElement("p");
         paragraph.classList.add("ccode");
         paragraph.classList.add("my-1");
-
         paragraph.textContent = "Hello, world!";
         paragraph.style.top = (50 + step * 50).toString() + "px";
         paragraph.style.left = 2 * (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        // div.appendChild(paragraph);
       }
-
       for (let step = 0; step < 10; step++) {
         let paragraph = document.createElement("p");
         paragraph.classList.add("ccode");
         paragraph.classList.add("my-1");
-
         paragraph.textContent = "Hello, world!";
         paragraph.style.top = (50 + step * 50).toString() + "px";
         paragraph.style.left = 3 * (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        // div.appendChild(paragraph);
       }
-
       for (let step = 0; step < 10; step++) {
         let paragraph = document.createElement("p");
         paragraph.classList.add("ccode");
         paragraph.classList.add("my-1");
-
         paragraph.textContent = "Hello, world!";
         paragraph.style.top = (50 + step * 50).toString() + "px";
         paragraph.style.left = 4 * (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
-        // div.appendChild(paragraph);
       }
     });
-
     return () => ctx.revert();
   });
-
+  useEffect(() => {
+  }, []);
   return (
     <>
       <div
@@ -745,9 +563,8 @@ export default function Screen1() {
         style={{
           backgroundColor: "rgb(0,0,0)",
         }}
-        className={hoverr + " home-cover relative w-full h-screen z-100 "}
+        className={" home-cover relative w-full h-screen z-100 "}
       >
-        
         <div className="bg_grey home-cover__wrapper relative w-full cursor-pointer overflow-hidden js-cover">
           <div
             id="div_clip_path"
@@ -767,12 +584,10 @@ export default function Screen1() {
                 <div className="flex items-center h-full">
                   <a
                     id="AP_Hidden"
-                    // href="https://www.agap2.fr"
                     className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5"
                   >
                     Amaury PICHAT
                   </a>
-
                   <div className="flex items-stretch categories__wrap pointer-events-none transition-opacity duration-1000 ease-out-quad opacity-0 js-departments">
                     <div
                       className="px-3 sm:px-4 py-2 flex items-center cursor-pointer border-t border-b active border-l rounded-l-full"
@@ -789,7 +604,6 @@ export default function Screen1() {
                           ></path>
                         </svg>
                       </div>
-
                       <p className="text-sm md:text-base">industrie</p>
                     </div>
                     <div
@@ -814,27 +628,22 @@ export default function Screen1() {
                             y1="5.64"
                             x2="11.08"
                             y2="11.64"
-                            // style="fill:none;stroke:#2a2a2a"
                             className="is-stroke"
                           ></line>
                           <path
                             d="M15.38,7l3,1.81-3,1.72"
-                            // style="fill:none;stroke:#2a2a2a"
                             className="is-stroke"
                           ></path>
                           <path
                             d="M9.34,7l-3,1.81,3,1.72"
-                            // style="fill:none;stroke:#2a2a2a"
                             className="is-stroke"
                           ></path>
                         </svg>
                       </div>
-
                       <p className="text-sm md:text-base">IT</p>
                     </div>
                   </div>
                 </div>
-
                 <div className="container-main-r rg:hidden">
                   <div className="hamburger ml-auto w-6">
                     <span></span>
@@ -842,7 +651,6 @@ export default function Screen1() {
                     <span></span>
                   </div>
                 </div>
-
                 <nav className="header__menu px-4 rg:px-3 lg:px-4 xl:px-8 flex items-center hidden rg:flex">
                   <ul className="flex rg:mr-6 lg:mr-10 xl:mr-32">
                     <li
@@ -853,8 +661,6 @@ export default function Screen1() {
                         href="https://www.linkedin.com/in/amaurypichat/"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        {/* <span className="span_image h-full"><img src="./../cv_blanc.png"/></span> */}
-                        {/* </img> */}
                         Linkedin
                       </a>
                     </li>
@@ -878,16 +684,10 @@ export default function Screen1() {
                 </nav>
               </div>
             </header>
-
-            {/* <div> */}
-            {/* <div id="rrrj" className="h-full w-full flex flex-col md:flex-row"> */}
-            {/* <VSCode /> */}
-            <ModelVtk  />
-			<div id="shrink_button">
-          <img src="b (2).png" />
-        </div>
-			
-
+            <ModelVtk />
+            <div id="shrink_button">
+              <img src="b (2).png" alt="reduirefond"/> 
+            </div>
             <div
               id="main_content_zone1_hidden"
               className="hidden bg-black home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0"
@@ -913,59 +713,22 @@ export default function Screen1() {
               >
                 <div
                   className="w-max-content md:w-1/2 text-2xl md:text-3xl  text-green tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
-                  style={
-                    {
-                      // fontFamily:"chalkboy"
-                    }
-                  }
+                  style={{}}
                 >
-                  <div
-                    className="line"
-                    // style="display: block; text-align: right; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word "
-                    >
-                      {/* The */}
-                    </div>
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word"
-                    >
-                      Développeur React.js
-                    </div>
+                  <div className="line">
+                    <div className="word ">{}</div>
+                    <div className="word">Développeur React.js et Web 3D</div>
                   </div>
-                  <div
-                    className="line"
-                    // style="display: block; text-align: right; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word text-white"
-                    >
-                      En Recherche d'emploi
-                    </div>
+                  <div className="line">
+                    <div className="word text-white">En Recherche d'emploi</div>
                   </div>
-                  <div
-                    className="line"
-                    // style="display: block; text-align: right; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word text-xl md:text-2xl xl:text-3-5xl"
-                    >
+                  <div className="line">
+                    <div className="word text-xl md:text-2xl xl:text-3-5xl">
                       06 88 91 80 19
                     </div>
                   </div>
-                  <div
-                    className="line text-xl md:text-2xl xl:text-3-5xl"
-                    // style="display: block; text-align: right; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word pb-2 text-white"
-                    >
+                  <div className="line text-xl md:text-2xl xl:text-3-5xl">
+                    <div className="word pb-2 text-white">
                       amaury.pichat@gmail.com
                     </div>
                   </div>
@@ -973,30 +736,19 @@ export default function Screen1() {
                 <div
                   className="home-cover__you absolute md:relative md:right-0 md:top-0 md:-mt-4 lg:-mt-8 md:ml-auto pl-12 md:pr-10 lg:pr-24 xl:pr-40 md:pl-12 w-auto text-5xl md:text-6xl xl:text-9xl text-yellow js-tosplit"
                   data-cartapus="visible"
-                  // style=""
                 >
-                  <div
-                    className="line"
-                    // style="display: block; text-align: start; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word"
-                    >
-                      {/* you */}
-                    </div>
+                  <div className="line">
+                    <div className="word">{}</div>
                   </div>
                 </div>
               </h1>
             </div>
           </div>
-
           <div className="w-full h-full " id="part2">
-            {/* vscode_grey */}
+            {}
             <header
               id="header_part2"
               className="header fixed flex items-center w-full opacity-0 invisible rg:opacity-100 rg:visible z-20"
-              // style="--header-bg-color: var(--color-transparent); --header-text-color: var(--color-brown);"
               data-text-color="brown"
               style={{
                 backgroundColor: "var(--color-transparent)",
@@ -1008,7 +760,6 @@ export default function Screen1() {
                   <a className="font-weight600 text-2xl header__logo flex items-center justify-center h-full container-main-l rg:px-8 bg-white mr-2 sm:mr-5">
                     Amaury PICHAT
                   </a>
-
                   <div className="flex items-stretch categories__wrap pointer-events-none transition-opacity duration-1000 ease-out-quad opacity-0 js-departments">
                     <div
                       className="px-3 sm:px-4 py-2 flex items-center cursor-pointer border-t border-b active border-l rounded-l-full"
@@ -1025,7 +776,6 @@ export default function Screen1() {
                           ></path>
                         </svg>
                       </div>
-
                       <p className="text-sm md:text-base">industrie</p>
                     </div>
                     <div
@@ -1050,27 +800,22 @@ export default function Screen1() {
                             y1="5.64"
                             x2="11.08"
                             y2="11.64"
-                            // style="fill:none;stroke:#2a2a2a"
                             className="is-stroke"
                           ></line>
                           <path
                             d="M15.38,7l3,1.81-3,1.72"
-                            // style="fill:none;stroke:#2a2a2a"
                             className="is-stroke"
                           ></path>
                           <path
                             d="M9.34,7l-3,1.81,3,1.72"
-                            // style="fill:none;stroke:#2a2a2a"
                             className="is-stroke"
                           ></path>
                         </svg>
                       </div>
-
                       <p className="text-sm md:text-base">IT</p>
                     </div>
                   </div>
                 </div>
-
                 <div className="container-main-r rg:hidden">
                   <div className="hamburger ml-auto w-6">
                     <span></span>
@@ -1078,7 +823,6 @@ export default function Screen1() {
                     <span></span>
                   </div>
                 </div>
-
                 <nav className="header__menu px-4 rg:px-3 lg:px-4 xl:px-8 flex items-center hidden rg:flex">
                   <ul className="flex rg:mr-6 lg:mr-10 xl:mr-32">
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
@@ -1109,77 +853,41 @@ export default function Screen1() {
                 </nav>
               </div>
             </header>
-
             <div
               id="main_content_zone1_not_hidden"
               className="home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10"
-              // bg_grey home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0 z-10
             >
               <h1 className="font-black flex flex-wrap items-start w-full">
                 <div
                   className="w-max-content md:w-1/2 text-2xl md:text-3xl  text-blue tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
-                  // w-max-content md:w-1/2 text-3xl md:text-3xl xl:text-5xl text-yellow tracking-normal md:text-right pr-6 md:pr-12 js-tosplit
                   data-cartapus="visible"
-                  // style=""
                 >
-                  <div
-                    className="line"
-                    // style="display: block; text-align: right; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word "
-                    >
-                      {/* The */}
-                    </div>
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word"
-                    >
-                      Développeur React.js
-                    </div>
+                  <div className="line">
+                    <div className="word ">{}</div>
+                    <div className="word">Développeur React.js et Web 3D</div>
+                  </div>
+                  <div className="line">
+                    <div className="word">En Recherche d'emploi</div>
                   </div>
                   <div
                     className="line"
-                    // style="display: block; text-align: right; position: relative;"
                   >
                     <div
-                      // style="position:relative;display:inline-block;"
-                      className="word"
-                    >
-                      En Recherche d'emploi
-                    </div>
-                  </div>
-                  <div
-                    className="line"
-                    // style="display: block; text-align: right; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
                       className="word text-xl md:text-2xl xl:text-3-5xl"
                     >
                       06 88 91 80 19
                     </div>
                   </div>
-                  <div
-                    className="line text-xl md:text-2xl xl:text-3-5xl"
-                    // style="display: block; text-align: right; position: relative;"
-                  >
-                    <div
-                      // style="position:relative;display:inline-block;"
-                      className="word pb-2"
-                    >
-                      amaury.pichat@gmail.com
-                    </div>
+                  <div className="line text-xl md:text-2xl xl:text-3-5xl">
+                    <div className="word pb-2">amaury.pichat@gmail.com</div>
                   </div>
                 </div>
-
                 <div
                   className="home-cover__you absolute md:relative md:right-0 md:top-0 md:-mt-4 lg:-mt-8 md:ml-auto pl-12 md:pr-10 lg:pr-24 xl:pr-40 md:pl-12 w-auto text-5xl md:text-6xl xl:text-9xl text-yellow js-tosplit"
                   data-cartapus="visible"
                 >
                   <div className="line">
-                    <div className="word">{/* you */}</div>
+                    <div className="word">{}</div>
                   </div>
                 </div>
               </h1>
@@ -1190,5 +898,3 @@ export default function Screen1() {
     </>
   );
 }
-
-// export default <Suspense ><Screen1 /></Suspense>;

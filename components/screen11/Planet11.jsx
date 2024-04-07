@@ -111,7 +111,7 @@ const CanvasImage = () => {
         (c) => {
           var scrollSunTl = gsap.timeline();
           ScrollTrigger.create({
-            trigger: "#main8",
+            trigger: "#main11",
             // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",

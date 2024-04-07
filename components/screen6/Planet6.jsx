@@ -3,7 +3,6 @@ import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-// import { SphereGeometry } from "three";
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -107,11 +106,7 @@ const PC = (props, ref) => {
 const PlaneteBis = forwardRef(PC); //erreur si forward ref mis directement au début de <Planete />
 
 const CanvasPlanete = () => {
-  // let ColorYellow = window
-  //   .getComputedStyle(document.documentElement)
-  //   .getPropertyValue("--color-yellow");
 
-  // console.log(ColorYellow);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -119,23 +114,16 @@ const CanvasPlanete = () => {
       mm.add(
         {
           isSmall: "(max-width: 999px)",
-          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
-          // isXLarge: "(min-width: 1301px)",
         },
         (c) => {
           var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
             trigger: "#main6",
-            // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
-            // end: "+=200",
             toggleActions: "play pause resume reset",
-            // markers: true,
             scrub: 3,
             animation: scrollSunTl,
-            // pin: "#canvas",
           });
 
 
@@ -158,26 +146,18 @@ const CanvasPlanete = () => {
         }
       );
       mm.add(
-        // mm.add(
         {
           isSmall: "(min-width: 1000px)",
-          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
-          // isXLarge: "(min-width: 1301px)",
         },
         (c) => {
           var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
             trigger: "#main6",
-            // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
-            // end: "+=200",
             toggleActions: "play pause resume reset",
-            // markers: true,
             scrub: 3,
             animation: scrollSunTl,
-            // pin: "#canvas",
           });
           scrollSunTl.fromTo(
             "#canvas6",
@@ -219,8 +199,6 @@ const CanvasPlanete = () => {
           justifyContent: "center",
         }}
       >
-        {/* <div
-        className="relative h-full"> */}
         <a href="https://amaurypichat.fr/siteWeb1/index.html" className="img_site hidden lg:block">
           <img
             style={{
@@ -230,7 +208,6 @@ const CanvasPlanete = () => {
           ></img>
         </a>
 
-        {/* </div> */}
       </div>
     </div>
   );

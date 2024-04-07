@@ -5,7 +5,6 @@ export default function Ttexte() {
       <div className="flex flex-col md:flex-row items-center md:items-end justify-center md:justify-end">
         <h2
           className="home-zoom__subtitle home-zoom__subtitle--top md:hidden text-white backface-hidden opacity-0 js-zoom-subtitle-mobile"
-          //   style="opacity: 1; transform: translate(0px, 0px);"
         >
           {" "}
           Aéronautique, Spatial et Défense
@@ -15,7 +14,6 @@ export default function Ttexte() {
           <p
             id="vingt"
             className="text-3-5xl font-bold opacity-0 backface-hidden"
-            // style="transform: translate(0px, 0px); opacity: 1;"
           >
             06
           </p>
@@ -23,14 +21,12 @@ export default function Ttexte() {
             <p
               id="postes"
               className="text-2xl font-bold opacity-0 backface-hidden"
-              //   style="transform: translate(0px, 0px); opacity: 1;"
             >
               88 91 80 19
             </p>
             <p
               id="disponibles"
               className="opacity-0 backface-hidden"
-              //   style="transform: translate(0px, 0px); opacity: 1;"
             >
               disponibles
             </p>
@@ -41,7 +37,6 @@ export default function Ttexte() {
           <h2
             id="aero"
             className="home-zoom__subtitle mt-8 md:mt-0 home-zoom__subtitle--bottom text-blue text-center md:text-left transform md:translate-x-5 backface-hidden js-zoom-subtitle"
-            // style="color: rgb(255, 255, 255); opacity: 0; transform: translate(0px, 0px);"
           >
             {" "}
             Contacter moi
@@ -50,7 +45,6 @@ export default function Ttexte() {
           <div
             id="faire"
             className="mce -mt-10 md:mt-4 opacity-0 js-zoom-mce backface-hidden"
-            // style="transform: translate(0px, 0px); opacity: 1;"
           >
             <h4>Faites décoller vos projets !</h4>
           </div>
@@ -60,7 +54,6 @@ export default function Ttexte() {
       <div
         id="secteurs"
         className="md:w-3/4 mt-6 md:mt-10 xl:mt-12  flex justify-end opacity-0 js-zoom-btn backface-hidden"
-        // style="transform: translate(0px, 0px); opacity: 1;"
       >
         <a
           href="https://www.agap2.fr/metiers/secteurs/"

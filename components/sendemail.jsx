@@ -1,6 +1,6 @@
 import React from "react";
 import emailjs from "emailjs-com";
-// import { Box } from "material-ui";
+
 import ScrollToTopFab from "../components/scrollToTop";
 export default function ContactUs() {
   const Name = React.useRef("");
@@ -9,12 +9,12 @@ export default function ContactUs() {
   const Sujet = React.useRef("");
 
   function sendEmail(e) {
-    e.preventDefault(); //This is important, i'm not sure why, but the email won't send without it
+    e.preventDefault(); 
 
-    // console.log(Sujet.current.value);
-    // console.log(Name.current.value);
-    // console.log(Message.current.value);
-    // console.log(Email.current.value);
+    
+    
+    
+    
 
     if (
       Sujet.current.value &&
@@ -32,10 +32,10 @@ export default function ContactUs() {
         .then(
           (result) => {
             alert("Votre message a bien été envoyé");
-            // window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+            
           },
           (error) => {
-            // alert(error.text)
+            
             console.log(error.text);
           }
         );
@@ -49,7 +49,7 @@ export default function ContactUs() {
       <div
         id="texte-contact"
         style={{
-          // height: "20vh",
+          
           backgroundColor: "#fff",
         }}
         className="text-center py-2 px-4  text-2xl h-auto w-full md:text-3xl xl:text-5xl"
@@ -81,7 +81,7 @@ export default function ContactUs() {
                       minWidth: "70px",
                       display: "inline-block",
                     }}
-                    // for="form_sname"
+                    
                   >
                     Nom
                   </label>
@@ -95,7 +95,7 @@ export default function ContactUs() {
                       minWidth: "70px",
                       display: "inline-block",
                     }}
-                    // for="form_ssubject"
+                    
                   >
                     Email
                   </label>
@@ -109,7 +109,7 @@ export default function ContactUs() {
                       minWidth: "70px",
                       display: "inline-block",
                     }}
-                    // for="form_ssubject"
+                    
                   >
                     Sujet
                   </label>
@@ -147,7 +147,7 @@ export default function ContactUs() {
                   className="p-2 text-2xl md:text-3xl"
                   style={{
                     borderRadius: "0.5vw",
-                    // backgroundColor:"red"
+                    
                   }}
                   type="submit"
                   value="Envoi"
@@ -158,7 +158,7 @@ export default function ContactUs() {
         </div>
       </div>
       <div
-        // className="bg-white"
+        
         style={{
           height: "20vh",
           backgroundColor: "#fff",

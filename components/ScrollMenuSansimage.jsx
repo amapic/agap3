@@ -1,36 +1,30 @@
 import { useRef, useEffect, useState } from "react";
 import {
-  Link,
-  Button,
-  Element,
-  Events,
   animateScroll as scroll,
-  scrollSpy,
 } from "react-scroll";
-import gsap from "gsap";
 function RightScrollMenu({ activeProject }) {
   const [visible, setVisible] = useState(1);
   const [hover, setHover] = useState(false);
   const [classs, setClasss] = useState("");
   const [projectNumberVisible, setprojectNumberVisible] = useState(0);
   const ref = useRef(null);
-  const prout = useRef(false);
+  // const prout = useRef(false);
 
-  //   alert(activeProject.current)
+  
 
   useEffect(() => {
     window.addEventListener("scroll", (hover) => {
       let scrolledFromTop2 = document
         .querySelector("#screen1")
         .getBoundingClientRect();
-      // console.log(window.innerHeight, scrolledFromTop2.y);
+      
       if (
         window.innerHeight + Math.round(window.scrollY) >=
         document.body.offsetHeight
       ) {
         setVisible(0);
       } else {
-        // setClasss(scrolledFromTop2.y < -2300 ? "opa-0" : "opa-1");
+        
       }
     });
   }, []);
@@ -40,8 +34,8 @@ function RightScrollMenu({ activeProject }) {
       let scrolledFromTop2 = document
         .querySelector("#screen1")
         .getBoundingClientRect();
-      // console.log("projectNumberVisible", projectNumberVisible);
-      // console.log(-scrolledFromTop2.y / window.innerHeight);
+      
+      
 
       if (
         3 < -scrolledFromTop2.y / window.innerHeight &&
@@ -86,11 +80,11 @@ function RightScrollMenu({ activeProject }) {
         zIndex: 10000,
         right: "0px",
         top: "33%",
-        // borderRadius: "1.5rem" ,
-        // border: "black 2px double",
-        // backgroundClip: "content-box"
-        // borderTopLeftRadius:"100px",
-        // borderBottomLeftRadius:"100px",
+        
+        
+        
+        
+        
       }}
       onMouseEnter={() => {
         setHover(true);
@@ -127,7 +121,7 @@ function RightScrollMenu({ activeProject }) {
             height: "60px",
             lineHeight: "20px",
             textAlign: "center",
-            // borderTopLeftRadius:"100px",
+            
           }}
         >
           {/* {hover ? "Projet 1" : "dh"} */}

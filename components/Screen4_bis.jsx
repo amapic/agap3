@@ -32,14 +32,14 @@ export default function Screen4() {
         (c) => {
           var scrollSunTl = gsap.timeline({ invalidateOnRefresh: false });
 
-          //mouvement gén éral
+          
           scrollSunTl.to("#container_move4", {
             scrollTrigger: {
               trigger: "#screen4",
-              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              start: "top top", 
               end: "top+=100% bottom",
               toggleActions: "play none none reset",
-              // markers: true,
+              
               scrub: 1,
               pin: "#container_move4",
             },
@@ -48,14 +48,14 @@ export default function Screen4() {
           scrollSunTl.to("#bgCircle", {
             scrollTrigger: {
               trigger: "#screen4",
-              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              start: "top top", 
               end: "top+=70% bottom",
               toggleActions: "play none none reset",
               scrub: 1,
             },
             transform: "scale(100)",
             transformOrigin: "center",
-            // left: "50vw",
+            
             borderRadius: "10px",
           });
 
@@ -78,7 +78,7 @@ export default function Screen4() {
           zIndex: "10",
           overflow: "hidden",
         }}
-        // className="screen5"
+        
 
         ref={zoom}
       >
@@ -93,7 +93,7 @@ export default function Screen4() {
             <Ttext2 />
             <Ttext1 />
             <div
-              // className="bg-blue"
+              
               id="bgCircle"
               style={{
                 left: "0vw",
@@ -102,9 +102,9 @@ export default function Screen4() {
                 height: "1vw",
                 zIndex: "10",
                 top: "calc(50vh - 5px)",
-                // opacity:"0",
-                // bottom: "30vh",
-                // margin: "auto 0",
+                
+                
+                
                 position: "absolute",
               }}
             ></div>

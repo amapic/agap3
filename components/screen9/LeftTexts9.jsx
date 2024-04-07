@@ -12,7 +12,7 @@ export default function Ttext37() {
           // isLarge: "(min-width: 769px) and (max-width: 1300px)",
           // isXLarge: "(min-width: 1301px)",
         },
-        (c) => {
+        () => {
           var scrollSunTl = gsap.timeline();
           // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
@@ -59,11 +59,11 @@ export default function Ttext37() {
           // isLarge: "(min-width: 769px) and (max-width: 1300px)",
           // isXLarge: "(min-width: 1301px)",
         },
-        (c) => {
+        () => {
           var scrollSunTl = gsap.timeline();
           // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
-            trigger: "#main8",
+            trigger: "#main9",
             // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
@@ -93,9 +93,7 @@ export default function Ttext37() {
     return () => ctx.revert();
   });
 
-  function followlink() {
-    window.open("https://amaurypichat.fr/api_vue3/", "_blank");
-  }
+  
   return (
     <div
       id="texte_bas_39"
@@ -109,7 +107,6 @@ export default function Ttext37() {
     >
       <div className="w-full h-full">
         <div className="flex flex-col justify-start">
-          {/* <div className="flex flex-row"> */}
           <div
             className="w-50 text1 
         text-green font-bold text-2xl md:text-2-5xl xl:text-3xl opacity-1 backface-hidden border-2 p-2
@@ -118,7 +115,6 @@ export default function Ttext37() {
             <ul>
               <li
                 className="effet_perso flex justify-center text-center"
-                onClick={followlink}
               >
                 <a href="https://amaurypichat.fr/api_vue3/">
                   Voir la réalisation

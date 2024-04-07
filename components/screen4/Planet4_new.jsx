@@ -19,7 +19,7 @@ const PC = (props, ref) => {
   const refFloppy1 = useRef(null);
   const refFloppy2 = useRef(null);
 
-  // const oldScrollY = useRef(0);
+  
   const rotationSpeed = useRef(0.005);
 
   useEffect(() => {
@@ -30,18 +30,18 @@ const PC = (props, ref) => {
   }, []);
 
   const controlDirection = (e) => {
-    // rotationSpeed.current = 0.03;
+    
   };
 
-  // var cumulDelta = useRef(0);
+  
   useFrame(({ clock }) => {
     if (refFloppy1.current) {
       if (
         refFloppy1.current.position.x == 0.001
-        // ||
-        // ref.current.rotation.y != Math.PI / 4 - Math.PI / 2 - Math.PI / 16
+        
+        
       ) {
-        // console.log("rr");
+        
         if (rotationSpeed.current >= 0.005) {
           rotationSpeed.current -= 0.005;
         } else {
@@ -55,7 +55,7 @@ const PC = (props, ref) => {
   });
 
   return (
-    // <></>
+    
     <group ref={refLoc}>
       <group
         ref={ref}
@@ -91,7 +91,7 @@ const PC = (props, ref) => {
   );
 };
 
-const PlaneteBis = forwardRef(PC); //erreur si forward ref mis directement au début de <Planete />
+const PlaneteBis = forwardRef(PC); 
 
 const CanvasPlanete = () => {
   const ref = useCallback((node) => {
@@ -105,18 +105,18 @@ const CanvasPlanete = () => {
         (c) => {
           let ctx = gsap.context(() => {
             var scrollSunTl = gsap.timeline();
-            // console.log("color", node.children[0].material.color);
+            
             ScrollTrigger.create({
               trigger: "#main",
-              // endTrigger: ".screen6",
-              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              
+              start: "top top", 
               end: "bottom-=10% bottom",
-              // end: "+=200",
+              
               toggleActions: "play pause resume reset",
-              // markers: true,
+              
               scrub: 3,
               animation: scrollSunTl,
-              // pin: "#canvas",
+              
             });
 
             scrollSunTl.fromTo(
@@ -142,7 +142,7 @@ const CanvasPlanete = () => {
                 y: 0.0,
                 z: 0.0,
               }
-              // "-=0.9"
+              
             );
 
             scrollSunTl.to(
@@ -152,7 +152,7 @@ const CanvasPlanete = () => {
                 y: 0.8,
                 z: 0.8,
               }
-              // "-=0.9"
+              
             );
 
             if (node.children[0]) {
@@ -188,18 +188,18 @@ const CanvasPlanete = () => {
         (c) => {
           let ctx = gsap.context(() => {
             var scrollSunTl = gsap.timeline();
-            // console.log("color", node.children[0].material.color);
+            
             ScrollTrigger.create({
               trigger: "#main",
-              // endTrigger: ".screen6",
-              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              
+              start: "top top", 
               end: "bottom-=10% bottom",
-              // end: "+=200",
+              
               toggleActions: "play pause resume reset",
-              // markers: true,
+              
               scrub: 3,
               animation: scrollSunTl,
-              // pin: "#canvas",
+              
             });
 
             scrollSunTl.to(
@@ -209,7 +209,7 @@ const CanvasPlanete = () => {
                 y: 1,
                 z: 1,
               }
-              // "-=0.9"
+              
             );
 
             scrollSunTl.to(
@@ -236,10 +236,10 @@ const CanvasPlanete = () => {
       );
       return () => ctx.revert();
     }
-  }, []); // adjust deps
+  }, []); 
 
   return (
-    // className="relative container-main w-full rg:w-1/2 py-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2"
+    
     <div
       id="main"
       className="z-20"

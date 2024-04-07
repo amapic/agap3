@@ -14,16 +14,7 @@ export default function Screen8() {
   let el = useRef();
 
   useEffect(() => {
-
     let ctx = gsap.context(() => {
-      // var mediaQueries = [
-      //   { id: "x-small", media: "(max-width: 400px)" },
-      //   { id: "small", media: "(min-width: 400px) and (max-width: 700px)" },
-      //   { id: "medium", media: "(min-width: 700px) and (max-width: 1000px)" },
-      //   { id: "large", media: "(min-width: 1000px) and (max-width: 1300px)" },
-      //   { id: "x-large", media: "(min-width: 1300px)" },
-      // ];
-
       const mm = gsap.matchMedia();
       mm.add(
         {
@@ -34,14 +25,13 @@ export default function Screen8() {
         (c) => {
           var scrollSunTl = gsap.timeline({ invalidateOnRefresh: false });
 
-          //mouvement gén éral
           scrollSunTl.to("#container_move8", {
             scrollTrigger: {
               trigger: "#screen8",
-              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              start: "top top",
               end: "top+=100% bottom",
               toggleActions: "play none none reset",
-              // markers: true,
+
               scrub: 1,
               pin: "#container_move8",
             },
@@ -50,14 +40,14 @@ export default function Screen8() {
           scrollSunTl.to("#bgCircle8", {
             scrollTrigger: {
               trigger: "#screen8",
-              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              start: "top top",
               end: "top+=70% bottom",
               toggleActions: "play none none reset",
               scrub: 1,
             },
             transform: "scale(100)",
             transformOrigin: "center",
-            // left: "-20vw",
+
             borderRadius: "10px",
           });
         }
@@ -76,7 +66,6 @@ export default function Screen8() {
           zIndex: "10",
           overflow: "hidden",
         }}
-
         ref={zoom}
       >
         <div

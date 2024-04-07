@@ -1,11 +1,8 @@
 // ImageBitmapRenderingContext;
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 export default function Header() {
-  useEffect(() => {
-    const para = document.querySelector(".header__menu__el");
-
-  });
+  
   return (
     <header
       className="header fixed flex items-center w-full z-1000 rg:hidden"

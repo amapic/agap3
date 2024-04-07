@@ -14,18 +14,7 @@ export default function Screen9() {
   let el = useRef();
 
   useEffect(() => {
-    // const element = zoom.current;
-    // let q = gsap.utils.selector(zoom);
-
     let ctx = gsap.context(() => {
-      // var mediaQueries = [
-      //   { id: "x-small", media: "(max-width: 400px)" },
-      //   { id: "small", media: "(min-width: 400px) and (max-width: 700px)" },
-      //   { id: "medium", media: "(min-width: 700px) and (max-width: 1000px)" },
-      //   { id: "large", media: "(min-width: 1000px) and (max-width: 1300px)" },
-      //   { id: "x-large", media: "(min-width: 1300px)" },
-      // ];
-
       const mm = gsap.matchMedia();
       mm.add(
         {
@@ -36,14 +25,13 @@ export default function Screen9() {
         (c) => {
           var scrollSunTl = gsap.timeline({ invalidateOnRefresh: false });
 
-          //mouvement gén éral
           scrollSunTl.to("#container_move9", {
             scrollTrigger: {
               trigger: "#screen9",
-              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              start: "top top",
               end: "top+=100% bottom",
               toggleActions: "play none none reset",
-              // markers: true,
+
               scrub: 1,
               pin: "#container_move9",
             },
@@ -52,14 +40,14 @@ export default function Screen9() {
           scrollSunTl.to("#bgCircle9", {
             scrollTrigger: {
               trigger: "#screen9",
-              start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+              start: "top top",
               end: "top+=70% bottom",
               toggleActions: "play none none reset",
               scrub: 1,
             },
             transform: "scale(100)",
             transformOrigin: "center",
-            // left: "-20vw",
+
             borderRadius: "10px",
           });
         }
@@ -78,8 +66,6 @@ export default function Screen9() {
           zIndex: "10",
           overflow: "hidden",
         }}
-        // className="screen5"
-
         ref={zoom}
       >
         <div
@@ -91,7 +77,6 @@ export default function Screen9() {
 
             <Ttext39 />
             <div
-              // className="bg-blue"
               id="bgCircle9"
               style={{
                 left: "0vw",
@@ -100,9 +85,7 @@ export default function Screen9() {
                 height: "1vw",
                 zIndex: "10",
                 top: "calc(50vh - 5px)",
-                // opacity:"0",
-                // bottom: "30vh",
-                // margin: "auto 0",
+
                 position: "absolute",
               }}
             ></div>

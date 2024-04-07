@@ -117,13 +117,11 @@ export function Ttext3() {
     <div
       id="texte_bas"
       style={{
-        // width: "300px",
         zIndex: "20",
         top: "80vh",
         left: "25vw",
         position: "absolute",
         size: "40px",
-        // textAlign: "right",
       }}
     >
       <div className="w-full h-full">
@@ -171,13 +169,11 @@ export function Ttext3() {
   );
 }
 
-//les timeline se passe les unes après les autres
 export function Timeline1(scrollSunTl, q) {
   let ColorWhite = getComputedStyle(document.documentElement).getPropertyValue(
     "--color-white"
   );
 
-  // console.log("white", ColorWhite);
 
   const mm = gsap.matchMedia();
   mm.add(
@@ -194,20 +190,14 @@ export function Timeline1(scrollSunTl, q) {
         {
           scrollTrigger: {
             trigger: "#screen4",
-            // endTrigger: ".screen6",
-            start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            start: "top+=40% top", 
             end: "top+=90% bottom",
-            // end: "+=200",
             toggleActions: "play none none reset",
-            // markers: true,
             scrub: 1,
-            // fontColor: "red",
           },
 
-          // opacity:0,
           left:"10vh",
           top: "1vh",
-          // backgroundColor:"rgb(10,10,10)"
         }
       );
     }
@@ -221,14 +211,14 @@ export function Timeline1(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=90% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
-        // fontColor: "red",
+        
       },
 
       opacity: 1,
@@ -244,12 +234,12 @@ export function Timeline1(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=91% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
         color: ColorWhite,
       },
@@ -267,12 +257,12 @@ export function Timeline1(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=91% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
         color: ColorWhite,
       },
@@ -288,12 +278,12 @@ export function Timeline1(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=91% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
       },
 
@@ -326,19 +316,19 @@ export function Timeline2(scrollSunTl, q) {
         {
           scrollTrigger: {
             trigger: "#screen4",
-            // endTrigger: ".screen6",
-            start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            
+            start: "top+=40% top", 
             end: "top+=90% bottom",
-            // end: "+=200",
+            
             toggleActions: "play none none reset",
-            // markers: true,
+            
             scrub: 1,
-            // fontColor: "red",
+            
           },
 
-          // opacity:0,
+          
           y: -110,
-          // backgroundColor:"rgb(10,10,10)"
+          
         }
       );
     }
@@ -351,12 +341,12 @@ export function Timeline2(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=90% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
       },
 
@@ -365,28 +355,28 @@ export function Timeline2(scrollSunTl, q) {
     }
   );
 
-  scrollSunTl.fromTo(
-    q("#texte_droite .text2"),
-    {
-      y: 40,
-      color:ColorWhite,
-    },
-    {
-      scrollTrigger: {
-        trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-        end: "top+=91% bottom",
-        // end: "+=200",
-        toggleActions: "play none none reset",
-        // markers: true,
-        scrub: 1,
-      },
-      color:ColorWhite,
-      opacity: 1,
-      y: 0,
-    }
-  );
+  // scrollSunTl.fromTo(
+  //   q("#texte_droite .text2"),
+  //   {
+  //     y: 40,
+  //     color:ColorWhite,
+  //   },
+  //   {
+  //     scrollTrigger: {
+  //       trigger: "#screen4",
+        
+  //       start: "top+=40% top", 
+  //       end: "top+=91% bottom",
+        
+  //       toggleActions: "play none none reset",
+        
+  //       scrub: 1,
+  //     },
+  //     color:ColorWhite,
+  //     opacity: 1,
+  //     y: 0,
+  //   }
+  // );
 
   scrollSunTl.fromTo(
     q("#texte_droite .text3"),
@@ -396,12 +386,12 @@ export function Timeline2(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=91% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
       },
 
@@ -416,17 +406,17 @@ export function Timeline2(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=91% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
       },
 
       opacity: 1,
-      // x: "-24px",
+      
       width: "24px",
       height: "24px",
       x: "-12px",
@@ -448,36 +438,36 @@ export function Timeline3(scrollSunTl, q) {
     (c) => {
       gsap.to("#texte_bas",
         {
-          // display:"none",
+          
           opacity:0
         }
       )
-      // scrollSunTl.to(
-      //   q("#texte_bas"),
-      //   {
-      //     display:"none"
-      //     // left: "10vw",
-      //     // top: "30vh",
-      //   },
-      //   // {
-      //     scrollTrigger: {
-      //       trigger: "#screen4",
-      //       // endTrigger: ".screen6",
-      //       start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-      //       end: "top+=90% bottom",
-      //       // end: "+=200",
-      //       toggleActions: "play none none reset",
-      //       // markers: true,
-      //       scrub: 1,
-      //       // fontColor: "red",
-      //     },
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
 
-      //   //   // opacity:0,
-      //   //   left: "10vw",
-      //   //   top: "30vh",
-      //   //   // backgroundColor:"rgb(10,10,10)"
-      //   // }
-      // );
+      
+      
+      
+      
+      
+      
      
     }
 
@@ -496,20 +486,20 @@ export function Timeline3(scrollSunTl, q) {
         {
           scrollTrigger: {
             trigger: "#screen4",
-            // endTrigger: ".screen6",
-            start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            
+            start: "top+=40% top", 
             end: "top+=90% bottom",
-            // end: "+=200",
+            
             toggleActions: "play none none reset",
-            // markers: true,
+            
             scrub: 1,
-            // fontColor: "red",
+            
           },
 
-          // opacity:0,
+          
           left: "10vw",
           top: "30vh",
-          // backgroundColor:"rgb(10,10,10)"
+          
         }
       );
       q("#cercle3"),
@@ -519,19 +509,19 @@ export function Timeline3(scrollSunTl, q) {
         {
           scrollTrigger: {
             trigger: "#screen4",
-            // endTrigger: ".screen6",
-            start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            
+            start: "top+=40% top", 
             end: "top+=90% bottom",
-            // end: "+=200",
+            
             toggleActions: "play none none reset",
-            // markers: true,
+            
             scrub: 1,
-            // fontColor: "red",
+            
           },
 
           opacity:0
         }
-      // );
+      
     }
   );
   scrollSunTl.fromTo(
@@ -542,12 +532,12 @@ export function Timeline3(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=90% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
       },
 
@@ -564,12 +554,12 @@ export function Timeline3(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=91% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
       },
 
@@ -586,12 +576,12 @@ export function Timeline3(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=91% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
       },
 
@@ -606,12 +596,12 @@ export function Timeline3(scrollSunTl, q) {
     {
       scrollTrigger: {
         trigger: "#screen4",
-        // endTrigger: ".screen6",
-        start: "top+=40% top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+        
+        start: "top+=40% top", 
         end: "top+=91% bottom",
-        // end: "+=200",
+        
         toggleActions: "play none none reset",
-        // markers: true,
+        
         scrub: 1,
       },
 

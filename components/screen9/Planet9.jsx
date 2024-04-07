@@ -1,11 +1,11 @@
-import { Canvas, useLoader, useFrame } from "@react-three/fiber";
-import React, { useRef, forwardRef, useEffect, useCallback } from "react";
+import {  useLoader, useFrame } from "@react-three/fiber";
+import React, { useRef, forwardRef, useEffect } from "react";
 import * as THREE from "three";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-// import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-// import { SphereGeometry } from "three";
+
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -23,7 +23,7 @@ const PC = (props, ref) => {
   const refFloppy1 = useRef(null);
   const refFloppy2 = useRef(null);
 
-  // const oldScrollY = useRef(0);
+  
   const rotationSpeed = useRef(0.005);
 
   useEffect(() => {
@@ -33,19 +33,17 @@ const PC = (props, ref) => {
     };
   }, []);
 
-  const controlDirection = (e) => {
-    // rotationSpeed.current = 0.03;
-  };
+ 
 
-  // var cumulDelta = useRef(0);
+  
   useFrame(({ clock }) => {
     if (refFloppy1.current) {
       if (
         refFloppy1.current.position.x == 0.001
-        // ||
-        // ref.current.rotation.y != Math.PI / 4 - Math.PI / 2 - Math.PI / 16
+        
+        
       ) {
-        // console.log("rr");
+        
         if (rotationSpeed.current >= 0.005) {
           rotationSpeed.current -= 0.005;
         } else {
@@ -60,7 +58,7 @@ const PC = (props, ref) => {
   });
 
   return (
-    // <></>
+    
     <group ref={refLoc}>
       <group
         ref={ref}
@@ -96,14 +94,14 @@ const PC = (props, ref) => {
   );
 };
 
-const PlaneteBis = forwardRef(PC); //erreur si forward ref mis directement au début de <Planete />
+// const PlaneteBis = forwardRef(PC); 
 
 const CanvasImage = () => {
-  // let ColorYellow = window
-  //   .getComputedStyle(document.documentElement)
-  //   .getPropertyValue("--color-yellow");
+  
+  
+  
 
-  // console.log(ColorYellow);
+  
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -111,23 +109,23 @@ const CanvasImage = () => {
       mm.add(
         {
           isSmall: "(max-width: 999px)",
-          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
-          // isXLarge: "(min-width: 1301px)",
+          
+          
         },
-        (c) => {
+        () => {
           var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
+          
           ScrollTrigger.create({
-            trigger: "#main8",
-            // endTrigger: ".screen6",
-            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            trigger: "#main9",
+            
+            start: "top top", 
             end: "bottom-=10% bottom",
-            // end: "+=200",
+            
             toggleActions: "play pause resume reset",
-            // markers: true,
+            
             scrub: 3,
             animation: scrollSunTl,
-            // pin: "#canvas",
+            
           });
 
 
@@ -150,26 +148,26 @@ const CanvasImage = () => {
         }
       );
       mm.add(
-        // mm.add(
+        
         {
           isSmall: "(min-width: 1000px)",
-          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
-          // isXLarge: "(min-width: 1301px)",
+          
+          
         },
-        (c) => {
+        () => {
           var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
+          
           ScrollTrigger.create({
             trigger: "#main9",
-            // endTrigger: ".screen6",
-            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
+            
+            start: "top top", 
             end: "bottom-=10% bottom",
-            // end: "+=200",
+            
             toggleActions: "play pause resume reset",
-            // markers: true,
+            
             scrub: 3,
             animation: scrollSunTl,
-            // pin: "#canvas",
+            
           });
           scrollSunTl.fromTo(
             "#canvas9",
@@ -218,6 +216,7 @@ const CanvasImage = () => {
               backgroundSize: "contain",
             }}
             src="./../../vue.png"
+			alt="image de formulaire Vue"
           ></img>
         </a>
 

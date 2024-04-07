@@ -1,5 +1,5 @@
 import Head from "next/head";
-// import { isMobile } from "react-device-detect";
+
 import dynamic from "next/dynamic";
 import React, { useEffect, Suspense, useState, lazy, useRef } from "react";
 import pMinDelay from "p-min-delay";
@@ -10,119 +10,54 @@ import store from "../components/store";
 gsap.registerPlugin(MotionPathPlugin);
 import { useSelector } from "react-redux";
 
-const Screen4 = dynamic(() => import("./../components/Screen4_bis"), {
-  // loading: () => <p>Loading...</p>,
-});
+const Screen4 = dynamic(() => import("./../components/Screen4_bis"), {});
 
-const Screen6 = dynamic(() => import("./../components/Screen6"), {
-  // loading: () => <p>Loading...</p>,
-});
+const Screen6 = dynamic(() => import("./../components/Screen6"), {});
 
-const Screen7 = dynamic(() => import("./../components/Screen7"), {
-  // loading: () => <p>Loading...</p>,
-});
+const Screen7 = dynamic(() => import("./../components/Screen7"), {});
 
-const Screen8 = dynamic(() => import("./../components/Screen8"), {
-  // loading: () => <p>Loading...</p>,
-});
+const Screen8 = dynamic(() => import("./../components/Screen8"), {});
 
-const Screen9 = dynamic(() => import("./../components/Screen9"), {
-  // loading: () => <p>Loading...</p>,
-});
+const Screen9 = dynamic(() => import("./../components/Screen9"), {});
 
 const Screen10 = lazy(() => pMinDelay(import("./../components/Screen10"), 1));
 
-// const Screen10 = dynamic(() => import("./../components/Screen10"), {
-// loading: () => <p>Loading...</p>,
-// });
-
 const Screen11 = lazy(() => pMinDelay(import("./../components/Screen11"), 1));
 
-// const Screen11 = dynamic(() => import("./../components/Screen11"), {
-// loading: () => <p>Loading...</p>,
-// });
+const Screen1 = dynamic(() => import("./../components/Screen1"), {});
 
-const Screen1 = dynamic(() => import("./../components/Screen1"), {
-  // loading: () => <p>Loading...</p>,
-});
+// import Screen5 from "./../components/Screen5";
 
-// import Screen1 from "./../components/Screen1";
-import Screen5 from "./../components/Screen5";
+// const ScrollToTopFab = React.lazy(() => import("./../components/scrollToTop"));
 
-const ScrollToTopFab = React.lazy(() => import("./../components/scrollToTop"));
-// import ScrollToTopFab from "../components/scrollToTop";
 const RightScrollMenu = React.lazy(() =>
   import("./../components/ScrollMenuSansimage")
 );
-// import RightScrollMenu from "../components/RightScrollmenu";
-// import RightScrollMenu from "../components/ScrollMenuSansimage";
-// import Formulaire from "../components/sendemail";
-const Formulaire = React.lazy(() => import("./../components/sendemail"));
 
-// import Aaa from "./../components/vtk/vtk";
+const Formulaire = React.lazy(() => import("./../components/sendemail"));
 
 function Home() {
   let cursorWidth = "40";
-  // const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
   useEffect(() => {
-    // createStreamChat("dfhdf")
-    // alert(window.innerHeight)
-    // alert(window.innerHeight)//648
-    // alert(window.innerWidth)//360
     let ctx = gsap.context(() => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#screen4",
-          start: "top top+=50%", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-          end: "bottom bottom+=50%",
-          // markers: true,
-          toggleActions: "play none none reset",
-        },
-      });
-
-      let tl6 = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#screen6",
-          start: "top top+=50%", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-          end: "bottom bottom+=50%",
-          // markers: true,
-          toggleActions: "play none none reset",
-        },
-      });
-
-      // let tl2 = gsap.timeline({
+      // let tl = gsap.timeline({
       //   scrollTrigger: {
-      //     trigger: "#container_move5",
-      //     start: "top top+=50%", // which means "when the top of the trigger hits 40px above the bottom of the viewport
-      //     end: "bottom bottom",
-      //     // markers: true,
+      //     trigger: "#screen4",
+      //     start: "top top+=50%",
+      //     end: "bottom bottom+=50%",
       //     toggleActions: "play none none reset",
       //   },
       // });
-
-      // tl.to(".pathnav", {
-      //   stroke: "#ffcd00",
-      //   ease: "none",
-      //   // backgroundColor: "#ffcd00",
-      // });
-
-      // tl2.to(".pathnav", {
-      //   stroke: "#fff",
-      //   ease: "none",
-      //   // backgroundColor: "#fff",
+      // let tl6 = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: "#screen6",
+      //     start: "top top+=50%",
+      //     end: "bottom bottom+=50%",
+      //     toggleActions: "play none none reset",
+      //   },
       // });
     });
-
-    // let circleToHover = null || document.querySelector(".circleToHover");
-
-    // let ctx = gsap.context((self) => {
-    //   // use any arbitrary string as a name; it'll be added to the Context object, so in this case you can call ctx.onClick() later...
-    //   self.add("onClick", (e) => {
-    //     gsap.to(".circleToHover", { borderColor: "pink" }); // <-- gets added to the Context!
-    //   });
-    // }, root);
-
-    // circleToHover.addEventListener("click", (e) => ctx.onClick(e));
 
     const setX = gsap.quickTo("#mousemove", "x", {
       duration: 0.5,
@@ -141,19 +76,6 @@ function Home() {
 
     return () => ctx.revert();
   }, [cursorWidth]);
-
-  // const activeProject = useRef(0);
-  // const [_isMobile, setMobile] = useState(false);
-
-  // useEffect(() => {
-  //   setMobile(isMobile);
-  // }, [setMobile]);
-
-  // useEffect(() => {
-  // setMobile(isMobile);
-  // }, [setMobile]);
-
-  // console.log("mobile", _isMobile);
 
   return (
     <>
@@ -189,7 +111,6 @@ function Home() {
           <Screen11 />
         </Suspense>
 
-       
         <Suspense>
           <Screen7 />
         </Suspense>
@@ -202,41 +123,16 @@ function Home() {
         <Suspense>
           <Screen6 />
         </Suspense>
-       
 
         <RightScrollMenu />
         <Formulaire />
-
-        {/* </Suspense> */}
       </>
     </>
   );
 }
 
-async function addFile(e) {
-  // if (!inputElement.current) return;
-  fetch("Aee.vtkjs.zip", { mode: "no-cors" })
-    // fetch("/vtk/Aee.vtkjs.zip",{mode: 'no-cors'})
-
-    .then((response) => response.blob())
-
-    .then((yy) => {
-      // console.log("rrr",yy)
-      setFileType({
-        file: yy,
-        type: "vtkjs",
-      });
-    });
-
-  // setFileType({
-  //         file: inputElement.current.files[0],
-  //         type: "vtkjs",
-  //       });
-}
-
 export function Home2() {
-  const [showFirstContent, setShowFirstContent] = useState("hidden");
-  // const score = useSelector((state) => state);
+
   const count = useSelector((state) => state.counter.value);
   const ref = useRef();
 
@@ -249,7 +145,7 @@ export function Home2() {
   }, []);
 
   useEffect(() => {
-    if (count > 4) {
+    if (count > 0) {
       ref.current.style.visibility = "visible";
       var ll = document.getElementsByTagName("header");
 
@@ -262,7 +158,7 @@ export function Home2() {
   return (
     <>
       {/* {count} */}
-      {count < 5 && <Loading />}
+      {count ==0 && <Loading />}
       <div
         ref={ref}
         style={{
@@ -275,7 +171,6 @@ export function Home2() {
   );
 }
 
-// import "./Loading.css";
 const Loading = () => {
   return (
     <div id="loader-container">
@@ -368,17 +263,5 @@ export function SuspenseHome() {
     </>
   );
 }
-// export default Loading;
-
-// export default async function Aa(){
-
-//   return(
-//     <Suspense fallback={<LoadingPage />}></Suspense>
-//   )
-// }
-
-// () => Promise.resolve(SuspenseHome), {
-//   ssr: true,
-// });
 
 export default dynamic(() => Promise.resolve(SuspenseHome), { ssr: false });
