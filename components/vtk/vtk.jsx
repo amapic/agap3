@@ -5,7 +5,7 @@ import "@kitware/vtk.js/Rendering/Profiles/Geometry";
 import vtkRenderWindowInteractor from "@kitware/vtk.js/Rendering/Core/RenderWindowInteractor";
 // import vtkWidgetManager from "@kitware/vtk.js/Widgets/Core/WidgetManager";
 
-import vtkActor from "@kitware/vtk.js/Rendering/Core/Actor";
+// import vtkActor from "@kitware/vtk.js/Rendering/Core/Actor";
 import vtkMapper from "@kitware/vtk.js/Rendering/Core/Mapper";
 
 import vtkOpenGLRenderWindow from "@kitware/vtk.js/Rendering/OpenGL/RenderWindow";
@@ -14,7 +14,7 @@ import vtkRenderer from "@kitware/vtk.js/Rendering/Core/Renderer";
 
 import vtkInteractorStyleTrackballCamera from "@kitware/vtk.js/Interaction/Style/InteractorStyleTrackballCamera";
 
-import vtkXMLPolyDataReader from "@kitware/vtk.js/IO/XML/XMLPolyDataReader";
+// import vtkXMLPolyDataReader from "@kitware/vtk.js/IO/XML/XMLPolyDataReader";
 import HttpSceneLoader from "@kitware/vtk.js/IO/Core/HttpSceneLoader";
 import DataAccessHelper from "@kitware/vtk.js/IO/Core/DataAccessHelper";
 
@@ -156,9 +156,10 @@ const VTPViewer = () => {
   return (
     <>
       <div
-        id="tttt"
+        // id="vtk"
         ref={vtkContainerRef}
         style={{
+          cursor:"move",
           height: "100vh",
           width: "100%",
           background: "rgba(65,73,77,1)",
@@ -171,7 +172,7 @@ const VTPViewer = () => {
 
 export default function App() {
   return (
-    <div className="App2">
+    <div id="vtk">
       <VTPViewer />
     </div>
   );

@@ -24,7 +24,7 @@ export default function RightText_() {
   return (
     <div
       id="screen8PartieDroite"
-      className="relative container-main w-full h-screen-1/2 rg:h-full rg:w-1/2 py-6  rg:py-10 pr-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2 rg:text-start text-center"
+      className="relative container-main w-full h-screen-1/2 rg:h-full rg:w-1/2 py-6  rg:py-10 pr-10  rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2 rg:text-start text-center"
     >
       <div className="js-home-gl-text home-numbers__wrap backface-hidden rg:text-start">
         <h2

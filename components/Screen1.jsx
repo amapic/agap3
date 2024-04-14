@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, Suspense } from "react";
 import { gsap } from "gsap";
 import dynamic from "next/dynamic";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
-const ModelVtk = dynamic(() => import("./vtk/vtk"), {
+const ModelVtk = dynamic(() => import("./vtk/vtk3"), {
   loading: () => <p>Loading...</p>,
 });
 gsap.registerPlugin(MotionPathPlugin);
@@ -135,8 +135,7 @@ function VSCode() {
     >
       <div className="">
         <span className="vscode_rose">{"import "}</span>
-        <span>React</span>{" "}
-        <span className="vscode_rose">{"from"}</span>
+        <span>React</span> <span className="vscode_rose">{"from"}</span>
         <span className="vscode_orange"> "react"</span>
       </div>
       <div className="">
@@ -360,6 +359,13 @@ export default function Screen1() {
   const clicked = useRef(false);
   const animated = useRef(false);
   const mouse_pos = useRef([]);
+  const tutoriel = useRef(true);
+  
+  const blueColor=getComputedStyle(document.documentElement)
+    .getPropertyValue('--color-blue-fonce');
+	
+	const DarkColor=getComputedStyle(document.documentElement)
+    .getPropertyValue('--color-noir-fonce');
   useEffect(() => {
     var tl2 = gsap.timeline({ repeat: -1 });
     tl2.to(
@@ -378,6 +384,15 @@ export default function Screen1() {
       transformOrigin: "center center",
     });
     tl2.play();
+    document
+      .querySelector(".home-cover")
+      .addEventListener("mouseenter", (e) => {
+        gsap.to("#texte_cursorr",{
+          ease:"none",
+          visibility:"visible"
+        })
+        // document.querySelector(".home-cover").style.cursor='move';
+      });
     document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
       if (!clicked.current && ref.current && !animated.current) {
         ref.current.style.setProperty(
@@ -387,6 +402,12 @@ export default function Screen1() {
         gsap.killTweensOf("#div_clip_path");
       }
       mouse_pos.current = [e.pageX, e.pageY];
+      // var d = document.querySelector(".clickEffect");
+      // d.className="clickEffect";
+      // if (d!==null) {
+      //   d.style.top = e.pageX + "px";
+      //   d.style.left = e.pageY + "px";
+      // }
     });
     document.querySelector(".home-cover").addEventListener("mouseleave", () => {
       if (!clicked.current && !animated.current) {
@@ -396,6 +417,11 @@ export default function Screen1() {
           clipPath: "circle(200px at 72vw 50%)",
         });
       }
+
+      gsap.to("#texte_cursorr",{
+        ease:"none",
+        visibility:"hidden"
+      })
     });
     function redresseCode2(event) {
       let myElement = document.getElementById("code_contain");
@@ -415,7 +441,16 @@ export default function Screen1() {
       .querySelector("#shrink_button")
       .addEventListener("click", (event) => {
         if (clicked.current) {
+          let textCursor = document.querySelector("#texte_cursorr");
+          textCursor.classList.add("blur");
+          setTimeout(() => {
+            // textCursor.classList.remove("blur").add("deblur");
+            document.querySelector("#texte_cursorr").innerHTML = "";
+          }, 1000);
+          
+          tutoriel.current = false;
           event.stopPropagation();
+
           var clipPath = ref.current.style.getPropertyValue("clip-path");
           if (clipPath) {
             gsap.killTweensOf("#div_clip_path");
@@ -450,8 +485,32 @@ export default function Screen1() {
         }
       });
     document.querySelector(".home-cover").addEventListener("click", (event) => {
+      // alert("sdf")
+      // event.stopPropagation();
+
+      if (clicked.current && tutoriel.current) {
+        document.querySelector("#texte_cursorr").innerHTML =
+          "Appuyez sur le cercle bleu pour refermer le voile";
+      }
       if (!clicked.current) {
         gsap.to("#shrink_button", { duration: 1, opacity: 1 });
+
+        let textCursor = document.querySelector("#texte_cursorr");
+        if (tutoriel.current) {
+          
+          
+          textCursor.classList.add("blur");
+          setTimeout(() => {
+            textCursor.classList.remove("blur");
+            document.querySelector("#texte_cursorr").innerHTML =
+            "Maintenez la souris appuyée pour faire pivoter l'objet";
+            textCursor.classList.add("deblur");
+          }, 1000);
+        } else {
+          textCursor.innerHTML = "";
+        }
+
+
         var clipPath = ref.current.style.getPropertyValue("clip-path");
         if (clipPath) {
           let height = window.innerHeight,
@@ -555,9 +614,58 @@ export default function Screen1() {
     return () => ctx.revert();
   });
   useEffect(() => {
+    //     const cursorSmall = document.querySelector('.small');
+    // const cursorBig = document.querySelector('.big');
+    //     const positionElement = (e) => {
+    //       const mouseY = e.clientY;
+    //       const mouseX = e.clientX;
+    //       cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    //       cursorBig.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    //     };
+    //     window.addEventListener("mousemove", positionElement);
+    // document.body.style.cursor = "url('./../public/ff.jpg')";
+    // document.body.style.cursor = "wait";
+
+    // setInterval(() => {
+    // clickEffect();
+    // }, 1000);
+    function clickEffect(e) {
+      var d = document.createElement("div");
+      d.className = "clickEffect";
+      d.style.top = mouse_pos.current[1] + "px";
+      d.style.left = mouse_pos.current[0] + "px";
+      document.body.appendChild(d);
+
+      // d.addEventListener("mousemove",
+      // function () {
+      // d.style.top = mouse_pos.current[1] + "px";
+      // d.style.left = mouse_pos.current[0] + "px";
+      // }.bind(this)
+      // )
+      // (e) => {
+      // if (d!=null){
+      // d.style.top = mouse_pos.current[1] + "px";
+      // d.style.left = mouse_pos.current[0] + "px";
+      // }
+      // });
+
+      d.addEventListener(
+        "animationend",
+        function () {
+          // d.parentElement.removeChild(d);
+        }.bind(this)
+      );
+    }
+    // document.addEventListener("click", clickEffect);
+
+    // d.addEventListener("mousemove",
+    // function () {
+    // d.style.top = mouse_pos.current[1] + "px";
+    // d.style.left = mouse_pos.current[0] + "px";
   }, []);
   return (
     <>
+
       <div
         id="screen1"
         style={{
@@ -599,7 +707,7 @@ export default function Screen1() {
                           viewBox="0 0 23.9 23.9"
                         >
                           <path
-                            fill="#2a2a2a"
+                            fill={DarkColor}
                             d="M6.26,14.81a2.83,2.83,0,1,0,5.66,0,.62.62,0,0,1,.62-.62.61.61,0,0,1,.61.62,4.07,4.07,0,1,1-4.06-4.06h0a.61.61,0,0,1,.62.61.62.62,0,0,1-.62.62h0A2.83,2.83,0,0,0,6.26,14.81ZM1.33,16.92l.89.16a7.6,7.6,0,0,0,.42,1l-.53.74a1.59,1.59,0,0,0,.18,2l.76.76a1.59,1.59,0,0,0,2,.18l.74-.52a7.24,7.24,0,0,0,1,.41l.16.89A1.58,1.58,0,0,0,8.55,23.9H9.63a1.59,1.59,0,0,0,1.57-1.32l.16-.89a6.57,6.57,0,0,0,1-.42l.74.53a1.6,1.6,0,0,0,2-.18l.78-.76a1.59,1.59,0,0,0,.17-2l-.52-.74a8.65,8.65,0,0,0,.42-1l.89-.16a.61.61,0,0,0,.52-.69.63.63,0,0,0-.67-.53h-.06l-1.27.22a.61.61,0,0,0-.49.45,6.19,6.19,0,0,1-.6,1.43.63.63,0,0,0,0,.66l.74,1.06A.35.35,0,0,1,15,20l-.76.76a.35.35,0,0,1-.46,0l-1.05-.74a.63.63,0,0,0-.67,0,6.19,6.19,0,0,1-1.43.6.61.61,0,0,0-.45.49L10,22.37a.36.36,0,0,1-.35.3H8.55a.37.37,0,0,1-.36-.3L8,21.1a.6.6,0,0,0-.44-.49A6.26,6.26,0,0,1,6.09,20a.61.61,0,0,0-.66,0l-1,.74a.36.36,0,0,1-.47,0L3.15,20a.36.36,0,0,1,0-.46l.74-1.05a.63.63,0,0,0,0-.67,5.94,5.94,0,0,1-.6-1.42.6.6,0,0,0-.49-.44l-1.27-.22a.37.37,0,0,1-.29-.37V14.27a.36.36,0,0,1,.3-.35L2.8,13.7a.6.6,0,0,0,.49-.45,6.19,6.19,0,0,1,.6-1.43.61.61,0,0,0,0-.66L3.12,10.1a.35.35,0,0,1,0-.46l.76-.76a.35.35,0,0,1,.46,0l1,.74a.63.63,0,0,0,.67,0A5.94,5.94,0,0,1,7.52,9,.63.63,0,0,0,8,8.52l.22-1.27a.61.61,0,0,0-.51-.71A.62.62,0,0,0,7,7,.07.07,0,0,1,7,7l-.14.9a8.09,8.09,0,0,0-1,.42l-.74-.52a1.59,1.59,0,0,0-2,.17l-.76.76a1.6,1.6,0,0,0-.19,2.05l.52.74a8.09,8.09,0,0,0-.42,1l-.89.15A1.6,1.6,0,0,0,0,14.27v1.08a1.59,1.59,0,0,0,1.32,1.57Zm22.57-10v.85a1.37,1.37,0,0,1-1.15,1.36l-.62.11a4.84,4.84,0,0,1-.28.66l.37.53a1.38,1.38,0,0,1-.15,1.77l-.6.6a1.38,1.38,0,0,1-1.78.15l-.52-.36-.66.27-.11.62A1.39,1.39,0,0,1,17,14.57h-.84a1.39,1.39,0,0,1-1.37-1.14l-.11-.63a6.5,6.5,0,0,1-.66-.27l-.52.36a1.39,1.39,0,0,1-1.78-.15l-.6-.6A1.39,1.39,0,0,1,11,10.36l.37-.52a4.84,4.84,0,0,1-.28-.66l-.61-.1A1.37,1.37,0,0,1,9.33,7.72V6.87A1.39,1.39,0,0,1,10.47,5.5l.63-.11a6.5,6.5,0,0,1,.27-.66L11,4.21a1.38,1.38,0,0,1,.15-1.78l.59-.58a1.37,1.37,0,0,1,1.77-.16l.53.37a4.88,4.88,0,0,1,.66-.29l.11-.63A1.38,1.38,0,0,1,16.18,0H17A1.39,1.39,0,0,1,18.4,1.15l.11.62a6.21,6.21,0,0,1,.66.28l.52-.37a1.37,1.37,0,0,1,1.77.16l.59.6a1.38,1.38,0,0,1,.16,1.77l-.37.52q.15.33.27.66l.63.11A1.39,1.39,0,0,1,23.9,6.87Zm-1.23,0a.16.16,0,0,0-.13-.15l-1-.18a.6.6,0,0,1-.49-.44A4.27,4.27,0,0,0,20.59,5a.61.61,0,0,1,0-.66l.59-.84a.17.17,0,0,0,0-.2l-.6-.6a.17.17,0,0,0-.2,0l-.83.59a.61.61,0,0,1-.66,0,5,5,0,0,0-1.1-.46.61.61,0,0,1-.45-.49l-.17-1A.16.16,0,0,0,17,1.22h-.85a.16.16,0,0,0-.15.13l-.17,1a.64.64,0,0,1-.45.5,4.24,4.24,0,0,0-1.1.45.61.61,0,0,1-.66,0l-.84-.58a.15.15,0,0,0-.2,0l-.6.6a.15.15,0,0,0,0,.2l.58.83a.63.63,0,0,1,0,.67,4.65,4.65,0,0,0-.46,1.1.6.6,0,0,1-.49.44l-1,.18a.14.14,0,0,0-.12.15v.85a.16.16,0,0,0,.12.15l1,.17a.62.62,0,0,1,.5.45,4.55,4.55,0,0,0,.45,1.1.61.61,0,0,1,0,.66l-.58.83a.14.14,0,0,0,0,.2l.6.6a.15.15,0,0,0,.2,0l.83-.58a.61.61,0,0,1,.66,0,5.21,5.21,0,0,0,1.09.45.6.6,0,0,1,.44.49l.18,1a.15.15,0,0,0,.15.13H17a.15.15,0,0,0,.15-.13l.18-1a.6.6,0,0,1,.45-.49,5,5,0,0,0,1.1-.46.61.61,0,0,1,.66,0l.83.59a.17.17,0,0,0,.2,0l.6-.6a.15.15,0,0,0,0-.2l-.58-.83a.65.65,0,0,1,0-.66,4.35,4.35,0,0,0,.46-1.09.63.63,0,0,1,.49-.45l1-.18a.15.15,0,0,0,.13-.15Zm-3.16.42a2.91,2.91,0,1,1-2.9-2.9h0a2.9,2.9,0,0,1,2.9,2.9Zm-1.23,0A1.68,1.68,0,1,0,16.61,9h0A1.68,1.68,0,0,0,18.28,7.29Z"
                           ></path>
                         </svg>
@@ -686,9 +794,9 @@ export default function Screen1() {
             </header>
             <ModelVtk />
             <div id="shrink_button">
-              <img src="b (2).png" alt="reduirefond"/> 
+              <img src="/shrink.png" alt="reduirefond" />
             </div>
-            <div
+            {/* <div
               id="main_content_zone1_hidden"
               className="hidden bg-black home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0"
               style={{
@@ -696,7 +804,7 @@ export default function Screen1() {
               }}
             >
               <Image
-                id="dfdh"
+                // id="dfdh"
                 src="/background.avif"
                 fill={true}
                 alt={"Background Image"}
@@ -717,10 +825,12 @@ export default function Screen1() {
                 >
                   <div className="line">
                     <div className="word ">{}</div>
-                    <div className="word">Développeur React.js et Web 3D</div>
+                    <div className="word">Spécialiste Web 3D</div>
                   </div>
                   <div className="line">
-                    <div className="word text-white">En Recherche d'emploi</div>
+                    <div className="word text-white">
+                      Et visualisation scientifique
+                    </div>
                   </div>
                   <div className="line">
                     <div className="word text-xl md:text-2xl xl:text-3-5xl">
@@ -742,7 +852,7 @@ export default function Screen1() {
                   </div>
                 </div>
               </h1>
-            </div>
+            </div> */}
           </div>
           <div className="w-full h-full " id="part2">
             {}
@@ -864,17 +974,13 @@ export default function Screen1() {
                 >
                   <div className="line">
                     <div className="word ">{}</div>
-                    <div className="word">Développeur React.js et Web 3D</div>
+                    <div className="word">Spécialiste Web 3D</div>
                   </div>
                   <div className="line">
-                    <div className="word">En Recherche d'emploi</div>
+                    <div className="word">et visualisation scientifique</div>
                   </div>
-                  <div
-                    className="line"
-                  >
-                    <div
-                      className="word text-xl md:text-2xl xl:text-3-5xl"
-                    >
+                  <div className="line">
+                    <div className="word text-xl md:text-2xl xl:text-3-5xl">
                       06 88 91 80 19
                     </div>
                   </div>

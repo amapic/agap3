@@ -17,7 +17,9 @@ const nextConfig = {
         net: 'empty'
       };
     }
-    
+
+    // config.resolve.alias['@components']= path.join(__dirname, 'components');
+    // console.log(config)
 
     // config.resolve = {
     //   "extensions": [".web.js", ".js"]

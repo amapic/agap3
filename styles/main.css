@@ -1,13 +1,11 @@
 :root {
-
-
-
   --color-white: "#fff";
   --color-brown: "#544502";
   --color-yellow: "#ffcd00";
   --color-blue: rgb(2, 38, 170);
   --color-blue-fonce: "#0226aa";
   --color-green: rgb(78, 201, 176);
+  --color-noir-fonce: "#2a2a2a";
   --header-height: 114px;
   --header-margin: 10px;
   --font-family: "SofiaPro";
@@ -144,7 +142,7 @@ body {
   background-color: transparent;
   text-decoration: none;
   transform: rotate(15deg);
-  cursor: pointer;
+  /* cursor: pointer; */
   z-index: 10000;
 }
 
@@ -225,7 +223,7 @@ body {
 
 }
 
-#main_content_zone1_hidden {}
+/* #main_content_zone1_hidden {} */
 
 #bgCircle,
 #bgCircle6,
@@ -692,11 +690,10 @@ textarea {
   right: 10vh;
   top: 20vh;
   opacity: 0;
+  cursor: pointer;
 }
 
-#screen2{
-  cursor:url("../public/a.gif")
-}
+
 
 
 div.clickEffect {
@@ -705,7 +702,7 @@ div.clickEffect {
   border-style: solid;
   border-color: #FFFFFF;
   border-radius: 50%;
-  animation: clickEffect 0.4s ease-out;
+  animation: clickEffect 1s ease-out;
   z-index: 99999;
 }
 
@@ -725,4 +722,125 @@ div.clickEffect {
     margin: -7.5em;
     border-width: 0.03em;
   }
+}
+
+.small {
+  width: 6px;
+  height: 6px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.big {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  margin-bottom: 20rem;
+  animation-name: stretch;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+
+@keyframes stretch {
+  0% {
+
+    opacity: 0.2;
+    background-color: green;
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: orange;
+  }
+
+  100% {
+    background-color: red;
+  }
+}
+
+
+body {
+  /* animation: cursor 10s linear infinite; */
+  /* cursor:move; */
+}
+
+#vtk {
+  /* cursor:move; */
+  /* animation: cursor 10s linear infinite; */
+  pointer-events:auto;
+  cursor: move;
+}
+
+/* .App2 div{
+  cursor:move;
+  
+} */
+
+/* #tttt{
+	cursor:move;
+} */
+
+#div_clip_path {
+  /* cursor: move; */
+  cursor: url('./../public/4arrows_32x32.png'); 
+  /* animation: cursor 10s linear infinite; */
+}
+
+.four_arrow_cursor {
+  /* cursor: url('./../public/4arrows_32x32.png');  */
+  /* pointer-events:none; */
+}
+
+/* body.inheritCursors * { */
+/* cursor: inherit !important; */
+/* } */
+
+@keyframes cursor{ 
+     0% { 
+        cursor: url('./../public/4arrows_32x32.png'), auto; 
+    } 
+     50% {  
+         cursor: url('./../public/4arrows_32x32.png'), auto;
+     } 
+     100% {  
+         cursor: url('./../public/4arrows_32x32.png'), auto; 
+     } 
+ }
+
+ #texte_cursorr{
+  /* filter:blur(0px); */
+  /* perspective: 1000px; */
+  /* transform: perspective(50em) rotateX(50deg); */
+  /* animation:deblur 4s forwards; */
+ }
+
+ @keyframes blur {
+  from {
+    filter:blur(0px);
+  }
+  to {
+    filter:blur(4px);
+  }
+}
+
+@keyframes deblur {
+  from {
+    filter:blur(4px);
+  }
+  to {
+    filter:blur(0px);
+  }
+}
+
+.deblur{
+  animation: deblur 1s forwards;
+}
+
+.blur{
+  animation: blur 1s forwards;
 }

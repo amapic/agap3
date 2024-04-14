@@ -403,7 +403,7 @@ textarea::placeholder {
 
 [role=button],
 button {
-    cursor: pointer
+    /* cursor: pointer */
 }
 
 table {
@@ -646,9 +646,9 @@ video {
     border-width: 0
 }
 
-.cursor-pointer {
-    cursor: pointer
-}
+/* .cursor-pointer { */
+    /* cursor: pointer */
+/* } */
 
 .block {
     display: block
@@ -2524,7 +2524,7 @@ h3.white span {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    cursor: pointer
+    /* cursor: pointer */
 }
 
 .frm_switch_block input:focus {
@@ -2793,7 +2793,7 @@ h3.white span {
 
 .frm_dropzone .dz-message {
     position: relative;
-    cursor: pointer;
+    /* cursor: pointer; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2930,7 +2930,7 @@ h3.white span {
 
 .frm_dropzone .fallback input {
     width: 100%;
-    cursor: pointer
+    /* cursor: pointer */
 }
 
 .ui-datepicker-calendar {
@@ -3024,7 +3024,7 @@ body {
 }
 
 canvas {
-    pointer-events: none;
+    /* pointer-events: none; */
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -3727,7 +3727,7 @@ canvas {
 }
 
 .header .hamburger:hover {
-    cursor: pointer
+    /* cursor: pointer */
 }
 
 .header .hamburger span {
@@ -4792,7 +4792,7 @@ canvas {
     background-color: #fff;
     background-color: var(--color-white);
     border-radius: 9999px;
-    cursor: pointer;
+    /* cursor: pointer; */
     margin-top: .25rem;
     margin-bottom: .25rem;
     transition-property: background-color, border-color, color, fill, stroke;
@@ -5660,7 +5660,7 @@ canvas {
 }
 
 .embedded-video__preview {
-    cursor: pointer
+    /* cursor: pointer */
 }
 
 .embedded-video__preview:hover .embedded-video__play {
@@ -5670,7 +5670,7 @@ canvas {
 
 .embedded-video__play {
     position: absolute;
-    cursor: pointer;
+    /* cursor: pointer; */
     z-index: 20;
     width: 0;
     --transform-translate-x: 0;
@@ -5713,7 +5713,7 @@ canvas {
     display: none;
     position: absolute;
     text-align: center;
-    cursor: pointer;
+    /* cursor: pointer; */
     outline: 2px solid transparent;
     outline-offset: 2px;
     padding: .75rem;
@@ -7768,7 +7768,7 @@ canvas {
     transition-property: all;
     transition-duration: .1s;
     margin-top: 1.5rem;
-    cursor: pointer
+    /* cursor: pointer */
 }
 
 .redirect-ie>.container {

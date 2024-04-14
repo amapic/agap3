@@ -9,11 +9,17 @@ gsap.registerPlugin(ScrollTrigger);
 const PC = (props, ref) => {
   const A = useLoader(FBXLoader, "/Comp_and_Floppy.fbx");
 
-  var ColorYellow = "#ffcd00";
+  // var ColorYellow = "#ffcd00";
+  const ColorYellow=getComputedStyle(document.documentElement)
+    .getPropertyValue('--color-yellow');
 
-  var ColorBlue = "#0226aa";
+  // var ColorBlue = "#0226aa";
+   const ColorBlue=getComputedStyle(document.documentElement)
+    .getPropertyValue('--color-blue-fonce');
+	
+	const ColorGreen=getComputedStyle(document.documentElement)
+    .getPropertyValue('--color-green');
 
-  var ColorGreen = "rgb(78,201,176)";
 
   const refLoc = useRef(null);
   const refFloppy1 = useRef(null);

@@ -7,91 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 
-const PC = (props, ref) => {
-  const A = useLoader(FBXLoader, "/Comp_and_Floppy.fbx");
 
-  var ColorYellow = "#ffcd00";
-
-  var ColorBlue = "#0226aa";
-
-  var ColorGreen = "rgb(78,201,176)";
-
-  const refLoc = useRef(null);
-  const refFloppy1 = useRef(null);
-  const refFloppy2 = useRef(null);
-
-  
-  const rotationSpeed = useRef(0.005);
-
-  useEffect(() => {
-    window.addEventListener("scroll", controlDirection);
-    return () => {
-      window.removeEventListener("scroll", controlDirection);
-    };
-  }, []);
-
-  const controlDirection = (e) => {
-    
-  };
-
-  
-  useFrame(({ }) => {
-    if (refFloppy1.current) {
-      if (
-        refFloppy1.current.position.x == 0.001
-        
-        
-      ) {
-        
-        if (rotationSpeed.current >= 0.005) {
-          rotationSpeed.current -= 0.005;
-        } else {
-          rotationSpeed.current = 0.005;
-        }
-        if (refLoc.current) {
-          refLoc.current.rotation.y += rotationSpeed.current;
-        }
-      }
-    }
-
-  });
-
-  return (
-    
-    <group ref={refLoc}>
-      <group
-        ref={ref}
-        scale={[0.0001, 0.0001, 0.0001]}
-        rotation={[0, Math.PI / 4 - Math.PI / 2 - Math.PI / 16, 0]}
-      >
-        <mesh
-          ref={refFloppy1}
-          position={[1, 0, -0.2]}
-          scale={[0.005, 0.005, 0.005]}
-          geometry={A.children[1].geometry}
-        >
-          <meshStandardMaterial color={ColorGreen} opacity={1} />
-        </mesh>
-        <mesh
-          ref={refFloppy2}
-          position={[1.5, 0, 0.5]}
-          scale={[0.005, 0.005, 0.005]}
-          geometry={A.children[1].geometry}
-        >
-          <meshStandardMaterial color={ColorGreen} opacity={1} />
-        </mesh>
-        <mesh scale={[0.005, 0.005, 0.005]} geometry={A.children[2].geometry}>
-          <meshStandardMaterial color={ColorYellow} opacity={1} />
-        </mesh>
-
-        <mesh scale={[0.01, 0.01, 0.01]}>
-          <meshStandardMaterial color={ColorBlue} opacity={1} />
-          <sphereGeometry args={[0.96, 32, 16]} />
-        </mesh>
-      </group>
-    </group>
-  );
-};
 
 
 
@@ -211,7 +127,7 @@ const CanvasImage = () => {
             style={{
               backgroundSize: "contain",
             }}
-            src="./../../site_meca_flux.png"
+            src="/site_meca_flux.png"
           ></img>
         </a>
 

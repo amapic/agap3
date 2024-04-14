@@ -16,9 +16,8 @@ export default function RightText() {
 
         
         <h3 className="text-2xl mb-8">
-          Après avoir travaillé 7 années dans l'informatique, je me suis formé
-          avec React.js, Vue.js et la représentation scientifique pendant 2
-          années.
+          Après avoir travaillé 7 années dans l'informatique, je me suis formé dans le développement front-end
+          avec React.js, Vue.js, Three.js et WebGL.
         </h3>
 
         <div className="mce w-full xl:w-2/3">
