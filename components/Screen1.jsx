@@ -2,9 +2,11 @@ import React, { useRef, useEffect, useState, Suspense } from "react";
 import { gsap } from "gsap";
 import dynamic from "next/dynamic";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
-const ModelVtk = dynamic(() => import("./vtk/vtk3"), {
+const ModelVtk = dynamic(() => import("./vtk/vtk"), {
   loading: () => <p>Loading...</p>,
 });
+
+
 gsap.registerPlugin(MotionPathPlugin);
 import Image from "next/image";
 function VSCode() {
@@ -22,9 +24,11 @@ function VSCode() {
       }
     });
     elements.forEach((element, i) => {
-      if (i == 2 || i == 12) {
-        var rect = element.getBoundingClientRect();
+		var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+      if (i == 2 || i == 12) {
+        // var rect = element.getBoundingClientRect();
+        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 10 + 2 * Math.random(), {
           motionPath: {
             path: [
@@ -37,8 +41,8 @@ function VSCode() {
         });
       }
       if (i == 3 || i == 6 || i == 13) {
-        var rect = element.getBoundingClientRect();
-        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        // var rect = element.getBoundingClientRect();
+        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 10 + 2 * Math.random(), {
           motionPath: {
             path: [
@@ -51,8 +55,8 @@ function VSCode() {
         });
       }
       if (i == 4 || i == 8 || i == 1 || i == 14) {
-        var rect = element.getBoundingClientRect();
-        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        // var rect = element.getBoundingClientRect();
+        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 15 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -66,8 +70,8 @@ function VSCode() {
         });
       }
       if (i == 9 || i == 7) {
-        var rect = element.getBoundingClientRect();
-        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        // var rect = element.getBoundingClientRect();
+        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 30 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -82,8 +86,8 @@ function VSCode() {
         });
       }
       if (i == 5 || i == 10 || i == 16) {
-        var rect = element.getBoundingClientRect();
-        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        // var rect = element.getBoundingClientRect();
+        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 15 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -97,8 +101,8 @@ function VSCode() {
         });
       }
       if (i == 11 || i == 15) {
-        var rect = element.getBoundingClientRect();
-        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        // var rect = element.getBoundingClientRect();
+        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 20 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -112,8 +116,8 @@ function VSCode() {
         });
       }
       if (i == 0 || i == 6 || i == 17) {
-        var rect = element.getBoundingClientRect();
-        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        // var rect = element.getBoundingClientRect();
+        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
         tl.to(element, 10 + 4 * Math.random(), {
           motionPath: {
             path: [

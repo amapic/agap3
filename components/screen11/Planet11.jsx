@@ -1,14 +1,10 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 import * as THREE from "three";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-// import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-// import { SphereGeometry } from "three";
+
 gsap.registerPlugin(ScrollTrigger);
-
-
 
 
 const CanvasImage = () => {

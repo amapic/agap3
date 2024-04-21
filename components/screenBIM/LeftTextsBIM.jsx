@@ -1,24 +1,8 @@
-import { Canvas, useLoader, useFrame } from "@react-three/fiber";
-import React, { useRef, forwardRef, useEffect, useCallback } from "react";
-import * as THREE from "three";
-import Image from 'next/image'
-
+import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
-import IImage from "@images/planet.jpg"
-
-
-
-const CanvasImage = () => {
-  
-  
-  
-
-  
-
+export default function Ttext37() {
   useEffect(() => {
     let ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
@@ -32,7 +16,7 @@ const CanvasImage = () => {
           var scrollSunTl = gsap.timeline();
           
           ScrollTrigger.create({
-            trigger: "#main8",
+            trigger: "#main9",
             
             start: "top top", 
             end: "bottom-=10% bottom",
@@ -44,21 +28,26 @@ const CanvasImage = () => {
             
           });
 
-
-
           scrollSunTl.fromTo(
-            "#canvas8",
+            "#texte_bas_39",
             {
-              x: "-100vw",
-              y: "-30vh",
-              width: "100vw",
-              padding:"0 20vw 0 20vw"
+              top: "35vh",
+              margin: "0 30vw 0 30vw",
+              width: "40vw",
+              opacity: "0",
+              
+              
+              
             },
             {
-              x: "2vw",
-              y: "-30vh",
-              width: "100vw",
-              padding:"0 20vw 0 20vw"
+              top: "35vh",
+              margin: "0 30vw 0 30vw",
+              width: "40vw",
+              opacity: "1",
+              
+              
+              
+              
             }
           );
         }
@@ -74,7 +63,7 @@ const CanvasImage = () => {
           var scrollSunTl = gsap.timeline();
           
           ScrollTrigger.create({
-            trigger: "#main8",
+            trigger: "#mainBIM",
             
             start: "top top", 
             end: "bottom-=10% bottom",
@@ -86,12 +75,16 @@ const CanvasImage = () => {
             
           });
           scrollSunTl.fromTo(
-            "#canvas8",
+            "#texte_bas_39",
             {
-              x: "-50vw",
+              top: "80vh",
+              left: "15vw",
+              
             },
             {
-              x: "5vw",
+              bottom: "80vh",
+              left: "15vw",
+              
             }
           );
         }
@@ -100,45 +93,39 @@ const CanvasImage = () => {
     return () => ctx.revert();
   });
 
-
+  
   return (
     <div
-      id="main8"
-      className="z-20"
+      id="texte_bas_39"
+      className="flex justify-center"
       style={{
-        height: "300vh",
-        overflow: "hidden",
-        position: "relative",
-        width: "100%",
+        zIndex: "30",
+
+        position: "absolute",
+        size: "40px",
       }}
     >
-      <div
-        id="canvas8"
-        style={{
-          height: "100vh",
-          overflow: "hidden",
-          position: "absolute",
-          left: "0vh",
-          width: "40vw",
-          zIndex: "50",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <a href="https://amaurypichat.fr/planet/" className="img_site hidden lg:block">
-         
-		  <Image
-		  
-			  src={"/planet.jpg"}
-			  width={500}
-			  height={500}
-			  alt="Picture of the author"
-			/>
-        </a>
-
+      <div className="w-full h-full">
+        <div className="flex flex-col justify-start">
+          <div
+            className="w-50 text1 
+        text-green font-bold text-2xl md:text-2-5xl xl:text-3xl opacity-1 backface-hidden border-2 p-2
+        "
+          >
+            <ul>
+              <li
+                className="effet_perso flex justify-center text-center"
+              >
+                <a  href="https://amaurypichat.fr/bim/">
+                  Voir la réalisation
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default CanvasImage;
+

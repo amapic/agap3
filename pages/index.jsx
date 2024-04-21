@@ -5,10 +5,9 @@ import React, { useEffect, Suspense, useState, lazy, useRef } from "react";
 import pMinDelay from "p-min-delay";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
-import { Provider } from "react-redux";
 import store from "./../components/store";
 gsap.registerPlugin(MotionPathPlugin);
-import { useSelector } from "react-redux";
+import { useSelector,Provider } from "react-redux";
 
 const Screen4 = dynamic(() => import("@components/Screen4"), {});
 
@@ -23,6 +22,8 @@ const Screen9 = dynamic(() => import("@components/Screen9"), {});
 const Screen10 = lazy(() => pMinDelay(import("@components/Screen10"), 1));
 
 const Screen11 = lazy(() => pMinDelay(import("@components/Screen11"), 1));
+
+const ScreenBIM = lazy(() => pMinDelay(import("@components/ScreenBIM"), 1));
 
 const Screen1 = dynamic(() => import("@components/Screen1"), {});
 
@@ -115,6 +116,9 @@ function Home() {
          <Suspense>
           <Screen6 />
         </Suspense>
+		 <Suspense>
+          <ScreenBIM />
+        </Suspense>
 
         <Suspense>
           <Screen7 />
@@ -131,7 +135,7 @@ function Home() {
         </Suspense>
         <Suspense>
           <Screen9 />
-        </Suspense> 
+        </Suspense>  
 
         {/* <RightScrollMenu /> */}
         <Formulaire />
@@ -153,7 +157,7 @@ export function Home2() {
   }, []);
 
   useEffect(() => {
-    if (count == 0) {
+    if (count > 0) {
       ref.current.style.visibility = "visible";
       var ll = document.getElementsByTagName("header");
 
@@ -166,7 +170,7 @@ export function Home2() {
   return (
     <>
       {/* {count} */}
-      {/* {count == 0 && <Loading />} */}
+      {count == 0 && <Loading />}
       <div
         ref={ref}
         style={{

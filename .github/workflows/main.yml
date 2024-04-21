@@ -4,7 +4,7 @@ name: DeploymentWorkflow
 on:
   push:
     branches:
-      - main3
+      - main2
 
 jobs:
   deploy:
@@ -25,3 +25,4 @@ jobs:
             npm install --no-optional --legacy-peer-deps
             npm install --optional --legacy-peer-deps
             npm run build
+            cp -r /var/www/html/dev/pre_build/* /var/www/html/prod 

@@ -16,7 +16,7 @@ export default function RightText() {
 
         
         <h3 className="text-2xl mb-8">
-          Après avoir travaillé 7 années dans l'informatique, je me suis formé dans le développement front-end
+          Après avoir travaillé 7 années dans l'informatique, je me suis formé dans le développement front-end 3D
           avec React.js, Vue.js, Three.js et WebGL.
         </h3>
 

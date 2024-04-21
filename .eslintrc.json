@@ -1,9 +1,21 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals","eslint:recommended",
+    "plugin:react/recommended"],
   "rules": {
     "react/no-unescaped-entities": "off",
-	"no-unused-vars": 2,
+	"react/react-in-jsx-scope":"off",
+	"react/prop-types":"off",
+	"no-unused-vars": 0,
     "@next/next/no-page-custom-font": "off",
-	"react-hooks/exhaustive-deps":"off"
+	"react-hooks/exhaustive-deps":"off",
+	"sort-imports": ["error", {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": true,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+        "allowSeparatedGroups": false
+    }],
+	"react/no-unknown-property":"off",
+	
   }
 }

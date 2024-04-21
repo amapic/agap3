@@ -1,23 +1,18 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 import * as THREE from "three";
-import Image from 'next/image'
-
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+// import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
+// import { SphereGeometry } from "three";
 gsap.registerPlugin(ScrollTrigger);
 
-import IImage from "@images/planet.jpg"
 
 
 
 const CanvasImage = () => {
-  
-  
-  
 
-  
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -25,23 +20,20 @@ const CanvasImage = () => {
       mm.add(
         {
           isSmall: "(max-width: 999px)",
-          
-          
         },
         (c) => {
           var scrollSunTl = gsap.timeline();
-          
           ScrollTrigger.create({
-            trigger: "#main8",
-            
-            start: "top top", 
+            trigger: "#mainBIM",
+            // endTrigger: ".screen6",
+            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
-            
+            // end: "+=200",
             toggleActions: "play pause resume reset",
-            
+            // markers: true,
             scrub: 3,
             animation: scrollSunTl,
-            
+            // pin: "#canvas",
           });
 
 
@@ -64,29 +56,29 @@ const CanvasImage = () => {
         }
       );
       mm.add(
-        
+        // mm.add(
         {
           isSmall: "(min-width: 1000px)",
-          
-          
+          // isLarge: "(min-width: 769px) and (max-width: 1300px)",
+          // isXLarge: "(min-width: 1301px)",
         },
         (c) => {
           var scrollSunTl = gsap.timeline();
-          
+          // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
-            trigger: "#main8",
-            
-            start: "top top", 
+            trigger: "#mainBIM",
+            // endTrigger: ".screen6",
+            start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
-            
+            // end: "+=200",
             toggleActions: "play pause resume reset",
-            
+            // markers: true,
             scrub: 3,
             animation: scrollSunTl,
-            
+            // pin: "#canvas",
           });
           scrollSunTl.fromTo(
-            "#canvas8",
+            "#canvasBIM",
             {
               x: "-50vw",
             },
@@ -103,7 +95,7 @@ const CanvasImage = () => {
 
   return (
     <div
-      id="main8"
+      id="mainBIM"
       className="z-20"
       style={{
         height: "300vh",
@@ -113,7 +105,7 @@ const CanvasImage = () => {
       }}
     >
       <div
-        id="canvas8"
+        id="canvasBIM"
         style={{
           height: "100vh",
           overflow: "hidden",
@@ -125,15 +117,14 @@ const CanvasImage = () => {
           justifyContent: "center",
         }}
       >
-        <a href="https://amaurypichat.fr/planet/" className="img_site hidden lg:block">
-         
-		  <Image
-		  
-			  src={"/planet.jpg"}
-			  width={500}
-			  height={500}
-			  alt="Picture of the author"
-			/>
+    {/*  */}
+        <a href="https://amaurypichat.fr/vtk/" className="img_site hidden lg:block">
+          <img
+            style={{
+              backgroundSize: "contain",
+            }}
+            src="/modeleBIM.png"
+          ></img>
         </a>
 
       </div>

@@ -19,31 +19,32 @@
 #container_move4,
 #container_move6,
 #container_move7,
-#container_move8 {
+#container_move8,
+#container_moveBIM {
 
   background-color: rgba(249, 249, 249, 1);
 }
 
 
-@font-face {
-  font-family: "SofiaPro-Black";
-  src: url("../public/SofiaPro-Black.woff2");
+/* @font-face { */
+  /* font-family: "SofiaPro-Black"; */
+  /* src: url("../public/SofiaPro-Black.woff2"); */
 
-  font-weight: 900;
-}
+  /* font-weight: 900; */
+/* } */
 
-@font-face {
-  font-family: "SofiaPro-Bold";
-  src: url("../public/SofiaPro-Bold.woff2");
-  font-weight: 700;
-}
+/* @font-face { */
+  /* font-family: "SofiaPro-Bold"; */
+  /* src: url("../public/SofiaPro-Bold.woff2"); */
+  /* font-weight: 700; */
+/* } */
 
-@font-face {
-  font-family: "SofiaPro-Medium";
-  src: url("../public/SofiaPro-Medium.woff2");
+/* @font-face { */
+  /* font-family: "SofiaPro-Medium"; */
+  /* src: url("../public/SofiaPro-Medium.woff2"); */
 
-  font-weight: 500;
-}
+  /* font-weight: 500; */
+/* } */
 
 @font-face {
   font-family: "SofiaPro";
@@ -51,11 +52,11 @@
   font-weight: 400;
 }
 
-@font-face {
-  font-family: "SofiaPro-SemiBold";
-  src: url("../public/SofiaPro-SemiBold.woff2");
-  font-weight: 600;
-}
+/* @font-face { */
+  /* font-family: "SofiaPro-SemiBold"; */
+  /* src: url("../public/SofiaPro-SemiBold.woff2"); */
+  /* font-weight: 600; */
+/* } */
 
 body {
   font-family: var(--font-family);
@@ -231,7 +232,8 @@ body {
 #bgCircle8,
 #bgCircle9,
 #bgCircle10,
-#bgCircle11 {
+#bgCircle11,
+#bgCircleBIM {
 
   background-color: rgb(31, 31, 31);
 }
