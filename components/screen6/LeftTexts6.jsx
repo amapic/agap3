@@ -104,7 +104,7 @@ export function Ttext36() {
         "
           >
             <ul className="">
-              <li className="effet_perso   flex justify-center text-center" >
+              <li className="effet_perso flex justify-center text-center" >
                 <a href="https:amaurypichat/siteWeb1">
                   Voir la réalisation
                 </a>
