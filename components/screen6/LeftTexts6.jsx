@@ -97,15 +97,15 @@ export function Ttext36() {
       }}
     >
       <div className="w-full h-full">
-        <div className="flex flex-col justify-start">
+        <div className="flex  flex-col justify-start">
           <div
-            className="w-50 text1 
+            className="w-50 text1 akka relative
         text-green font-bold text-2xl md:text-2-5xl xl:text-3xl opacity-1 backface-hidden border-2 p-2
         "
           >
-            <ul>
-              <li className="effet_perso flex justify-center text-center" >
-                <a href="https:">
+            <ul className="">
+              <li className="effet_perso   flex justify-center text-center" >
+                <a href="https:amaurypichat/siteWeb1">
                   Voir la réalisation
                 </a>
               </li>

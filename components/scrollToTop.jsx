@@ -1,13 +1,13 @@
 import { useRef, useEffect, useState } from "react";
 import { animateScroll as scroll } from "react-scroll";
-
+import ScrollToTop from "react-scroll-to-top";
 function ScrollToTopFab() {
   const [visible, setVisible] = useState(0);
   const contentRef = useRef(null);
 
-  const scrollToTop = () => {
-    scroll.scrollToTop();
-  };
+  // const scrollToTop = () => {
+  //   scroll.scrollToTop();
+  // };
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -33,6 +33,11 @@ function ScrollToTopFab() {
   };
 
   return (
+    // <div>
+    //   <h1>Hello, world!</h1>
+    //   <div style={{ marginTop: "150vh" }} />
+    //   <ScrollToTop smooth />
+    // </div>
     <button
       ref={contentRef}
       id="scrollbutton"
@@ -46,7 +51,6 @@ function ScrollToTopFab() {
     >
       <span></span>
       <img className="w-4 h-4" src="/top_arrow.png" alt="go top" />
-      {/* {"\u1f51d"} */}
     </button>
   );
 }
