@@ -20,8 +20,7 @@ jobs:
           username: ${{ secrets.USERNAME }} # Your server's username
           key: ${{ secrets.SSH_PRIVATE_KEY }} # Your server's SSH private key
           script: |
-            cd /var/www/html/dev/root 
-            git pull origin main2
+            cd /var/www/html/dev/rooot
             npm install --no-optional --legacy-peer-deps
             npm install --optional --legacy-peer-deps
-            npm run build
+            npm run build 
