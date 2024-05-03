@@ -160,11 +160,11 @@ body {
   font-weight: 700;
 }
 
-@font-face {
+/* @font-face {
   font-family: "vscode";
   src: url("../public/Consola.ttf");
   font-weight: 700;
-}
+} */
 
 
 
@@ -180,7 +180,7 @@ body {
 
 #code_contain {
   z-Index: 100;
-  font-family: "vscode";
+  /* font-family: "vscode"; */
   position: absolute;
 
 
