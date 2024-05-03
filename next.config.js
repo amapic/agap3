@@ -3,7 +3,7 @@
 const withTM = require("next-transpile-modules")(["@kitware/vtk.js"]);
 const nextConfig = {
   reactStrictMode: false,
-  output: '../../prod/siteWeb1',
+  output: '/prebuild',
   images: {
     unoptimized: true,
   },
