@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-import CanvasImage from "./screen4/Planet4_new";
+import CanvasImage from "./screen4/Planet4";
 import Ttext1, {
   Ttext2,
   Ttext3,

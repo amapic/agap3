@@ -22,8 +22,7 @@ export default function RightText() {
 
         <div className="mce w-full xl:w-2/3">
           <p>
-            Je suis prêt à présent à travailler. Je souhaite travailler sur des
-            projets ambitieux muni d'un design soigneux
+            Motivé par le besoin de plus en plus important autour de ces technologies, je suis prêt pour intégrer tosu types de projet.
           </p>
         </div>
       </div>

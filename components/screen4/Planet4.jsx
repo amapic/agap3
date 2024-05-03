@@ -1,6 +1,5 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
-import * as THREE from "three";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -272,7 +271,7 @@ const CanvasPlanete = () => {
         <Canvas>
           <ambientLight intensity={0.3} />
           <spotLight position={[10, 10, 10]} angle={45} penumbra={1} />
-          <pointLight position={[-10, -10, -10]} />
+          <pointLight position={[-10, -10, 0]} />
 
           <PlaneteBis ref={ref} />
         </Canvas>

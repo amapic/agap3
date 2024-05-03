@@ -108,7 +108,7 @@ export default function Ttext37() {
       <div className="w-full h-full">
         <div className="flex flex-col justify-start">
           <div
-            className="w-50 text1 
+            className="w-50 text1 relative overflow-hidden
         text-green font-bold text-2xl md:text-2-5xl xl:text-3xl opacity-1 backface-hidden border-2 p-2
         "
           >

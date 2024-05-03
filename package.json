@@ -26,6 +26,7 @@
     "emailjs-com": "^3.2.0",
     "eslint": "9.1.0",
     "eslint-config-next": "14.2.2",
+    "file-loader": "^6.2.0",
     "html-react-parser": "^5.1.10",
     "lodash": "^4.17.21",
     "next-transpile-modules": "^10.0.1",
@@ -52,7 +53,7 @@
     "sass": "^1.75.0",
     "styled-components": "^6.1.8",
     "tailwindcss": "^3.4.3",
-    "three": "^0.163.0",
+    "three": "^0.149.0",
     "three-stdlib": "^2.29.6",
     "zustand": "^4.5.2"
   },

@@ -20,6 +20,9 @@
 #container_move6,
 #container_move7,
 #container_move8,
+#container_move9,
+#container_move10,
+#container_move11,
 #container_moveBIM {
 
   background-color: rgba(249, 249, 249, 1);
@@ -294,19 +297,6 @@ video {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -846,3 +836,97 @@ body {
 .blur{
   animation: blur 1s forwards;
 }
+
+/* .conteneur { */
+  /* position: relative; */
+  /* width: 100px; */
+  /* height: 100px; */
+  /* border: 1px solid black; */
+/* } */
+
+/* .conteneur:hover::after { */
+  /* content: ''; */
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  /* width: 50%; /* Taille initiale du cercle (50% du conteneur) */ */
+  /* height: 50%; /* Taille initiale du cercle (50% du conteneur) */ */
+  /* border-radius: 50%; */
+  /* background-color: red; */
+  /* transition: all 3s ease-in-out; */
+/* } */
+
+/* .conteneur:hover::after { */
+  /* width: 200%; /* Taille finale du cercle (remplit le conteneur) */ */
+  /* height: 200%; /* Taille finale du cercle (remplit le conteneur) */ */
+/* } */
+
+/* .conteneur:hover:not(:hover)::after { */
+  /* width: 50%; /* Taille finale du cercle (revient à 50%) */ */
+  /* height: 50%; /* Taille finale du cercle (revient à 50%) */ */
+/* } */
+
+/* #container { */
+  /* background-color: black; */
+  /* border-radius: 10px; */
+  /* padding: 5px; */
+  /* display:flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* border: 1px solid black; */
+  /* width: 500px; */
+  /* height: 100px; */
+/* } */
+
+.light {
+  
+  display: block;
+  border-radius: 50%;
+  margin: 10px;
+  border-width: 5px;
+  background-color: grey;
+  transition: all 1s ease-in-out;
+}
+
+.grand{
+	height: 200px;
+  width: 200px;
+	
+}
+
+.petit{
+	height: 100px;
+  width: 100px;
+	
+}
+
+
+
+.effet_perso{
+	overflow:clip;
+}
+
+.effet_perso:after{
+	
+  	content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0px; /* Taille initiale du cercle (50% du conteneur) */
+  height: 0px; /* Taille initiale du cercle (50% du conteneur) */
+  border-radius: 50%;
+  /* background-color: rgb(78, 201, 176); */
+   background-color: rgb(255, 255, 255);
+  transition: all 0.5s ease-in-out;
+  z-Index:-1;
+	
+}
+
+.effet_perso:hover::after{
+	
+	width:20vw;
+	height:20vw;
+}
+	
