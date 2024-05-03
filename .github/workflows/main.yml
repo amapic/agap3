@@ -24,3 +24,4 @@ jobs:
             git pull origin main2
             npm install --no-optional --legacy-peer-deps
             npm install --optional --legacy-peer-deps
+            npm run build
