@@ -837,47 +837,7 @@ body {
   animation: blur 1s forwards;
 }
 
-/* .conteneur { */
-  /* position: relative; */
-  /* width: 100px; */
-  /* height: 100px; */
-  /* border: 1px solid black; */
-/* } */
 
-/* .conteneur:hover::after { */
-  /* content: ''; */
-  /* position: absolute; */
-  /* top: 50%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
-  /* width: 50%; /* Taille initiale du cercle (50% du conteneur) */ */
-  /* height: 50%; /* Taille initiale du cercle (50% du conteneur) */ */
-  /* border-radius: 50%; */
-  /* background-color: red; */
-  /* transition: all 3s ease-in-out; */
-/* } */
-
-/* .conteneur:hover::after { */
-  /* width: 200%; /* Taille finale du cercle (remplit le conteneur) */ */
-  /* height: 200%; /* Taille finale du cercle (remplit le conteneur) */ */
-/* } */
-
-/* .conteneur:hover:not(:hover)::after { */
-  /* width: 50%; /* Taille finale du cercle (revient à 50%) */ */
-  /* height: 50%; /* Taille finale du cercle (revient à 50%) */ */
-/* } */
-
-/* #container { */
-  /* background-color: black; */
-  /* border-radius: 10px; */
-  /* padding: 5px; */
-  /* display:flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* border: 1px solid black; */
-  /* width: 500px; */
-  /* height: 100px; */
-/* } */
 
 .light {
   
