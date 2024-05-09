@@ -618,21 +618,7 @@ export default function Screen1() {
     return () => ctx.revert();
   });
   useEffect(() => {
-    //     const cursorSmall = document.querySelector('.small');
-    // const cursorBig = document.querySelector('.big');
-    //     const positionElement = (e) => {
-    //       const mouseY = e.clientY;
-    //       const mouseX = e.clientX;
-    //       cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    //       cursorBig.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    //     };
-    //     window.addEventListener("mousemove", positionElement);
-    // document.body.style.cursor = "url('./../public/ff.jpg')";
-    // document.body.style.cursor = "wait";
 
-    // setInterval(() => {
-    // clickEffect();
-    // }, 1000);
     function clickEffect(e) {
       var d = document.createElement("div");
       d.className = "clickEffect";
@@ -800,63 +786,7 @@ export default function Screen1() {
             <div id="shrink_button">
               <img src="/shrink.png" alt="reduirefond" />
             </div>
-            {/* <div
-              id="main_content_zone1_hidden"
-              className="hidden bg-black home-cover__content relative flex flex-col md:justify-center w-full h-full mx-auto px-5 pt-24 md:pt-0"
-              style={{
-                zIndex: 8,
-              }}
-            >
-              <Image
-                // id="dfdh"
-                src="/background.avif"
-                fill={true}
-                alt={"Background Image"}
-                priority={true}
-                style={{
-                  zIndex: 9,
-                }}
-              />
-              <h1
-                className="font-black flex flex-wrap items-start w-full"
-                style={{
-                  zIndex: 10,
-                }}
-              >
-                <div
-                  className="w-max-content md:w-1/2 text-2xl md:text-3xl  text-green tracking-normal md:text-right pr-6 md:pr-12 js-tosplit"
-                  style={{}}
-                >
-                  <div className="line">
-                    <div className="word ">{}</div>
-                    <div className="word">Spécialiste Web 3D</div>
-                  </div>
-                  <div className="line">
-                    <div className="word text-white">
-                      Et visualisation scientifique
-                    </div>
-                  </div>
-                  <div className="line">
-                    <div className="word text-xl md:text-2xl xl:text-3-5xl">
-                      06 88 91 80 19
-                    </div>
-                  </div>
-                  <div className="line text-xl md:text-2xl xl:text-3-5xl">
-                    <div className="word pb-2 text-white">
-                      amaury.pichat@gmail.com
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="home-cover__you absolute md:relative md:right-0 md:top-0 md:-mt-4 lg:-mt-8 md:ml-auto pl-12 md:pr-10 lg:pr-24 xl:pr-40 md:pl-12 w-auto text-5xl md:text-6xl xl:text-9xl text-yellow js-tosplit"
-                  data-cartapus="visible"
-                >
-                  <div className="line">
-                    <div className="word">{}</div>
-                  </div>
-                </div>
-              </h1>
-            </div> */}
+           
           </div>
           <div className="w-full h-full " id="part2">
             {}
