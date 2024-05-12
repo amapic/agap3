@@ -442,32 +442,7 @@ export function Timeline3(scrollSunTl, q) {
           opacity:0
         }
       )
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-      
-      
-      
-      
-      
-      
+     
      
     }
 

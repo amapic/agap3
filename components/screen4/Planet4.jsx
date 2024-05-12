@@ -1,4 +1,5 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
+import {OrbitControls,useGLTF,Environment,Html,ContactShadows} from "@react-three/drei"
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { gsap } from "gsap";
@@ -269,11 +270,15 @@ const CanvasPlanete = () => {
         }}
       >
         <Canvas>
-          <ambientLight intensity={0.3} />
-          <spotLight position={[10, 10, 10]} angle={45} penumbra={1} />
-          <pointLight position={[-10, -10, 0]} />
-
+          <ambientLight castshadow intensity={0.8} />
+		  // <OrbitControls />
+          <spotLight position={[2, 0, 0]} angle={90} intensity={2}  castShadow />
+		  <spotLight position={[0, 0, 2.5]} angle={-1.5} intensity={2}  castShadow />
+		  <spotLight position={[-2, 0, 0]} angle={90} intensity={2}  castShadow />
+          <pointLight castshadow position={[-10, -10, 0]} intensity={5} />
+			// <axesHelper args={[2]}/>
           <PlaneteBis ref={ref} />
+		  <ContactShadows position={[0, -2, -0.16]} />
         </Canvas>
       </div>
     </div>

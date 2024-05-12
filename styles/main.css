@@ -28,6 +28,16 @@
   background-color: rgba(249, 249, 249, 1);
 }
 
+#screen6PartieDroite{
+	background-image:url('/rotation.svg');
+	background-repeat:no-repeat;
+	/* background-size: cover; */
+}
+#animated-svg{
+	width:100%;
+	height:100%;
+	position:fixed;
+}
 
 /* @font-face { */
   /* font-family: "SofiaPro-Black"; */
