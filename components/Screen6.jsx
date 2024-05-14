@@ -14,6 +14,8 @@ export default function Screen6() {
   let el = useRef();
 
   useEffect(() => {
+
+    
     let ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
       mm.add(

@@ -14,18 +14,13 @@ export default function Ttext37() {
         },
         () => {
           var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
             trigger: "#main9",
-            // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
-            // end: "+=200",
             toggleActions: "play pause resume reset",
-            // markers: true,
             scrub: 3,
             animation: scrollSunTl,
-            // pin: "#canvas",
           });
 
           scrollSunTl.fromTo(
@@ -35,19 +30,14 @@ export default function Ttext37() {
               margin: "0 30vw 0 30vw",
               width: "40vw",
               opacity: "0",
-              // alignSelf: "center",
-              // padding:"auto"
-              // position:"fixed"
+          
             },
             {
               top: "35vh",
               margin: "0 30vw 0 30vw",
               width: "40vw",
               opacity: "1",
-              // alignSelf: "center",
-              // padding:"auto",
-              // width:"50%"
-              // position:"fixed"
+         
             }
           );
         }

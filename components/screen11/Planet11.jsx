@@ -21,15 +21,11 @@ const CanvasImage = () => {
           var scrollSunTl = gsap.timeline();
           ScrollTrigger.create({
             trigger: "#main11",
-            // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
-            // end: "+=200",
             toggleActions: "play pause resume reset",
-            // markers: true,
             scrub: 3,
             animation: scrollSunTl,
-            // pin: "#canvas",
           });
 
 
@@ -60,18 +56,13 @@ const CanvasImage = () => {
         },
         (c) => {
           var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
             trigger: "#main11",
-            // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
-            // end: "+=200",
             toggleActions: "play pause resume reset",
-            // markers: true,
             scrub: 3,
             animation: scrollSunTl,
-            // pin: "#canvas",
           });
           scrollSunTl.fromTo(
             "#canvas11",

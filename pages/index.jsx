@@ -113,32 +113,32 @@ function Home() {
           <Screen4 />
         </Suspense>
 
-         // <Suspense>
-          // <Screen6 />
-        // </Suspense>
-		 // <Suspense>
-          // <ScreenBIM />
-        // </Suspense>
+         <Suspense>
+          <Screen6 />
+        </Suspense>
+		 <Suspense>
+           <ScreenBIM />
+         </Suspense>
 
-        // <Suspense>
-          // <Screen7 />
-        // </Suspense>
+        <Suspense>
+          <Screen7 />
+         </Suspense>
 
-        // <Suspense>
-          // <Screen8 />
-        // </Suspense>
-        // <Suspense>
-          // <Screen10 />
-        // </Suspense>
-        // <Suspense>
-          // <Screen11 />
-        // </Suspense>
-        // <Suspense>
-          // <Screen9 />
-        // </Suspense>  
+        <Suspense>
+           <Screen8 />
+        </Suspense>
+         <Suspense>
+          <Screen10 />
+         </Suspense>
+        <Suspense>
+           <Screen11 />
+         </Suspense>
+         <Suspense>
+           <Screen9 />
+         </Suspense>  
 
         {/* <RightScrollMenu /> */}
-        // <Formulaire />
+         <Formulaire />
       </>
     </>
   );

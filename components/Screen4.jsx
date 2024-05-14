@@ -20,6 +20,14 @@ export default function Screen4() {
   let el = useRef();
 
   useEffect(() => {
+
+    document.querySelector("#screen4").addEventListener("mouseenter", () => {
+      gsap.to("#texte_cursorr", {
+        ease: "none",
+        visibility: "hidden",
+      });
+    })
+
     const element = zoom.current;
     let q = gsap.utils.selector(zoom);
 
@@ -32,14 +40,13 @@ export default function Screen4() {
         (c) => {
           var scrollSunTl = gsap.timeline({ invalidateOnRefresh: false });
 
-          
           scrollSunTl.to("#container_move4", {
             scrollTrigger: {
               trigger: "#screen4",
-              start: "top top", 
+              start: "top top",
               end: "top+=100% bottom",
               toggleActions: "play none none reset",
-              
+
               scrub: 1,
               pin: "#container_move4",
             },
@@ -48,14 +55,14 @@ export default function Screen4() {
           scrollSunTl.to("#bgCircle", {
             scrollTrigger: {
               trigger: "#screen4",
-              start: "top top", 
+              start: "top top",
               end: "top+=70% bottom",
               toggleActions: "play none none reset",
               scrub: 1,
             },
             transform: "scale(100)",
             transformOrigin: "center",
-            
+
             borderRadius: "10px",
           });
 
@@ -78,8 +85,6 @@ export default function Screen4() {
           zIndex: "10",
           overflow: "hidden",
         }}
-        
-
         ref={zoom}
       >
         <div
@@ -93,7 +98,6 @@ export default function Screen4() {
             <Ttext2 />
             <Ttext1 />
             <div
-              
               id="bgCircle"
               style={{
                 left: "0vw",
@@ -102,9 +106,7 @@ export default function Screen4() {
                 height: "1vw",
                 zIndex: "10",
                 top: "calc(50vh - 5px)",
-                
-                
-                
+
                 position: "absolute",
               }}
             ></div>

@@ -28,16 +28,16 @@
   background-color: rgba(249, 249, 249, 1);
 }
 
-#screen6PartieDroite{
-	background-image:url('/rotation.svg');
-	background-repeat:no-repeat;
-	/* background-size: cover; */
-}
-#animated-svg{
-	width:100%;
-	height:100%;
-	position:fixed;
-}
+/* #screen6PartieDroite{ */
+	/* background-image:url('/rotation.svg'); */
+	/* background-repeat:no-repeat; */
+	
+/* } */
+/* #animated-svg{ */
+	/* width:100%; */
+	/* height:100%; */
+	/* position:fixed; */
+/* } */
 
 /* @font-face { */
   /* font-family: "SofiaPro-Black"; */
@@ -898,5 +898,17 @@ body {
 	
 	width:20vw;
 	height:20vw;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-green);
+    /* border-radius: 5pt; */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #3a3a4e;
 }
 	

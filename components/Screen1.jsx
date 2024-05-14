@@ -27,8 +27,7 @@ function VSCode() {
 		var rect = element.getBoundingClientRect();
         var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
       if (i == 2 || i == 12) {
-        // var rect = element.getBoundingClientRect();
-        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+      
         tl.to(element, 10 + 2 * Math.random(), {
           motionPath: {
             path: [
@@ -41,8 +40,7 @@ function VSCode() {
         });
       }
       if (i == 3 || i == 6 || i == 13) {
-        // var rect = element.getBoundingClientRect();
-        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+     
         tl.to(element, 10 + 2 * Math.random(), {
           motionPath: {
             path: [
@@ -55,8 +53,7 @@ function VSCode() {
         });
       }
       if (i == 4 || i == 8 || i == 1 || i == 14) {
-        // var rect = element.getBoundingClientRect();
-        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+    
         tl.to(element, 15 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -70,8 +67,7 @@ function VSCode() {
         });
       }
       if (i == 9 || i == 7) {
-        // var rect = element.getBoundingClientRect();
-        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+
         tl.to(element, 30 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -86,8 +82,7 @@ function VSCode() {
         });
       }
       if (i == 5 || i == 10 || i == 16) {
-        // var rect = element.getBoundingClientRect();
-        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        
         tl.to(element, 15 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -101,8 +96,7 @@ function VSCode() {
         });
       }
       if (i == 11 || i == 15) {
-        // var rect = element.getBoundingClientRect();
-        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+        
         tl.to(element, 20 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -116,8 +110,7 @@ function VSCode() {
         });
       }
       if (i == 0 || i == 6 || i == 17) {
-        // var rect = element.getBoundingClientRect();
-        // var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+    
         tl.to(element, 10 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -406,12 +399,7 @@ export default function Screen1() {
         gsap.killTweensOf("#div_clip_path");
       }
       mouse_pos.current = [e.pageX, e.pageY];
-      // var d = document.querySelector(".clickEffect");
-      // d.className="clickEffect";
-      // if (d!==null) {
-      //   d.style.top = e.pageX + "px";
-      //   d.style.left = e.pageY + "px";
-      // }
+      
     });
     document.querySelector(".home-cover").addEventListener("mouseleave", () => {
       if (!clicked.current && !animated.current) {
@@ -448,7 +436,7 @@ export default function Screen1() {
           let textCursor = document.querySelector("#texte_cursorr");
           textCursor.classList.add("blur");
           setTimeout(() => {
-            // textCursor.classList.remove("blur").add("deblur");
+           
             document.querySelector("#texte_cursorr").innerHTML = "";
           }, 1000);
           
@@ -489,8 +477,7 @@ export default function Screen1() {
         }
       });
     document.querySelector(".home-cover").addEventListener("click", (event) => {
-      // alert("sdf")
-      // event.stopPropagation();
+     
 
       if (clicked.current && tutoriel.current) {
         document.querySelector("#texte_cursorr").innerHTML =
@@ -565,17 +552,17 @@ export default function Screen1() {
       function q(x) {
         return document.querySelectorAll(x);
       }
-      gsap.from(
-        q(
-          "#div_clip_path .home-cover__content .line:nth-child(1) .word:nth-child(1)"
-        ),
-        {
-          y: "-30px",
-          duration: "1",
-          ease: "linear",
-        },
-        0
-      );
+      // gsap.from(
+      //   q(
+      //     "#div_clip_path .home-cover__content .line:nth-child(1) .word:nth-child(1)"
+      //   ),
+      //   {
+      //     y: "-30px",
+      //     duration: "1",
+      //     ease: "linear",
+      //   },
+      //   0
+      // );
       let div = document.getElementById("screen1");
       let wwidth = window.screen.width;
       for (let step = 0; step < 10; step++) {

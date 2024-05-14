@@ -43,7 +43,7 @@ export default function RightText6() {
       className="relative container-main w-full h-screen-1/2 rg:h-full rg:w-1/2 py-6  rg:py-10 pr-10 rg:py-16 rg:pl-8 lg:pl-20 xl:pl-40 order-1 rg:order-2 rg:text-start text-center"
       
     >
-		// <object id ="animated-svg" type="image/svg+xml" data="animated.svg"></object>
+		 {/* <object id ="animated-svg" type="image/svg+xml" data="animated.svg"></object> */}
       <div className="js-home-gl-text home-numbers__wrap backface-hidden rg:text-start">
         <h2
           className="text-blue mb-4 rg:mb-12 lg:mb-4 xl:mb-12"

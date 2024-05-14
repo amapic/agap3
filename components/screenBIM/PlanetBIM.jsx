@@ -1,15 +1,9 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 import * as THREE from "three";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-// import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-// import { SphereGeometry } from "three";
 gsap.registerPlugin(ScrollTrigger);
-
-
-
 
 const CanvasImage = () => {
 
@@ -25,15 +19,11 @@ const CanvasImage = () => {
           var scrollSunTl = gsap.timeline();
           ScrollTrigger.create({
             trigger: "#mainBIM",
-            // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
-            // end: "+=200",
             toggleActions: "play pause resume reset",
-            // markers: true,
             scrub: 3,
             animation: scrollSunTl,
-            // pin: "#canvas",
           });
 
 
@@ -64,18 +54,13 @@ const CanvasImage = () => {
         },
         (c) => {
           var scrollSunTl = gsap.timeline();
-          // console.log("color", node.children[0].material.color);
           ScrollTrigger.create({
             trigger: "#mainBIM",
-            // endTrigger: ".screen6",
             start: "top top", // which means "when the top of the trigger hits 40px above the bottom of the viewport
             end: "bottom-=10% bottom",
-            // end: "+=200",
             toggleActions: "play pause resume reset",
-            // markers: true,
             scrub: 3,
             animation: scrollSunTl,
-            // pin: "#canvas",
           });
           scrollSunTl.fromTo(
             "#canvasBIM",

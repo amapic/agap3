@@ -1,5 +1,11 @@
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
-import {OrbitControls,useGLTF,Environment,Html,ContactShadows} from "@react-three/drei"
+import {
+  OrbitControls,
+  useGLTF,
+  Environment,
+  Html,
+  ContactShadows,
+} from "@react-three/drei";
 import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { gsap } from "gsap";
@@ -9,23 +15,22 @@ gsap.registerPlugin(ScrollTrigger);
 const PC = (props, ref) => {
   const A = useLoader(FBXLoader, "/Comp_and_Floppy.fbx");
 
-  // var ColorYellow = "#ffcd00";
-  const ColorYellow=getComputedStyle(document.documentElement)
-    .getPropertyValue('--color-yellow');
+  const ColorYellow = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--color-yellow");
 
-  // var ColorBlue = "#0226aa";
-   const ColorBlue=getComputedStyle(document.documentElement)
-    .getPropertyValue('--color-blue-fonce');
-	
-	const ColorGreen=getComputedStyle(document.documentElement)
-    .getPropertyValue('--color-green');
+  const ColorBlue = getComputedStyle(document.documentElement).getPropertyValue(
+    "--color-blue-fonce"
+  );
 
+  const ColorGreen = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--color-green");
 
   const refLoc = useRef(null);
   const refFloppy1 = useRef(null);
   const refFloppy2 = useRef(null);
 
-  
   const rotationSpeed = useRef(0.005);
 
   useEffect(() => {
@@ -35,19 +40,11 @@ const PC = (props, ref) => {
     };
   }, []);
 
-  const controlDirection = (e) => {
-    
-  };
+  const controlDirection = (e) => {};
 
-  
   useFrame(({ clock }) => {
     if (refFloppy1.current) {
-      if (
-        refFloppy1.current.position.x == 0.001
-        
-        
-      ) {
-        
+      if (refFloppy1.current.position.x == 0.001) {
         if (rotationSpeed.current >= 0.005) {
           rotationSpeed.current -= 0.005;
         } else {
@@ -61,7 +58,6 @@ const PC = (props, ref) => {
   });
 
   return (
-    
     <group ref={refLoc}>
       <group
         ref={ref}
@@ -97,7 +93,7 @@ const PC = (props, ref) => {
   );
 };
 
-const PlaneteBis = forwardRef(PC); 
+const PlaneteBis = forwardRef(PC);
 
 const CanvasPlanete = () => {
   const ref = useCallback((node) => {
@@ -111,18 +107,17 @@ const CanvasPlanete = () => {
         (c) => {
           let ctx = gsap.context(() => {
             var scrollSunTl = gsap.timeline();
-            
+
             ScrollTrigger.create({
               trigger: "#main",
-              
-              start: "top top", 
+
+              start: "top top",
               end: "bottom-=10% bottom",
-              
+
               toggleActions: "play pause resume reset",
-              
+
               scrub: 3,
               animation: scrollSunTl,
-              
             });
 
             scrollSunTl.fromTo(
@@ -141,25 +136,17 @@ const CanvasPlanete = () => {
               }
             );
 
-            scrollSunTl.to(
-              node.position,
-              {
-                x: 0.3,
-                y: 0.0,
-                z: 0.0,
-              }
-              
-            );
+            scrollSunTl.to(node.position, {
+              x: 0.3,
+              y: 0.0,
+              z: 0.0,
+            });
 
-            scrollSunTl.to(
-              node.scale,
-              {
-                x: 0.8,
-                y: 0.8,
-                z: 0.8,
-              }
-              
-            );
+            scrollSunTl.to(node.scale, {
+              x: 0.8,
+              y: 0.8,
+              z: 0.8,
+            });
 
             if (node.children[0]) {
               scrollSunTl.to(
@@ -194,29 +181,24 @@ const CanvasPlanete = () => {
         (c) => {
           let ctx = gsap.context(() => {
             var scrollSunTl = gsap.timeline();
-            
+
             ScrollTrigger.create({
               trigger: "#main",
-              
-              start: "top top", 
+
+              start: "top top",
               end: "bottom-=10% bottom",
-              
+
               toggleActions: "play pause resume reset",
-              
+
               scrub: 3,
               animation: scrollSunTl,
-              
             });
 
-            scrollSunTl.to(
-              node.scale,
-              {
-                x: 1,
-                y: 1,
-                z: 1,
-              }
-              
-            );
+            scrollSunTl.to(node.scale, {
+              x: 1,
+              y: 1,
+              z: 1,
+            });
 
             scrollSunTl.to(
               node.children[0].position,
@@ -242,10 +224,9 @@ const CanvasPlanete = () => {
       );
       return () => ctx.revert();
     }
-  }, []); 
+  }, []);
 
   return (
-    
     <div
       id="main"
       className="z-20"
@@ -271,14 +252,24 @@ const CanvasPlanete = () => {
       >
         <Canvas>
           <ambientLight castshadow intensity={0.8} />
-		  // <OrbitControls />
-          <spotLight position={[2, 0, 0]} angle={90} intensity={2}  castShadow />
-		  <spotLight position={[0, 0, 2.5]} angle={-1.5} intensity={2}  castShadow />
-		  <spotLight position={[-2, 0, 0]} angle={90} intensity={2}  castShadow />
+          {/* <OrbitControls /> */}
+          <spotLight position={[2, 0, 0]} angle={90} intensity={2} castShadow />
+          <spotLight
+            position={[0, 0, 2.5]}
+            angle={-1.5}
+            intensity={2}
+            castShadow
+          />
+          <spotLight
+            position={[-2, 0, 0]}
+            angle={90}
+            intensity={2}
+            castShadow
+          />
           <pointLight castshadow position={[-10, -10, 0]} intensity={5} />
-			// <axesHelper args={[2]}/>
+          {/* <axesHelper args={[2]}/> */}
           <PlaneteBis ref={ref} />
-		  <ContactShadows position={[0, -2, -0.16]} />
+          <ContactShadows position={[0, -2, -0.16]} />
         </Canvas>
       </div>
     </div>
