@@ -25,6 +25,5 @@ jobs:
             git pull origin main2
             npm install --no-optional --legacy-peer-deps
             npm install --optional --legacy-peer-deps
-            node -v
             npm run build
             cp -r /var/www/html/dev/rooot/build/* /var/www/html/prod
