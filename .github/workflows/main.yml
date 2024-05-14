@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} # Your server's SSH private key
           script: |
             cd /var/www/html/dev/rooot
-            nvm use 20.12.2
+            git reset --hard
             git pull origin main2
             git checkout main2
             npm install --no-optional --legacy-peer-deps
