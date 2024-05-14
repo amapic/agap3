@@ -23,6 +23,7 @@ jobs:
             cd /var/www/html/dev/rooot
             nvm use 20.12.2
             git pull origin main2
+            git checkout main2
             npm install --no-optional --legacy-peer-deps
             npm install --optional --legacy-peer-deps
             npm run build
