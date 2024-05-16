@@ -4,7 +4,7 @@ name: DeploymentWorkflow
 on:
   push:
     branches:
-      - main2
+      - master
 
 jobs:
   deploy:
@@ -22,8 +22,8 @@ jobs:
           script: |
             cd /var/www/html/dev/rooot
             git reset --hard
-            git pull origin main2
-            git checkout main2
+            git pull origin master
+            git checkout master
             npm install --no-optional --legacy-peer-deps
             npm install --optional --legacy-peer-deps
             npm run build
