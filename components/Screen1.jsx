@@ -388,7 +388,6 @@ export default function Screen1() {
           ease:"none",
           visibility:"visible"
         })
-        // document.querySelector(".home-cover").style.cursor='move';
       });
     document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
       if (!clicked.current && ref.current && !animated.current) {
@@ -662,6 +661,7 @@ export default function Screen1() {
               style={{
                 backgroundColor: "var(--color-transparent)",
                 color: "var(--color-white)",
+                visibility:"hidden"
               }}
               data-text-color="white"
             >
@@ -784,6 +784,7 @@ export default function Screen1() {
               style={{
                 backgroundColor: "var(--color-transparent)",
                 color: "var(--color-brown)",
+                visibility:"hidden"
               }}
             >
               <div className="header__container flex items-center justify-between w-full">

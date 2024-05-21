@@ -149,11 +149,12 @@ export function Home2() {
   const ref = useRef();
 
   useEffect(() => {
-    var ll = document.getElementsByTagName("header");
+    // A remettre
+    // var ll = document.getElementsByTagName("header");
 
-    for (var i = 0; i < ll.length; i++) {
-      ll[i].style.visibility = "hidden";
-    }
+    // for (var i = 0; i < ll.length; i++) {
+    //   ll[i].style.visibility = "hidden";
+    // }
   }, []);
 
   useEffect(() => {

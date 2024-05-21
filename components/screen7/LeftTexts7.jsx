@@ -118,7 +118,7 @@ export default function Ttext37() {
           >
             <ul>
               <li className="effet_perso flex justify-center text-center" >
-                <a href="https:://amaurypichat.fr/slide/index.html">
+                <a href="https://amaurypichat.fr/slide/index.html">
                   Voir la réalisation
                 </a>
               </li>
