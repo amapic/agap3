@@ -14,16 +14,16 @@ export default function RightText() {
           <span>A propos</span>
         </h2>
 
-        
-        <h3 className="text-2xl mb-8">
+        {/* <h3 className="text-2xl mb-8">
           Ingénieur et informaticien, je me suis formé dans le développement front-end 3D
           avec React.js, Vue.js, Three.js et WebGL.
+        </h3> */}
+        <h3 className="text-2xl mb-8">
+          Ingénieur et informaticien, je développe avec React.js, Next.js et Vue.js depuis 3 ans.
         </h3>
 
         <div className="mce w-full xl:w-2/3">
-          <p>
-            Je suis prêt pour intégrer tous les types de projet.
-          </p>
+          <p>A l'aise en équipe, je cherche à intégrer tous types de projet.</p>
         </div>
       </div>
     </div>

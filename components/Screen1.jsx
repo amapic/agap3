@@ -759,7 +759,7 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://amaurypichat.fr/images/cv_AmauryPICHAT.pdf"
+                        href="https://amaurypichat.fr/cv/cv_Amaury_PICHAT.pdf"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
                         CV
@@ -875,10 +875,10 @@ export default function Screen1() {
                     </li>
                     <li className="header__menu__el font-semibold relative text-lg rg:text-base lg:text-lg mx-1">
                       <a
-                        href="https://amaurypichat.fr/images/cv_AmauryPICHAT.pdf"
+                        href="https://amaurypichat.fr/cv/cv_Amaury_PICHAT.pdf"
                         className="flex items-end pt-2 pb-3 rg:px-3 lg:px-4"
                       >
-                        CV
+                        {/* CV */}
                       </a>
                     </li>
                   </ul>
@@ -896,10 +896,12 @@ export default function Screen1() {
                 >
                   <div className="line">
                     <div className="word ">{}</div>
-                    <div className="word">Spécialiste Web 3D</div>
+                    {/* <div className="word">Spécialiste Web 3D</div> */}
+                    <div className="word">Spécialiste front-end</div> 
                   </div>
                   <div className="line">
-                    <div className="word">et visualisation scientifique</div>
+                    {/* <div className="word">et visualisation scientifique</div> */}
+                     <div className="word">avec React.js et Next.js</div> 
                   </div>
                   <div className="line">
                     <div className="word text-xl md:text-2xl xl:text-3-5xl">
