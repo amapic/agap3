@@ -12,7 +12,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const PC = (ref) => {
+const PC = (props,ref) => {
   const A = useLoader(FBXLoader, "/Comp_and_Floppy.fbx");
 
   const ColorYellow = getComputedStyle(
