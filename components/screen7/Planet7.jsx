@@ -1,20 +1,12 @@
-import { Canvas, useLoader, useFrame } from "@react-three/fiber";
-import React, { useRef, forwardRef, useEffect, useCallback } from "react";
-import * as THREE from "three";
 
+import React, { useRef, forwardRef, useEffect, useCallback } from "react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
-
 const CanvasPlanete = () => {
-  
-  
-  
-
   
 
   useEffect(() => {

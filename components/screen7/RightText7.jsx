@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 
-
 export default function RightText7() {
   useEffect(() => {
     let ctx = gsap.context(() => {

@@ -1,12 +1,11 @@
 import { useRef, useEffect } from "react";
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 
 import CanvasImage from "./screen8/Planet8";
 import Ttext38 from "./screen8/LeftTexts8";
-
 import RightText8 from "./screen8/RightText8";
 
 export default function Screen8() {

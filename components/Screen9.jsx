@@ -1,12 +1,10 @@
 import { useRef, useEffect } from "react";
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import CanvasImage from "./screen9/Planet9";
 import Ttext39 from "./screen9/LeftTexts9";
-
 import RightText9 from "./screen9/RightText9";
 
 export default function Screen9() {
@@ -85,7 +83,6 @@ export default function Screen9() {
                 height: "1vw",
                 zIndex: "10",
                 top: "calc(50vh - 5px)",
-
                 position: "absolute",
               }}
             ></div>

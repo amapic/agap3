@@ -647,7 +647,7 @@ export default function Screen1() {
         style={{
           backgroundColor: "rgb(0,0,0)",
         }}
-        className={" home-cover relative w-full h-screen z-100 "}
+        className={"home-cover relative w-full h-screen z-100"}
       >
         <div className="bg_grey home-cover__wrapper relative w-full cursor-pointer overflow-hidden js-cover">
           <div

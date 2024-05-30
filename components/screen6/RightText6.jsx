@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 // import Image from 'next/image';
+
 import svgIcon from '/public/rotation.svg'
 
 export default function RightText6() {

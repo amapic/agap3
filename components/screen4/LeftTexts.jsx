@@ -1,5 +1,6 @@
 import * as React from "react";
 import { gsap } from "gsap";
+
 export default function Ttext1() {
   return (
     <div

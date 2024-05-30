@@ -12,7 +12,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const PC = (props, ref) => {
+const PC = (ref) => {
   const A = useLoader(FBXLoader, "/Comp_and_Floppy.fbx");
 
   const ColorYellow = getComputedStyle(
@@ -80,6 +80,7 @@ const PC = (props, ref) => {
         >
           <meshStandardMaterial color={ColorGreen} opacity={1} />
         </mesh>
+        
         <mesh scale={[0.005, 0.005, 0.005]} geometry={A.children[2].geometry}>
           <meshStandardMaterial color={ColorYellow} opacity={1} />
         </mesh>
