@@ -6,10 +6,9 @@ const ModelVtk = dynamic(() => import("./vtk/vtk"), {
   loading: () => <p>Loading...</p>,
 });
 
-
 gsap.registerPlugin(MotionPathPlugin);
 import Image from "next/image";
-function VSCode() {
+function VSCode(): React.ReactElement {
   useEffect(() => {
     let elements = Array.prototype.slice.call(
       document.getElementById("code_contain").children
@@ -24,10 +23,9 @@ function VSCode() {
       }
     });
     elements.forEach((element, i) => {
-		var rect = element.getBoundingClientRect();
-        var tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+      var rect = element.getBoundingClientRect();
+      var tl:GSAPTimeline = gsap.timeline({ repeat: -1, repeatDelay: 0 });
       if (i == 2 || i == 12) {
-      
         tl.to(element, 10 + 2 * Math.random(), {
           motionPath: {
             path: [
@@ -40,7 +38,6 @@ function VSCode() {
         });
       }
       if (i == 3 || i == 6 || i == 13) {
-     
         tl.to(element, 10 + 2 * Math.random(), {
           motionPath: {
             path: [
@@ -53,7 +50,6 @@ function VSCode() {
         });
       }
       if (i == 4 || i == 8 || i == 1 || i == 14) {
-    
         tl.to(element, 15 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -67,7 +63,6 @@ function VSCode() {
         });
       }
       if (i == 9 || i == 7) {
-
         tl.to(element, 30 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -82,7 +77,6 @@ function VSCode() {
         });
       }
       if (i == 5 || i == 10 || i == 16) {
-        
         tl.to(element, 15 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -96,7 +90,6 @@ function VSCode() {
         });
       }
       if (i == 11 || i == 15) {
-        
         tl.to(element, 20 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -110,7 +103,6 @@ function VSCode() {
         });
       }
       if (i == 0 || i == 6 || i == 17) {
-    
         tl.to(element, 10 + 4 * Math.random(), {
           motionPath: {
             path: [
@@ -351,18 +343,20 @@ function VSCode() {
     </div>
   );
 }
-export default function Screen1() {
-  const ref = useRef(null);
-  const clicked = useRef(false);
-  const animated = useRef(false);
+export default function Screen1(): React.ReactElement {
+  const ref = useRef<HTMLDivElement>(null);
+  const clicked = useRef<boolean>(false);
+  const animated = useRef<boolean>(false);
   const mouse_pos = useRef([]);
-  const tutoriel = useRef(true);
-  
-  const blueColor=getComputedStyle(document.documentElement)
-    .getPropertyValue('--color-blue-fonce');
-	
-	const DarkColor=getComputedStyle(document.documentElement)
-    .getPropertyValue('--color-noir-fonce');
+  const tutoriel = useRef<boolean>(true);
+
+  const blueColor = getComputedStyle(document.documentElement).getPropertyValue(
+    "--color-blue-fonce"
+  );
+
+  const DarkColor = getComputedStyle(document.documentElement).getPropertyValue(
+    "--color-noir-fonce"
+  );
   useEffect(() => {
     var tl2 = gsap.timeline({ repeat: -1 });
     tl2.to(
@@ -384,22 +378,23 @@ export default function Screen1() {
     document
       .querySelector(".home-cover")
       .addEventListener("mouseenter", (e) => {
-        gsap.to("#texte_cursorr",{
-          ease:"none",
-          visibility:"visible"
-        })
+        gsap.to("#texte_cursorr", {
+          ease: "none",
+          visibility: "visible",
+        });
       });
-    document.querySelector(".home-cover").addEventListener("mousemove", (e) => {
-      if (!clicked.current && ref.current && !animated.current) {
-        ref.current.style.setProperty(
-          "clip-path",
-          "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
-        );
-        gsap.killTweensOf("#div_clip_path");
-      }
-      mouse_pos.current = [e.pageX, e.pageY];
-      
-    });
+    document
+      .querySelector(".home-cover")
+      .addEventListener("mousemove", (e: MouseEvent) => {
+        if (!clicked.current && ref.current && !animated.current) {
+          ref.current.style.setProperty(
+            "clip-path",
+            "circle(200px at " + e.pageX + "px " + e.pageY + "px)"
+          );
+          gsap.killTweensOf("#div_clip_path");
+        }
+        mouse_pos.current = [e.pageX, e.pageY];
+      });
     document.querySelector(".home-cover").addEventListener("mouseleave", () => {
       if (!clicked.current && !animated.current) {
         gsap.to("#div_clip_path", {
@@ -409,14 +404,14 @@ export default function Screen1() {
         });
       }
 
-      gsap.to("#texte_cursorr",{
-        ease:"none",
-        visibility:"hidden"
-      })
+      gsap.to("#texte_cursorr", {
+        ease: "none",
+        visibility: "hidden",
+      });
     });
     function redresseCode2(event) {
-      let myElement = document.getElementById("code_contain");
-      let i = 0;
+      let myElement: HTMLElement = document.getElementById("code_contain");
+      let i: number = 0;
       for (const child of myElement.children) {
         i = i + 1;
         gsap.killTweensOf(child);
@@ -424,6 +419,7 @@ export default function Screen1() {
           ease: "none",
           x: "0px",
           y: "0px",
+          // @ts-ignore
           delay: i * "0.02",
         });
       }
@@ -435,10 +431,9 @@ export default function Screen1() {
           let textCursor = document.querySelector("#texte_cursorr");
           textCursor.classList.add("blur");
           setTimeout(() => {
-           
             document.querySelector("#texte_cursorr").innerHTML = "";
           }, 1000);
-          
+
           tutoriel.current = false;
           event.stopPropagation();
 
@@ -452,7 +447,7 @@ export default function Screen1() {
             if (height > width) {
               dim = "vh";
             }
-            let clipPath1 = clipPath.split("at");
+            let clipPath1: string = clipPath.split("at")[0];
             clipPath1 =
               "circle(15" +
               dim +
@@ -461,7 +456,9 @@ export default function Screen1() {
               "px " +
               mouse_pos.current[1] +
               "px)";
-            setTimeout((clicked.current = false), 500);
+            setTimeout(() => {
+              clicked.current = false;
+            }, 500);
             var tl = gsap.timeline();
             tl.to(
               "#div_clip_path",
@@ -476,8 +473,6 @@ export default function Screen1() {
         }
       });
     document.querySelector(".home-cover").addEventListener("click", (event) => {
-     
-
       if (clicked.current && tutoriel.current) {
         document.querySelector("#texte_cursorr").innerHTML =
           "Appuyez sur le cercle bleu pour refermer le voile";
@@ -487,31 +482,28 @@ export default function Screen1() {
 
         let textCursor = document.querySelector("#texte_cursorr");
         if (tutoriel.current) {
-          
-          
           textCursor.classList.add("blur");
           setTimeout(() => {
             textCursor.classList.remove("blur");
             document.querySelector("#texte_cursorr").innerHTML =
-            "Maintenez la souris appuyée pour faire pivoter l'objet";
+              "Maintenez la souris appuyée pour faire pivoter l'objet";
             textCursor.classList.add("deblur");
           }, 1000);
         } else {
           textCursor.innerHTML = "";
         }
 
-
         var clipPath = ref.current.style.getPropertyValue("clip-path");
         if (clipPath) {
-          let height = window.innerHeight,
+          let height: number = window.innerHeight,
             width = window.innerWidth;
-          let dim = "vw";
+          let dim: string = "vw";
           if (height > width) {
             dim = "vh";
           }
-          let clipPath1 = clipPath.split("at");
+          let clipPath1: string = clipPath.split("at")[0];
           clipPath1 = "circle(100" + dim + " at " + clipPath1[1];
-          let clipPath2 = clipPath.split("at");
+          let clipPath2: string = clipPath.split("at")[0];
           clipPath2 = "circle(15" + dim + " at " + clipPath2[1];
           clicked.current = true;
           var tl = gsap.timeline();
@@ -562,8 +554,8 @@ export default function Screen1() {
       //   },
       //   0
       // );
-      let div = document.getElementById("screen1");
-      let wwidth = window.screen.width;
+      // let div = document.getElementById("screen1");
+      let wwidth: number = window.screen.width;
       for (let step = 0; step < 10; step++) {
         let paragraph = document.createElement("p");
         paragraph.classList.add("ccode");
@@ -579,6 +571,7 @@ export default function Screen1() {
         paragraph.classList.add("my-1");
         paragraph.textContent = "Hello, world!";
         paragraph.style.top = (50 + step * 50).toString() + "px";
+        // @ts-ignore
         paragraph.style.left = 2 * (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
       }
@@ -588,6 +581,7 @@ export default function Screen1() {
         paragraph.classList.add("my-1");
         paragraph.textContent = "Hello, world!";
         paragraph.style.top = (50 + step * 50).toString() + "px";
+        // @ts-ignore
         paragraph.style.left = 3 * (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
       }
@@ -597,6 +591,7 @@ export default function Screen1() {
         paragraph.classList.add("my-1");
         paragraph.textContent = "Hello, world!";
         paragraph.style.top = (50 + step * 50).toString() + "px";
+        // @ts-ignore
         paragraph.style.left = 4 * (wwidth / 5).toString() + "px";
         paragraph.style.rotate = (15 * Math.random()).toString() + "deg";
       }
@@ -604,7 +599,6 @@ export default function Screen1() {
     return () => ctx.revert();
   });
   useEffect(() => {
-
     function clickEffect(e) {
       var d = document.createElement("div");
       d.className = "clickEffect";
@@ -641,7 +635,6 @@ export default function Screen1() {
   }, []);
   return (
     <>
-
       <div
         id="screen1"
         style={{
@@ -661,7 +654,7 @@ export default function Screen1() {
               style={{
                 backgroundColor: "var(--color-transparent)",
                 color: "var(--color-white)",
-                visibility:"hidden"
+                visibility: "hidden",
               }}
               data-text-color="white"
             >
@@ -773,7 +766,6 @@ export default function Screen1() {
             <div id="shrink_button">
               <img src="/shrink.png" alt="reduirefond" />
             </div>
-           
           </div>
           <div className="w-full h-full " id="part2">
             {}
@@ -784,7 +776,7 @@ export default function Screen1() {
               style={{
                 backgroundColor: "var(--color-transparent)",
                 color: "var(--color-brown)",
-                visibility:"hidden"
+                visibility: "hidden",
               }}
             >
               <div className="header__container flex items-center justify-between w-full">
@@ -897,11 +889,11 @@ export default function Screen1() {
                   <div className="line">
                     <div className="word ">{}</div>
                     {/* <div className="word">Spécialiste Web 3D</div> */}
-                    <div className="word">Spécialiste front-end</div> 
+                    <div className="word">Spécialiste front-end</div>
                   </div>
                   <div className="line">
                     {/* <div className="word">et visualisation scientifique</div> */}
-                     <div className="word">avec React.js et Next.js</div> 
+                    <div className="word">avec React.js et Next.js</div>
                   </div>
                   <div className="line">
                     <div className="word text-xl md:text-2xl xl:text-3-5xl">

@@ -1,0 +1,593 @@
+import * as React from "react";
+import { gsap } from "gsap";
+
+export default function Ttext1() {
+  return (
+    <div
+      id="texte_haut"
+      style={{
+        width: "300px",
+        zIndex: "20",
+        top: "15vh",
+        left: "25vh",
+        position: "absolute",
+        size: "40px",
+      }}
+    >
+      <div className="w-full h-full relative">
+        <div className="flex flex-col">
+          <div className="flex flex-row">
+            <div
+              className="w-50 text1 text-yellow
+          font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
+          "
+            >
+              7
+            </div>
+            <div
+              className="ml-1 w-50 text2 text-green rg:text-white
+          font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
+          "
+            >
+              années d'expérience
+            </div>
+          </div>
+          <div
+            className="w-100 text3 text-green rg:text-white
+        opacity-0 backface-hidden
+        "
+          >
+            {/* {" "} */}
+            dans l'informatique
+          </div>
+        </div>
+        <div
+          id="cercle1"
+          className="opacity-0"
+          style={{
+            bottom: "-5vh",
+            left: "20%",
+            borderRadius: "999px",
+            backgroundColor: "white",
+            position: "absolute",
+            width: "1px",
+            height: "1px",
+            zIndex: "50",
+          }}
+        ></div>
+      </div>
+    </div>
+  );
+}
+
+export function Ttext2() {
+  return (
+    <div
+      id="texte_droite"
+      style={{
+        width: "130px",
+        zIndex: "20",
+        top: "50vh",
+        right: "2vw",
+        position: "absolute",
+        size: "40px",
+        textAlign: "right",
+      }}
+    >
+      <div className="w-full h-full">
+        <div className="flex flex-col">
+          <div className="flex flex-row">
+            <div
+              className="w-100 text1 text-yellow
+          font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
+          "
+            >
+              1 an
+            </div>
+            {/* <div className="w-50 text2 blueLetter">M€</div> */}
+          </div>
+          <div
+            className="w-100 text3 text-green rg:text-white 
+        font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
+        "
+          >
+            de formation
+          </div>
+        </div>
+        <div
+          id="cercle2"
+          className="opacity-0"
+          style={{
+            top: "0vh",
+            left: "-5vh",
+            borderRadius: "999px",
+            backgroundColor: "white",
+            position: "absolute",
+            width: "1px",
+            height: "1px",
+            zIndex: "10",
+          }}
+        ></div>
+      </div>
+    </div>
+  );
+}
+
+export function Ttext3() {
+  return (
+    <div
+      id="texte_bas"
+      style={{
+        zIndex: "20",
+        top: "80vh",
+        left: "25vw",
+        position: "absolute",
+        size: "40px",
+      }}
+    >
+      <div className="w-full h-full">
+        <div className="flex flex-col">
+          {/* <div className="flex flex-row"> */}
+          <div
+            className="w-50 text1 text-yellow
+        text-yellow font-bold text-2-5xl md:text-3xl xl:text-3-5xl opacity-0 backface-hidden
+        "
+          >
+            4
+          </div>
+          <div
+            className="w-50 text2 text-green rg:text-white
+        font-bold text-xl md:text-1-5xl xl:text-2xl opacity-0 backface-hidden
+        "
+          >
+            sites
+          </div>
+          {/* </div> */}
+          <div
+            className="w-100 text3 text-green rg:text-white
+        "
+          >
+            {/* {" "} */}
+            développés
+          </div>
+        </div>
+        <div
+          id="cercle3"
+          className="opacity-0 hidden rg:block"
+          style={{
+            top: "-5vh",
+            left: "0vh",
+            borderRadius: "999px",
+            backgroundColor: "white",
+            position: "absolute",
+            width: "1px",
+            height: "1px",
+            zIndex: "10",
+          }}
+        ></div>
+      </div>
+    </div>
+  );
+}
+
+export function Timeline1(scrollSunTl, q) {
+  let ColorWhite = getComputedStyle(document.documentElement).getPropertyValue(
+    "--color-white"
+  );
+
+
+  const mm = gsap.matchMedia();
+  mm.add(
+    {
+      isSmall: "(max-width: 1000px)",
+    },
+    (c) => {
+      scrollSunTl.fromTo(
+        q("#texte_haut"),
+        {
+          y: 0,
+          left:"10vh"
+        },
+        {
+          scrollTrigger: {
+            trigger: "#screen4",
+            start: "top+=40% top", 
+            end: "top+=90% bottom",
+            toggleActions: "play none none reset",
+            scrub: 1,
+          },
+
+          left:"10vh",
+          top: "1vh",
+        }
+      );
+    }
+  );
+
+  scrollSunTl.fromTo(
+    q("#texte_haut .text1"),
+    {
+      y: 20,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=90% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+        
+      },
+
+      opacity: 1,
+      y: 0,
+    }
+  );
+
+  scrollSunTl.fromTo(
+    q("#texte_haut .text2"),
+    {
+      y: 40,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=91% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+        color: ColorWhite,
+      },
+
+      opacity: 1,
+      y: 0,
+    }
+  );
+
+  scrollSunTl.fromTo(
+    q("#texte_haut .text3"),
+    {
+      y: 70,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=91% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+        color: ColorWhite,
+      },
+
+      opacity: 1,
+      y: 0,
+    }
+  );
+
+  scrollSunTl.to(
+    q("#cercle1"),
+
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=91% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+      },
+
+      opacity: 1,
+      width: "24px",
+      height: "24px",
+      x: "-12px",
+      y: "-12px",
+    }
+  );
+
+  return scrollSunTl;
+}
+
+export function Timeline2(scrollSunTl, q) {
+  let ColorWhite = getComputedStyle(document.documentElement).getPropertyValue(
+    "--color-red"
+  );
+  const mm = gsap.matchMedia();
+  mm.add(
+    {
+      isSmall: "(max-width: 1000px)",
+    },
+    (c) => {
+      scrollSunTl.fromTo(
+        q("#texte_droite"),
+        {
+          y: 0,
+        },
+        {
+          scrollTrigger: {
+            trigger: "#screen4",
+            
+            start: "top+=40% top", 
+            end: "top+=90% bottom",
+            
+            toggleActions: "play none none reset",
+            
+            scrub: 1,
+            
+          },
+
+          
+          y: -110,
+          
+        }
+      );
+    }
+  );
+  scrollSunTl.fromTo(
+    q("#texte_droite .text1"),
+    {
+      y: 20,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=90% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+      },
+
+      opacity: 1,
+      y: 0,
+    }
+  );
+
+  // scrollSunTl.fromTo(
+  //   q("#texte_droite .text2"),
+  //   {
+  //     y: 40,
+  //     color:ColorWhite,
+  //   },
+  //   {
+  //     scrollTrigger: {
+  //       trigger: "#screen4",
+        
+  //       start: "top+=40% top", 
+  //       end: "top+=91% bottom",
+        
+  //       toggleActions: "play none none reset",
+        
+  //       scrub: 1,
+  //     },
+  //     color:ColorWhite,
+  //     opacity: 1,
+  //     y: 0,
+  //   }
+  // );
+
+  scrollSunTl.fromTo(
+    q("#texte_droite .text3"),
+    {
+      y: 70,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=91% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+      },
+
+      opacity: 1,
+      y: -35,
+    }
+  );
+
+  scrollSunTl.to(
+    q("#cercle2"),
+
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=91% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+      },
+
+      opacity: 1,
+      
+      width: "24px",
+      height: "24px",
+      x: "-12px",
+      y: "-12px",
+    }
+  );
+
+  return scrollSunTl;
+}
+
+export function Timeline3(scrollSunTl, q) {
+
+  const mm = gsap.matchMedia();
+
+  mm.add(
+    {
+      isNotHeight: "(max-heigth: 650px)",
+    },
+    (c) => {
+      gsap.to("#texte_bas",
+        {
+          
+          opacity:0
+        }
+      )
+     
+     
+    }
+
+  )
+  mm.add(
+    {
+      isSmall: "(max-width: 1000px)",
+    },
+    (c) => {
+      scrollSunTl.fromTo(
+        q("#texte_bas"),
+        {
+          left: "10vw",
+          top: "30vh",
+        },
+        {
+          scrollTrigger: {
+            trigger: "#screen4",
+            
+            start: "top+=40% top", 
+            end: "top+=90% bottom",
+            
+            toggleActions: "play none none reset",
+            
+            scrub: 1,
+            
+          },
+
+          
+          left: "10vw",
+          top: "30vh",
+          
+        }
+      );
+      q("#cercle3"),
+        {
+          opacity:0
+        },
+        {
+          scrollTrigger: {
+            trigger: "#screen4",
+            
+            start: "top+=40% top", 
+            end: "top+=90% bottom",
+            
+            toggleActions: "play none none reset",
+            
+            scrub: 1,
+            
+          },
+
+          opacity:0
+        }
+      
+    }
+  );
+  scrollSunTl.fromTo(
+    q("#texte_bas .text1"),
+    {
+      y: 20,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=90% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+      },
+
+      opacity: 1,
+      y: 0,
+    }
+  );
+
+  scrollSunTl.fromTo(
+    q("#texte_bas .text2"),
+    {
+      y: 40,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=91% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+      },
+
+      opacity: 1,
+      y: 0,
+    }
+  );
+
+  scrollSunTl.fromTo(
+    q("#texte_bas .text3"),
+    {
+      y: 70,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=91% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+      },
+
+      opacity: 1,
+      y: 0,
+    }
+  );
+
+  scrollSunTl.to(
+    q("#cercle3"),
+
+    {
+      scrollTrigger: {
+        trigger: "#screen4",
+        
+        start: "top+=40% top", 
+        end: "top+=91% bottom",
+        
+        toggleActions: "play none none reset",
+        
+        scrub: 1,
+      },
+
+      opacity: 1,
+      width: "24px",
+      height: "24px",
+      x: "-12px",
+      y: "-12px",
+    }
+  );
+
+  return scrollSunTl;
+}
